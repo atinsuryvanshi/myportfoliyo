@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>YouTube View Count</title>
+  <title>YouTube Views Count</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>YouTube View Count in the Last 2 Hours</h1>
-    <div id="viewCount"></div>
+  <h1>YouTube Views Count</h1>
+  <div id="viewsCount"></div>
 
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-        // Load the YouTube Data API
-        gapi.load('client', function() {
-            // Set API key
-            gapi.client.setApiKey('AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M');
+  <script>
+    function getViewsCount() {
+      var videoId = "YxWlaYCA8MU"; // Replace with the actual YouTube video ID
 
-            // Make an API request
-            gapi.client.load('youtube', 'v3', function() {
-                var videoId = 'YxWlaYCA8MU';
-                var currentTime = new Date();
-                var twoHoursAgo = new Date(currentTime.getTime() - 2 * 60 * 60 * 1000); // Calculate time 2 hours ago
+      $.get(
+        "https://www.googleapis.com/youtube/v3/videos",
+        {
+          part: "statistics",
+          id: videoId,
+          key: "AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M" // Replace with your actual API key
+        },
+        function(data) {
+          var viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString(); //coma
+          $("#viewsCount").text("Views: " + viewCount);
+        }
+      );
+    }
 
-                // Request video statistics
-                var request = gapi.client.youtube.videos.list({
-                    part: 'statistics',
-                    id: videoId
-                });
-
-                request.execute(function(response) {
-                    var viewCount = response.items[0].statistics.viewCount;
-                    var publishedAt = new Date(response.items[0].snippet.publishedAt);
-
-                    // Check if video was published within the last 2 hours
-                    if (publishedAt > twoHoursAgo) {
-                        document.getElementById('viewCount').innerHTML = 'View Count in the Last 2 Hours: ' + viewCount;
-                    } else {
-                        document.getElementById('viewCount').innerHTML = 'Video was not published in the last 2 hours.';
-                    }
-                });
-            });
-        });
-    </script>
+    // Refresh the views count every 10 seconds (10000 milliseconds)
+    setInterval(getViewsCount, 300);
+    
+    // Initial load of the views count
+    getViewsCount();
+  </script>
 </body>
 </html>
