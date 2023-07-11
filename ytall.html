@@ -5,8 +5,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-  <h1>YouTube Views Count</h1>
-  <div id="viewsCount"></div>
+  <div id="viewsCount" style="font-size:50px"></div>
 
   <script>
     function getViewsCount() {
@@ -21,7 +20,7 @@
         },
         function(data) {
           var viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString(); //coma
-          $("#viewsCount").text("Views: " + viewCount);
+          $("#viewsCount").text("Jhoome: " + viewCount);
         }
       );
     }
