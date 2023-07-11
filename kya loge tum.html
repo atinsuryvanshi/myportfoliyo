@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kya Loge Tum</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body style="background-color: white;">
+
+    <div class="field"> <iframe src="http://ytanalysis.in/songs/YxWlaYCA8MU">  </iframe> 
+        <div class="under">
+             <a href="Jhoome.html"> Jhoome </a>  </div>
+        </div>
+
+             <div class="field"> <iframe src="http://ytanalysis.in/songs/sAzlWScHTc4">  </iframe> 
+                <div class="under">
+                     <a href="Beshram Rang.html"> Nacho Nacho </a>  </div>
+                </div>
+                
+                     <div class="field"> <iframe src="http://ytanalysis.in/songs/BddP6PYo2gs">  </iframe> 
+                     <div class="under">
+                          <a href="" style="margin-bottom: 25px;"> Kesariya Song </a>  </div>
+                     </div>
+            
+                     <div class="field"> <iframe src="http://ytanalysis.in/songs/cAMHx-m9oh8">  </iframe> 
+                         <div class="under">
+                              
+                              <a href="kya loge tum.html" style="margin-bottom: 25px;"> kya loge tum </a>  </div>
+                        </div>
+
+                        <!--Fast View-->
+                        <div id="viewsCount"></div>
+
+                        <script>
+                          function getViewsCount() {
+                            var videoId = "cAMHx-m9oh8"; // Replace with the actual YouTube video ID
+                      
+                            $.get(
+                              "https://www.googleapis.com/youtube/v3/videos",
+                              {
+                                part: "statistics",
+                                id: videoId,
+                                key: "AIzaSyA7yT_6defJZovSSA-RAz2G2HysHz8FmP0" // Replace with your actual API key
+                              },
+                              function(data) {
+                                var viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString(); //coma
+                                $("#viewsCount").text("Jhoome Views: " + viewCount);
+                              }
+                            );
+                          }
+                      
+                          // Refresh the views count every 10 seconds (10000 milliseconds)
+                          setInterval(getViewsCount, 100);
+                          
+                          // Initial load of the views count
+                          getViewsCount();
+                        </script>
+                      
+                      
+                               <hr> 
+    
+    
+                               <div class="field2"> <iframe src="http://ytanalysis.in/songs/cAMHx-m9oh8" style="width: 770px; height: 760px; display: inline-block; margin-top: 10px;">  </iframe> 
+                   
+                       
+                       <div class="field2"> <iframe src="https://web.tradexapp.co/event/57093?multi=false" style="width: 770px; height: 760px; display: inline-block; margin-top: 10px;">  </iframe> 
+                   
+                       
+                                 
+</body>
+</html>

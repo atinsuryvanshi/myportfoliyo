@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+</head>
+<body>
+    <a rel=" https://ncert.nic.in/textbook/pdf/jhks101.pdf" id="full_lessonbtn">Full Lesson</a>
+  <a id="" rel="">Imortant Notes</a>
+  <a id="" rel="">Question/Answer</a>
+  <a id="" rel="">Paper</a>
+
+
+<div style="display: none; " id="full_lesson"> <iframe src="  https://ncert.nic.in/textbook/pdf/jhks101.pdf " style="width: 1580px; height: 750px;">  </iframe> </div>
+     
+</div>
+<script type="text/javascript">
+ document.getElementById("full_lessonbtn").onclick = function() {
+      document.getElementById("full_lesson").style.display = "block"
+ }
+  
+ document.getElementById("full_lessonbtn").onclick = function() {
+    var x = document.getElementById("full_lesson");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+      
+      
+    }
+  }
+
+</script>
+
+
+
+
+  
+</body>
+</html>

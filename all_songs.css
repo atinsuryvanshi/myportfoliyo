@@ -1,0 +1,36 @@
+a {
+    font-size: 25px;
+    margin-left: 70px;
+    top: 20px;
+    color: rgba(190, 99, 5);
+font-weight: bold;
+box-shadow: 50px;
+
+
+
+}
+
+iframe{
+width: 370px;
+height: 340px;
+border-radius: 30px;
+display: inline-block;
+
+}
+
+.field {
+    display: inline-block;
+    width: 370px;
+    height: 340px;
+
+    margin-left: 20px;
+}
+.field2{
+display: inline-block;
+margin-left: 25px;
+}
+
+tradexweb{
+display:inline-block;
+
+}

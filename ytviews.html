@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Views Count</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>YouTube Views Count</h1>
+  <div id="viewsCount"></div>
+
+  <script>
+    function getViewsCount() {
+      var videoId = "jZGpkLElSu8"; // Replace with the actual YouTube video ID
+
+      $.get(
+        "https://www.googleapis.com/youtube/v3/videos",
+        {
+          part: "statistics",
+          id: videoId,
+          key: "AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M" // Replace with your actual API key
+        },
+        function(data) {
+          var viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString(); //coma
+          $("#viewsCount").text("Jhoome Views: " + viewCount);
+        }
+      );
+    }
+
+    // Refresh the views count every 10 seconds (10000 milliseconds)
+    setInterval(getViewsCount, 300);
+    
+    // Initial load of the views count
+    getViewsCount();
+  </script>
+
+
+
+
+
+
+
+
+</body>
+</html>

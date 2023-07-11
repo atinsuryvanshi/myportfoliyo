@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Javascript</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+
+	<div class="Jhoome" id="circle"> <div class="field">  <iframe src="http://ytanalysis.in/songs/YxWlaYCA8MU" style="width: 740px; height: 760px; display: inline-block; margin-top: 0px;">  </iframe> 
+                
+         </div>
+        
+        
+        </div>
+	<div class="Beshram" id="rounded"><div class="field"> <iframe src="http://ytanalysis.in/songs/huxhqphtDrM" style="width: 740px; height: 760px; display: inline-block; margin-top: 0px;">  </iframe> 
+        
+    </div></div>
+	<div class="next" id="next"><button>Next</button></div>
+    <div class="Previus" id="previus"><button>previus</button></div>
+	<script type="text/javascript">
+         document.getElementById("rounded").style.display = "none"
+		document.getElementById("circle").onclick = function() {
+			document.getElementById("circle").style.display = "none";
+            document.getElementById("square").style.display = "block"
+		}
+
+		document.getElementById("rounded").onclick = function() {
+			document.getElementById("rounded").style.display = "none";
+		}
+
+		document.getElementById("next").onclick = function() {
+            document.getElementById("circle").style.display = "none";
+            document.getElementById("rounded").style.display = "block";
+		}
+
+        document.getElementById("previus").onclick = function() {
+	
+            document.getElementById("circle").style.display = "block";
+            document.getElementById("rounded").style.display = "none";
+		}
+	</script>
+</body>
+</html>
