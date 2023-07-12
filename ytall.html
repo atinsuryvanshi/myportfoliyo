@@ -1,35 +1,147 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>YouTube Views Count</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>YouTube View Counts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Define your YouTube video IDs and titles
+            var videos = [
+                { id: 'AxA2xYbMCVo', title: 'Sun Sajni' },
+                { id: 'ngjUEDEY18E', title: 'Pahli barish mein' },
+				{ id: 'YxWlaYCA8MU', title: 'Jhoome' },
+				{ id: 'Yiw354fkSOs', title: 'Pasoori NU' },
+				{ id: 'jZGpkLElSu8', title: 'Karol Ji' },
+				{ id: 'huxhqphtDrM', title: 'Beshram' },
+				{ id: '7VppHj0Rue0', title: 'Uddja Kale Kowa' },
+				{ id: 'sAzlWScHTc4', title: 'Nacho Nacho' },
+				{ id: 'GXWfue9VhTY', title: 'Ram Siya Ram' },
+				{ id: 'BddP6PYo2gs', title: 'Kesariya' },
+				{ id: 'cAMHx-m9oh8', title: 'Kya Loge Tum ' },
+				{ id: 'G7KNmW9a75Y', title: 'Milly' },
+				{ id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },
+
+
+
+
+
+
+                // Add more videos here
+            ];
+
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // Function to fetch view counts and update HTML
+            function updateViewCounts() {
+                var apiKey = 'AIzaSyA-qjsytlrVogEvGl3aTK71ohsvBMZjpRE';
+                var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+                // Build comma-separated list of video IDs
+                var videoIdList = videos.map(function(video) {
+                    return video.id;
+                }).join(',');
+
+                // Prepare the API request URL
+                var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+                // Send the API request
+                $.get(requestUrl, function(data) {
+                    // Update view counts and titles in the HTML
+                    for (var i = 0; i < data.items.length; i++) {
+                        var viewCount = data.items[i].statistics.viewCount;
+                        var formattedViewCount = formatViewCount(viewCount);
+                        $('#viewCount' + i).text(formattedViewCount);
+
+                        var title = videos[i].title;
+                        $('#title' + i).text(title);
+                    }
+                });
+            }
+
+            // Initial view count update
+            updateViewCounts();
+
+            // Refresh view counts every 30 seconds
+            setInterval(updateViewCounts, 300);
+        });
+    </script>
 </head>
 <body>
-  <div id="viewsCount" style="font-size:50px"></div>
+	<style>
+		
+	</style>
+    <h1>YouTube View Counts</h1>
+    <div id="viewCounts">
+        <div id="video1">
+            <h2><span id="title0"></span></h2>
+             <span id="viewCount0" style="font-size: 30px;"></span>
+        </div>
+        <div id="video2">
+            <h2><span id="title1"></span></h2>
+			<span id="viewCount1" style="font-size: 30px;"></span>
+        </div>
 
-  <script>
-    function getViewsCount() {
-      var videoId = "YxWlaYCA8MU"; // Replace with the actual YouTube video ID
+		<div id="video3">
+            <h2><span id="title2"></span></h2>
+			<span id="viewCount2" style="font-size: 30px;"></span>
+        </div>
 
-      $.get(
-        "https://www.googleapis.com/youtube/v3/videos",
-        {
-          part: "statistics",
-          id: videoId,
-          key: "AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M" // Replace with your actual API key
-        },
-        function(data) {
-          var viewCount = parseInt(data.items[0].statistics.viewCount).toLocaleString(); //coma
-          $("#viewsCount").text("Jhoome: " + viewCount);
-        }
-      );
-    }
+		<div id="video4">
+            <h2><span id="title3"></span></h2>
+			<span id="viewCount3" style="font-size: 30px;"></span>
+        </div>
 
-    // Refresh the views count every 10 seconds (10000 milliseconds)
-    setInterval(getViewsCount, 300);
-    
-    // Initial load of the views count
-    getViewsCount();
-  </script>
+		<div id="video5">
+            <h2><span id="title4"></span></h2>
+			<span id="viewCount4" style="font-size: 30px;"></span>
+        </div>
+
+		<div id="video6">
+            <h2><span id="title5"></span></h2>
+			<span id="viewCount5" style="font-size: 30px;"></span>
+        </div>
+
+		<div id="video7">
+            <h2><span id="title6"></span></h2>
+			<span id="viewCount6" style="font-size: 30px;"></span>
+        </div>
+
+		<div id="video8">
+            <h2><span id="title7"></span></h2>
+			<span id="viewCount7" style="font-size: 30px;"></span>
+        </div>
+
+		<div id="video9">
+            <h2><span id="title8"></span></h2>
+			<span id="viewCount8" style="font-size: 30px;"></span>
+        </div>
+
+
+		<div id="video10">
+            <h2><span id="title9"></span></h2>
+			<span id="viewCount9" style="font-size: 30px;"></span>
+        </div>
+
+		<div id="video11">
+            <h2><span id="title10"></span></h2>
+			<span id="viewCount10" style="font-size: 30px;"></span>
+        </div>
+		<div id="video12">
+            <h2><span id="title11"></span></h2>
+			<span id="viewCount11" style="font-size: 30px;"></span>
+        </div>
+
+		<div id="video13">
+            <h2><span id="title12"></span></h2>
+			<span id="viewCount12" style="font-size: 30px;"></span>
+        </div>
+
+        <!-- Add more video placeholders here -->
+    </div>
 </body>
 </html>
