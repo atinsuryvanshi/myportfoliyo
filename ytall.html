@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <title>YouTube View Counts</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -11,24 +11,17 @@
             var videos = [
                 { id: 'AxA2xYbMCVo', title: 'Sun Sajni' },
                 { id: 'ngjUEDEY18E', title: 'Pahli barish mein' },
-				{ id: 'YxWlaYCA8MU', title: 'Jhoome' },
-				{ id: 'Yiw354fkSOs', title: 'Pasoori NU' },
-				{ id: 'jZGpkLElSu8', title: 'Karol Ji' },
-				{ id: 'huxhqphtDrM', title: 'Beshram' },
-				{ id: '7VppHj0Rue0', title: 'Uddja Kale Kowa' },
-				{ id: 'sAzlWScHTc4', title: 'Nacho Nacho' },
-				{ id: 'GXWfue9VhTY', title: 'Ram Siya Ram' },
-				{ id: 'BddP6PYo2gs', title: 'Kesariya' },
-				{ id: 'cAMHx-m9oh8', title: 'Kya Loge Tum ' },
-				{ id: 'G7KNmW9a75Y', title: 'Milly' },
-				{ id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },
-
-
-
-
-
-
-                // Add more videos here
+                { id: 'YxWlaYCA8MU', title: 'Jhoome' },
+                { id: 'Yiw354fkSOs', title: 'Pasoori NU' },
+                { id: 'jZGpkLElSu8', title: 'Karol Ji' },
+                { id: 'huxhqphtDrM', title: 'Beshram' },
+                { id: '7VppHj0Rue0', title: 'Uddja Kale Kowa' },
+                { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },
+                { id: 'GXWfue9VhTY', title: 'Ram Siya Ram' },
+                { id: 'BddP6PYo2gs', title: 'Kesariya' },
+                { id: 'cAMHx-m9oh8', title: 'Kya Loge Tum ' },
+                { id: 'G7KNmW9a75Y', title: 'Milly' },
+                { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },
             ];
 
             // Function to format view count with commas
@@ -38,29 +31,59 @@
 
             // Function to fetch view counts and update HTML
             function updateViewCounts() {
-                var apiKey = 'AIzaSyA-qjsytlrVogEvGl3aTK71ohsvBMZjpRE';
-                var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+                // Define your YouTube API keys
+                var apiKeys = [
+                    { key: 'AIzaSyDxm9LkTrD1avRIEdVYf3umdW54FCHD-t8', startTime: '07:00 AM' },
+                    { key: 'AIzaSyCUBhZAe7enwMs9zUo6559wrqfGs2wMZLM', startTime: '09:00 AM' },
+                    { key: 'AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M', startTime: '11:00 AM' },
+                    { key: 'AIzaSyA7yT_6defJZovSSA-RAz2G2HysHz8FmP0', startTime: '01:00 PM' },
+                    { key: 'AIzaSyB9MZuXW66ZHwXn0Q8W1oLGKsxnm8tYSH4', startTime: '03:00 PM' },
+                    { key: 'AIzaSyA-qjsytlrVogEvGl3aTK71ohsvBMZjpRE', startTime: '05:00 PM' },
+                    { key: 'AIzaSyApkXwnNuO2HwwyEC8YcbaU-_Zz_5gSfU4', startTime: '7:00 PM' },
+                    { key: 'AIzaSyBXBtEhGR2fG1weVZYJvCm2bkkfYfk2xJU', startTime: '9:00 PM' },
 
-                // Build comma-separated list of video IDs
-                var videoIdList = videos.map(function(video) {
-                    return video.id;
-                }).join(',');
 
-                // Prepare the API request URL
-                var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+                    // Add more API keys if needed
+                ];
 
-                // Send the API request
-                $.get(requestUrl, function(data) {
-                    // Update view counts and titles in the HTML
-                    for (var i = 0; i < data.items.length; i++) {
-                        var viewCount = data.items[i].statistics.viewCount;
-                        var formattedViewCount = formatViewCount(viewCount);
-                        $('#viewCount' + i).text(formattedViewCount);
+                var currentTime = new Date();
+                var currentKey = apiKeys.find(function(apiKey) {
+                    var startTime = new Date(currentTime.toDateString() + ' ' + apiKey.startTime);
+                    var endTime = new Date(startTime.getTime() + 2 * 60 * 60 * 1000); // Add 2 hours to start time
 
-                        var title = videos[i].title;
-                        $('#title' + i).text(title);
-                    }
+                    return currentTime >= startTime && currentTime < endTime;
                 });
+
+                if (currentKey) {
+                    var apiKey = currentKey.key;
+                    var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+                    // Build comma-separated list of video IDs
+                    var videoIdList = videos.map(function(video) {
+                        return video.id;
+                    }).join(',');
+
+                    // Prepare the API request URL
+                    var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+                    // Send the API request
+                    $.get(requestUrl, function(data) {
+                        // Update view counts and titles in the HTML
+                        for (var i = 0; i < data.items.length; i++) {
+                            var viewCount = data.items[i].statistics.viewCount;
+                            var formattedViewCount = formatViewCount(viewCount);
+                            $('#viewCount' + i).text(formattedViewCount);
+
+                            var title = videos[i].title;
+                            $('#title' + i).text(title);
+                        }
+
+                        // Display the currently used API key on the screen
+                        $('#currentApiKey').text('Current API Key: ' + apiKey);
+                    });
+                } else {
+                    $('#viewCounts').text('No API key available for the current time');
+                }
             }
 
             // Initial view count update
@@ -72,9 +95,6 @@
     </script>
 </head>
 <body>
-	<style>
-		
-	</style>
     <h1>YouTube View Counts</h1>
     <div id="viewCounts">
         <div id="video1">
@@ -143,5 +163,6 @@
 
         <!-- Add more video placeholders here -->
     </div>
+    <p id="currentApiKey"></p>
 </body>
 </html>
