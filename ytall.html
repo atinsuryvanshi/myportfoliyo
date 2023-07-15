@@ -1,168 +1,286 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>YouTube View Counts</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Define your YouTube video IDs and titles
-            var videos = [
-                { id: 'AxA2xYbMCVo', title: 'Sun Sajni' },
-                { id: 'ngjUEDEY18E', title: 'Pahli barish mein' },
-                { id: 'YxWlaYCA8MU', title: 'Jhoome' },
-                { id: 'Yiw354fkSOs', title: 'Pasoori NU' },
-                { id: 'jZGpkLElSu8', title: 'Karol Ji' },
-                { id: 'huxhqphtDrM', title: 'Beshram' },
-                { id: '7VppHj0Rue0', title: 'Uddja Kale Kowa' },
-                { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },
-                { id: 'GXWfue9VhTY', title: 'Ram Siya Ram' },
-                { id: 'BddP6PYo2gs', title: 'Kesariya' },
-                { id: 'cAMHx-m9oh8', title: 'Kya Loge Tum ' },
-                { id: 'G7KNmW9a75Y', title: 'Milly' },
-                { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },
-            ];
+  <title>YouTube View Count</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-            // Function to format view count with commas
-            function formatViewCount(viewCount) {
-                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
-
-            // Function to fetch view counts and update HTML
-            function updateViewCounts() {
-                // Define your YouTube API keys
-                var apiKeys = [
-                    { key: 'AIzaSyDxm9LkTrD1avRIEdVYf3umdW54FCHD-t8', startTime: '07:00 AM' },
-                    { key: 'AIzaSyCUBhZAe7enwMs9zUo6559wrqfGs2wMZLM', startTime: '09:00 AM' },
-                    { key: 'AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M', startTime: '11:00 AM' },
-                    { key: 'AIzaSyA7yT_6defJZovSSA-RAz2G2HysHz8FmP0', startTime: '01:00 PM' },
-                    { key: 'AIzaSyB9MZuXW66ZHwXn0Q8W1oLGKsxnm8tYSH4', startTime: '03:00 PM' },
-                    { key: 'AIzaSyA-qjsytlrVogEvGl3aTK71ohsvBMZjpRE', startTime: '05:00 PM' },
-                    { key: 'AIzaSyApkXwnNuO2HwwyEC8YcbaU-_Zz_5gSfU4', startTime: '7:00 PM' },
-                    { key: 'AIzaSyBXBtEhGR2fG1weVZYJvCm2bkkfYfk2xJU', startTime: '9:00 PM' },
-
-
-                    // Add more API keys if needed
-                ];
-
-                var currentTime = new Date();
-                var currentKey = apiKeys.find(function(apiKey) {
-                    var startTime = new Date(currentTime.toDateString() + ' ' + apiKey.startTime);
-                    var endTime = new Date(startTime.getTime() + 2 * 60 * 60 * 1000); // Add 2 hours to start time
-
-                    return currentTime >= startTime && currentTime < endTime;
-                });
-
-                if (currentKey) {
-                    var apiKey = currentKey.key;
-                    var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
-
-                    // Build comma-separated list of video IDs
-                    var videoIdList = videos.map(function(video) {
-                        return video.id;
-                    }).join(',');
-
-                    // Prepare the API request URL
-                    var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
-
-                    // Send the API request
-                    $.get(requestUrl, function(data) {
-                        // Update view counts and titles in the HTML
-                        for (var i = 0; i < data.items.length; i++) {
-                            var viewCount = data.items[i].statistics.viewCount;
-                            var formattedViewCount = formatViewCount(viewCount);
-                            $('#viewCount' + i).text(formattedViewCount);
-
-                            var title = videos[i].title;
-                            $('#title' + i).text(title);
-                        }
-
-                        // Display the currently used API key on the screen
-                        $('#currentApiKey').text('Current API Key: ' + apiKey);
-                    });
-                } else {
-                    $('#viewCounts').text('No API key available for the current time');
-                }
-            }
-
-            // Initial view count update
-            updateViewCounts();
-
-            // Refresh view counts every 30 seconds
-            setInterval(updateViewCounts, 300);
-        });
-    </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+  
+    h1 {
+      text-align: center;
+    }
+  
+    .video-container {
+      margin-bottom: 40px;
+      text-align: center; /* Center-align the video container */
+    }
+  
+    .video-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center; /* Center-align the video title */
+    }
+  
+    .current-views {
+      font-size: 20px;
+      /* Make the current views text bold */
+      margin-bottom: 10px;
+      text-align: center; /* Center-align the current views */
+    }
+  
+    .views-table {
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  
+    .views-table th,
+    .views-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+  
+    .views-table th {
+      background-color: #f2f2f2;
+    }
+  
+    .views-paragraph {
+      font-size: 14px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+  </style>
+  
 </head>
+
 <body>
-    <h1>YouTube View Counts</h1>
-    <div id="viewCounts">
-        <div id="video1">
-            <h2><span id="title0"></span></h2>
-             <span id="viewCount0" style="font-size: 30px;"></span>
-        </div>
-        <div id="video2">
-            <h2><span id="title1"></span></h2>
-			<span id="viewCount1" style="font-size: 30px;"></span>
-        </div>
-
-		<div id="video3">
-            <h2><span id="title2"></span></h2>
-			<span id="viewCount2" style="font-size: 30px;"></span>
-        </div>
-
-		<div id="video4">
-            <h2><span id="title3"></span></h2>
-			<span id="viewCount3" style="font-size: 30px;"></span>
-        </div>
-
-		<div id="video5">
-            <h2><span id="title4"></span></h2>
-			<span id="viewCount4" style="font-size: 30px;"></span>
-        </div>
-
-		<div id="video6">
-            <h2><span id="title5"></span></h2>
-			<span id="viewCount5" style="font-size: 30px;"></span>
-        </div>
-
-		<div id="video7">
-            <h2><span id="title6"></span></h2>
-			<span id="viewCount6" style="font-size: 30px;"></span>
-        </div>
-
-		<div id="video8">
-            <h2><span id="title7"></span></h2>
-			<span id="viewCount7" style="font-size: 30px;"></span>
-        </div>
-
-		<div id="video9">
-            <h2><span id="title8"></span></h2>
-			<span id="viewCount8" style="font-size: 30px;"></span>
-        </div>
 
 
-		<div id="video10">
-            <h2><span id="title9"></span></h2>
-			<span id="viewCount9" style="font-size: 30px;"></span>
-        </div>
+  <div id="videoContainer"></div>
 
-		<div id="video11">
-            <h2><span id="title10"></span></h2>
-			<span id="viewCount10" style="font-size: 30px;"></span>
-        </div>
-		<div id="video12">
-            <h2><span id="title11"></span></h2>
-			<span id="viewCount11" style="font-size: 30px;"></span>
-        </div>
+  <script>
+    var videoData = [
+      { id: "AxA2xYbMCVo", title: "Sun Sajni" },
+      { id: "YxWlaYCA8MU", title: "Jhoome" },
+      { id: "huxhqphtDrM", title: "Beshram" },
+      { id: '7VppHj0Rue0', title: 'Uddja Kale Kowa' },
+      { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },
+      { id: 'GXWfue9VhTY', title: 'Ram Siya Ram' },
+      { id: 'BddP6PYo2gs', title: 'Kesariya' },
+  
+      { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' }
+      // Add more video data objects here
+      // { id: "VIDEO_ID", title: "Video Title" }
+    ];
+    var currentViewCounts = {};
+    var viewsTableBodies = {};
+    var totalViewsGained = {};
 
-		<div id="video13">
-            <h2><span id="title12"></span></h2>
-			<span id="viewCount12" style="font-size: 30px;"></span>
-        </div>
+    // Function to add commas to numbers for better readability
+    function addCommas(number) {
+      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
-        <!-- Add more video placeholders here -->
-    </div>
-    <p id="currentApiKey"></p>
+    // Function to divide views gained by 2
+    function divideByTwo(number) {
+      return Math.floor(number / 2);
+    }
+
+    // Function to retrieve and display the current view counts for videos
+    function getCurrentViewCounts() {
+      var videoIds = videoData.map(function(video) {
+        return video.id;
+      }).join(',');
+
+      var apiKey = getApiKeyByTime(); // Get the API key based on the current time
+
+      $.get(
+        "https://www.googleapis.com/youtube/v3/videos",
+        {
+          part: "statistics",
+          id: videoIds,
+          key: apiKey
+        },
+        function(data) {
+          data.items.forEach(function(item) {
+            var videoId = item.id;
+            var viewCount = parseInt(item.statistics.viewCount);
+            var viewsGained = viewCount - currentViewCounts[videoId];
+            currentViewCounts[videoId] = viewCount;
+
+            var formattedViewCount = addCommas(viewCount);
+            var formattedViewsGained = addCommas(viewsGained);
+
+            var formattedViewsGainedDivided;
+            if (videoId === "AxA2xYbMCVo") {
+              formattedViewsGainedDivided = addCommas(Math.floor(viewsGained * 19.532)); //Sun Sajni
+            } else if (videoId === "YxWlaYCA8MU") {
+              formattedViewsGainedDivided = addCommas(viewsGained * 1); //Jhoome
+            } else if (videoId ==="huxhqphtDrM"){
+
+              formattedViewsGainedDivided = addCommas(Math.floor(viewsGained * 2.477)) // Beshram
+            }
+            else if (videoId === "7VppHj0Rue0") {
+              formattedViewsGainedDivided = addCommas(Math.floor(viewsGained * 1.778)) // Uddja Kaale Kowa
+            } else if (videoId ==="sAzlWScHTc4"){
+
+              formattedViewsGainedDivided = addCommas(Math.floor(viewsGained * 2.947)) // Nacho Nacho
+            }
+            else if (videoId === "GXWfue9VhTY") {
+              formattedViewsGainedDivided = addCommas(Math.floor(viewsGained * 3.889)) // Ram Siya Ram
+            } else if (videoId ==="BddP6PYo2gs"){
+
+              formattedViewsGainedDivided = addCommas(Math.floor(viewsGained * 4.734)) // Kesariya
+            }
+
+             else if (videoId ==="VuG7ge_8I2Y") {
+
+              formattedViewsGainedDivided = addCommas(Math.floor(viewsGained * 2.060)) // maan meri jaan
+            }
+             else {
+             
+            }
+
+            $("#currentViews" + videoId).text(" " + formattedViewCount);
+
+            if (viewsGained > 0) {
+              var currentTime = new Date().toLocaleTimeString();
+              var newRow = "<tr><td>" + currentTime + "</td><td>" + formattedViewsGained + "</td><td>" + formattedViewsGainedDivided + "</td></tr>";
+              viewsTableBodies[videoId].insertAdjacentHTML("afterbegin", newRow);
+
+              // Add views gained divided by 2 to the total for the video
+              totalViewsGained[videoId] += divideByTwo(viewsGained);
+
+              // Limit the maximum number of rows in the table to 3
+              var tableRows = viewsTableBodies[videoId].getElementsByTagName("tr");
+              if (tableRows.length > 4) {
+                viewsTableBodies[videoId].removeChild(tableRows[tableRows.length - 1]);
+              }
+            }
+          });
+        }
+      );
+    }
+
+    // Function to create a new table for a video
+    function createVideoTable(videoId, videoTitle) {
+      var videoContainer = document.getElementById("videoContainer");
+
+      var videoDiv = document.createElement("div");
+      videoDiv.className = "video-container";
+
+      var videoTitleElement = document.createElement("h2");
+      videoTitleElement.className = "video-title";
+      videoTitleElement.textContent = videoTitle;
+
+      var currentViewsElement = document.createElement("div");
+      currentViewsElement.className = "current-views";
+      currentViewsElement.id = "currentViews" + videoId;
+
+      var viewsTable = document.createElement("table");
+      viewsTable.className = "views-table";
+      viewsTable.id = "viewsTable" + videoId;
+
+      var tableHead = document.createElement("thead");
+      var tableHeadRow = document.createElement("tr");
+
+      var timeHeadCell = document.createElement("th");
+      timeHeadCell.textContent = "Time";
+
+      var viewsGainedHeadCell = document.createElement("th");
+      viewsGainedHeadCell.textContent = "Views Gained";
+
+      var viewsGainedDividedHeadCell = document.createElement("th");
+      viewsGainedDividedHeadCell.textContent = "Jhoome Video Views Connected";
+
+      tableHeadRow.appendChild(timeHeadCell);
+      tableHeadRow.appendChild(viewsGainedHeadCell);
+      tableHeadRow.appendChild(viewsGainedDividedHeadCell);
+      tableHead.appendChild(tableHeadRow);
+
+      var tableBody = document.createElement("tbody");
+      tableBody.id = "viewsTableBody" + videoId;
+
+      viewsTable.appendChild(tableHead);
+      viewsTable.appendChild(tableBody);
+
+      var viewsParagraph = document.createElement("p");
+      viewsParagraph.className = "views-paragraph";
+      viewsParagraph.id = "viewsParagraph" + videoId;
+
+      videoDiv.appendChild(videoTitleElement);
+      videoDiv.appendChild(currentViewsElement);
+      videoDiv.appendChild(viewsTable);
+      videoDiv.appendChild(viewsParagraph);
+
+      videoContainer.appendChild(videoDiv);
+
+      // Initialize view count and total views gained variables for the video
+      currentViewCounts[videoId] = 0;
+      viewsTableBodies[videoId] = tableBody;
+      totalViewsGained[videoId] = 0;
+    }
+
+    // Function to get the API key based on the current time
+    function getApiKeyByTime() {
+      var currentTime = new Date().getHours();
+
+      // Define the API keys for different time intervals
+      var apiKeysByTime = {
+        '7': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
+        '8': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
+        '9': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
+        '10': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
+        '11': 'API_KEY_5',
+        '12': 'API_KEY_6',
+        '13': 'API_KEY_7',
+        '14': 'API_KEY_8',
+        '15': 'API_KEY_9',
+        '16': 'API_KEY_10',
+        '17': 'API_KEY_11',
+        '18': 'API_KEY_12',
+        '19': 'API_KEY_13',
+        '20': 'API_KEY_14',
+        '21': 'AIzaSyAHqNoqLB1MP01VBcQ7LbzKbHMOmHT8j4Y',
+        '22':'AIzaSyAwHcC1zYKa4q7AzRb45PouZMv9BPUEUf8',
+        '23': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
+      };
+
+      // Return the corresponding API key for the current time
+      return apiKeysByTime[currentTime] || 'DEFAULT_API_KEY';
+    }
+
+    // Function to handle API errors or unavailable response
+    function handleAPIError() {
+      // Clear the view count and show an error message
+      Object.keys(currentViewCounts).forEach(function(videoId) {
+        currentViewCounts[videoId] = 0;
+        $("#currentViews" + videoId).text("API not available");
+      });
+    }
+
+    // Loop through the video data and create tables for each video
+    for (var i = 0; i < videoData.length; i++) {
+      var video = videoData[i];
+      createVideoTable(video.id, video.title);
+    }
+
+    // Call the function to get the current view counts for all videos
+    getCurrentViewCounts();
+
+    // Refresh the current view counts for all videos every second
+    setInterval(function() {
+      getCurrentViewCounts();
+    }, 1000 * 1);
+
+    // Display the views gained for all videos every 5 minutes
+
+  </script>
 </body>
 </html>
