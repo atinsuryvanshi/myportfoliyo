@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Views Count</title>
+  <style>
+    /* ... Your CSS styles ... */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      max-height: 110px;
+      padding: 20px;
+      background-color:white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+  
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    p {
+      margin-top: 0px;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .views-label,
+    .target-label {
+      font-weight: bold;
+    }
+
+    .views-count,
+    .target-count {
+      font-size: 30px;
+      
+    }
+    .views-count{
+color: red;
+font-size: 40px;
+
+
+    }
+
+    .green{
+      color:green;
+      font-size: 50px;
+      font-weight: bold;
+     
+      
+      
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <!-- ... Your YouTube video and container HTML ... -->
+  <div class="field2"> <iframe src="https://web.tradexapp.co/" style="width:  1600px; height: 620px; display: inline-block;">  </iframe> </div>
+  <div class="container">
+
+    
+               
+  
+      <p>
+      <span class="views-label">Views:</span> <span id="viewsCount" class="views-count"></span>
+    </p>
+    <p>
+      <span class="target-label">Target Views:</span> <span id="targetViews" class="target-count"></span>
+    </p>
+  </div>
+  <script>
+    $(document).ready(function() {
+      // YouTube Data API request
+      var videoId = "YxWlaYCA8MU"; // Replace with your YouTube video ID
+      var targetViews = 618928482; // Replace with your target number of views
+
+      // Array of YouTube Data API keys
+      var apiKeys = [
+        'AIzaSyArhLcdeWkPTxnFizjwpNBafUcS-_RHEr4', //API 1
+        'AIzaSyC5FSLEYYnVqVSzeNaUUl7fo4zZ8srDRDA', //  API 2
+        'AIzaSyAHqNoqLB1MP01VBcQ7LbzKbHMOmHT8j4Y', // API FIRSE 2
+        'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0', // API 4
+        'AIzaSyCibeR_ipCLGWDmktkrcjS1u1UlLHXNNbM', // API 5
+        'AIzaSyDdwZtC25aD2ztqkdkpjKhOafDVC4WyS_w', // API 6
+        'AIzaSyAvum_DuMes7PmnXPKCdaiOzw04Sa6cNUI', //API 7
+        'AIzaSyDWodIPvxqC_9B0eJpzE-Xqyh7vhlRh0Jo',// API 8
+        'AIzaSyDI2WEik2_qnSNzgTNDVO1o4Uz0wZAFJzw',// API 9
+        'AIzaSyArD2iNmu_NKXGpQx10KUQJCipZVjP4XMk',// API 10
+        'AIzaSyC49yEIB7aI-oL2b6Lp3MHuDya_BwjI3NE',// API 11
+        'AIzaSyAAohEOQvW1fqurtB0wLw2jWIckZh1RArA',// API 12
+        'AIzaSyA6yiKfD4zfgPCJX1CQkoaagoDEj_3VbYM',// API 13
+        'AIzaSyCXWT5k39EbMgJ3VjaKz6j5dj-FyUTwcvc',// API 14
+        'AIzaSyAs8S6d8ku_isvz-aGNq3fvGCww-sBN-To',//API 15
+        'AIzaSyDIQfhQSM3rEXG435DJ92h8PnZZj44pz38',// API 16
+        'AIzaSyC8ptPKOwo_prl5rYwPgR_wOToDzz0AoCY',//API 17
+        'AIzaSyCoV6wSuH3MYmSIUvzvKItxpt0HHYuTbyo',// API 18
+        'AIzaSyAGY6_eRlRECiMdLpaWqFT-JHdF6jFlA8Y',// API 19
+        'AIzaSyBzAawU8zWYY9Y6OdHGlzUyrYJtwbnCksY', // API 20
+        'AIzaSyDxm9LkTrD1avRIEdVYf3umdW54FCHD-t8',
+        'AIzaSyCUBhZAe7enwMs9zUo6559wrqfGs2wMZLM',
+        'AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M',
+        'AIzaSyA7yT_6defJZovSSA-RAz2G2HysHz8FmP0',
+        'AIzaSyB9MZuXW66ZHwXn0Q8W1oLGKsxnm8tYSH4',
+        'AIzaSyA-qjsytlrVogEvGl3aTK71ohsvBMZjpRE',
+        'AIzaSyApkXwnNuO2HwwyEC8YcbaU-_Zz_5gSfU4',
+        'AIzaSyBXBtEhGR2fG1weVZYJvCm2bkkfYfk2xJU',
+        // Add more API keys here as needed
+      ];
+
+      var apiKeyIndex = 0;
+
+      // Function to update the view count with commas
+      function updateViewsCount(currentViews) {
+        var formattedViews = currentViews.toLocaleString();
+        $("#viewsCount").text(formattedViews);
+      }
+
+      // Function to check if the current views meet or exceed the target views
+      function checkTargetReached(currentViews) {
+        if (currentViews >= targetViews) {
+          $("#viewsCount").addClass("green");
+        } else {
+          $("#viewsCount").removeClass("green");
+        }
+      }
+
+      // Function to fetch and update the YouTube views count
+      function updateViews() {
+        $.get(
+          "https://www.googleapis.com/youtube/v3/videos",
+          {
+            part: "statistics",
+            id: videoId,
+            key: apiKeys[apiKeyIndex]
+          },
+          function(data) {
+            // Update the view count
+            var currentViews = parseInt(data.items[0].statistics.viewCount);
+            updateViewsCount(currentViews);
+            checkTargetReached(currentViews);
+          }
+        ).fail(function(error) {
+          console.log('Error:', error);
+          
+          // If there is an error with the API key, try the next one
+          apiKeyIndex = (apiKeyIndex + 1) % apiKeys.length;
+          updateViews();
+        });
+      }
+
+      // Initial call to update the views count
+      updateViews();
+
+      // Periodically refresh the views count every 10 seconds (adjust as needed)
+      setInterval(function() {
+        updateViews();
+      }, 10000); // 10 seconds
+
+      // Display the target views on the screen
+      $("#targetViews").text(targetViews.toLocaleString());
+    });
+  </script>
+</body>
+</html>
