@@ -23,14 +23,14 @@
       font-size: 20px;
       font-weight: bold;
       margin-bottom: 10px;
-      text-align: center; /* Center-align the video title */
+      text-align: start; /* Center-align the video title */
     }
   
     .current-views {
       font-size: 20px;
       /* Make the current views text bold */
       margin-bottom: 10px;
-      text-align: center; /* Center-align the current views */
+      text-align: start; /* Center-align the current views */
     }
   
     .views-table {
@@ -66,6 +66,7 @@
 
   <script>
     var videoData = [
+    { id: 'OBEOPnAO1hc', title: 'Yaar Ka Satya Hua He' },
       { id: "AxA2xYbMCVo", title: "Sun Sajni" },
       { id: "YxWlaYCA8MU", title: "Jhoome" },
       { id: "huxhqphtDrM", title: "Beshram" },
@@ -73,10 +74,9 @@
       { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },
       { id: 'GXWfue9VhTY', title: 'Ram Siya Ram' },
       { id: 'BddP6PYo2gs', title: 'Kesariya' },
-  
       { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' }
       // Add more video data objects here
-      // { id: "VIDEO_ID", title: "Video Title" }
+      // { id: "VIDEO_ID",OBEOPnAO1hc title: "Video Title" }
     ];
     var currentViewCounts = {};
     var viewsTableBodies = {};
@@ -151,7 +151,7 @@
 
             if (viewsGained > 0) {
               var currentTime = new Date().toLocaleTimeString();
-              var newRow = "<tr><td>" + currentTime + "</td><td>" + formattedViewsGained + "</td><td>" + formattedViewsGainedDivided + "</td></tr>";
+              var newRow = "<tr><td>" + currentTime + "</td><td>" + viewCount + "</td><td>" + formattedViewsGained + "</td></tr>";
               viewsTableBodies[videoId].insertAdjacentHTML("afterbegin", newRow);
 
               // Add views gained divided by 2 to the total for the video
@@ -194,10 +194,10 @@
       timeHeadCell.textContent = "Time";
 
       var viewsGainedHeadCell = document.createElement("th");
-      viewsGainedHeadCell.textContent = "Views Gained";
+      viewsGainedHeadCell.textContent = "Total Views";
 
       var viewsGainedDividedHeadCell = document.createElement("th");
-      viewsGainedDividedHeadCell.textContent = "Jhoome Video Views Connected";
+      viewsGainedDividedHeadCell.textContent = "Gained Views";
 
       tableHeadRow.appendChild(timeHeadCell);
       tableHeadRow.appendChild(viewsGainedHeadCell);
@@ -233,23 +233,24 @@
 
       // Define the API keys for different time intervals
       var apiKeysByTime = {
-        '7': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
-        '8': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
-        '9': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
-        '10': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
-        '11': 'API_KEY_5',
-        '12': 'API_KEY_6',
-        '13': 'API_KEY_7',
-        '14': 'API_KEY_8',
-        '15': 'API_KEY_9',
-        '16': 'API_KEY_10',
-        '17': 'API_KEY_11',
-        '18': 'API_KEY_12',
-        '19': 'API_KEY_13',
-        '20': 'API_KEY_14',
-        '21': 'AIzaSyAHqNoqLB1MP01VBcQ7LbzKbHMOmHT8j4Y',
-        '22':'AIzaSyAwHcC1zYKa4q7AzRb45PouZMv9BPUEUf8',
-        '23': 'AIzaSyCMYDBykp-QK9n6HMCbpas-gOmiftieSk0',
+        '7':  'AIzaSyAAohEOQvW1fqurtB0wLw2jWIckZh1RArA',// API 12
+        '8':'AIzaSyA6yiKfD4zfgPCJX1CQkoaagoDEj_3VbYM',// API 13
+        '13': 'AIzaSyCXWT5k39EbMgJ3VjaKz6j5dj-FyUTwcvc',// API 14
+        '14': 'AIzaSyAs8S6d8ku_isvz-aGNq3fvGCww-sBN-To',//API 15
+        '15':  'AIzaSyDIQfhQSM3rEXG435DJ92h8PnZZj44pz38',// API 16
+        '16': 'AIzaSyC8ptPKOwo_prl5rYwPgR_wOToDzz0AoCY',//API 17
+        '17':  'AIzaSyCoV6wSuH3MYmSIUvzvKItxpt0HHYuTbyo',// API 18
+        '18':  'AIzaSyAGY6_eRlRECiMdLpaWqFT-JHdF6jFlA8Y',// API 19
+        '19': 'AIzaSyBzAawU8zWYY9Y6OdHGlzUyrYJtwbnCksY', // API 20
+        '20': 'AIzaSyDobJhrxChmpqpTf-XUvBJlRLqfiRai-G0',
+        '21': 'AIzaSyDxm9LkTrD1avRIEdVYf3umdW54FCHD-t8',
+        '22':  'AIzaSyCUBhZAe7enwMs9zUo6559wrqfGs2wMZLM',
+        '23':'AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M',
+        '9': 'AIzaSyA7yT_6defJZovSSA-RAz2G2HysHz8FmP0',
+        '10': 'AIzaSyB9MZuXW66ZHwXn0Q8W1oLGKsxnm8tYSH4',
+        '11': 'AIzaSyA-qjsytlrVogEvGl3aTK71ohsvBMZjpRE',
+        '12':'AIzaSyApkXwnNuO2HwwyEC8YcbaU-_Zz_5gSfU4',
+        '1':'AIzaSyBXBtEhGR2fG1weVZYJvCm2bkkfYfk2xJU',
       };
 
       // Return the corresponding API key for the current time
