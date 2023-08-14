@@ -6,292 +6,416 @@
     <title>All Song</title>
 
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
-
-    <style>
-      body {
-          background-color: black;
-          max-width: 100%;
-      }
-
-      .field {
-          margin-bottom: 20px;
-      }
-
-      .field iframe {
-          width: 100%;
-          height: 310px;
-      }
-
-      .field .under {
-          text-align: center;
-      }
-
-      .field .under a {
-          color: white;
-          text-decoration: none;
-      }
-
-      .field .under a:hover {
-          text-decoration: underline;
-      }
-
-      .field .under #video1,
-      .field .under #video2,
-      .field .under #video3 {
-          font-size: 25px;
-      }
-  </style>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
 </head>
+
 <body style="background-color: black;">
      
-   
-  <div class="field"> <iframe src="http://ytanalysis.in/songs/OBEOPnAO1hc">  </iframe> 
-    <div class="under">
-         <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video14">Yaar Ka Sataya:
-       <span id="viewCount13" style="font-size: 25px;"></span>
-         </div> </a>
- </div> 
-       </div> 
-   
-    <div class="field"> <iframe src="http://ytanalysis.in/songs/ngjUEDEY18E">  </iframe> 
-     <div class="under">
-          <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video2">Pahli Barish:
-        <span id="viewCount1" style="font-size: 25px;"></span>
-          </div> </a>
-  </div> 
-        </div> 
+ 
+<div class="field">
+  <iframe id="video1" src="http://ytanalysis.in/songs/OBEOPnAO1hc"></iframe>
+  <div class="under" style="text-align: center;">
+      <a href="#" onclick="refreshIframe('video1'); return false;">
+          <span id="title0" style="text-align: left">Yaar Ka Sataya:</span>
+          <span id="viewCount0" style="font-size: 25px; text-align: center;"></span>
+      </a>
+  </div>
+</div>
 
-        <div class="field"> <iframe src="http://ytanalysis.in/songs/OfmGYgLMbjs">  </iframe> 
-          <div class="under">
-               <a rel="Jhoome.html" style="text-align: center;">    <div id="video1">Naseeb Se:
-             <span id="viewCount0" style="font-size: 25px;"></span>
-               </div> </a>
-       </div> 
-             </div> 
-     
+
+
+<div class="field">
+  <iframe id="video2" src="http://ytanalysis.in/songs/YxWlaYCA8MU"></iframe>
+  <div class="under">
+      <a href="#" onclick="refreshIframe('video2'); return false;">
+          <span id="title1" style="text-align: center;">Jhoome:</span>
+          <span id="viewCount1" style="font-size: 25px;"></span>
+      </a>
+  </div>
+</div>
+
+
+
+<div class="field"> 
+    <iframe id="video3iframe" src="http://ytanalysis.in/songs/Yiw354fkSOs"></iframe> 
+    <div class="under">
+        <a href="#" onclick="refreshIframe('video3iframe'); return false;">
+            <span id="video2">Pasoori Nu:</span>
+            <span id="viewCount2" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
+                  
           
+                 
+ <div class="field">
+    <iframe id="chorniIframe" src="http://ytanalysis.in/songs/seEO3--Sy3c"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('chorniIframe'); return false;">
+            <span id="video3" style="font-size: 25px;">Chorni:</span>
+            <span id="viewCount3" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
+                     
 
-<div class="field"> <iframe src="http://ytanalysis.in/songs/YxWlaYCA8MU">  </iframe> 
-    <div class="under">
-        <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video3">Jhoome:
-      <span id="viewCount2" style="font-size: 25px;"></span>
-        </div> </a>
-</div> 
-      </div> 
-      <hr>    
-        <div class="field"> <iframe src=" http://ytanalysis.in/songs/Yiw354fkSOs">  </iframe> 
-            <div class="under">
-                <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video4">Pasoori Nu:
-              <span id="viewCount3" style="font-size: 25px;"></span>
-                </div> </a>
-        </div> 
-              </div> 
+<hr>
+   
+<div class="field">
+  <iframe id="beshramIframe" src="http://ytanalysis.in/songs/huxhqphtDrM"></iframe>
+  <div class="under" style="text-align: center;">
+      <a href="#" onclick="refreshIframe('beshramIframe'); return false;">
+          <span id="video4" style="font-size: 25px;">Beshram rang:</span>
+          <span id="viewCount4" style="font-size: 25px;"></span>
+      </a>
+  </div>
+</div>
+
+<div class="field">
+  <iframe id="uddjaIframe" src="http://ytanalysis.in/songs/7VppHj0Rue0"></iframe>
+  <div class="under" style="text-align: center;">
+      <a href="#" onclick="refreshIframe('uddjaIframe'); return false;">
+          <span id="video5" style="font-size: 25px;">Uddja Kowa:</span>
+          <span id="viewCount5" style="font-size: 25px;"></span>
+      </a>
+  </div>
+</div>
+
+<div class="field">
+  <iframe id="jungkookIframe" src="http://ytanalysis.in/songs/QU9c0053UAU"></iframe>
+  <div class="under" style="text-align: center;">
+      <a href="#" onclick="refreshIframe('jungkookIframe'); return false;">
+          <span id="video6" style="font-size: 25px;">Jung Kook</span>
+          <span id="viewCount6" style="font-size: 25px;"></span>
+      </a>
+  </div>
+</div>
+
+                  
+<div class="field">
+  <iframe id="nachoNachoIframe" src="http://ytanalysis.in/songs/sAzlWScHTc4"></iframe>
+  <div class="under" style="text-align: center;">
+      <a href="#" onclick="refreshIframe('nachoNachoIframe'); return false;">
+          <span id="video7" style="font-size: 25px;">Nacho Nacho:</span>
+          <span id="viewCount7" style="font-size: 25px;"></span>
+      </a>
+  </div>
+</div>
+
+
+<hr>
               
-            <div class="field"> <iframe src="http://ytanalysis.in/songs/jZGpkLElSu8">  </iframe> 
-                <div class="under">
-                    <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video5">Karol JI:
-                  <span id="viewCount4" style="font-size: 25px;"></span>
-                    </div> </a>
-            </div> 
-                  </div> 
-                  <div class="field"> <iframe src="http://ytanalysis.in/songs/seEO3--Sy3c">  </iframe> 
-                    <div class="under">
-                        <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video13">Chorni:
-                      <span id="viewCount12" style="font-size: 25px;"></span>
-                        </div> </a>
-                </div> 
-                      </div> 
-     
-   
-             <div class="field"> <iframe src="http://ytanalysis.in/songs/huxhqphtDrM">  </iframe> 
-                <div class="under">
-                    <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video6">Beshram rang:
-                  <span id="viewCount5" style="font-size: 25px;"></span>
-                    </div> </a>
-            </div> 
-                  </div> 
-
-
-                  <hr>
-                   
-             <div class="field"> <iframe src="http://ytanalysis.in/songs/7VppHj0Rue0">  </iframe> 
-                <div class="under">
-                    <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video7">Uddja Kowa:
-                  <span id="viewCount6" style="font-size: 25px;"></span>
-                    </div> </a>
-            </div> 
-                  </div> 
-                
-            <div class="field"> <iframe src="http://ytanalysis.in/songs/QU9c0053UAU">  </iframe> 
-                        <div class="under">
-                            <a rel="Jhoome.html" style="text-align: center; color: none;">   <div id="video10">Jung Kook
-                          <span id="viewCount9" style="font-size: 25px;"></span>
-                            </div> </a>
-                    </div> 
-            </div>
                     
-      
-             <div class="field"> <iframe src="http://ytanalysis.in/songs/sAzlWScHTc4">  </iframe> 
-              <div class="under">
-                  <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video8">Nacho Nacho:
-                <span id="viewCount7" style="font-size: 25px;"></span>
-                  </div> </a>
-          </div> 
-                </div> 
+<div class="field">
+    <iframe id="niklaIframe" src="http://ytanalysis.in/songs/2nK6WBcGPOw"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('niklaIframe'); return false;" style="color: none; text-decoration: none;">
+            <span id="video8" style="font-size: 25px;">Me Nikla:</span>
+            <span id="viewCount8" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
 
+<div class="field">
+    <iframe id="jhumkaIframe" src="http://ytanalysis.in/songs/87JIOAX3njM"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('jhumkaIframe'); return false;" style="color: none; text-decoration: none;">
+            <span id="video9" style="font-size: 25px;">Jhumka:</span>
+            <span id="viewCount9" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
 
-                <div class="field"> <iframe src="http://ytanalysis.in/songs/87JIOAX3njM">  </iframe> 
-                  <div class="under">
-                      <a rel="Jhoome.html" style="text-align: center; color: none;">    <div id="video12">Jhumka:
-                    <span id="viewCount11" style="font-size: 25px;"></span>
-                      </div> </a>
-              </div> 
-                    </div> 
-                
-                   
-                        
-   
-                    
-                          
-                       <hr>
+<div class="field">
+    <iframe id="khariyatIframe" src="http://ytanalysis.in/songs/qTAegUy7mo4"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('khariyatIframe'); return false;">
+            <span id="video110" style="font-size: 25px;">Khariyat</span>
+            <span id="viewCount10" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
 
-                       <div class="field2"> <iframe src="http://ytanalysis.in/songs/cAMHx-m9oh8" style="width: 765px; height: 650px; display: inline-block;">  </iframe>
-                    
-                        <div class="under">
-                            <a rel="Jhoome.html" style="text-align: center; color: white;">    <div id="video11">Kya Loge tum:
-                          <span id="viewCount10" style="font-size: 25px;"></span>
-                            </div> </a>
-                    </div> 
-                          </div> 
-                    
-                    </div>
-                                    
-
-
-                    <div class="field2"> <iframe src="https://web.tradexapp.co/" style="width: 765px; height: 650px; display: inline-block;">  </iframe> 
-                    
-                    
-                                        
-                        <div class="under">
-                            <a rel="Jhoome.html" style="text-align: center; color: white;">    <div id="video15">Tradex Song:
-                          <span id="viewCount14" style="font-size: 25px;"></span>
-                            </div> </a>
-                    </div> 
-                          </div> 
-                    </div>
-                                 
-                       
-                               
-                                
-                    
-                                
-                                     
-                                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                                     <script>
-                                         $(document).ready(function() {
-                                             // Define your YouTube video IDs and titles
-                                             var videos = [
-                                                 { id: 'OfmGYgLMbjs', title: 'Naseeb Se' },
-                                                 { id: 'ngjUEDEY18E', title: 'Pahli barish mein' },
-                                                     { id: 'YxWlaYCA8MU', title: 'Jhoome' },
-                                                     { id: 'Yiw354fkSOs', title: 'Pasoori NU' },
-                                                     { id: 'jZGpkLElSu8', title: 'Karol Ji' },
-                                                     { id: 'huxhqphtDrM', title: 'Beshram' },
-                                                     { id: '7VppHj0Rue0', title: 'Uddja Kale Kowa' },
-                                                     { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },
-                                                     { id: 'GXWfue9VhTY', title: 'Ram Siya Ram' },
-                                                     { id: 'QU9c0053UAU', title: 'Jung Kook' },
-                                                     { id: 'cAMHx-m9oh8', title: 'Kya Loge Tum ' },
-                                                     { id: '87JIOAX3njM', title: 'Jhumka ' },
-                                                     { id: 'seEO3--Sy3c', title: 'Chorni' },
-                                                     { id: 'OBEOPnAO1hc', title: 'Yaar Ka Satya Hua he' },
-                                                     { id: 'OBEOPnAO1hc', title: 'Uddja Kale Kowa' },
-                                                   //  { id: 'OBEOPnAO1hc', title: 'Yaar Ka Sataya hua he' }, yaar ka satya hua he
-                                 
-                                 
-                                                 // Add more videos here
-                                             ];
-                                 
-                                             // Function to format view count with commas
-                                             function formatViewCount(viewCount) {
-                                                 return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                             }
-                                 
-                                             // Function to fetch view counts and update HTML
-                                             function updateViewCounts(apiKeyIndex) {
-                                                 var apiKey = [
-                                              
-       
-        'AIzaSyAAohEOQvW1fqurtB0wLw2jWIckZh1RArA',// API 12
-        'AIzaSyA6yiKfD4zfgPCJX1CQkoaagoDEj_3VbYM',// API 13
-        'AIzaSyCXWT5k39EbMgJ3VjaKz6j5dj-FyUTwcvc',// API 14
-        'AIzaSyAs8S6d8ku_isvz-aGNq3fvGCww-sBN-To',//API 15
-        'AIzaSyDIQfhQSM3rEXG435DJ92h8PnZZj44pz38',// API 16
-        'AIzaSyC8ptPKOwo_prl5rYwPgR_wOToDzz0AoCY',//API 17
-        'AIzaSyCoV6wSuH3MYmSIUvzvKItxpt0HHYuTbyo',// API 18
-        'AIzaSyAGY6_eRlRECiMdLpaWqFT-JHdF6jFlA8Y',// API 19
-        'AIzaSyBzAawU8zWYY9Y6OdHGlzUyrYJtwbnCksY', // API 20
-        'AIzaSyDobJhrxChmpqpTf-XUvBJlRLqfiRai-G0',
-        'AIzaSyDxm9LkTrD1avRIEdVYf3umdW54FCHD-t8',
-        'AIzaSyCUBhZAe7enwMs9zUo6559wrqfGs2wMZLM',
-        'AIzaSyBTI8o2KAAwrZ-ZeEWLPCFJKHibNLVVO9M',
-        'AIzaSyA7yT_6defJZovSSA-RAz2G2HysHz8FmP0',
-        'AIzaSyB9MZuXW66ZHwXn0Q8W1oLGKsxnm8tYSH4',
-        'AIzaSyA-qjsytlrVogEvGl3aTK71ohsvBMZjpRE',
-        'AIzaSyApkXwnNuO2HwwyEC8YcbaU-_Zz_5gSfU4',
-        'AIzaSyBXBtEhGR2fG1weVZYJvCm2bkkfYfk2xJU',
-       
-       
+<div class="field">
+    <iframe id="zindaBandaIframe" src="http://ytanalysis.in/songs/AQEc4BwX6dk"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('zindaBandaIframe'); return false;" style="color: none; text-decoration: none;">
+            <span id="video11" style="font-size: 25px;">Zinda Banda:</span>
+            <span id="viewCount11" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
+            
+         <hr>
         
-                                                     // Add more API keys here
-                                                 ][apiKeyIndex];
-                                 
-                                                 var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
-                                 
-                                                 // Build comma-separated list of video IDs
-                                                 var videoIdList = videos.map(function(video) {
-                                                     return video.id;
-                                                 }).join(',');
-                                 
-                                                 // Prepare the API request URL
-                                                 var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
-                                 
-                                                 // Send the API request
-                                                 $.ajax({
-                                                     url: requestUrl,
-                                                     type: 'GET',
-                                                     success: function(data) {
-                                                         // Update view counts and titles in the HTML
-                                                         for (var i = 0; i < data.items.length; i++) {
-                                                             var viewCount = data.items[i].statistics.viewCount;
-                                                             var formattedViewCount = formatViewCount(viewCount);
-                                                             $('#viewCount' + i).text(formattedViewCount);
-                                 
-                                                             var title = videos[i].title;
-                                                             $('#title' + i).text(title);
+       
+
+         <div class="field2" style="display: flex; justify-content: space-between;">
+
+            <!-- First iframe -->
+            <div class="iframe-container">
+                <iframe id="video12" src="http://ytanalysis.in/" style="width: 760px; height: 630px;"></iframe>
+                <div class="under">
+                    <a rel="Jhoome.html" style="text-align: center; color: white;">
+                        <div id="video12">Tradex Song:
+                            <span id="viewCount12" style="font-size: 25px;"></span>
+                            <div>
+                                
+                                <span class="target-label" style="color: white; margin-left: 0px;">Target Views:</span>
+                                <span id="targetViewsTradex" class="target-count" style="color: white;"></span>
+                                <input type="number" id="targetViewsTradexInput" placeholder="Enter Target Views for Tradex" style="width: 100px;" onkeydown="handleTargetViewsInputKeyPress(event)"/>
+                                <button id="updateTargetViewsTradexButton">Update</button>
+                        </div>
+                            
+                        </div>
+                       
+                    </a>
+                </div>
+            </div>
+
+           
+          
+            <!-- Second iframe -->
+            <div class="iframe-container">
+                <iframe src="https://web.tradexapp.co/" style="width: 788px; height: 630px;"></iframe>
+                <div class="under">
+                    <a rel="Jhoome.html" style="text-align: center; color:red; stroke: aqua; stroke-width: 20px;">
+                        <div id="video13">Tradex Song:
+                            <span id="viewCount13" style="font-size: 25px;"></span>
+                            <div id="remainingViews" style="font-size: 20px; color: yellow;"></div>
+
+                        </div>
+                       
+                    </a>
+                </div>
+               
+            </div>
+        
+        </div>
+        
+         <script>
+ function handleTargetViewsInputKeyPress(event) {
+    // Check if the key pressed is the "Enter" key (keyCode 13)
+    if (event.keyCode === 13) {
+      // Trigger the "Update" button click event
+      document.getElementById("updateTargetViewsTradexButton").click();
+    }
+  }
+
+  // Rest of your existing JavaScript code...
+
+  $(document).ready(function () {
+    // Update the target views when the "Update" button is clicked
+    $("#updateTargetViewsTradexButton").click(function () {
+      var newTargetViews = parseInt($("#targetViewsTradexInput").val());
+      if (!isNaN(newTargetViews)) {
+        // Update your target views logic here
+      } else {
+        alert("Please enter a valid number for the target views.");
+      }
+    });
+
+    // Other parts of your existing code...
+  });
+$('#updateTargetButton').click(function() {
+    // Get the value from the input field
+    var newTargetViews = parseInt($('#targetViewsInput').val());
+
+    // Check if the input is a valid number
+    if (!isNaN(newTargetViews)) {
+        // Update the target views on the screen
+        targetViewsTradex = newTargetViews;
+        $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+
+        // Update the remaining views based on the new target
+        var currentViewsTradex = parseInt($('#viewCount12').text().replace(/,/g, ''), 10);
+        var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+        $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+        
+    } else {
+        alert('Please enter a valid number for the target views.');
+    }
+});
+   // Function to format view count with commas
+   function formatViewCount(viewCount) {
+        return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    // Function to calculate remaining views
+    function calculateRemainingViews(currentViews, targetViews) {
+        return Math.max(targetViews - currentViews, 0);
+    }
+
+    $(document).ready(function() {
+            // Define the target view count for the "Tradex Song" video
+            var targetViewsTradex = // 1000000;
+
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // Function to calculate remaining views
+            function calculateRemainingViews(currentViews, targetViews) {
+                return Math.max(targetViews - currentViews, 0);
+            }
+
+            // Update the target views when the "Update Target Views" button is clicked
+            $('#updateTargetViewsTradexButton').click(function() {
+                var newTargetViews = parseInt($('#targetViewsTradexInput').val());
+                if (!isNaN(newTargetViews)) {
+                    targetViewsTradex = newTargetViews;
+                    $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+                } else {
+                    alert('Please enter a valid number for the target views.');
+                }
+            });
+
+            // Function to update view counts and remaining views
+            function updateViewCounts() {
+                // ... (existing code for fetching view counts, you can keep this as is) ...
+
+                // Calculate and display the remaining views
+                var currentViewsTradex = parseInt($('#viewCount12').text().replace(/,/g, ''), 10);
+                var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+                $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+
+                // Check if the target views have been reached
+                if (currentViewsTradex >= targetViewsTradex) {
+                    $('#video13').addClass('completed'); // Apply the completed class to the video view count
+                    $('#remainingViews.completed').css('color', 'green'); // Change the color as needed
+            $('#remainingViews').text('Views Completed ✅✅'); // Change the text to indicate completion
+                } else {
+                    $('#video13').removeClass('completed'); // Remove the completed class from the video view count
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                   $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews)); // Restore the original text
+        }
+                
+                }
+            
+
+
+
+
+         
+            
+            // Initial view count update
+            updateViewCounts();
+
+            // Refresh view counts and remaining views every 30 seconds
+            setInterval(function() {
+                updateViewCounts();
+            }, 0); // 30 seconds
+        });
+            function refreshIframe(iframeId) {
+                    var iframe = document.getElementById(iframeId);
+                    if (iframe) {
+                        var src = iframe.src;
+                        iframe.src = src; // Refresh the iframe by resetting the src
+                    }
+                }
+            
+            
+                                                     $(document).ready(function() {
+                                                         // Define your YouTube video IDs and titles
+                                                         var videos = [
+                                                         { id: 'OBEOPnAO1hc', title: 'Yaar Ka Satya:' }, // 0
+                                                         { id: 'YxWlaYCA8MU', title: 'Jhoome:' }, //1
+                                                         { id: 'Yiw354fkSOs', title: 'Pasoori NU' }, //2
+                                                         { id: 'seEO3--Sy3c', title: 'Chorni' }, //3
+                                                         { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
+                                                         { id: '7VppHj0Rue0', title: 'Uddja Kowa' }, // 5
+                                                         { id: 'QU9c0053UAU', title: 'Jung Kook' },//6
+                                                         { id: 'sAzlWScHTc4', title: 'Nacho Nacho' }, // 7
+                                                         { id: '2nK6WBcGPOw', title: 'Mein Nikla' }, //8
+                                                         { id: '87JIOAX3njM', title: 'Jhumka ' }, // 9        
+                                                         { id: 'qTAegUy7mo4', title: 'Khariyat' },//10
+                                                         { id: 'AQEc4BwX6dk', title: 'Zinda Banda' },//11
+            
+            
+                                                         { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
+                                                         { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
+                                                         ];
+                                             
+                                                         // Function to format view count with commas
+                                                         function formatViewCount(viewCount) {
+                                                             return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                                          }
-                                                     },
-                                                     error: function(error) {
-                                                         console.log('Error:', error);
-                                 
-                                                         // If there is an error, try the next API key
-                                                         var nextApiKeyIndex = (apiKeyIndex + 1) % 3; // Number of API keys
-                                                         updateViewCounts(nextApiKeyIndex);
-                                                     }
-                                                 });
-                                             }
-                                 
-                                             // Initial view count update
-                                             updateViewCounts(0);
-                                 
-                                             // Refresh view counts every 30 seconds
-                                             setInterval(function() {
-                                                 updateViewCounts(0); // Start with the first API key every time
-                                             }, 300);
-                                         });
-                                     </script>
+                                             
+                                                         // Function to fetch view counts and update HTML
+                                                         function updateViewCounts(apiKeyIndex) {
+                                                             var apiKey = [
+                                                             //   'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
+                                                               // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
+                                                             'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
+                                                             'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
+                                                             'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
+                                                              'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8',// api 19
+                                                              'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc',
+                                                              'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE',
+                                                              'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg',
+                                                             'AIzaSyA98735rn2jeNqZbL4oc-1i3F3FQOe_V8Y', // api 15.
+                                                             'AIzaSyDxGyHFt-EwDItpFDBP0GOhg5CpjWz2mZA', // api 14
+                                                              'AIzaSyB8EJI17KTy6PcYn8MSK2Ycb8ID25IXeI0', // api 13
+                                                             'AIzaSyAgsgld5RayY0BfMYXLwb42nCinWxTbL10', // api 11
+                                                             'AIzaSyAb1quLpfdNneUjwp33KONEFqDlP0PQoac', // api 10.
+                                                             'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
+                                                             'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
+                                                             'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
+                                                             'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
+                                                             'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM',  // api 5
+                                                             'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'
+                                                                 // Add more API keys here
+                                                             ][apiKeyIndex];
+                                             
+                                                             var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+                                             
+                                                             // Build comma-separated list of video IDs
+                                                             var videoIdList = videos.map(function(video) {
+                                                                 return video.id;
+                                                             }).join(',');
+                                             
+                                                             // Prepare the API request URL
+                                                             var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+                                             
+                                                             // Send the API request
+                                                             $.ajax({
+                                                                 url: requestUrl,
+                                                                 type: 'GET',
+                                                                 success: function(data) {
+                                                                     // Update view counts and titles in the HTML
+                                                                     for (var i = 0; i < data.items.length; i++) {
+                                                                         var viewCount = data.items[i].statistics.viewCount;
+                                                                         var formattedViewCount = formatViewCount(viewCount);
+                                                                         $('#viewCount' + i).text(formattedViewCount);
+                                             
+                                                                         var title = videos[i].title;
+                                                                         $('#title' + i).text(title);
+                                                                     }
+                                                                 },
+                                                                 error: function(error) {
+                                                                     console.log('Error:', error);
+                                             
+                                                                     // If there is an error, try the next API key
+                                                                     var nextApiKeyIndex = (apiKeyIndex + 1) % 3; // Number of API keys
+                                                                     updateViewCounts(nextApiKeyIndex);
+                                                                 }
+                                                             });
+                                                         }
+                                             
+                                                         // Initial view count update
+                                                         updateViewCounts(0);
+                                             
+                                                         // Refresh view counts every 30 seconds
+                                                         setInterval(function() {
+                                                             updateViewCounts(0); // Start with the first API key every time
+                                                         }, 700);
+                                                     });
+                                                     
+                                                 </script>
+                           
 </body>
 </html>
 
