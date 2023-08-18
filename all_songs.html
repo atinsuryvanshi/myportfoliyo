@@ -9,7 +9,135 @@
    
    <style>
        
+       a {
+    font-size: 25px;
+    margin-left: 0px;
+    top: 20px;
+    color: white;
+font-weight: bold;
+box-shadow: 50px;
+
+
+
+}
+
+iframe{
+width: 370px;
+height: 300px;
+border-radius: 30px;
+display: inline-block;
+
+}
+
+.field {
+    display: inline-block;
+    width: 370px;
+    height: 300px;
+
+    margin-left: 20px;
+}
+
+
+.field2{
+display: inline-block;
+margin-left: 25px;
+}       
+
+tradexweb{
+display:inline-block;
+
+}
+
+
+
+
+body {
+    background-color: black;
+    max-width: 100%;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field iframe {
+    width: 100%;
+    height: 335px;
+}
+
+.field .under {
+    text-align: center;
+}
+
+.field .under a {
+    color: white;
+    text-decoration: none;
+}
+
+.field .under a:hover {
+    text-decoration: underline;
+}
+
+.field .under #video1,
+.field .under #video2,
+.field .under #video3 {
+    font-size: 25px;
+}
+
+        /* Define CSS classes to change color */
+        .completed {
+            color: yellow;
+            font-weight: bold;
+        }
+        .not-completed {
+            color: white;
+        }
+/* Styles for larger screens */
+
+ /* स्क्रीन के बड़े आकार के लिए स्टाइल */
     
+ @media (max-width: 1700px) {
+    .field {
+        width: 23%; /* 4 iframe के लिए 23%  दिया गया है */
+    }
+}
+
+@media (max-width: 1400px) {
+    .field {
+        width: 30.5%; /* 3 iframe के लिए 31% व्यापार दिया गया है */
+    }
+}  
+   @media (max-width: 1000px) {
+    .field {
+        width: 45%; /* 2 iframe के लिए 45% व्यापार दिया गया है */
+        
+    }
+}
+
+
+
+@media (max-width: 700px) {
+    .field {
+        width: 500px /* 1 iframe के लिए 500px व्यापार दिया गया है */
+    }
+}
+
+
+@media (max-width: 570px) {
+    .field {
+        width: 85%; /* 1 iframe के लिए 85% व्यापार दिया गया है */
+       
+} 
+}
+
+
+
+@media (max-width: 1400px) {
+hr {
+    display: none;
+}
+}
+
 
 </style>
 
@@ -206,22 +334,31 @@
     </div>
 </div>
         
-        
-
-<!-- Add this input element where you want users to enter the division factor -->
+    
 
 
 
 
+</body>
 
-
-
-
-
-
+<body>
          <script>
 
+function updateViewCountParagraph(videoIndex, viewCount) {
+    var viewCountParagraph = document.getElementById('viewCountParagraph' + videoIndex);
+    if (viewCountParagraph) {
+        viewCountParagraph.textContent = 'Views: ' + viewCount;
+    }
+}
 
+    // Update the view count paragraph when the video link is clicked
+    $("#video1").on("load", function() {
+        var viewCount = $("#viewCount0").text();
+        updateViewCountParagraph(0, viewCount);
+    });
+
+    // Add similar handlers for other videos (video2, video3, etc.)
+    // ...
 
 function calculateDivision() {
     var divisionFactor = parseInt(document.getElementById('divisionFactor').value);
@@ -378,18 +515,14 @@ $('#updateTargetButton').click(function() {
                                                          { id: 'AQEc4BwX6dk', title: 'Zinda Banda' },//11
             
             
-                                                         { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
-                                                         { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
+                                                         { id: 'QU9c0053UAU', title: 'Jung Kook' },//6
+                                                         { id: 'QU9c0053UAU', title: 'Jung Kook' },//6
                                                          ];
-                                             
-                                                         // Function to format view count with commas
-                                                         function formatViewCount(viewCount) {
-                                                             return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                                         }
-                                             
+                                            
                                                          // Function to fetch view counts and update HTML
                                                          function updateViewCounts(apiKeyIndex) {
                                                              var apiKey = [
+                                                            'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw', // api 29
                                                             'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc',// api 28
                                                             'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
                                                             'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
@@ -402,22 +535,27 @@ $('#updateTargetButton').click(function() {
                                                             'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8',// api 19
                                                             'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc',// api 18
                                                             'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
-                                                             'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
-                                                             'AIzaSyA98735rn2jeNqZbL4oc-1i3F3FQOe_V8Y', // api 15.
-                                                             'AIzaSyDxGyHFt-EwDItpFDBP0GOhg5CpjWz2mZA', // api 14
-                                                             'AIzaSyB8EJI17KTy6PcYn8MSK2Ycb8ID25IXeI0', // api 13
-                                                             'AIzaSyAgsgld5RayY0BfMYXLwb42nCinWxTbL10', // api 11
-                                                             'AIzaSyAb1quLpfdNneUjwp33KONEFqDlP0PQoac', // api 10.
-                                                             'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
-                                                             'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
-                                                             'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
-                                                             'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
-                                                             'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM',  // api 5
-                                                             'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'
+                                                            'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
+                                                            'AIzaSyA98735rn2jeNqZbL4oc-1i3F3FQOe_V8Y', // api 15.
+                                                            'AIzaSyDxGyHFt-EwDItpFDBP0GOhg5CpjWz2mZA', // api 14
+                                                            'AIzaSyB8EJI17KTy6PcYn8MSK2Ycb8ID25IXeI0', // api 13
+                                                            'AIzaSyAgsgld5RayY0BfMYXLwb42nCinWxTbL10', // api 11
+                                                            'AIzaSyAb1quLpfdNneUjwp33KONEFqDlP0PQoac', // api 10.
+                                                            'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
+                                                            'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
+                                                            'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
+                                                            'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
+                                                            'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM',  // api 5
+                                                            'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4', // api 4
                                                                  // Add more API keys here
                                                              ][apiKeyIndex];
                                              
-
+ 
+                                                         // Function to format view count with commas
+                                                         function formatViewCount(viewCount) {
+                                                             return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                         }
+                                             
                                                              function updateViewCounts(apiKeyIndex) {
                                                              var apiKey = apiKeys[apiKeyIndex];}
 
@@ -482,7 +620,3 @@ $('#updateTargetButton').click(function() {
                            
 </body>
 </html>
-
-
-
-
