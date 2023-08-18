@@ -295,7 +295,7 @@ hr {
 <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
 
     
-    <div class="iframe-container">
+    <div class="iframe-container"style="display: none;">
         <iframe id="tradexsong" src="http://ytanalysis.in/" style="width: 760px; height: 630px;"></iframe>
         <div class="under" style="text-align: center;">
             <a href="#" onclick="refreshIframe(''); return false; " style="text-decoration: none;">
@@ -327,7 +327,24 @@ hr {
                 <div id="video13">Tradex Song:
                     <span id="viewCount13" style="font-size: 25px;"></span>
                     <div id="remainingViews" style="font-size: 20px; color: yellow;"></div>
-
+<div class="under" style="text-align: center;">
+            <a href="#" onclick="refreshIframe(''); return false; " style="text-decoration: none;">
+                <div id="video12" style="color: white; text-decoration: none;">Tradex Song:
+                    <span id="viewCount12" style="font-size: 25px;"></span>
+                    <div> 
+                        <span class="target-label" style="color: white; margin-left: 0px;">Target:</span>
+                        <input type="number" id="targetViewsTradexInput" placeholder="Enter Target Views for Tradex" style="width: 100px;" onkeydown="handleTargetViewsInputKeyPress(event)"/>
+                        <button id="updateTargetViewsTradexButton">Update</button> 
+                        <span id="targetViewsTradex" class="target-count" style="color: white; font-style: normal; font-weight: normal; font-size: 20px;" ></span>
+                        <div>
+                            <span id="average" style="color: white; font-size: 25px;">Average:</span>
+                            <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Enter Which Time Update Views On Tradex" style="width: 150px;"/>
+                            <span id="divisionResult" style="color: white; font-size: 25px;"></span>
+                       </div>         
+                </div>             
+            </div>      
+        </a>
+    </div>
                 </div>            
             </a>
         </div>    
