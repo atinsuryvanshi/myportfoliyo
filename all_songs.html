@@ -4,50 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Song</title>
-
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>   /* छोटे आकार के लिए स्टाइल */
-        @media (max-width: 1700px) {
-            .field {
-                width: 23%; /* 1 iframe के लिए 100% व्यापार दिया गया है */
-            }
-        }
-
-        @media (max-width: 1400px) {
-            .field {
-                width: 31%; /* 1 iframe के लिए 100% व्यापार दिया गया है */
-            }
-        }  
-           @media (max-width: 1000px) {
-            .field {
-                width: 45%; /* 1 iframe के लिए 100% व्यापार दिया गया है */
-                
-            }
-        }
-      
-        @media (max-width: 700px) {
-            .field {
-                width: 500px /* 1 iframe के लिए 100% व्यापार दिया गया है */
-            }
-        }
-
-
-        @media (max-width: 570px) {
-            .field {
-                width: 85%; /* 1 iframe के लिए 100% व्यापार दिया गया है */
-               
-        } 
-        }
-      
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+   
+   <style>
        
-    @media (max-width: 1400px) {
-        hr {
-            display: none;
-        }
-    }
+    
+
 </style>
+
+    </style>
+   
 </head>
 
 <body style="background-color: black;">
@@ -87,7 +54,7 @@
     </div>
 </div>
                   
-          
+          <hr id="hr1" style="display: none;">
                  
  <div class="field">
     <iframe id="chorniIframe" src="http://ytanalysis.in/songs/seEO3--Sy3c"></iframe>
@@ -98,10 +65,11 @@
         </a>
     </div>
 </div>
-                     
 
-<hr>
-   
+
+
+   <hr>
+
 <div class="field">
   <iframe id="beshramIframe" src="http://ytanalysis.in/songs/huxhqphtDrM"></iframe>
   <div class="under" style="text-align: center;">
@@ -112,6 +80,7 @@
   </div>
 </div>
 
+
 <div class="field">
   <iframe id="uddjaIframe" src="http://ytanalysis.in/songs/7VppHj0Rue0"></iframe>
   <div class="under" style="text-align: center;">
@@ -121,6 +90,7 @@
       </a>
   </div>
 </div>
+
 
 <div class="field">
   <iframe id="jungkookIframe" src="http://ytanalysis.in/songs/QU9c0053UAU"></iframe>
@@ -150,91 +120,125 @@
 <div class="field">
     <iframe id="niklaIframe" src="http://ytanalysis.in/songs/2nK6WBcGPOw"></iframe>
     <div class="under" style="text-align: center;">
-        <a href="#" onclick="refreshIframe('niklaIframe'); return false;" style="color: none; text-decoration: none;">
+        <a href="#" onclick="refreshIframe('niklaIframe'); return false;">
             <span id="video8" style="font-size: 25px;">Me Nikla:</span>
             <span id="viewCount8" style="font-size: 25px;"></span>
         </a>
     </div>
 </div>
 
+
 <div class="field">
     <iframe id="jhumkaIframe" src="http://ytanalysis.in/songs/87JIOAX3njM"></iframe>
     <div class="under" style="text-align: center;">
-        <a href="#" onclick="refreshIframe('jhumkaIframe'); return false;" style="color: none; text-decoration: none;">
+        <a href="#" onclick="refreshIframe('jhumkaIframe'); return false;">
             <span id="video9" style="font-size: 25px;">Jhumka:</span>
             <span id="viewCount9" style="font-size: 25px;"></span>
         </a>
     </div>
 </div>
 
+
 <div class="field">
     <iframe id="khariyatIframe" src="http://ytanalysis.in/songs/qTAegUy7mo4"></iframe>
     <div class="under" style="text-align: center;">
         <a href="#" onclick="refreshIframe('khariyatIframe'); return false;">
-            <span id="video110" style="font-size: 25px;">Khariyat</span>
+            <span id="video10" style="font-size: 25px;">Khariyat</span>
             <span id="viewCount10" style="font-size: 25px;"></span>
         </a>
     </div>
 </div>
 
+
 <div class="field">
     <iframe id="zindaBandaIframe" src="http://ytanalysis.in/songs/AQEc4BwX6dk"></iframe>
     <div class="under" style="text-align: center;">
-        <a href="#" onclick="refreshIframe('zindaBandaIframe'); return false;" style="color: none; text-decoration: none;">
+        <a href="#" onclick="refreshIframe('zindaBandaIframe'); return false;">
             <span id="video11" style="font-size: 25px;">Zinda Banda:</span>
             <span id="viewCount11" style="font-size: 25px;"></span>
         </a>
     </div>
 </div>
             
-         <hr>
+
+<hr>
         
        
+<div id="field2" class="field2" style="display: flex; justify-content: space-between;">
 
-         
-
-         
-              <!-- First iframe -->
-            <div class="iframe-container">
-                <iframe id="video12" src="http://ytanalysis.in/" style="width: 760px; height: 630px;"></iframe>
-                <div class="under">
-                    <a rel="Jhoome.html" style="text-align: center; color: white;">
-                        <div id="video12">Tradex Song:
-                            <span id="viewCount12" style="font-size: 25px;"></span>
-                            <div>
-                                
-                                <span class="target-label" style="color: white; margin-left: 0px;">Target Views:</span>
-                                <span id="targetViewsTradex" class="target-count" style="color: white;"></span>
-                                <input type="number" id="targetViewsTradexInput" placeholder="Enter Target Views for Tradex" style="width: 100px;" onkeydown="handleTargetViewsInputKeyPress(event)"/>
-                                <button id="updateTargetViewsTradexButton">Update</button>
-                        </div>
-                            
-                        </div>
+    
+    <div class="iframe-container">
+        <iframe id="tradexsong" src="http://ytanalysis.in/" style="width: 760px; height: 630px;"></iframe>
+        <div class="under" style="text-align: center;">
+            <a href="#" onclick="refreshIframe(''); return false; " style="text-decoration: none;">
+                <div id="video12" style="color: white; text-decoration: none;">Tradex Song:
+                    <span id="viewCount12" style="font-size: 25px;"></span>
+                    <div> 
+                        <span class="target-label" style="color: white; margin-left: 0px;">Target:</span>
+                        <input type="number" id="targetViewsTradexInput" placeholder="Enter Target Views for Tradex" style="width: 100px;" onkeydown="handleTargetViewsInputKeyPress(event)"/>
+                        <button id="updateTargetViewsTradexButton">Update</button> 
+                        <span id="targetViewsTradex" class="target-count" style="color: white; font-style: normal; font-weight: normal; font-size: 20px;" ></span>
                        
-                    </a>
-                </div>
-            </div>
+                </div>             
+            </div>      
+        </a>
+    </div>
+</div>
 
-          
-            <!-- Second iframe -->
-            <div class="iframe-container">
-                <iframe src="https://web.tradexapp.co/" style="width: 788px; height: 630px;"></iframe>
-                <div class="under">
-                    <a rel="Jhoome.html" style="text-align: center; color:red; stroke: aqua; stroke-width: 20px;">
-                        <div id="video13">Tradex Song:
-                            <span id="viewCount13" style="font-size: 25px;"></span>
-                            <div id="remainingViews" style="font-size: 20px; color: yellow;"></div>
 
-                        </div>
-                       
-                    </a>
-                </div>
-               
-            </div>
+  
+
+    <div class="iframe-container">
+        <iframe src="https://web.tradexapp.co/" style="width: 788px; height: 630px;"></iframe>
+        <div class="under">
+            <a rel="Jhoome.html" style="text-align: center; color:white;">
+                <div id="video13">Tradex Song:
+                    <span id="viewCount13" style="font-size: 25px;"></span>
+                    <div id="remainingViews" style="font-size: 20px; color: yellow;"></div>
+
+                </div>            
+            </a>
+        </div>    
+    </div>
+</div>
         
-        </div>
         
+
+<!-- Add this input element where you want users to enter the division factor -->
+<div>
+    Enter a number to divide remaining views: <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Enter Which Time Update Views On Tradex" style="size: 100px;"/>
+    <span id="divisionResult" style="color: white; font-size: 25px;">Average:</span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
          <script>
+
+
+
+function calculateDivision() {
+    var divisionFactor = parseInt(document.getElementById('divisionFactor').value);
+    var remainingViews = parseInt(document.getElementById('remainingViews').textContent.split(' ')[2].replace(/,/g, ''));
+
+    if (!isNaN(divisionFactor)) {
+        var divisionResult = remainingViews / divisionFactor;
+        document.getElementById('divisionResult').textContent = 'Average: ' + divisionResult.toFixed(2);
+    } else {
+        document.getElementById('divisionResult').textContent = '';
+    }
+}
+
+
+
+
  function handleTargetViewsInputKeyPress(event) {
     // Check if the key pressed is the "Enter" key (keyCode 13)
     if (event.keyCode === 13) {
@@ -256,6 +260,7 @@
       }
     });
 
+    
     // Other parts of your existing code...
   });
 $('#updateTargetButton').click(function() {
@@ -356,8 +361,8 @@ $('#updateTargetButton').click(function() {
                         iframe.src = src; // Refresh the iframe by resetting the src
                     }
                 }
-            
-            
+                
+              
                                                      $(document).ready(function() {
                                                          // Define your YouTube video IDs and titles
                                                          var videos = [
@@ -375,8 +380,8 @@ $('#updateTargetButton').click(function() {
                                                          { id: 'AQEc4BwX6dk', title: 'Zinda Banda' },//11
             
             
-                                                         { id: '87JIOAX3njM', title: 'Jhumka ' }, // 9        
-                                                         { id: '87JIOAX3njM', title: 'Jhumka ' }, // 9        
+                                                         { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
+                                                         { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
                                                          ];
                                              
                                                          // Function to format view count with commas
@@ -387,18 +392,22 @@ $('#updateTargetButton').click(function() {
                                                          // Function to fetch view counts and update HTML
                                                          function updateViewCounts(apiKeyIndex) {
                                                              var apiKey = [
-                                                             //   'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
-                                                               // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
-                                                             'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
-                                                             'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
-                                                             'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
-                                                              'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8',// api 19
-                                                              'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc',
-                                                              'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE',
-                                                              'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg',
+                                                            'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc',// api 28
+                                                            'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
+                                                            'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
+                                                            'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
+                                                            'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
+                                                            'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
+                                                            'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
+                                                            'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
+                                                            'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
+                                                            'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8',// api 19
+                                                            'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc',// api 18
+                                                            'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
+                                                             'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
                                                              'AIzaSyA98735rn2jeNqZbL4oc-1i3F3FQOe_V8Y', // api 15.
                                                              'AIzaSyDxGyHFt-EwDItpFDBP0GOhg5CpjWz2mZA', // api 14
-                                                              'AIzaSyB8EJI17KTy6PcYn8MSK2Ycb8ID25IXeI0', // api 13
+                                                             'AIzaSyB8EJI17KTy6PcYn8MSK2Ycb8ID25IXeI0', // api 13
                                                              'AIzaSyAgsgld5RayY0BfMYXLwb42nCinWxTbL10', // api 11
                                                              'AIzaSyAb1quLpfdNneUjwp33KONEFqDlP0PQoac', // api 10.
                                                              'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
@@ -410,6 +419,11 @@ $('#updateTargetButton').click(function() {
                                                                  // Add more API keys here
                                                              ][apiKeyIndex];
                                              
+
+                                                             function updateViewCounts(apiKeyIndex) {
+                                                             var apiKey = apiKeys[apiKeyIndex];}
+
+
                                                              var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
                                              
                                                              // Build comma-separated list of video IDs
@@ -431,29 +445,41 @@ $('#updateTargetButton').click(function() {
                                                                          var formattedViewCount = formatViewCount(viewCount);
                                                                          $('#viewCount' + i).text(formattedViewCount);
                                              
-                                                                         var title = videos[i].title;
+                                                                           var title = videos[i].title;
                                                                          $('#title' + i).text(title);
+                                                                       
                                                                      }
                                                                  },
-                                                                 error: function(error) {
-                                                                     console.log('Error:', error);
-                                             
-                                                                     // If there is an error, try the next API key
-                                                                     var nextApiKeyIndex = (apiKeyIndex + 1) % 3; // Number of API keys
-                                                                     updateViewCounts(nextApiKeyIndex);
-                                                                 }
-                                                             });
-                                                         }
+                                                                 error: function (error) {
+                apiAvailable = false; // API is not available
+                console.log('Error:', error);
+                // Display "API Not Available" instead of view counts
+                for (var i = 0; i < videos.length; i++) {
+                    $('#viewCount' + i).text('API Not Available');
+                    $('#title' + i).text(videos[i].title);
+                }
+            }
+        });}
                                              
                                                          // Initial view count update
-                                                         updateViewCounts(0);
-                                             
-                                                         // Refresh view counts every 30 seconds
-                                                         setInterval(function() {
-                                                             updateViewCounts(0); // Start with the first API key every time
-                                                         }, 700);
-                                                     });
+                                                         setInterval(function () {
+        if (apiAvailable) {
+            updateViewCounts(0);
+        } else {
+            // Display "API Not Available" instead of view counts
+            for (var i = 0; i < videos.length; i++) {
+                $('#viewCount' + i).text('API Not Available');
+                $('#title' + i).text(videos[i].title);
+            }
+        }
+    }, 1000); // 1 seconds
+});
                                                      
+    var apiAvailable = true; // Variable to track API availability
+                
+            
+
+   
                                                  </script>
                            
 </body>
