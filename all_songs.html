@@ -13,7 +13,7 @@
 
 </style>
 
-    </style>
+    
    
 </head>
 
@@ -178,7 +178,11 @@
                         <input type="number" id="targetViewsTradexInput" placeholder="Enter Target Views for Tradex" style="width: 100px;" onkeydown="handleTargetViewsInputKeyPress(event)"/>
                         <button id="updateTargetViewsTradexButton">Update</button> 
                         <span id="targetViewsTradex" class="target-count" style="color: white; font-style: normal; font-weight: normal; font-size: 20px;" ></span>
-                       
+                        <div>
+                            <span id="average" style="color: white; font-size: 25px;">Average:</span>
+                            <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Enter Which Time Update Views On Tradex" style="width: 150px;"/>
+                            <span id="divisionResult" style="color: white; font-size: 25px;"></span>
+                       </div>         
                 </div>             
             </div>      
         </a>
@@ -205,11 +209,6 @@
         
 
 <!-- Add this input element where you want users to enter the division factor -->
-<div>
-    Enter a number to divide remaining views: <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Enter Which Time Update Views On Tradex" style="size: 100px;"/>
-    <span id="divisionResult" style="color: white; font-size: 25px;">Average:</span>
-</div>
-
 
 
 
@@ -230,12 +229,11 @@ function calculateDivision() {
 
     if (!isNaN(divisionFactor)) {
         var divisionResult = remainingViews / divisionFactor;
-        document.getElementById('divisionResult').textContent = 'Average: ' + divisionResult.toFixed(2);
+        document.getElementById('divisionResult').textContent = '' + divisionResult.toFixed(2);
     } else {
         document.getElementById('divisionResult').textContent = '';
     }
 }
-
 
 
 
