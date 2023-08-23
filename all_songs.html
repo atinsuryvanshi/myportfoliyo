@@ -7,158 +7,43 @@
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
    
-   <style>
-       
-       a {
-    font-size: 25px;
-    margin-left: 0px;
-    top: 20px;
-    color: white;
-font-weight: bold;
-box-shadow: 50px;
-
-
-
-}
-
-iframe{
-width: 370px;
-height: 300px;
-border-radius: 30px;
-display: inline-block;
-
-}
-
-.field {
-    display: inline-block;
-    width: 370px;
-    height: 300px;
-
-    margin-left: 20px;
-}
-
-
-.field2{
-display: inline-block;
-margin-left: 25px;
-}       
-
-tradexweb{
-display:inline-block;
-
-}
-
-
-
-
-body {
-    background-color: black;
-    max-width: 100%;
-}
-
-.field {
-    margin-bottom: 20px;
-}
-
-.field iframe {
-    width: 100%;
-    height: 335px;
-}
-
-.field .under {
-    text-align: center;
-}
-
-.field .under a {
-    color: white;
-    text-decoration: none;
-}
-
-.field .under a:hover {
-    text-decoration: underline;
-}
-
-.field .under #video1,
-.field .under #video2,
-.field .under #video3 {
-    font-size: 25px;
-}
-
-        /* Define CSS classes to change color */
-        .completed {
-            color: yellow;
-            font-weight: bold;
-        }
-        .not-completed {
-            color: white;
-        }
-/* Styles for larger screens */
-
- /* स्क्रीन के बड़े आकार के लिए स्टाइल */
-    
- @media (max-width: 1700px) {
-    .field {
-        width: 23%; /* 4 iframe के लिए 23%  दिया गया है */
-    }
-}
-
-@media (max-width: 1400px) {
-    .field {
-        width: 30.5%; /* 3 iframe के लिए 31% व्यापार दिया गया है */
-    }
-}  
-   @media (max-width: 1000px) {
-    .field {
-        width: 45%; /* 2 iframe के लिए 45% व्यापार दिया गया है */
-        
-    }
-}
-
-
-
-@media (max-width: 700px) {
-    .field {
-        width: 500px /* 1 iframe के लिए 500px व्यापार दिया गया है */
-    }
-}
-
-
-@media (max-width: 570px) {
-    .field {
-        width: 85%; /* 1 iframe के लिए 85% व्यापार दिया गया है */
-       
-} 
-}
-
-
-
-@media (max-width: 1400px) {
-hr {
-    display: none;
-}
-}
-
-
-</style>
-
     
    
 </head>
 
 <body style="background-color: black;">
      
- 
 <div class="field">
-  <iframe id="video1" src="http://ytanalysis.in/songs/OBEOPnAO1hc"></iframe>
-  <div class="under" style="text-align: center;">
-      <a href="#" onclick="refreshIframe('video1'); return false;">
-          <span id="title0" style="text-align: left">Yaar Ka Sataya:</span>
-          <span id="viewCount0" style="font-size: 25px; text-align: center;"></span>
-      </a>
-  </div>
+    <iframe id="niklaIframe" src="http://ytanalysis.in/songs/3qpxJEp4Ec4"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('niklaIframe'); return false;">
+            <span id="video8" style="font-size: 25px;">Kudmayi:</span>
+            <span id="viewCount8" style="font-size: 25px;"></span>
+        </a>
+    </div>
 </div>
 
+<div class="field">
+    <iframe id="uddjaIframe" src="http://ytanalysis.in/songs/ATWWmFU-xLk"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('uddjaIframe'); return false;">
+            <span id="video5" style="font-size: 25px;">Dil Ka Telephone:</span>
+            <span id="viewCount5" style="font-size: 25px;"></span>
+        </a>
+    </div>
+  </div>
 
+  
+<div class="field"> 
+    <iframe id="video3iframe" src="http://ytanalysis.in/songs/I-_LHvTeVy4"></iframe> 
+    <div class="under">
+        <a href="#" onclick="refreshIframe('video3iframe'); return false;">
+            <span id="video2">Chandni:</span>
+            <span id="viewCount2" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
+               
 
 <div class="field">
   <iframe id="video2" src="http://ytanalysis.in/songs/YxWlaYCA8MU"></iframe>
@@ -171,53 +56,37 @@ hr {
 </div>
 
 
+   
 
-<div class="field"> 
-    <iframe id="video3iframe" src="http://ytanalysis.in/songs/Yiw354fkSOs"></iframe> 
-    <div class="under">
-        <a href="#" onclick="refreshIframe('video3iframe'); return false;">
-            <span id="video2">Pasoori Nu:</span>
-            <span id="viewCount2" style="font-size: 25px;"></span>
-        </a>
-    </div>
-</div>
-                  
+ 
+  
           <hr id="hr1" style="display: none;">
-                 
+ 
+<hr>         
  <div class="field">
-    <iframe id="chorniIframe" src="http://ytanalysis.in/songs/seEO3--Sy3c"></iframe>
+    <iframe id="chorniIframe" src="http://ytanalysis.in/songs/VAdGW7QDJiU"></iframe>
     <div class="under" style="text-align: center;">
         <a href="#" onclick="refreshIframe('chorniIframe'); return false;">
-            <span id="video3" style="font-size: 25px;">Chorni:</span>
+            <span id="video3" style="font-size: 25px;">Chaleya:</span>
             <span id="viewCount3" style="font-size: 25px;"></span>
         </a>
     </div>
 </div>
 
 
-
-   <hr>
+ 
 
 <div class="field">
   <iframe id="beshramIframe" src="http://ytanalysis.in/songs/huxhqphtDrM"></iframe>
   <div class="under" style="text-align: center;">
       <a href="#" onclick="refreshIframe('beshramIframe'); return false;">
-          <span id="video4" style="font-size: 25px;">Beshram rang:</span>
+          <span id="video4" style="font-size: 25px;">Beshram:</span>
           <span id="viewCount4" style="font-size: 25px;"></span>
       </a>
   </div>
 </div>
 
 
-<div class="field">
-  <iframe id="uddjaIframe" src="http://ytanalysis.in/songs/7VppHj0Rue0"></iframe>
-  <div class="under" style="text-align: center;">
-      <a href="#" onclick="refreshIframe('uddjaIframe'); return false;">
-          <span id="video5" style="font-size: 25px;">Uddja Kowa:</span>
-          <span id="viewCount5" style="font-size: 25px;"></span>
-      </a>
-  </div>
-</div>
 
 
 <div class="field">
@@ -243,40 +112,32 @@ hr {
 
 
 <hr>
-              
-                    
-<div class="field">
-    <iframe id="niklaIframe" src="http://ytanalysis.in/songs/2nK6WBcGPOw"></iframe>
-    <div class="under" style="text-align: center;">
-        <a href="#" onclick="refreshIframe('niklaIframe'); return false;">
-            <span id="video8" style="font-size: 25px;">Me Nikla:</span>
-            <span id="viewCount8" style="font-size: 25px;"></span>
-        </a>
-    </div>
-</div>
 
 
 <div class="field">
-    <iframe id="jhumkaIframe" src="http://ytanalysis.in/songs/87JIOAX3njM"></iframe>
+    <iframe id="jhumkaIframe" src="http://ytanalysis.in/songs/dlC1tNsr-n8"></iframe>
     <div class="under" style="text-align: center;">
         <a href="#" onclick="refreshIframe('jhumkaIframe'); return false;">
-            <span id="video9" style="font-size: 25px;">Jhumka:</span>
+            <span id="video9" style="font-size: 25px;">Dream Girl 2:</span>
             <span id="viewCount9" style="font-size: 25px;"></span>
         </a>
     </div>
 </div>
 
-
+          
 <div class="field">
-    <iframe id="khariyatIframe" src="http://ytanalysis.in/songs/qTAegUy7mo4"></iframe>
+    <iframe id="video1" src="http://ytanalysis.in/songs/wD2LsBsFJOI"></iframe>
     <div class="under" style="text-align: center;">
-        <a href="#" onclick="refreshIframe('khariyatIframe'); return false;">
-            <span id="video10" style="font-size: 25px;">Khariyat</span>
-            <span id="viewCount10" style="font-size: 25px;"></span>
+        <a href="#" onclick="refreshIframe('video1'); return false;">
+            <span id="title0" style="text-align: left">Bandeya:</span>
+            <span id="viewCount0" style="font-size: 25px; text-align: center;"></span>
         </a>
     </div>
-</div>
+  </div>   
 
+
+
+      
 
 <div class="field">
     <iframe id="zindaBandaIframe" src="http://ytanalysis.in/songs/AQEc4BwX6dk"></iframe>
@@ -287,7 +148,18 @@ hr {
         </a>
     </div>
 </div>
-            
+      
+
+<div class="field">
+    <iframe id="khariyatIframe" src="http://ytanalysis.in/songs/G7KNmW9a75Y"></iframe>
+    <div class="under" style="text-align: center;">
+        <a href="#" onclick="refreshIframe('khariyatIframe'); return false;">
+            <span id="video10" style="font-size: 25px;">Miley</span>
+            <span id="viewCount10" style="font-size: 25px;"></span>
+        </a>
+    </div>
+</div>
+
 
 <hr>
         
@@ -295,7 +167,7 @@ hr {
 <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
 
     
-    <div class="iframe-container"style="display: none;">
+    <div class="iframe-container" >
         <iframe id="tradexsong" src="http://ytanalysis.in/" style="width: 760px; height: 630px;"></iframe>
         <div class="under" style="text-align: center;">
             <a href="#" onclick="refreshIframe(''); return false; " style="text-decoration: none;">
@@ -327,24 +199,7 @@ hr {
                 <div id="video13">Tradex Song:
                     <span id="viewCount13" style="font-size: 25px;"></span>
                     <div id="remainingViews" style="font-size: 20px; color: yellow;"></div>
-<div class="under" style="text-align: center;">
-            <a href="#" onclick="refreshIframe(''); return false; " style="text-decoration: none;">
-                <div id="video12" style="color: white; text-decoration: none;">Tradex Song:
-                    <span id="viewCount12" style="font-size: 25px;"></span>
-                    <div> 
-                        <span class="target-label" style="color: white; margin-left: 0px;">Target:</span>
-                        <input type="number" id="targetViewsTradexInput" placeholder="Enter Target Views for Tradex" style="width: 100px;" onkeydown="handleTargetViewsInputKeyPress(event)"/>
-                        <button id="updateTargetViewsTradexButton">Update</button> 
-                        <span id="targetViewsTradex" class="target-count" style="color: white; font-style: normal; font-weight: normal; font-size: 20px;" ></span>
-                        <div>
-                            <span id="average" style="color: white; font-size: 25px;">Average:</span>
-                            <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Enter Which Time Update Views On Tradex" style="width: 150px;"/>
-                            <span id="divisionResult" style="color: white; font-size: 25px;"></span>
-                       </div>         
-                </div>             
-            </div>      
-        </a>
-    </div>
+
                 </div>            
             </a>
         </div>    
@@ -408,7 +263,7 @@ function calculateDivision() {
       if (!isNaN(newTargetViews)) {
         // Update your target views logic here
       } else {
-        alert("Please enter a valid number for the target views.");
+       // alert("Please enter a valid number for the target views.");
       }
     });
 
@@ -431,7 +286,7 @@ $('#updateTargetButton').click(function() {
         $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
         
     } else {
-        alert('Please enter a valid number for the target views.');
+      //  alert('Please enter a valid number for the target views.');
     }
 });
    // Function to format view count with commas
@@ -465,7 +320,7 @@ $('#updateTargetButton').click(function() {
                     targetViewsTradex = newTargetViews;
                     $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
                 } else {
-                    alert('Please enter a valid number for the target views.');
+                  //  alert('Please enter a valid number for the target views.');
                 }
             });
 
@@ -501,7 +356,7 @@ $('#updateTargetButton').click(function() {
             // Initial view count update
             updateViewCounts();
 
-            // Refresh view counts and remaining views every 30 seconds
+            // Refresh view counts and remaining views every 0 seconds
             setInterval(function() {
                 updateViewCounts();
             }, 0); // 30 seconds
@@ -513,38 +368,44 @@ $('#updateTargetButton').click(function() {
                         iframe.src = src; // Refresh the iframe by resetting the src
                     }
                 }
-                
-              
+    
                                                      $(document).ready(function() {
                                                          // Define your YouTube video IDs and titles
                                                          var videos = [
-                                                         { id: 'OBEOPnAO1hc', title: 'Yaar Ka Satya:' }, // 0
+                                                         { id: 'wD2LsBsFJOI', title: 'Bandeya:' }, // 0
                                                          { id: 'YxWlaYCA8MU', title: 'Jhoome:' }, //1
-                                                         { id: 'Yiw354fkSOs', title: 'Pasoori NU' }, //2
-                                                         { id: 'seEO3--Sy3c', title: 'Chorni' }, //3
+                                                         { id: 'I-_LHvTeVy4', title: 'Chandni' }, //2
+                                                         { id: 'VAdGW7QDJiU', title: 'Chaleya' }, //3
                                                          { id: 'huxhqphtDrM', title: 'Beshram' }, // 4
-                                                         { id: '7VppHj0Rue0', title: 'Uddja Kowa' }, // 5
+                                                         { id: 'ATWWmFU-xLk', title: 'Dil Ka Telephone' }, // 5
                                                          { id: 'QU9c0053UAU', title: 'Jung Kook' },//6
                                                          { id: 'sAzlWScHTc4', title: 'Nacho Nacho' }, // 7
-                                                         { id: '2nK6WBcGPOw', title: 'Mein Nikla' }, //8
-                                                         { id: '87JIOAX3njM', title: 'Jhumka ' }, // 9        
-                                                         { id: 'qTAegUy7mo4', title: 'Khariyat' },//10
+                                                         { id: '3qpxJEp4Ec4', title: 'Kudmayi' }, //8      // { id: '2nK6WBcGPOw', title: 'Mein Nikla' }, //8
+                                                         { id: 'dlC1tNsr-n8', title: 'Dream Girl 2 ' }, // 9        
+                                                         { id: 'G7KNmW9a75Y', title: 'Milley' },//10
                                                          { id: 'AQEc4BwX6dk', title: 'Zinda Banda' },//11
             
-            
-                                                         { id: 'QU9c0053UAU', title: 'Jung Kook' },//6
-                                                         { id: 'QU9c0053UAU', title: 'Jung Kook' },//6
+                                                         { id: 'I-_LHvTeVy4', title: 'Chandni' }, //2
+                                                         { id: 'I-_LHvTeVy4', title: 'Chandni' }, //2
+
                                                          ];
-                                            
+                                             
+                                                         // Function to format view count with commas
+                                                         function formatViewCount(viewCount) {
+                                                             return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                                                         }
+                                             
                                                          // Function to fetch view counts and update HTML
                                                          function updateViewCounts(apiKeyIndex) {
                                                              var apiKey = [
-                                                            'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw', // api 29
-                                                            'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc',// api 28
-                                                            'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
-                                                            'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
-                                                            'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
-                                                            'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
+                                                          //   'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw', // api 29
+                                                           //  'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
+                                                            // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
+                                                            // 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc',// api 28
+                                                             'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
+                                                             'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
+                                                             'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
+                                                             'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
                                                             'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
                                                             'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
                                                             'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
@@ -552,20 +413,25 @@ $('#updateTargetButton').click(function() {
                                                             'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8',// api 19
                                                             'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc',// api 18
                                                             'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
-                                                            'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
-                                                            'AIzaSyA98735rn2jeNqZbL4oc-1i3F3FQOe_V8Y', // api 15.
-                                                            'AIzaSyDxGyHFt-EwDItpFDBP0GOhg5CpjWz2mZA', // api 14
-                                                            'AIzaSyB8EJI17KTy6PcYn8MSK2Ycb8ID25IXeI0', // api 13
-                                                            'AIzaSyAgsgld5RayY0BfMYXLwb42nCinWxTbL10', // api 11
-                                                            'AIzaSyAb1quLpfdNneUjwp33KONEFqDlP0PQoac', // api 10.
-                                                            'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
-                                                            'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
-                                                            'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
-                                                            'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
-                                                            'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM',  // api 5
-                                                            'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4', // api 4
+                                                             'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
+                                                             'AIzaSyA98735rn2jeNqZbL4oc-1i3F3FQOe_V8Y', // api 15.
+                                                             'AIzaSyDxGyHFt-EwDItpFDBP0GOhg5CpjWz2mZA', // api 14
+                                                             'AIzaSyB8EJI17KTy6PcYn8MSK2Ycb8ID25IXeI0', // api 13
+                                                             'AIzaSyAgsgld5RayY0BfMYXLwb42nCinWxTbL10', // api 11
+                                                             'AIzaSyAb1quLpfdNneUjwp33KONEFqDlP0PQoac', // api 10.
+                                                             'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
+                                                             'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
+                                                             'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
+                                                             'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
+                                                             'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM',  // api 5
+                                                             'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'
                                                                  // Add more API keys here
                                                              ][apiKeyIndex];
+                                             
+
+                                                             function updateViewCounts(apiKeyIndex) {
+                                                             var apiKey = apiKeys[apiKeyIndex];}
+
                                              
  
                                                          // Function to format view count with commas
@@ -579,7 +445,7 @@ $('#updateTargetButton').click(function() {
 
                                                              var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
                                              
-                                                             // Build comma-separated list of video IDs
+                                                             // Build comma-separated list of video IDs1111111111111111111111111111111111       
                                                              var videoIdList = videos.map(function(video) {
                                                                  return video.id;
                                                              }).join(',');
@@ -637,3 +503,7 @@ $('#updateTargetButton').click(function() {
                            
 </body>
 </html>
+
+
+
+
