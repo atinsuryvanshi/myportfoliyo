@@ -1,46 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karol Ji</title>
-
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-
-
+    <title>Search Website</title>
 </head>
-<body style="background-color: black;">
+<body>
+    <h1>Search Website</h1>
+    <form action="" method="get">
+        <label for="websiteUrl">Enter Website URL:</label>
+        <input type="text" id="websiteUrl" name="websiteUrl" placeholder="https://www.example.com" required>
+        <button type="submit">Open Website</button>
+    </form>
 
-    <div class="field"> <iframe src="http://ytanalysis.in/songs/ngjUEDEY18E">  </iframe> 
-        <div class="under">
-             <a href="Pahli  Barish.html"> Pahli Barish Mein </a>  </div>
-        </div>
-
-    <div class="field"> <iframe src="http://ytanalysis.in/songs/jZGpkLElSu8">  </iframe> 
-        <div class="under">
-             <a href="Karol Ji.html"> Karol Ji </a>  </div>
-        </div>
-                   
-        <div class="field"> <iframe src="http://ytanalysis.in/songs/sAzlWScHTc4">  </iframe> 
-            <div class="under">
-                 <a href="Beshram Rang.html"> Nacho Nacho </a>  </div>
-          </div>
-
-        <div class="field"> <iframe src="http://ytanalysis.in/songs/G7KNmW9a75Y">  </iframe> 
-            <div class="under">
-                 <a href=""> Milly </a>  </div>
-            </div>
-               
-          
-
-       <hr>     
-         
-       <div class="field2"> <iframe src="http://ytanalysis.in/songs/YxWlaYCA8MU" style="width: 770px; height: 760px; display: inline-block; margin-top: 10px;">  </iframe> 
-                   
-                       
-        <div class="field2"> <iframe src="https://web.tradexapp.co/event/57093?multi=false" style="width: 770px; height: 760px; display: inline-block; margin-top: 10px;">  </iframe> 
-    
-        
-                    
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const websiteUrl = document.getElementById('websiteUrl').value;
+            window.location.href = websiteUrl;
+        });
+    </script>
 </body>
 </html>
