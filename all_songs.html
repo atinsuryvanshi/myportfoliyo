@@ -201,7 +201,7 @@
 
     
     <div class="iframe-container" >
-        <iframe id="tradexsong" src="http://ytanalysis.in/" style="width: 760px; height: 622px;"></iframe>
+        <iframe id="tradexsong" src="https://web.tradexapp.co/" style="width: 800px; height: 622px;"></iframe>
         <div class="under" style="text-align: center;">
             <a href="#" onclick="refreshIframe(''); return false; " style="text-decoration: none;">
                 <div id="video12" style="color: white; text-decoration: none;">Total Views:
@@ -466,7 +466,7 @@ $('#updateTargetButton').click(function() {
         var currentViewsTradex = parseInt($('#viewCount12').text().replace(/,/g, ''), 10);
         var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
         $('#num1').val(targetViewsTradex - currentViewsTradex);
-        $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+        $('#remainingViews').text('Remaining: ' + formatViewCount(remainingViews));
         
     } else {
       //  alert('Please enter a valid number for the target views.');
@@ -514,7 +514,7 @@ $('#updateTargetButton').click(function() {
                 // Calculate and display the remaining views
                 var currentViewsTradex = parseInt($('#viewCount12').text().replace(/,/g, ''), 10);
                 var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
-                $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+                $('#remainingViews').text('Remaining: ' + formatViewCount(remainingViews));
 
                 // Check if the target views have been reached
                 if (currentViewsTradex >= targetViewsTradex) {
@@ -526,7 +526,7 @@ $('#updateTargetButton').click(function() {
                     $('#video13').removeClass('completed'); // Remove the completed class from the video view count
                     $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
                     $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
-                   $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews)); // Restore the original text
+                   $('#remainingViews').text('Remaining: ' + formatViewCount(remainingViews)); // Restore the original text
                   
         }
                 
