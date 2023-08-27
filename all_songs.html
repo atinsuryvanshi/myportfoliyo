@@ -212,7 +212,11 @@
                         <input type="number" id="targetViewsTradexInput" placeholder="Target views" style="width: 100px;" onkeydown="handleTargetViewsInputKeyPress(event)"/>
                         <button id="updateTargetViewsTradexButton" style="background-color: white; color: black; width: 70px;">Update</button> 
                         <span id="targetViewsTradex" class="target-count" style="color: white; font-style: normal; font-weight: normal; font-size: 20px;" ></span>
-                                           
+      <div> <span id="remainingViews" style="font-size: 23.5px; color: white;"></span>
+      <span> <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 100px; font-size: 15px; " /></span>
+                <span id="divisionResult" style="color: white; font-size: 23.5px;"></span>
+      
+      </div>                                     
 <div> 
     <span> <input type="number" id="num1" name="num1" placeholder="Next Remaing">
          <input type="number" id="num2" name="num2" placeholder="Divide Times">
@@ -234,29 +238,7 @@
 
 
    
-    <div class="iframe-container">
-        <iframe src="https://web.tradexapp.co/" style="width: 788px; height: 622px;"  id="iframeTrad"></iframe>
-        <div class="under">
-            <a rel="Jhoome.html" style="text-align: center; color:white;">
-                <div id="video13" style="text-align: center;">
-                  
-                    <span id="remainingViews" style="font-size: 23.5px; color: white;"></span>
-                    <span id="viewsgain13" style="font-size: 23.5px; color: yellow;">Gain:</span>
-              <!--      Total Views:<span id="viewCount13" style="font-size: 23.5px;"></span>    -->
-  
-              <div style="margin-left: 60px;">
-                 <!--  <span id="average" style="color: white; font-size: 23.5px; display: none;">Average:</span> -->
-                <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 100px; font-size: 15px; " />
-                <span id="divisionResult" style="color: white; font-size: 23.5px;"></span>
-           </div>    
-                           
-            </a>
-        </div>    
-    </div>
-</div>
-        
-    
-
+   
 
 
 
