@@ -11,17 +11,6 @@
 <body style="background-color: black;">
      
 
-    <div class="field">
-        <iframe id="frameid11" src="http://ytanalysis.in/songs/yTsINmrAK4I"></iframe>
-        <div class="under" style="text-align: center;">
-            <a id="a11" href="#" onclick="refreshIframe('frameid11'); return false;">
-                <span id="video11" style="font-size: 22px;">Rainy:</span>
-                <span id="viewCount11" style="font-size: 22px;"></span>
-                <span id="previousCumulativeViews11" style="color: aqua; font-size: 22px;" ></span> 
-                <span id="viewsgain11" style="font-size: 22px; color: yellow;">Gain:</span>
-            </a>
-        </div>
-    </div>
           
 
 
@@ -73,7 +62,24 @@
         </a>
     </div>
   </div>
+
+
+  <div class="field">
+    <iframe id="frameid11" src="http://ytanalysis.in/songs/YxWlaYCA8MU"></iframe>
+    <div class="under" style="text-align: center;">
+        <a id="a11" href="#" onclick="refreshIframe('frameid11'); return false;">
+            <span id="video11" style="font-size: 22px;">Jhoome:</span>
+            <span id="viewCount11" style="font-size: 22px;"></span>
+            <span id="previousCumulativeViews11" style="color: aqua; font-size: 22px;" ></span> 
+            <span id="viewsgain11" style="font-size: 22px; color: yellow;">Gain:</span>
+        </a>
+    </div>
+</div>
+
+
 <hr>
+
+
 <div class="field">
     <iframe id="frameid9" src="http://ytanalysis.in/songs/ohS06vkHjLE"></iframe>
     <div class="under" style="text-align: center;">
@@ -85,8 +91,8 @@
         </a>
     </div>
 </div>
+  
 
-              
 <div class="field">
     <iframe id="frameid7" src="http://ytanalysis.in/songs/nbNbfiJszHw"></iframe>
     <div class="under" style="text-align: center;">
@@ -128,6 +134,7 @@
     </div>
   </div>
   
+
   <hr>
   
     
@@ -551,18 +558,18 @@ $('#updateTargetButton').click(function() {
             
 // Define the reset times with both minutes and seconds
 var resetTimes = [
-    { minutes: 4, seconds: 59 },
-    { minutes: 9, seconds: 59 },
-    { minutes: 14, seconds: 59 },
-    { minutes: 19, seconds: 59 },
-    { minutes: 24, seconds: 59 },
-    { minutes: 29, seconds: 59 },
-    { minutes: 34, seconds: 59 },
-    { minutes: 39, seconds: 59 },
-    { minutes: 44, seconds: 59 },
-    { minutes: 49, seconds: 59 },
-    { minutes: 54, seconds: 59 },
-    { minutes: 59, seconds: 59 }
+    { minutes: 0, seconds: 19 },
+    { minutes: 5, seconds: 19 },
+    { minutes: 10, seconds: 19 },
+    { minutes: 15, seconds: 19 },
+    { minutes: 20, seconds: 19 },
+    { minutes: 25, seconds: 19 },
+    { minutes: 30, seconds: 19 },
+    { minutes: 35, seconds: 19 },
+    { minutes: 40, seconds: 19 },
+    { minutes: 45, seconds: 19 },
+    { minutes: 50, seconds: 19 },
+    { minutes: 55, seconds: 19 },
 ];
 
 // Function to check if the current time is a reset time
@@ -632,9 +639,9 @@ setInterval(function() {
                                                          { id: '3qpxJEp4Ec4', title: 'Kudmayi' }, //8   
                                                          { id: 'ohS06vkHjLE', title: 'Ramaiya' }, // 9        
                                                          { id: 'G7KNmW9a75Y', title: 'Milley' },//10
-                                                         { id: 'yTsINmrAK4I', title: 'Raini' },//11
+                                                         { id: 'YxWlaYCA8MU', title: 'Jhoome' },//11
             
-                                                         { id: 'MkO9g3ywnG4', title: 'Myke' }, // 4     
+                                                         { id: 'QU9c0053UAU', title: 'Jung' },//6
                                                        
                                                          ];
                                              
@@ -751,7 +758,7 @@ setInterval(function() {
     var currentSeconds = currentTime.getSeconds();
 
     // Check if the current time is at 4:58 or 9:58
-    return (currentMinutes === 4 && currentSeconds === 58) || (currentMinutes === 9 && currentSeconds === 58) || (currentMinutes === 14 && currentSeconds === 58)|| (currentMinutes === 19 && currentSeconds === 58)|| (currentMinutes === 24 && currentSeconds === 58)|| (currentMinutes === 29 && currentSeconds === 58)|| (currentMinutes === 34 && currentSeconds === 58)|| (currentMinutes === 39 && currentSeconds === 58)|| (currentMinutes === 44 && currentSeconds === 58)|| (currentMinutes === 49 && currentSeconds === 58)|| (currentMinutes === 54 && currentSeconds === 58)|| (currentMinutes === 59 && currentSeconds === 58);
+    return (currentMinutes === 0 && currentSeconds === 18) || (currentMinutes === 5 && currentSeconds === 18) || (currentMinutes === 10 && currentSeconds === 18)|| (currentMinutes === 15 && currentSeconds === 18)|| (currentMinutes === 20 && currentSeconds === 18)|| (currentMinutes === 25 && currentSeconds === 18)|| (currentMinutes === 30 && currentSeconds === 18)|| (currentMinutes === 35 && currentSeconds === 18)|| (currentMinutes === 40 && currentSeconds === 18)|| (currentMinutes === 45 && currentSeconds === 18)|| (currentMinutes === 50 && currentSeconds === 18)|| (currentMinutes === 55 && currentSeconds === 18);
 }
 
 
