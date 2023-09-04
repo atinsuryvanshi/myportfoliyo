@@ -7,12 +7,151 @@
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
    
+    <style>
+a {
+    font-size: 25px;
+    margin-left: 0px;
+    top: 20px;
+    color: white;
+font-weight: bold;
+box-shadow: 50px;}
+
+iframe{
+width: 370px;
+height: 300px;
+border-radius: 30px;
+display: inline-block; }
+
+.field {
+    display: inline-block;
+    width: 370px;
+    height: 300px;
+    margin-left: 20px; }
+
+.field2{
+display: inline-block;
+margin-left: 25px;}       
+
+tradexweb{
+display:inline-block;  }
+
+
+body {
+    background-color: black;
+    max-width: 100%;}
+
+.field {
+    margin-bottom: 20px;}
+
+.field iframe {
+    width: 100%;
+    height: 335px;
+}
+
+.field .under {
+    text-align: center;
+}
+
+.field .under a {
+    color: white;
+    text-decoration: none;}
+
+.field .under a:hover {
+    text-decoration: underline;}
+
+.field .under #video1,
+.field .under #video2,
+.field .under #video3 {
+    font-size: 25px;}
+
+        /* Define CSS classes to change color */
+        .completed {
+            color: yellow;
+            font-weight: bold;
+        }
+        .not-completed {
+            color: white;
+        }
+    
+ @media (max-width: 1700px) {
+    .field {
+        width: 23%; /* 4 iframe के लिए 23%  दिया गया है */
+    }
+}
+
+@media (max-width: 1400px) {
+    .field {
+        width: 30.5%; /* 3 iframe के लिए 31% व्यापार दिया गया है */
+    }
+}  
+   @media (max-width: 1000px) {
+    .field {
+        width: 45%; /* 2 iframe के लिए 45% व्यापार दिया गया है */
+        
+    }
+}
+
+@media (max-width: 700px) {
+    .field {
+        width: 500px /* 1 iframe के लिए 500px व्यापार दिया गया है */
+    }
+}
+
+@media (max-width: 570px) {
+    .field {
+        width: 85%; /* 1 iframe के लिए 85% व्यापार दिया गया है */
+       
+} 
+}
+
+@media (max-width: 1400px) {
+hr {
+    display: none;
+}
+}
+
+
+h2 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 0px;
+}
+
+input[type="number"] {
+    padding: 5px;
+    margin-bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100px;
+}
+
+button {
+    padding: 8px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 0px;
+    font-weight: bold;
+    margin-left: 5px;
+
+}
+
+
+    </style>
 </head>
 <body style="background-color: black;">
-     
-
-          
-
 
 <div class="field">
     <iframe id="frameid8" src="http://ytanalysis.in/songs/3qpxJEp4Ec4"></iframe>
@@ -25,10 +164,6 @@
         </a>
     </div>
 </div>
-
-
-
-
   
 
 <div class="field"> 
@@ -43,12 +178,8 @@
     </div>
 </div>
     
-   
-
-
 
  <hr id="hr1" style="display: none;">
- 
    
  
 <div class="field">
@@ -105,7 +236,6 @@
     </div>
   </div>
 
-  
 
 
 <div class="field">
@@ -225,15 +355,14 @@
 
 
 
-   
     <div class="iframe-container">
         <iframe src="https://web.tradexapp.co/" style="width: 788px; height: 622px;"  id="iframeTrad"></iframe>
         <div class="under">
             <a rel="Jhoome.html" style="text-align: center; color:white;">
-                <div id="video13" style="text-align: center;">          
-                    <span id="remainingViews" style="font-size: 22px; color: white;"></span>
+                <div id="video13" style="text-align: center;">
                     <span id="previousCumulativeViews13" style="color: aqua; font-size: 22px;"></span>        
-                    <span id="viewsgain13" style="font-size: 22px; color: yellow;">Gain:</span> 
+                    <span id="viewsgain13" style="font-size: 22px; color: yellow;">Gain:</span>           
+                    <span id="remainingViews" style="font-size: 22px; color: white;"></span>
                    <div style="margin-left: 60px;">
                    <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 100px; font-size: 15px; " />
                    <span id="divisionResult" style="color: white; font-size: 22px;"></span>
@@ -248,8 +377,6 @@
 <body>
         
    <script>
-
-
 // HTML input elements ko references se connect karein
 var divisionFactorInput = document.getElementById('divisionFactor');
 var num2Input = document.getElementById('num2');
@@ -262,8 +389,6 @@ function updateValues() {
 
 // divisionFactor ki value change hone par function ko call karein
 divisionFactorInput.addEventListener('input', updateValues);
-
-
 
 
 document.getElementById("subtractionValue2").addEventListener("input", function() {
@@ -290,8 +415,7 @@ function clearSubtractionValue(inputElement) {
     updateResult();
 }
 
-
-        document.getElementById("subtractionValue1").addEventListener("input", function() {
+ document.getElementById("subtractionValue1").addEventListener("input", function() {
             var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
             if (isNaN(subtractionValue1)) {
                 clearSubtractionValue(this);
@@ -378,9 +502,7 @@ function subtractAllValues() {
 
 updateResult();
 
-
 var previousCumulativeViews = []; // Array to store previous cumulative gain views
-
 var previousViewCounts = [];
 var cumulativeGainViews = [];
 var intervalResetTime = 9999997.5; // 45550 minutes in seconds
@@ -408,14 +530,14 @@ function updateViewCountParagraph(videoIndex, viewCount) {
     }
 }
 
+
+
     // Update the view count paragraph when the video link is clicked
     $("#video1").on("load", function() {
         var viewCount = $("#viewCount0").text();
         updateViewCountParagraph(0, viewCount);
     });
 
-    // Add similar handlers for other videos (video2, video3, etc.)
-    // ...
 
 function calculateDivision() {
     var divisionFactor = parseInt(document.getElementById('divisionFactor').value);
@@ -431,13 +553,10 @@ function calculateDivision() {
 // Original targetUpdateTime
 var targetUpdateTime = { minutes: 4, seconds: 58 };
 
-// Add 5 minutes
-
 // Ensure minutes don't exceed 59
 if (targetUpdateTime.minutes > 59) {
     targetUpdateTime.minutes = targetUpdateTime.minutes % 60;
 }
-
 // The result will now be 21 minutes and 58 seconds
 console.log(targetUpdateTime);
 
@@ -449,8 +568,6 @@ function isTargetUpdateTime() {
 
     return currentMinutes === targetUpdateTime.minutes && currentSeconds === targetUpdateTime.seconds;
 }
-
-
 
  function handleTargetViewsInputKeyPress(event) {
     // Check if the key pressed is the "Enter" key (keyCode 13)
@@ -473,7 +590,6 @@ function isTargetUpdateTime() {
       }
     });
 
-    
     // Other parts of your existing code...
   });
 $('#updateTargetButton').click(function() {
@@ -533,8 +649,6 @@ $('#updateTargetButton').click(function() {
 
             // Function to update view counts and remaining views
             function updateViewCounts() {
-                // ... (existing code for fetching view counts, you can keep this as is) ...
-
                 // Calculate and display the remaining views
                 var currentViewsTradex = parseInt($('#viewCount12').text().replace(/,/g, ''), 10);
                 var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
@@ -552,9 +666,8 @@ $('#updateTargetButton').click(function() {
                     $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
                    $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews)); // Restore the original text
                   
-        }
-                
-                }
+        }   
+    }
             
 // Define the reset times with both minutes and seconds
 var resetTimes = [
@@ -606,10 +719,6 @@ setInterval(function() {
     updateViewCountsAndReset();
 }, 1000); // Update every second
 
-            
-         
-            
-            // Initial view count update
             updateViewCounts();
 
             // Refresh view counts and remaining views every 0 seconds
@@ -617,6 +726,7 @@ setInterval(function() {
                 updateViewCounts();
             }, 0); // 30 seconds
         });
+
             function refreshIframe(iframeId) {
                     var iframe = document.getElementById(iframeId);
                     if (iframe) {
@@ -624,7 +734,7 @@ setInterval(function() {
                         iframe.src = src; // Refresh the iframe by resetting the src
                     }
                 }
-    
+                
                                                      $(document).ready(function() {
                                                          // Define your YouTube video IDs and titles
                                                          var videos = [
@@ -641,21 +751,21 @@ setInterval(function() {
                                                          { id: 'G7KNmW9a75Y', title: 'Milley' },//10
                                                          { id: 'YxWlaYCA8MU', title: 'Jhoome' },//11
             
-                                                         { id: 'QU9c0053UAU', title: 'Jung' },//6
+                                                         { id: 'MkO9g3ywnG4', title: 'Myke' }, // 4
                                                        
                                                          ];
                                              
                                                          // Function to format view count with commas
                                                          function formatViewCount(viewCount) {
                                                              return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                                                         }
+                                                      frt    }
                                              
                                                          // Function to fetch view counts and update HTML
                                                          function updateViewCounts(apiKeyIndex) {
                                                              var apiKey = [
-                                                                'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
+                                                               // 'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
                                                                // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
-                                                               // 'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
+                                                                'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
                                                                 'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
                                                           //z   'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
                                                                'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41
@@ -696,14 +806,10 @@ setInterval(function() {
 
                                                              function updateViewCounts(apiKeyIndex) {
                                                              var apiKey = apiKeys[apiKeyIndex];}
-
-                                             
- 
                                                          // Function to format view count with commas
                                                          function formatViewCount(viewCount) {
                                                              return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                                                          }
-                                             
                                                              function updateViewCounts(apiKeyIndex) {
                                                              var apiKey = apiKeys[apiKeyIndex];}
 
@@ -718,18 +824,14 @@ setInterval(function() {
                                                              // Prepare the API request URL
                                                              var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
            
-    $.ajax({
-
-                                                                
+    $.ajax({                                             
             url: requestUrl,
             type: 'GET',
             success: function(data) {
                 var currentTime = Date.now();
                 var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
-
                 for (var i = 0; i < data.items.length; i++) {
-                    var viewCount = parseInt(data.items[i].statistics.viewCount);
-                    
+                    var viewCount = parseInt(data.items[i].statistics.viewCount);  
                     var previousViewCount = previousViewCounts[i] || viewCount;
                     var viewsGain = viewCount - previousViewCount;
                     previousViewCounts[i] = viewCount;
@@ -744,13 +846,11 @@ setInterval(function() {
                   
                     }
 
- 
     if (timeElapsed < intervalResetTime) {
             cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;}
             
             $('#viewCount' + i).text('' + formatViewCount(viewCount));
               $('#viewsgain' + i).text(': ' + formatViewCount(cumulativeGainViews[i]));
-                                                
     
               function shouldSavePreviousCumulativeViews() {
     var currentTime = new Date();
@@ -758,9 +858,19 @@ setInterval(function() {
     var currentSeconds = currentTime.getSeconds();
 
     // Check if the current time is at 4:58 or 9:58
-    return (currentMinutes === 0 && currentSeconds === 18) || (currentMinutes === 5 && currentSeconds === 18) || (currentMinutes === 10 && currentSeconds === 18)|| (currentMinutes === 15 && currentSeconds === 18)|| (currentMinutes === 20 && currentSeconds === 18)|| (currentMinutes === 25 && currentSeconds === 18)|| (currentMinutes === 30 && currentSeconds === 18)|| (currentMinutes === 35 && currentSeconds === 18)|| (currentMinutes === 40 && currentSeconds === 18)|| (currentMinutes === 45 && currentSeconds === 18)|| (currentMinutes === 50 && currentSeconds === 18)|| (currentMinutes === 55 && currentSeconds === 18);
+    return (currentMinutes === 0 && currentSeconds === 18) || 
+    (currentMinutes === 5 && currentSeconds === 18) || 
+    (currentMinutes === 10 && currentSeconds === 18)|| 
+    (currentMinutes === 15 && currentSeconds === 18)|| 
+    (currentMinutes === 20 && currentSeconds === 18)|| 
+    (currentMinutes === 25 && currentSeconds === 18)|| 
+    (currentMinutes === 30 && currentSeconds === 18)|| 
+    (currentMinutes === 35 && currentSeconds === 18)|| 
+    (currentMinutes === 40 && currentSeconds === 18)|| 
+    (currentMinutes === 45 && currentSeconds === 18)|| 
+    (currentMinutes === 50 && currentSeconds === 18)|| 
+    (currentMinutes === 55 && currentSeconds === 18);
 }
-
 
 // Function to save the value of previousCumulativeViews
 function savePreviousCumulativeViews() {
@@ -781,13 +891,9 @@ if (shouldSavePreviousCumulativeViews()) {
     if (isTargetUpdateTime()) {
                 previousCumulativeViews[i] = cumulativeGainViews[i];
                
-            }
-
-          
+            }   
               $('#viewsgain13').text(': ' + formatViewCount(cumulativeGainViews[i]));
-              $('#previousCumulativeViews13').text('' + formatViewCount(cumulativeGainViews[i]));
-
-              
+              $('#previousCumulativeViews13').text('' + formatViewCount(cumulativeGainViews[i]));   
               var title = videos[i].title;
               $('#title' + i).text(title);
                 }},
@@ -882,21 +988,13 @@ function updateViewCountsAndReset() {
     if (shouldResetCumulativeGain()) {
         resetCumulativeGain();
     }
-
-    // Your existing code to update view counts
-    // ...
 }
-
 // Initial view count update and reset check
 setInterval(function() {
     updateViewCountsAndReset();
 }, 1000);
 
-
-
 </script>
                            
 </body>
 </html>
-
-
