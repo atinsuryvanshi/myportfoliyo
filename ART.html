@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Song</title>
+    <link rel="stylesheet" type="text/css" href="all_songs.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        a {
+            font-size: 23px;
+            margin-left: 0px;
+            top: 21.1px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 50px;
+        }
+
+        iframe {
+            width: 370px;
+            height: 300px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .field {
+            display: inline-block;
+            width: 370px;
+            height: 300px;
+            margin-left: 21.1px;
+        }
+
+        .field2 {
+            display: inline-block;
+            margin-left: 23px;
+        }
+
+        tradexweb {
+            display: inline-block;
+        }
+
+
+        body {
+            background-color: black;
+            max-width: 100%;
+        }
+
+        .field {
+            margin-bottom: 21.1px;
+        }
+
+        .field iframe {
+            width: 100%;
+            height: 335px;
+        }
+
+        .field .under {
+            text-align: left;
+        }
+
+        .field .under a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .under a {
+        text-decoration: none;
+    }
+
+        .field .under a:hover {
+            text-decoration: underline;
+        }
+
+        .field .under #video1,
+        .field .under #video2,
+        .field .under #video3 {
+            font-size: 23px;
+        }
+
+        /* Define CSS classes to change color */
+        .completed {
+            color: rgb(25, 430, 50);
+            font-weight: bold;
+        }
+
+        .not-completed {
+            color: white;
+        }
+
+        @media (max-width: 1700px) {
+            .field {
+                width: 23%;
+                /* 4 iframe के लिए 23%  दिया गया है */
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .field {
+                width: 30.5%;
+                /* 3 iframe के लिए 31% व्यापार दिया गया है */
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .field {
+                width: 45%;
+                /* 2 iframe के लिए 45% व्यापार दिया गया है */
+
+            }
+        }
+
+        @media (max-width: 700px) {
+            .field {
+                width: 500px
+                    /* 1 iframe के लिए 500px व्यापार दिया गया है */
+            }
+        }
+
+        @media (max-width: 570px) {
+            .field {
+                width: 85%;
+                /* 1 iframe के लिए 85% व्यापार दिया गया है */
+
+            }
+        }
+
+        @media (max-width: 1400px) {
+            hr {
+                display: none;
+            }
+        }
+
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            margin-bottom: 0px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100px;
+        }
+
+        button {
+            padding: 8px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 0px;
+            font-weight: bold;
+            margin-left: 5px;
+
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+
+    <div class="field3" style="text-underline-position: unset;">
+        
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid8'); return false;">
+                <span id="video8" style="font-size: 21.1px;"> Maan</span>
+                
+                <span id="previousCumulativeViews8"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain8" style="font-size: 21.1px; color: rgb(25, 430, 50); font-weight: 700;">Gain:</span>
+            </a>
+        </div>
+    </div>
+
+<br>
+
+
+
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid3'); return false;">
+                <span id="video3" style="font-size: 21.1px;"> Bawali</span>
+               
+                <span id="previousCumulativeViews3"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain3" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+<br>
+
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;">
+            <a id="a11" href="#" onclick="refreshIframe('frameid11'); return false;">
+                <span id="video11" style="font-size: 21.1px;"> Jhoome</span>
+                
+                <span id="previousCumulativeViews11"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain11"
+                    style="font-size: 21.1px; color:  rgb(25,430, 50); font-weight: bold;">Gain:</span>
+            </a>
+        </div>
+    </div>
+<br>
+
+
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid7'); return false;">
+                <span id="video7" style="font-size: 21.1px;"> Chaleya</span>
+                
+                <span id="previousCumulativeViews7"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain7" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+
+
+    <br>
+
+
+
+    
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid9'); return false;">
+                <span id="video9" style="font-size: 21.1px;"> Karol Ji</span>
+               
+                <span id="previousCumulativeViews9"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain9" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+
+<br>
+
+
+    <div class="field3">
+      
+        <div class="under" style="text-align: left;" >
+            <a href="#" onclick="refreshIframe('frameid1'); return false;">
+                <span id="title1" style="text-align: left; font-size: 21.1px;">Keemti</span>
+               
+                <span id="previousCumulativeViews1"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain1" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid4'); return false;">
+                <span id="video4" style="font-size: 21.1px;"> Nacho</span>
+               
+                <span id="previousCumulativeViews4"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain4" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+
+    <br>
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid0'); return false;">
+                <span id="title0" style="text-align: left; font-size: 21.1px;"> Simroon</span>
+               
+                <span id="previousCumulativeViews0"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain0" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+
+
+    <br>
+
+  
+
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;" >
+            <a href="#" onclick="refreshIframe('frameid2'); return false;">
+                <span id="video2" style="text-align: left; font-size: 21.1px;"> Me Nikla</span>
+               
+                <span id="previousCumulativeViews2"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain2" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="field3">
+       
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid5'); return false;">
+                <span id="video5" style="font-size: 21.1px;"> Jhumka</span>
+                
+                <span id="previousCumulativeViews5"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain5"
+                    style="font-size: 21.1px; color:  rgb(25, 430, 50); font-weight: bold; ">Gain:</span>
+            </a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="field3">
+       
+      <div class="under" style="text-align: left;">
+          <a href="#" onclick="refreshIframe('frameid6'); return false;">
+              <span id="video6" style="font-size: 21.1px;"> Lutt Gya </span>
+             
+              <span id="previousCumulativeViews6"
+                  style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+              <span id="viewsgain6" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+          </a>
+      </div>
+  </div>
+<br>
+
+    <div class="field3">
+        
+        <div class="under" style="text-align: left;">
+            <a href="#" onclick="refreshIframe('frameid10'); return false;">
+                <span id="video10" style="font-size: 21.1px;"> Miley</span>
+               
+                <span id="previousCumulativeViews10"
+                    style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                <span id="viewsgain10" style="font-size: 21.1px; color:  rgb(25, 430, 50);">Gain:</span>
+            </a>
+        </div>
+    </div>
+    
+
+   
+   
+    
+
+
+    
+
+
+      
+           
+           
+                       
+                  
+                       
+                      
+                       
+                         <input type="number" id="num1" name="num1" style="display: none;" >
+                                <input style="display: none;" type="number" id="subtractionValue1" placeholder="Predict"
+                                    style="margin-right: 1px; width: 70px; ">
+                                <input type="number" id="num2" name="num2" placeholder="Divide"  style="margin-right: 1px; width: 70px; display: none;">"> 
+
+                                <span id="result"  style="margin-right: 1px; width: 70px; ">>
+                    
+
+            </div>
+            </a>
+        </div>
+       
+            <div class="under"  style="margin-right: 1px; width: 70px; display: none; ">
+                <a rel="Jhoome.html" style="text-align: left; color:white;">
+                    <div id="video13" style="text-align: left;">
+                        <span id="previousCumulativeViews12"
+                            style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
+                        <span id="viewsgain13" style="font-size: 23px; color:  rgb(25, 430, 50);">Gain:</span>
+                        <span id="remainingViews" style="font-size:  23px; color: white;"></span>
+                        <div style="margin-left: 60px;">
+                            <input type="number" id="divisionFactor" oninput="calculateDivision();"
+                                placeholder="Average" style="width: 100px; font-size: 15px; " />
+                            <span id="divisionResult" style="color: yellow; font-size: 23px;"></span>
+
+                            <div style="display: none;">
+                                <input type="number" id="subtractionValue2" placeholder="Value 2"
+                                    style="display: none;">
+                                <input type="number" id="subtractionValue3" placeholder="Next Views"
+                                    style="display: none;">
+                                <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br>
+                            </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<body>
+
+    <script>
+
+        
+
+
+        // HTML input elements ko references se connect karein
+        var divisionFactorInput = document.getElementById('divisionFactor');
+        var num2Input = document.getElementById('num2');
+
+        // Function jo value ko update karega
+        function updateValues() {
+            var divisionFactorValue = divisionFactorInput.value;
+            num2Input.value = divisionFactorValue;
+        }
+
+        // divisionFactor ki value change hone par function ko call karein
+        divisionFactorInput.addEventListener('input', updateValues);
+
+
+        document.getElementById("subtractionValue2").addEventListener("input", function () {
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            if (!isNaN(subtractionValue2)) {
+                var newNum1 = num1 - subtractionValue2;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue3").addEventListener("input", function () {
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+            if (!isNaN(subtractionValue3)) {
+                var newNum1 = num1Original - subtractionValue3;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        function clearSubtractionValue(inputElement) {
+            inputElement.value = '';
+            document.getElementById("num1").value = num1Original;
+            updateResult();
+        }
+
+        document.getElementById("subtractionValue1").addEventListener("input", function () {
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            if (isNaN(subtractionValue1)) {
+                clearSubtractionValue(this);
+            } else {
+                // Your existing logic for subtracting subtractionValue1
+            }
+        });
+
+
+        var num1Original = 0;
+
+        document.getElementById("num1").addEventListener("input", function () {
+            num1Original = parseFloat(document.getElementById("num1").value);
+            updateResult();
+        });
+
+        document.getElementById("num2").addEventListener("input", function () {
+            updateResult();
+        });
+
+        document.getElementById("subtractionValue1").addEventListener("input", function () {
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            if (!isNaN(subtractionValue1)) {
+                var newNum1 = num1Original - subtractionValue1;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue2").addEventListener("input", function () {
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            if (!isNaN(subtractionValue2)) {
+                var newNum1 = num1Original - subtractionValue2;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue3").addEventListener("input", function () {
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+            if (!isNaN(subtractionValue3)) {
+                var newNum1 = num1Original - subtractionValue3;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        function updateResult() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            var resultParagraph = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultParagraph.innerHTML = "";
+            } else {
+                if (num2 === 0) {
+                    resultParagraph.innerHTML = "";
+                } else {
+                    var divisionResult = num1 / num2;
+                    resultParagraph.innerHTML = "" + divisionResult.toFixed(2);
+                }
+            }
+        }
+
+        function subtractAllValues() {
+            var num1Input = document.getElementById("num1");
+            var num1 = parseFloat(num1Input.value);
+
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+
+            if (!isNaN(num1)) {
+                num1Original = num1; // Update the original value for subsequent calculations
+                if (!isNaN(subtractionValue1)) num1 -= subtractionValue1;
+                if (!isNaN(subtractionValue2)) num1 -= subtractionValue2;
+                if (!isNaN(subtractionValue3)) num1 -= subtractionValue3;
+
+                num1Input.value = num1.toString();
+                updateResult();
+            }
+        }
+
+        updateResult();
+
+        var previousCumulativeViews = []; // Array to store previous cumulative gain views
+        var previousViewCounts = [];
+        var cumulativeGainViews = [];
+        var intervalResetTime = 9999997.5; // 45550 minutes in seconds
+        var resetTimestamp = Date.now();
+
+        // Function to check if the current time is one second before a reset time
+        function shouldUpdateCumulativeGain() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            // Check if the current time is one second before any of the reset times
+            return resetTimes.some(function (resetTime) {
+                return (
+                    resetTime.minutes === currentMinutes &&
+                    resetTime.seconds === currentSeconds - 1
+                );
+            });
+        }
+
+        function updateViewCountParagraph(videoIndex, viewCount) {
+            var viewCountParagraph = document.getElementById('viewCountParagraph' + videoIndex);
+            if (viewCountParagraph) {
+                viewCountParagraph.textContent = 'Views: ' + viewCount;
+            }
+        }
+
+
+
+        // Update the view count paragraph when the video link is clicked
+        $("#video1").on("load", function () {
+            var viewCount = $("#viewCount0").text();
+            updateViewCountParagraph(0, viewCount);
+        });
+
+
+        function calculateDivision() {
+            var divisionFactor = parseInt(document.getElementById('divisionFactor').value);
+            var remainingViews = parseInt(document.getElementById('remainingViews').textContent.split(' ')[2].replace(/,/g, ''));
+
+            if (!isNaN(divisionFactor)) {
+                var divisionResult = remainingViews / divisionFactor;
+                document.getElementById('divisionResult').textContent = '' + divisionResult.toFixed(2);
+            } else {
+                document.getElementById('divisionResult').textContent = '';
+            }
+        }
+        // Original targetUpdateTime
+        var targetUpdateTime = { minutes: 4, seconds: 58 };
+
+        // Ensure minutes don't exceed 59
+        if (targetUpdateTime.minutes > 59) {
+            targetUpdateTime.minutes = targetUpdateTime.minutes % 60;
+        }
+        // The result will now be 21 minutes and 58 seconds
+        console.log(targetUpdateTime);
+
+        // Function to check if the current time matches the targetUpdateTime
+        function isTargetUpdateTime() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            return currentMinutes === targetUpdateTime.minutes && currentSeconds === targetUpdateTime.seconds;
+        }
+
+        function handleTargetViewsInputKeyPress(event) {
+            // Check if the key pressed is the "Enter" key (keyCode 13)
+            if (event.keyCode === 13) {
+                // Trigger the "Update" button click event
+                document.getElementById("updateTargetViewsTradexButton").click();
+            }
+        }
+
+        // Rest of your existing JavaScript code...
+
+        $(document).ready(function () {
+            // Update the target views when the "Update" button is clicked
+            $("#updateTargetViewsTradexButton").click(function () {
+                var newTargetViews = parseInt($("#targetViewsTradexInput").val());
+                if (!isNaN(newTargetViews)) {
+                    // Update your target views logic here
+                } else {
+                    // alert("Please enter a valid number for the target views.");
+                }
+            });
+
+            // Other parts of your existing code...
+        });
+        $('#updateTargetButton').click(function () {
+            // Get the value from the input field
+            var newTargetViews = parseInt($('#targetViewsInput').val());
+
+            // Check if the input is a valid number
+            if (!isNaN(newTargetViews)) {
+                // Update the target views on the screen
+                targetViewsTradex = newTargetViews;
+                $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+
+                // Update the remaining views based on the new target
+                var currentViewsTradex = parseInt($('#viewCount12').text().replace(/,/g, ''), 10);
+                var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+                $('#num1').val(targetViewsTradex - currentViewsTradex);
+                $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+
+            } else {
+                //  alert('Please enter a valid number for the target views.');
+            }
+        });
+        // Function to format view count with commas
+        function formatViewCount(viewCount) {
+            return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Function to calculate remaining views
+        function calculateRemainingViews(currentViews, targetViews) {
+            return Math.max(targetViews - currentViews, 0);
+        }
+
+        $(document).ready(function () {
+            // Define the target view count for the "Tradex Song" video
+            var targetViewsTradex = // 1000000;
+
+                // Function to format view count with commas
+                function formatViewCount(viewCount) {
+                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+            // Function to calculate remaining views
+            function calculateRemainingViews(currentViews, targetViews) {
+                return Math.max(targetViews - currentViews, 0);
+            }
+
+            // Update the target views when the "Update Target Views" button is clicked
+            $('#updateTargetViewsTradexButton').click(function () {
+                var newTargetViews = parseInt($('#targetViewsTradexInput').val());
+                if (!isNaN(newTargetViews)) {
+                    targetViewsTradex = newTargetViews;
+                    $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+                } else {
+                    //  alert('Please enter a valid number for the target views.');
+                }
+            });
+
+            // Function to update view counts and remaining views
+            function updateViewCounts() {
+                // Calculate and display the remaining views
+                var currentViewsTradex = parseInt($('#viewCount12').text().replace(/,/g, ''), 10);
+                var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+                $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+
+                // Check if the target views have been reached
+                if (currentViewsTradex >= targetViewsTradex) {
+                    $('#video12').addClass('completed'); // Apply the completed class to the video view count
+                    $('#remainingViews.completed').css('color', 'green'); // Change the color as needed
+                    $('#remainingViews').text('Views Completed ✅✅✅'); // Change the text to indicate completion
+                    $('#num1').text('');
+                } else {
+                    $('#video12').removeClass('completed'); // Remove the completed class from the video view count
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                    $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews)); // Restore the original text
+
+                }
+            }
+
+            // Define the reset times with both minutes and seconds
+            var resetTimes = [
+                { minutes: 5, seconds: 0 },
+                { minutes: 10, seconds: 0 },
+                { minutes: 15, seconds: 0 },
+                { minutes: 20, seconds: 0 },
+                { minutes: 25, seconds: 0 },
+                { minutes: 30, seconds: 0 },
+                { minutes: 35, seconds: 0 },
+                { minutes: 40, seconds: 0 },
+                { minutes: 45, seconds: 0 },
+                { minutes: 50, seconds: 0 },
+                { minutes: 55, seconds: 0 },
+                { minutes: 59, seconds: 59 },
+            ];
+
+            // Function to check if the current time is a reset time
+            function shouldResetCumulativeGain() {
+                var currentTime = new Date();
+                var currentMinutes = currentTime.getMinutes();
+                var currentSeconds = currentTime.getSeconds();
+
+                // Check if the current time matches any of the reset times
+                return resetTimes.some(function (resetTime) {
+                    return resetTime.minutes === currentMinutes && resetTime.seconds === currentSeconds;
+                });
+            }
+
+            // Function to reset cumulative gain views
+            function resetCumulativeGain() {
+                cumulativeGainViews = cumulativeGainViews.map(function () {
+                    return 0; // Reset each element to 0
+                });
+            }
+
+            // Function to update view counts and handle reset
+            function updateViewCountsAndReset() {
+                if (shouldResetCumulativeGain()) {
+                    resetCumulativeGain();
+                }
+
+                // Your existing code to update view counts
+                // ...
+            }
+
+            // Initial view count update and reset check
+            setInterval(function () {
+                updateViewCountsAndReset();
+            }, 1000); // Update every second
+
+            updateViewCounts();
+
+            // Refresh view counts and remaining views every 0 seconds
+            setInterval(function () {
+                updateViewCounts();
+            }, 0); // 30 seconds
+        });
+
+        function refreshIframe(iframeId) {
+            var iframe = document.getElementById(iframeId);
+            if (iframe) {
+                var src = iframe.src;
+                iframe.src = src; // Refresh the iframe by resetting the src
+            }
+        }
+
+        $(document).ready(function () {
+
+            // All High Count 12 Pm 
+
+            var videos = [
+                { id: 'M8-MgrGTS0g', title: 'Simroon' },    
+                { id: 'VbSJ6fhsHZw', title: 'Keemti' },     
+                { id: '2nK6WBcGPOw', title: 'Nikla' },      
+                { id: 'Oh5WjBqud5k', title: 'Bawali' },     
+                { id: 'sAzlWScHTc4', title: 'Nacho' },      
+                { id: '87JIOAX3njM', title: 'Jhumka' },     
+                { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },    
+                { id: 'VAdGW7QDJiU', title: 'Chaleya' },    
+                { id: 'VuG7ge_8I2Y', title: 'Maan' }, 
+                { id: 'jZGpkLElSu8', title: 'Karol Ji' },    
+                { id: 'G7KNmW9a75Y', title: 'Milley' },
+                { id: 'YxWlaYCA8MU', title: 'Jhoome' },
+
+                
+              
+                 // { id: 'EwWMV9RGfcQ', title: 'Deeth:' },
+                 // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, 
+                 // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, 
+                 // { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' }, 
+                  { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge :' },              
+                
+              
+              
+            ];
+            
+
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = [
+                    // 'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
+                     'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
+                    // 'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
+                    // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
+                    // 'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
+                    // 'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
+                    // 'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
+                    // 'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41.
+                    // 'AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I',
+                    // 'AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M',
+                    // 'AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY', // api 39
+                    // 'AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE',
+                    // 'AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU',
+                    // 'AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs',
+                    // 'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
+                    // 'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
+                    // 'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
+                    // 'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
+                    // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
+                    // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
+                    // 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
+                    // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
+                    // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
+                    // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
+                    // 'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
+                    // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
+                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
+                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
+                    // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
+                    // 'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
+                    // 'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
+                    // 'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
+                    // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
+                    // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
+                    // 'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
+                    // 'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
+                    //'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
+                    //'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM', // api 5
+                    //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'  // api 4
+                    // Add more API keys here
+                ][apiKeyIndex];
+
+                // Function to format view count with commas
+                function formatViewCount(viewCount) {
+                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    frt
+                }
+
+                function updateViewCounts(apiKeyIndex) {
+                    var apiKey = apiKeys[apiKeyIndex];
+                }
+                // Function to format view count with commas
+                function formatViewCount(viewCount) {
+                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+                function updateViewCounts(apiKeyIndex) {
+                    var apiKey = apiKeys[apiKeyIndex];
+                }
+
+
+                var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+                // Build comma-separated list of video IDs1111111111111111111111111111111111       
+                var videoIdList = videos.map(function (video) {
+                    return video.id;
+                }).join(',');
+
+                // Prepare the API request URL
+                var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+                $.ajax({
+                    url: requestUrl,
+                    type: 'GET',
+                    success: function (data) {
+                        var currentTime = Date.now();
+                        var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
+                        for (var i = 0; i < data.items.length; i++) {
+                            var viewCount = parseInt(data.items[i].statistics.viewCount);
+                            var previousViewCount = previousViewCounts[i] || viewCount;
+                            var viewsGain = viewCount - previousViewCount;
+                            previousViewCounts[i] = viewCount;
+
+                            // Reset cumulative gain views after 3 minutes
+                            if (timeElapsed >= intervalResetTime) {
+                                resetTimestamp = currentTime;
+                                cumulativeGainViews[i] = 0;
+                                // Update previous cumulative views after the reset interval
+                                previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
+                                previousCumulativeViews[i] += cumulativeGainViews[i];
+
+                            }
+
+                            if (timeElapsed < intervalResetTime) {
+                                cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
+                            }
+
+                            $('#viewCount' + i).text('' + formatViewCount(viewCount));
+                            $('#viewsgain' + i).text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                            function shouldSavePreviousCumulativeViews() {
+                                var currentTime = new Date();
+                                var currentMinutes = currentTime.getMinutes();
+                                var currentSeconds = currentTime.getSeconds();
+
+                                // Check if the current time is at 4:58 or 9:58
+                                return (currentMinutes === 0 && currentSeconds === 59) ||
+                                    (currentMinutes === 4 && currentSeconds === 59) ||
+                                    (currentMinutes === 9 && currentSeconds === 59) ||
+                                    (currentMinutes === 14 && currentSeconds === 59) ||
+                                    (currentMinutes === 19 && currentSeconds === 59) ||
+                                    (currentMinutes === 24 && currentSeconds === 59) ||
+                                    (currentMinutes === 29 && currentSeconds === 59) ||
+                                    (currentMinutes === 34 && currentSeconds === 59) ||
+                                    (currentMinutes === 39 && currentSeconds === 59) ||
+                                    (currentMinutes === 44 && currentSeconds === 59) ||
+                                    (currentMinutes === 49 && currentSeconds === 59) ||
+                                    (currentMinutes === 54 && currentSeconds === 59) ||
+                                    (currentMinutes === 59 && currentSeconds === 58);
+
+                            }
+
+                            // Function to save the value of previousCumulativeViews
+                            function savePreviousCumulativeViews() {
+                                for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                    if (cumulativeGainViews[i] > 0) {
+                                        // Save the value at 4:58 or 9:58
+                                        $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                                    }
+                                }
+                            }
+
+                            // Check if it's time to save the previousCumulativeViews
+                            if (shouldSavePreviousCumulativeViews()) {
+                                savePreviousCumulativeViews();
+                            }
+
+                            if (isTargetUpdateTime()) {
+                                previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                            }
+                            $('#viewsgain13').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                            var title = videos[i].title;
+                            $('#title' + i).text(title);
+                        }
+                    },
+
+                    error: function (error) {
+                        console.log('Error:', error);
+                        for (var i = 0; i < videos.length; i++) {
+                            $('#viewsgain' + i).text('API Not Available');
+                            $('#title' + i).text(videos[i].title);
+                        }
+                    }
+                });
+            }
+
+            function saveViews(views) {
+  // views को एक स्थानीय फ़ाइल में सहेजें
+  const filePath = "views.json";
+  const data = JSON.stringify(views);
+  fs.writeFileSync(filePath, data);
+}
+
+
+
+            setInterval(function () {
+                if (apiAvailable) {
+                    updateViewCounts(0);
+                } else {
+                    for (var i = 0; i < videos.length; i++) {
+                        $('#viewsgain' + i).text('API Not Available');
+                        $('#title' + i).text(videos[i].title);
+                    }
+                }
+            }, 1000); // 1 seconds
+        });
+
+        var apiAvailable = true; // Variable to track API availability
+
+        // HTML input elements ko references se connect karein
+        var divisionFactorInput = document.getElementById('divisionFactor');
+        var num2Input = document.getElementById('num2');
+
+        // Function to update num2 and recalculate result
+        function updateValuesAndCalculate() {
+            var divisionFactorValue = divisionFactorInput.value;
+            num2Input.value = divisionFactorValue - 1;
+            updateResult(); // Call the function that recalculates the result
+        }
+
+        // divisionFactor ki value change hone par function ko call karein
+        divisionFactorInput.addEventListener('input', updateValuesAndCalculate);
+
+
+        function updateResult() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(num2Input.value); // Use the updated num2 value
+
+            var resultParagraph = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultParagraph.innerHTML = "";
+            } else {
+                if (num2 === 0) {
+                    resultParagraph.innerHTML = "";
+                } else {
+                    var divisionResult = num1 / num2;
+                    resultParagraph.innerHTML = "" + divisionResult.toFixed(2);
+                }
+            }
+        }
+
+        // शेष दृश्य पर क्लिक करने के लिए इवेंट लिस्टेनर सेट करें
+        $('#remainingViews').click(function () {
+            // "Remaining Views" की मान पकड़ें
+            var remainingViewsValue = parseFloat($('#remainingViews').text().split(' ')[2].replace(/,/g, ''));
+
+            // num1 में "Remaining Views" की मान सेट करें
+            document.getElementById('num1').value = remainingViewsValue;
+        });
+
+
+        // Function to check if the current time is a reset time
+        function shouldResetCumulativeGain() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            // Check if the current time matches any of the reset times
+            return resetTimes.some(function (resetTime) {
+                return resetTime.minutes === currentMinutes && resetTime.seconds === currentSeconds;
+            });
+        }
+
+        // Function to reset cumulative gain views
+        function resetCumulativeGain() {
+            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                cumulativeGainViews[i] = 0; // Reset each element to 0
+            }
+        }
+
+        // Function to update view counts and handle reset
+        function updateViewCountsAndReset() {
+            if (shouldResetCumulativeGain()) {
+                resetCumulativeGain();
+            }
+        }
+        // Initial view count update and reset check
+        setInterval(function () {
+            updateViewCountsAndReset();
+        }, 1000);
+
+        // Original values of num1 and substractvalue1
+
+
+// Now, num2 will have the same value as num1 + substractvalue1
+
+// बैकग्राउंड शेड्यूलर बनाएं
+const scheduler = new Scheduler();
+
+// हर मिनट में API को कॉल करें
+scheduler.scheduleRepeatingTask(1000 * 60, () => {
+  // API को कॉल करें
+  callApi();
+});
+
+// API को कॉल करने का फ़ंक्शन
+function callApi() {
+  // API को कॉल करें
+  const response = fetch('AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo');
+
+  // response को संभालें
+  response.then((data) => {
+    // views को अपडेट करें
+    updateViews(data.views);
+  });
+}
+
+let data = 0;
+
+function updateData() {
+  data += 1;
+  console.log("Updated data:", data); // यहां आप डेटा को सेव कर सकते हैं या अन्य कोड लिख सकते हैं
+}
+
+// हर सेकंड डेटा को अपडेट करने के लिए setInterval का उपयोग करें
+const interval = setInterval(updateData, 1000); // 1000 मिलीसेकंड = 1 सेकंड
+
+// स्क्रीन ऑफ होने पर setInterval को स्टॉप करने के लिए
+document.addEventListener("visibilitychange", function() {
+  if (document.visibilityState === 'hidden') {
+    clearInterval(interval); // सेट इंटरवल को क्लियर करें
+    // यहां अन्य कोड लिखें जो आप चाहते हैं जब स्क्रीन ऑफ होता है
+  } else {
+    interval = setInterval(updateData, 1000); // सेट इंटरवल को फिर से स्टार्ट करें
+    // यहां अन्य कोड लिखें जो आप चाहते हैं जब स्क्रीन ऑन होता है
+  }
+});
+
+
+    </script>
+
+</body>
+
+</html>
