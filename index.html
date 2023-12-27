@@ -7,7 +7,249 @@
     <title>All Song</title>
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> $(document).ready(function () {
 
+            // All High Count 12 Pm 
+
+            var videos = [
+                { id: 'M8-MgrGTS0g', title: 'SIMROON TWO' },// 0 right
+                { id: 'VbSJ6fhsHZw', title: 'KEEMTI SONG' },   // 1 right
+                { id: '2nK6WBcGPOw', title: 'Nikla' },      // 2 right
+                { id: 'Oh5WjBqud5k', title: 'Bawali' },     // 3 right
+                { id: 'sAzlWScHTc4', title: 'Nacho' },      // 4 right
+                { id: '87JIOAX3njM', title: 'Jhumka' },     // 5 right
+                { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 6 right
+                { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
+                { id: 'VuG7ge_8I2Y', title: 'Maan' },       // 8 remove this song
+                { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
+                { id: 'G7KNmW9a75Y', title: 'Milley' },     // 10
+                { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
+                { id: 'EwWMV9RGfcQ', title: 'Deeth:' },     // 12
+                { id: 'HrnrqYxYrbk', title: 'Satranga:' },  // 13
+                { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' },//  14
+                { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' }, //  15            
+                { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa :' }, // 16
+                { id: 'vdY5SFZBgnk', title: 'Shami shami :' },// 17
+                { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
+                { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
+                { id: 'y_RHQ4mBDKA', title: 'Bedardi se pyaar ka' }, // 20
+                { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
+                { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22
+                { id: 'yxXxt7P4jes', title: 'Mein jis din' }, // 23
+                { id: 'G-XMiVMlLRI', title: 'Dance meri  raani' },// 24
+                { id: 'zuVV9Y55gvc', title: 'Rajnitheme' }, // 25  removed this song
+                { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
+                { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
+                { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
+                { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
+                { id: '8sLS2knUa6Y', title: ' Kya Chaiye' },// 30
+                { id: 'd876afmi0DE', title: 'Rahem:' }, // 31
+                { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 32
+                { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 33
+
+               { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' },     // 34
+                  // { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 34
+                 //{ id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5:' },   // 34
+                  // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, // 34
+                 //  { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' }, // 34
+
+                // { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
+                // { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
+                // { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
+                
+                
+              
+              
+            ];
+            
+
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = [
+                    // 'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
+                 //  'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
+                    // 'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
+                    // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
+                   //  'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
+                    // 'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
+                    // 'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
+                    // 'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41.
+                     //'AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I',
+                     //'AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M',
+                    // 'AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY', // api 39
+                    // 'AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE',
+                    // 'AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU',
+                   //  'AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs',
+                    // 'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
+                     //'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
+                  //   'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
+                    // 'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
+                    // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
+                    // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
+                    // 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
+                    // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
+                    // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
+                    // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
+                    // 'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
+                    // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
+                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
+                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
+                    // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
+                    // 'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
+                     'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
+                    // 'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
+                    // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
+                    // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
+                    // 'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
+                    // 'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
+                    //'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
+                    //'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM', // api 5
+                    //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'  // api 4
+                    // Add more API keys here
+                ][apiKeyIndex];
+
+                // Function to format view count with commas
+                function formatViewCount(viewCount) {
+                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    frt
+                }
+
+                function updateViewCounts(apiKeyIndex) {
+                    var apiKey = apiKeys[apiKeyIndex];
+                }
+                // Function to format view count with commas
+                function formatViewCount(viewCount) {
+                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+                function updateViewCounts(apiKeyIndex) {
+                    var apiKey = apiKeys[apiKeyIndex];
+                }
+
+
+                var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+                // Build comma-separated list of video IDs1111111111111111111111111111111111       
+                var videoIdList = videos.map(function (video) {
+                    return video.id;
+                }).join(',');
+
+                // Prepare the API request URL
+                var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+                $.ajax({
+                    url: requestUrl,
+                    type: 'GET',
+                    success: function (data) {
+                        var currentTime = Date.now();
+                        var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
+                        for (var i = 0; i < data.items.length; i++) {
+                            var viewCount = parseInt(data.items[i].statistics.viewCount);
+                            var previousViewCount = previousViewCounts[i] || viewCount;
+                            var viewsGain = viewCount - previousViewCount;
+                            previousViewCounts[i] = viewCount;
+
+                            // Reset cumulative gain views after 3 minutes
+                            if (timeElapsed >= intervalResetTime) {
+                                resetTimestamp = currentTime;
+                                cumulativeGainViews[i] = 0;
+                                // Update previous cumulative views after the reset interval
+                                previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
+                                previousCumulativeViews[i] += cumulativeGainViews[i];
+
+                                
+
+                            }
+
+                            if (timeElapsed < intervalResetTime) {
+                                cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
+                            }
+
+                            $('#viewCount' + i).text('' + formatViewCount(viewCount));
+                            $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                            function shouldSavePreviousCumulativeViews() {
+                                var currentTime = new Date();
+                                var currentMinutes = currentTime.getMinutes();
+                                var currentSeconds = currentTime.getSeconds();
+
+                                // Check if the current time is at 4:58 or 9:58
+                                return (currentMinutes === 4 && currentSeconds === 40) ||
+                                    (currentMinutes === 9 && currentSeconds === 40) ||
+                                    (currentMinutes === 14 && currentSeconds === 40) ||
+                                    (currentMinutes === 19 && currentSeconds === 40) ||
+                                    (currentMinutes === 24 && currentSeconds === 40) ||
+                                    (currentMinutes === 29 && currentSeconds === 40) ||
+                                    (currentMinutes === 34 && currentSeconds === 40) ||
+                                    (currentMinutes === 39 && currentSeconds === 40) ||
+                                    (currentMinutes === 44 && currentSeconds === 40) ||
+                                    (currentMinutes === 49 && currentSeconds === 40) ||
+                                    (currentMinutes === 54 && currentSeconds === 40) ||
+                                    (currentMinutes === 59 && currentSeconds === 40);
+
+                            }
+
+                            // Function to save the value of previousCumulativeViews
+                            function savePreviousCumulativeViews() {
+                                for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                    if (cumulativeGainViews[i] > 0) {
+                                        // Save the value at 4:58 or 9:58
+                                        $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                                    }
+                                }
+                            }
+
+                            
+                            // Check if it's time to save the previousCumulativeViews
+                            if (shouldSavePreviousCumulativeViews()) {
+                                savePreviousCumulativeViews();
+                            }
+
+                            if (isTargetUpdateTime()) {
+                                previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                            }
+                            $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                            var title = videos[i].title;
+                            $('#title' + i).text(title);
+                        }
+                    },
+
+                    
+                    error: function (error) {
+                        console.log('Error:', error);
+                        for (var i = 0; i < videos.length; i++) {
+                            $('#viewCount' + i).text('API Not Available');
+                            $('#title' + i).text(videos[i].title);
+                        }
+                    }
+                });
+            }
+
+            function saveViews(views) {
+  // views को एक स्थानीय फ़ाइल में सहेजें
+  const filePath = "views.json";
+  const data = JSON.stringify(views);
+  fs.writeFileSync(filePath, data);
+}
+
+
+
+            setInterval(function () {
+                if (apiAvailable) {
+                    updateViewCounts(0);
+                } else {
+                    for (var i = 0; i < videos.length; i++) {
+                        $('#viewCount' + i).text('API Not Available');
+                        $('#title' + i).text(videos[i].title);
+                    }
+                }
+            }, 1000); // 1 seconds
+        });</script>
+
+
+    
     <style>
         a {
             font-size: 23px;
@@ -1081,246 +1323,7 @@ function displayIndianTime() {
             }
         }
 
-        $(document).ready(function () {
-
-            // All High Count 12 Pm 
-
-            var videos = [
-                { id: 'M8-MgrGTS0g', title: 'SIMROON TWO' },// 0 right
-                { id: 'VbSJ6fhsHZw', title: 'KEEMTI SONG' },   // 1 right
-                { id: '2nK6WBcGPOw', title: 'Nikla' },      // 2 right
-                { id: 'Oh5WjBqud5k', title: 'Bawali' },     // 3 right
-                { id: 'sAzlWScHTc4', title: 'Nacho' },      // 4 right
-                { id: '87JIOAX3njM', title: 'Jhumka' },     // 5 right
-                { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 6 right
-                { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
-                { id: 'VuG7ge_8I2Y', title: 'Maan' },       // 8 remove this song
-                { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
-                { id: 'G7KNmW9a75Y', title: 'Milley' },     // 10
-                { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
-                { id: 'EwWMV9RGfcQ', title: 'Deeth:' },     // 12
-                { id: 'HrnrqYxYrbk', title: 'Satranga:' },  // 13
-                { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' },//  14
-                { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' }, //  15            
-                { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa :' }, // 16
-                { id: 'vdY5SFZBgnk', title: 'Shami shami :' },// 17
-                { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
-                { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
-                { id: 'y_RHQ4mBDKA', title: 'Bedardi se pyaar ka' }, // 20
-                { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
-                { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22
-                { id: 'yxXxt7P4jes', title: 'Mein jis din' }, // 23
-                { id: 'G-XMiVMlLRI', title: 'Dance meri  raani' },// 24
-                { id: 'zuVV9Y55gvc', title: 'Rajnitheme' }, // 25  removed this song
-                { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
-                { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
-                { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
-                { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
-                { id: '8sLS2knUa6Y', title: ' Kya Chaiye' },// 30
-                { id: 'd876afmi0DE', title: 'Rahem:' }, // 31
-                { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 32
-                { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 33
-
-               { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' },     // 34
-                  // { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 34
-                 //{ id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5:' },   // 34
-                  // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, // 34
-                 //  { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' }, // 34
-
-                // { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
-                // { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
-                // { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
-                
-                
-              
-              
-            ];
-            
-
-
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = [
-                    // 'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
-                 //  'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
-                    // 'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
-                    // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
-                   //  'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
-                    // 'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
-                    // 'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
-                    // 'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41.
-                     //'AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I',
-                     //'AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M',
-                    // 'AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY', // api 39
-                    // 'AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE',
-                    // 'AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU',
-                   //  'AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs',
-                    // 'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
-                     //'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
-                  //   'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
-                    // 'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
-                    // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
-                    // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
-                    // 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
-                    // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
-                    // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
-                    // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
-                    // 'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
-                    // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
-                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
-                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
-                    // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
-                    // 'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
-                     'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
-                    // 'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
-                    // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
-                    // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
-                    // 'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
-                    // 'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
-                    //'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
-                    //'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM', // api 5
-                    //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'  // api 4
-                    // Add more API keys here
-                ][apiKeyIndex];
-
-                // Function to format view count with commas
-                function formatViewCount(viewCount) {
-                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    frt
-                }
-
-                function updateViewCounts(apiKeyIndex) {
-                    var apiKey = apiKeys[apiKeyIndex];
-                }
-                // Function to format view count with commas
-                function formatViewCount(viewCount) {
-                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                }
-                function updateViewCounts(apiKeyIndex) {
-                    var apiKey = apiKeys[apiKeyIndex];
-                }
-
-
-                var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
-
-                // Build comma-separated list of video IDs1111111111111111111111111111111111       
-                var videoIdList = videos.map(function (video) {
-                    return video.id;
-                }).join(',');
-
-                // Prepare the API request URL
-                var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
-
-                $.ajax({
-                    url: requestUrl,
-                    type: 'GET',
-                    success: function (data) {
-                        var currentTime = Date.now();
-                        var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
-                        for (var i = 0; i < data.items.length; i++) {
-                            var viewCount = parseInt(data.items[i].statistics.viewCount);
-                            var previousViewCount = previousViewCounts[i] || viewCount;
-                            var viewsGain = viewCount - previousViewCount;
-                            previousViewCounts[i] = viewCount;
-
-                            // Reset cumulative gain views after 3 minutes
-                            if (timeElapsed >= intervalResetTime) {
-                                resetTimestamp = currentTime;
-                                cumulativeGainViews[i] = 0;
-                                // Update previous cumulative views after the reset interval
-                                previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
-                                previousCumulativeViews[i] += cumulativeGainViews[i];
-
-                                
-
-                            }
-
-                            if (timeElapsed < intervalResetTime) {
-                                cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
-                            }
-
-                            $('#viewCount' + i).text('' + formatViewCount(viewCount));
-                            $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-
-                            function shouldSavePreviousCumulativeViews() {
-                                var currentTime = new Date();
-                                var currentMinutes = currentTime.getMinutes();
-                                var currentSeconds = currentTime.getSeconds();
-
-                                // Check if the current time is at 4:58 or 9:58
-                                return (currentMinutes === 4 && currentSeconds === 40) ||
-                                    (currentMinutes === 9 && currentSeconds === 40) ||
-                                    (currentMinutes === 14 && currentSeconds === 40) ||
-                                    (currentMinutes === 19 && currentSeconds === 40) ||
-                                    (currentMinutes === 24 && currentSeconds === 40) ||
-                                    (currentMinutes === 29 && currentSeconds === 40) ||
-                                    (currentMinutes === 34 && currentSeconds === 40) ||
-                                    (currentMinutes === 39 && currentSeconds === 40) ||
-                                    (currentMinutes === 44 && currentSeconds === 40) ||
-                                    (currentMinutes === 49 && currentSeconds === 40) ||
-                                    (currentMinutes === 54 && currentSeconds === 40) ||
-                                    (currentMinutes === 59 && currentSeconds === 40);
-
-                            }
-
-                            // Function to save the value of previousCumulativeViews
-                            function savePreviousCumulativeViews() {
-                                for (var i = 0; i < cumulativeGainViews.length; i++) {
-                                    if (cumulativeGainViews[i] > 0) {
-                                        // Save the value at 4:58 or 9:58
-                                        $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-
-                                    }
-                                }
-                            }
-
-                            
-                            // Check if it's time to save the previousCumulativeViews
-                            if (shouldSavePreviousCumulativeViews()) {
-                                savePreviousCumulativeViews();
-                            }
-
-                            if (isTargetUpdateTime()) {
-                                previousCumulativeViews[i] = cumulativeGainViews[i];
-
-                            }
-                            $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
-
-                            var title = videos[i].title;
-                            $('#title' + i).text(title);
-                        }
-                    },
-
-                    
-                    error: function (error) {
-                        console.log('Error:', error);
-                        for (var i = 0; i < videos.length; i++) {
-                            $('#viewCount' + i).text('API Not Available');
-                            $('#title' + i).text(videos[i].title);
-                        }
-                    }
-                });
-            }
-
-            function saveViews(views) {
-  // views को एक स्थानीय फ़ाइल में सहेजें
-  const filePath = "views.json";
-  const data = JSON.stringify(views);
-  fs.writeFileSync(filePath, data);
-}
-
-
-
-            setInterval(function () {
-                if (apiAvailable) {
-                    updateViewCounts(0);
-                } else {
-                    for (var i = 0; i < videos.length; i++) {
-                        $('#viewCount' + i).text('API Not Available');
-                        $('#title' + i).text(videos[i].title);
-                    }
-                }
-            }, 1000); // 1 seconds
-        });
+       
 
         var apiAvailable = true; // Variable to track API availability
 
