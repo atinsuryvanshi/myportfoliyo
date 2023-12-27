@@ -235,15 +235,7 @@
        
     }
 
-    [id^='Highest11AMViews'] {
-    font-weight: bold;
-    color:rgb(234, 234, 241);
-    text-align: center;
-    font-size: 17px;
-    font-family: 'Arial', sans-serif;
-}
-
-[id^='previousCumulativeViews'] {
+    [id^='previousCumulativeViews'] {
     font-weight: bold;
     color:rgb(0, 255, 255);
     text-align: center;
@@ -257,21 +249,31 @@
 
 .iframe {
     flex: 0 0 30%; /* Adjust the width of the iframe */
-    height: 740px; /* Adjust the height of the iframe */
+    height: 950px; /* Adjust the height of the iframe */
 }
 
 .table-container {
     flex: 1;
     overflow-y: scroll; /* Enable vertical scrolling for the table */
-    max-height: 740px; /* Set max height for the table */
+    max-height: 950px; /* Set max height for the table */
 }
 
+.table-container table {
+    /* Your table styles */
+    
+    
+}
 
 .table-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar for the table */
     
 }
 
+#viewCount15,
+    #viewCount17{
+        
+    }
+     
 
 
 
@@ -326,6 +328,16 @@ table {
     border-collapse: collapse;
 }
 
+         [id^='Highest11AMViews'] {
+    font-weight: bold;
+    color:rgb(234, 234, 241);
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Arial', sans-serif;
+}
+
+
+        
 table th, table td {
     border: 1px solid #fff;
     padding: 10px;
@@ -338,10 +350,16 @@ table th {
     font-weight: bold;
 }
 
+table tr:nth-child(even) {
+   
+}
+
 /* Iframe container */
 .iframe-container {
     flex: 0 0 50%;
-    margin-left: 40px;
+    margin-left: 30px;
+    text-align:center
+
 }
 
 iframe {
@@ -366,7 +384,7 @@ iframe {
     <div class="field3" style="text-underline-position: unset;">
         
       
-        <div class="table-container" >
+       <div class="table-container" >
             <table>
                 <!-- Your table content here -->
             </table>
@@ -395,7 +413,7 @@ iframe {
                     <td id="viewCount15"></td>
                     <td id="previousCumulativeViews15">_ _ _ _</td>
                     <td id="viewsgain15">Gain:</td>
-                    <td id="Highest11AMViews15">3,000 </td>
+                    <td id="Highest11AMViews15">3,000</td>
 
                 </tr>
                 <tr>
@@ -403,7 +421,7 @@ iframe {
                     <td id="viewCount17"></td>
                     <td id="previousCumulativeViews17">_ _ _ _</td>
                     <td id="viewsgain17">Gain:</td>
-                    <td id="Highest11AMViews17">2,000 </td>
+                    <td id="Highest11AMViews17">2,000</td>
                 </tr>
                 <tr>
                     <td id="video28">NAIYO LAGDA</td>
@@ -461,7 +479,7 @@ iframe {
                     <td id="viewCount11"></td>
                     <td id="previousCumulativeViews11">_ _ _ _ _</td>
                     <td id="viewsgain11">Gain:</td>
-                    <td id="Highest11AMViews11">7,900 +</td>
+                    <td id="Highest11AMViews11">7,900</td>
                 </tr>
                 <tr>
                     <td id="video21">IS QUADER</td>
@@ -610,7 +628,7 @@ iframe {
             <td id="viewCount32"></td>
             <td id="previousCumulativeViews32">_ _ _ _ _</td>
             <td id="viewsgain32">Gain:</td>
-            <td id="Highest11AMViews32">9,000</td>
+            <td id="Highest11AMViews32">8,000</td>
         </tr>
        
         <tr>
@@ -633,16 +651,10 @@ iframe {
             </table>
         </div>
     </div>
-    
-
-   
-    
-    
-
-
+        </div>
+       
     <div class="iframe-container">
-     <iframe src="https://web.tradexapp.co/" style="width: 880px; height: 670px;" id="iframeTrad"></iframe>
-     <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
+       
         <div class="under">
             <a rel="Jhoome.html" style="text-align: center; color:white;">
                <div id="video35" style="text-align: center;">
@@ -657,12 +669,14 @@ iframe {
                                      <input type="number" id="subtractionValue3" placeholder="Next Views"style="display: none;">
                                        <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br></div>
                                         <span id="targetViewsTradex" class="target-count"style="color: white; font-style: normal; font-weight: normal; font-size: 21.1px;display: none;" ></span>
-                                           <div style="margin-right: 50px;" >
+                                           <div style="margin-right: 50px; display: none;" >
                                              <span id="indianTime" style="font-size: 21px;color: white;margin-top: 700px;" ></span>
                                               <span> <input type="number" id="num1" name="num1" placeholder="Remaing"  style="width: 80px;">
                                                  <input type="number" id="subtractionValue1" placeholder="Predict"  style="margin-right: 1px; width: 60px; ">
                                                    <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
                                                      <span id="result" style="color: white;font-size: 21.3px;"></span></div> </a></div> </div></div>
+
+                                                   
    
 <div class="under" style="text-align: center;">
     <a id="a12" style="text-decoration: none;">
@@ -675,7 +689,14 @@ iframe {
                 style="color: white; text-decoration: none; margin-right: 20px; ">Total Views:
                 <span id="viewCount34" style="font-size: 21px;"></span>
             </div> </div></div></a></div>
-            
+    
+    
+
+   
+    
+    
+
+
 
 </body>
 
@@ -686,10 +707,6 @@ iframe {
 // 2.add table 
 // 3.edit i frame container 5 id
 //edit raming views - id all change then table id redit
-
-
-
-
 
 function displayIndianTime() {
         const options = {
@@ -1104,17 +1121,15 @@ function displayIndianTime() {
                 { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 32
                 { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 33
 
-              //  { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' },     // 34
+               { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' },     // 34
                   // { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 34
-                // { id: 'EwWMV9RGfcQ', title: 'Deeth:' },   // 34
+                 //{ id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5:' },   // 34
                   // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, // 34
                  //  { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' }, // 34
 
                 // { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
-               //  { id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5' }, // 34
-                 { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
+                // { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
                 // { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
-                
                 
                 
               
@@ -1142,10 +1157,10 @@ function displayIndianTime() {
                     // 'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
                      //'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
                   //   'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
-                   //  'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
+                    // 'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
                     // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
                     // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
-                     'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
+                    // 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
                     // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
                     // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
                     // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
@@ -1155,7 +1170,7 @@ function displayIndianTime() {
                     // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
                     // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
                     // 'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
-                    // 'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
+                     'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
                     // 'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
                     // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
                     // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
@@ -1232,8 +1247,7 @@ function displayIndianTime() {
                                 var currentSeconds = currentTime.getSeconds();
 
                                 // Check if the current time is at 4:58 or 9:58
-                                return (currentMinutes === 4 && currentSeconds === 39) ||
-                                    (currentMinutes === 4 && currentSeconds === 40) ||
+                                return (currentMinutes === 4 && currentSeconds === 40) ||
                                     (currentMinutes === 9 && currentSeconds === 40) ||
                                     (currentMinutes === 14 && currentSeconds === 40) ||
                                     (currentMinutes === 19 && currentSeconds === 40) ||
