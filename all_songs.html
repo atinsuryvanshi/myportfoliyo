@@ -54,8 +54,8 @@
               // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, // 34
              //  { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' }, // 34
 
-            // { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
-            { id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5' }, // 34
+          //   { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
+             { id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5' }, // 34
           //   { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
            //  { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
             
@@ -69,7 +69,7 @@
 
         function updateViewCounts(apiKeyIndex) {
             var apiKey = [
-                 'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
+                // 'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
              //  'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
                 // 'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
                 // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
@@ -89,7 +89,7 @@
                //  'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
                 // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
                 // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
-                // 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
+                 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
                 // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
                 // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
                 // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
@@ -509,13 +509,13 @@ fs.writeFileSync(filePath, data);
 
 .iframe {
     flex: 0 0 30%; /* Adjust the width of the iframe */
-    height: 900px; /* Adjust the height of the iframe */
+    height: 740px; /* Adjust the height of the iframe */
 }
 
 .table-container {
     flex: 1;
     overflow-y: scroll; /* Enable vertical scrolling for the table */
-    max-height: 900px; /* Set max height for the table */
+    max-height: 740px; /* Set max height for the table */
 }
 
 
@@ -892,41 +892,48 @@ iframe {
     
 
 
-    <div class="iframe-container">
-
-   
-        <div class="under">
-            <a rel="Jhoome.html" style="text-align: center; color:white;">
-               <div id="video35" style="text-align: center;">
-                  <span id="remainingViews" style="font-size:  21px; color: white;"></span>
-                     <span id="previousCumulativeViews34"style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter;font-weight: bold;"></span>
-                         <span id="viewsgain34" style="font-size: 21px; color:  rgb(25, 430, 50);">Gain:</span>
-                           <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 60px; font-size: 15px; " />
-                             <span id="divisionResult" style="color: white; font-size: 21px;"></span>
-                               <div style="margin-left: 60px;">
-                                 <div style="display: none;">
-                                   <input type="number" id="subtractionValue2" placeholder="Value 2"style="display: none;">
-                                     <input type="number" id="subtractionValue3" placeholder="Next Views"style="display: none;">
-                                       <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br></div>
-                                        <span id="targetViewsTradex" class="target-count"style="color: white; font-style: normal; font-weight: normal; font-size: 21.1px;display: none;" ></span>
-                                           <div style="margin-right: 50px; display: none; "  >
-                                             <span id="indianTime" style="font-size: 21px;color: white;margin-top: 700px;" ></span>
-                                              <span> <input type="number" id="num1" name="num1" placeholder="Remaing"  style="width: 80px;">
-                                                 <input type="number" id="subtractionValue1" placeholder="Predict"  style="margin-right: 1px; width: 60px; ">
-                                                   <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
-                                                     <span id="result" style="color: white;font-size: 21.3px;"></span></div> </a></div> </div></div>
-   
-<div class="under" style="text-align: center;">
-    <a id="a12" style="text-decoration: none;">
-        <div><span class="target-label" style="color: white; margin-left: 0px;">Target:</span>
-            <input type="number" id="targetViewsTradexInput" placeholder="Target views"
-                style="width: 90x;" onkeydown="handleTargetViewsInputKeyPress(event)" />
-            <button id="updateTargetViewsTradexButton"
-                style="background-color: white; color: black; width: 60px;">Update</button>
-                <div id="video34" href="#" onclick="refreshIframe('tradexsong'); return false; "
-                style="color: white; text-decoration: none; margin-right: 20px; ">Total Views:
-                <span id="viewCount34" style="font-size: 21px;"></span>
-            </div> </div></div></a></div></div>
+        <div class="iframe-container">
+            <div class="under">
+                <a rel="Jhoome.html" style="text-align: center; color:white;">
+                    <div id="video35" style="text-align: center;">
+                        <span id="remainingViews" style="font-size: 21px; color: white;"></span>
+                        <span id="previousCumulativeViews34" style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter; font-weight: bold;"></span>
+                        <span id="viewsgain34" style="font-size: 21px; color: rgb(25, 430, 50);">Gain:</span>
+                        <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 60px; font-size: 15px;" />
+                        <span id="divisionResult" style="color: white; font-size: 21px;"></span>
+                        <div style="margin-left: 60px;">
+                            <div style="display: none;">
+                                <input type="number" id="subtractionValue2" placeholder="Value 2" style="display: none;">
+                                <input type="number" id="subtractionValue3" placeholder="Next Views" style="display: none;">
+                                <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br>
+                            </div>
+                            <span id="targetViewsTradex" class="target-count" style="color: white; font-style: normal; font-weight: normal; font-size: 21.1px; display: none;"></span>
+                            <div style="margin-right: 50px; display: none; ">
+                                <span id="indianTime" style="font-size: 21px; color: white; margin-top: 700px;"></span>
+                                <span>
+                                    <input type="number" id="num1" name="num1" placeholder="Remaining" style="width: 80px;">
+                                    <input type="number" id="subtractionValue1" placeholder="Predict" style="margin-right: 1px; width: 60px;">
+                                    <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
+                                    <span id="result" style="color: white; font-size: 21.3px;"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="under" style="text-align: center;">
+                <a id="a12" style="text-decoration: none;">
+                    <div>
+                        <span class="target-label" style="color: white; margin-left: 0px;">Target:</span>
+                        <input type="number" id="targetViewsTradexInput" placeholder="Target views" style="width: 90px;" onkeydown="handleTargetViewsInputKeyPress(event)" />
+                        <button id="updateTargetViewsTradexButton" style="background-color: white; color: black; width: 60px;">Update</button>
+                        <div id="title34" href="#" onclick="refreshIframe('tradexsong'); return false; " style="color: white; text-decoration: none; margin-right: 20px;"></div>
+                        <span id="viewCount34" style="font-size: 21px;"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
             
 
 </body>
