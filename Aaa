@@ -8,7 +8,68 @@
     <title>All Song</title>
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+                         // Function to save the value of previousCumulativeViews
+                            function savePreviousCumulativeViews() {
+                                for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                    if (cumulativeGainViews[i] > 0) {
+                                        // Save the value at 4:58 or 9:58
+                                        $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
 
+                                    }
+                                }
+                            }
+
+                            
+                            // Check if it's time to save the previousCumulativeViews
+                            if (shouldSavePreviousCumulativeViews()) {
+                                savePreviousCumulativeViews();
+                            }
+
+                            if (isTargetUpdateTime()) {
+                                previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                            }
+                            $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                            var title = videos[i].title;
+                            $('#title' + i).text(title);
+                        }
+                    },
+
+                    
+                    error: function (error) {
+                        console.log('Error:', error);
+                        for (var i = 0; i < videos.length; i++) {
+                            $('#viewCount' + i).text('API Not Available');
+                            $('#title' + i).text(videos[i].title);
+                        }
+                    }
+                });
+            }
+
+            function saveViews(views) {
+  // views को एक स्थानीय फ़ाइल में सहेजें
+  const filePath = "views.json";
+  const data = JSON.stringify(views);
+  fs.writeFileSync(filePath, data);
+}
+
+
+
+            setInterval(function () {
+                if (apiAvailable) {
+                    updateViewCounts(0);
+                } else {
+                    for (var i = 0; i < videos.length; i++) {
+                        $('#viewCount' + i).text('API Not Available');
+                        $('#title' + i).text(videos[i].title);
+                    }
+                }
+            }, 1000); // 1 seconds
+        });
+
+</script>
     <style>
         a {
             font-size: 23px;
@@ -1263,65 +1324,7 @@ function displayIndianTime() {
 
                             }
 
-                            // Function to save the value of previousCumulativeViews
-                            function savePreviousCumulativeViews() {
-                                for (var i = 0; i < cumulativeGainViews.length; i++) {
-                                    if (cumulativeGainViews[i] > 0) {
-                                        // Save the value at 4:58 or 9:58
-                                        $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-
-                                    }
-                                }
-                            }
-
-                            
-                            // Check if it's time to save the previousCumulativeViews
-                            if (shouldSavePreviousCumulativeViews()) {
-                                savePreviousCumulativeViews();
-                            }
-
-                            if (isTargetUpdateTime()) {
-                                previousCumulativeViews[i] = cumulativeGainViews[i];
-
-                            }
-                            $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
-
-                            var title = videos[i].title;
-                            $('#title' + i).text(title);
-                        }
-                    },
-
-                    
-                    error: function (error) {
-                        console.log('Error:', error);
-                        for (var i = 0; i < videos.length; i++) {
-                            $('#viewCount' + i).text('API Not Available');
-                            $('#title' + i).text(videos[i].title);
-                        }
-                    }
-                });
-            }
-
-            function saveViews(views) {
-  // views को एक स्थानीय फ़ाइल में सहेजें
-  const filePath = "views.json";
-  const data = JSON.stringify(views);
-  fs.writeFileSync(filePath, data);
-}
-
-
-
-            setInterval(function () {
-                if (apiAvailable) {
-                    updateViewCounts(0);
-                } else {
-                    for (var i = 0; i < videos.length; i++) {
-                        $('#viewCount' + i).text('API Not Available');
-                        $('#title' + i).text(videos[i].title);
-                    }
-                }
-            }, 1000); // 1 seconds
-        });
+   
 
         var apiAvailable = true; // Variable to track API availability
 
