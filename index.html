@@ -8,133 +8,6 @@
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <script> 
-            var videos = [
-                { id: 'M8-MgrGTS0g', title: 'SIMROON TWO' },// 0 right
-                { id: 'VbSJ6fhsHZw', title: 'KEEMTI SONG' },   // 1 right
-                { id: '2nK6WBcGPOw', title: 'Nikla' },      // 2 right
-                { id: 'Oh5WjBqud5k', title: 'Bawali' },     // 3 right
-                { id: 'sAzlWScHTc4', title: 'Nacho' },      // 4 right
-                { id: '87JIOAX3njM', title: 'Jhumka' },     // 5 right
-                { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 6 right
-                { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
-                { id: 'VuG7ge_8I2Y', title: 'Maan' },       // 8 remove this song
-                { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
-                { id: 'G7KNmW9a75Y', title: 'Milley' },     // 10
-                { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
-                { id: 'EwWMV9RGfcQ', title: 'Deeth:' },     // 12
-                { id: 'HrnrqYxYrbk', title: 'Satranga:' },  // 13
-                { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' },//  14
-                { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' }, //  15            
-                { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa :' }, // 16
-                { id: 'vdY5SFZBgnk', title: 'Shami shami :' },// 17
-                { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
-                { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
-                { id: 'y_RHQ4mBDKA', title: 'Bedardi se pyaar ka' }, // 20
-                { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
-                { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22
-                { id: 'yxXxt7P4jes', title: 'Mein jis din' }, // 23
-                { id: 'G-XMiVMlLRI', title: 'Dance meri  raani' },// 24
-                { id: 'zuVV9Y55gvc', title: 'Rajnitheme' }, // 25  removed this song
-                { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
-                { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
-                { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
-                { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
-                { id: '8sLS2knUa6Y', title: ' Kya Chaiye' },// 30
-                { id: 'd876afmi0DE', title: 'Rahem:' }, // 31
-                { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 32
-                { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 33
-
-          
-
-
-
-     
-//{ id: 'y5XoL2aTgVY', title: Saari duniya jala denge' },     // 34
-                  
-// { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 34                 
-//{ id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5:' },   // 34
-                  
-// { id: 'HrnrqYxYrbk', title: 'Satranga:' }, // 34
-                 
-//  { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' }, // 34
-
-                
-// { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
-                
- //{ id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
-                
- { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
-                
-                
-              
-              
-            ];
-            
-
-
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = [
-                    // 'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
-                 //  'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
-                    // 'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
-                    // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
-                   //  'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
-                    // 'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
-                    // 'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
-                    // 'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41.
-                     //'AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I',
-                     //'AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M',
-                    // 'AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY', // api 39
-                    // 'AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE',
-                    // 'AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU',
-                   //  'AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs',
-                    // 'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
-                     //'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
-                  //   'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
-                    // 'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
-                    // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
-                    // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
-                    // 'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
-                    // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
-                    // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
-                    // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
-                    // 'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
-                    // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
-                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
-                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
-                    // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
-                    
-                    //
-'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
-                    // 'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
-                     'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
-                    // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
-                    // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
-                    // 'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
-                    // 'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
-                    //'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
-                    //'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM', // api 5
-                    //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'  // api 4
-                    // Add more API keys here
-                ][apiKeyIndex];</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     <style>
         a {
             font-size: 23px;
@@ -362,7 +235,15 @@
        
     }
 
-    [id^='previousCumulativeViews'] {
+    [id^='Highest11AMViews'] {
+    font-weight: bold;
+    color:rgb(234, 234, 241);
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Arial', sans-serif;
+}
+
+[id^='previousCumulativeViews'] {
     font-weight: bold;
     color:rgb(0, 255, 255);
     text-align: center;
@@ -376,31 +257,21 @@
 
 .iframe {
     flex: 0 0 30%; /* Adjust the width of the iframe */
-    height: 950px; /* Adjust the height of the iframe */
+    height: 740px; /* Adjust the height of the iframe */
 }
 
 .table-container {
     flex: 1;
     overflow-y: scroll; /* Enable vertical scrolling for the table */
-    max-height: 950px; /* Set max height for the table */
+    max-height: 740px; /* Set max height for the table */
 }
 
-.table-container table {
-    /* Your table styles */
-    
-    
-}
 
 .table-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar for the table */
     
 }
 
-#viewCount15,
-    #viewCount17{
-        
-    }
-     
 
 
 
@@ -455,16 +326,6 @@ table {
     border-collapse: collapse;
 }
 
-         [id^='Highest11AMViews'] {
-    font-weight: bold;
-    color:rgb(234, 234, 241);
-    text-align: center;
-    font-size: 17px;
-    font-family: 'Arial', sans-serif;
-}
-
-
-        
 table th, table td {
     border: 1px solid #fff;
     padding: 10px;
@@ -477,16 +338,10 @@ table th {
     font-weight: bold;
 }
 
-table tr:nth-child(even) {
-   
-}
-
 /* Iframe container */
 .iframe-container {
     flex: 0 0 50%;
-    margin-left: 30px;
-    text-align:center
-
+    margin-left: 40px;
 }
 
 iframe {
@@ -511,7 +366,7 @@ iframe {
     <div class="field3" style="text-underline-position: unset;">
         
       
-       <div class="table-container" >
+        <div class="table-container" >
             <table>
                 <!-- Your table content here -->
             </table>
@@ -540,7 +395,7 @@ iframe {
                     <td id="viewCount15"></td>
                     <td id="previousCumulativeViews15">_ _ _ _</td>
                     <td id="viewsgain15">Gain:</td>
-                    <td id="Highest11AMViews15">3,000</td>
+                    <td id="Highest11AMViews15">3,000 </td>
 
                 </tr>
                 <tr>
@@ -548,7 +403,7 @@ iframe {
                     <td id="viewCount17"></td>
                     <td id="previousCumulativeViews17">_ _ _ _</td>
                     <td id="viewsgain17">Gain:</td>
-                    <td id="Highest11AMViews17">2,000</td>
+                    <td id="Highest11AMViews17">2,000 </td>
                 </tr>
                 <tr>
                     <td id="video28">NAIYO LAGDA</td>
@@ -606,7 +461,7 @@ iframe {
                     <td id="viewCount11"></td>
                     <td id="previousCumulativeViews11">_ _ _ _ _</td>
                     <td id="viewsgain11">Gain:</td>
-                    <td id="Highest11AMViews11">7,900</td>
+                    <td id="Highest11AMViews11">7,900 +</td>
                 </tr>
                 <tr>
                     <td id="video21">IS QUADER</td>
@@ -755,7 +610,7 @@ iframe {
             <td id="viewCount32"></td>
             <td id="previousCumulativeViews32">_ _ _ _ _</td>
             <td id="viewsgain32">Gain:</td>
-            <td id="Highest11AMViews32">8,000</td>
+            <td id="Highest11AMViews32">9,000</td>
         </tr>
        
         <tr>
@@ -778,10 +633,16 @@ iframe {
             </table>
         </div>
     </div>
-        </div>
-       
+    
+
+   
+    
+    
+
+
     <div class="iframe-container">
-       
+     <iframe src="https://web.tradexapp.co/" style="width: 880px; height: 670px;" id="iframeTrad"></iframe>
+     <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
         <div class="under">
             <a rel="Jhoome.html" style="text-align: center; color:white;">
                <div id="video35" style="text-align: center;">
@@ -796,14 +657,12 @@ iframe {
                                      <input type="number" id="subtractionValue3" placeholder="Next Views"style="display: none;">
                                        <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br></div>
                                         <span id="targetViewsTradex" class="target-count"style="color: white; font-style: normal; font-weight: normal; font-size: 21.1px;display: none;" ></span>
-                                           <div style="margin-right: 50px; display: none;" >
+                                           <div style="margin-right: 50px;" >
                                              <span id="indianTime" style="font-size: 21px;color: white;margin-top: 700px;" ></span>
                                               <span> <input type="number" id="num1" name="num1" placeholder="Remaing"  style="width: 80px;">
                                                  <input type="number" id="subtractionValue1" placeholder="Predict"  style="margin-right: 1px; width: 60px; ">
                                                    <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
                                                      <span id="result" style="color: white;font-size: 21.3px;"></span></div> </a></div> </div></div>
-
-                                                   
    
 <div class="under" style="text-align: center;">
     <a id="a12" style="text-decoration: none;">
@@ -816,14 +675,7 @@ iframe {
                 style="color: white; text-decoration: none; margin-right: 20px; ">Total Views:
                 <span id="viewCount34" style="font-size: 21px;"></span>
             </div> </div></div></a></div>
-    
-    
-
-   
-    
-    
-
-
+            
 
 </body>
 
@@ -834,6 +686,10 @@ iframe {
 // 2.add table 
 // 3.edit i frame container 5 id
 //edit raming views - id all change then table id redit
+
+
+
+
 
 function displayIndianTime() {
         const options = {
@@ -1212,6 +1068,104 @@ function displayIndianTime() {
 
             // All High Count 12 Pm 
 
+            var videos = [
+                { id: 'M8-MgrGTS0g', title: 'SIMROON TWO' },// 0 right
+                { id: 'VbSJ6fhsHZw', title: 'KEEMTI SONG' },   // 1 right
+                { id: '2nK6WBcGPOw', title: 'Nikla' },      // 2 right
+                { id: 'Oh5WjBqud5k', title: 'Bawali' },     // 3 right
+                { id: 'sAzlWScHTc4', title: 'Nacho' },      // 4 right
+                { id: '87JIOAX3njM', title: 'Jhumka' },     // 5 right
+                { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 6 right
+                { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
+                { id: 'VuG7ge_8I2Y', title: 'Maan' },       // 8 remove this song
+                { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
+                { id: 'G7KNmW9a75Y', title: 'Milley' },     // 10
+                { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
+                { id: 'EwWMV9RGfcQ', title: 'Deeth:' },     // 12
+                { id: 'HrnrqYxYrbk', title: 'Satranga:' },  // 13
+                { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' },//  14
+                { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' }, //  15            
+                { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa :' }, // 16
+                { id: 'vdY5SFZBgnk', title: 'Shami shami :' },// 17
+                { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
+                { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
+                { id: 'y_RHQ4mBDKA', title: 'Bedardi se pyaar ka' }, // 20
+                { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
+                { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22
+                { id: 'yxXxt7P4jes', title: 'Mein jis din' }, // 23
+                { id: 'G-XMiVMlLRI', title: 'Dance meri  raani' },// 24
+                { id: 'zuVV9Y55gvc', title: 'Rajnitheme' }, // 25  removed this song
+                { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
+                { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
+                { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
+                { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
+                { id: '8sLS2knUa6Y', title: ' Kya Chaiye' },// 30
+                { id: 'd876afmi0DE', title: 'Rahem:' }, // 31
+                { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 32
+                { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 33
+
+              //  { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' },     // 34
+                  // { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 34
+                // { id: 'EwWMV9RGfcQ', title: 'Deeth:' },   // 34
+                  // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, // 34
+                 //  { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' }, // 34
+
+                // { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
+               //  { id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5' }, // 34
+                 { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
+                // { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
+                
+                
+                
+              
+              
+            ];
+            
+
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = [
+                    // 'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
+                 //  'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
+                    // 'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
+                    // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
+                   //  'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
+                    // 'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
+                    // 'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
+                    // 'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41.
+                     //'AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I',
+                     //'AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M',
+                    // 'AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY', // api 39
+                    // 'AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE',
+                    // 'AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU',
+                   //  'AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs',
+                    // 'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
+                     //'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
+                  //   'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
+                   //  'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
+                    // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
+                    // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
+                     'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
+                    // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
+                    // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
+                    // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
+                    // 'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
+                    // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
+                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
+                    // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
+                    // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
+                    // 'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
+                    // 'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
+                    // 'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
+                    // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
+                    // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
+                    // 'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
+                    // 'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
+                    //'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
+                    //'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM', // api 5
+                    //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'  // api 4
+                    // Add more API keys here
+                ][apiKeyIndex];
 
                 // Function to format view count with commas
                 function formatViewCount(viewCount) {
@@ -1278,7 +1232,8 @@ function displayIndianTime() {
                                 var currentSeconds = currentTime.getSeconds();
 
                                 // Check if the current time is at 4:58 or 9:58
-                                return (currentMinutes === 4 && currentSeconds === 40) ||
+                                return (currentMinutes === 4 && currentSeconds === 39) ||
+                                    (currentMinutes === 4 && currentSeconds === 40) ||
                                     (currentMinutes === 9 && currentSeconds === 40) ||
                                     (currentMinutes === 14 && currentSeconds === 40) ||
                                     (currentMinutes === 19 && currentSeconds === 40) ||
