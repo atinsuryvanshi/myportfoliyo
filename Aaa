@@ -7,7 +7,8 @@
     <title>All Song</title>
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script> $(document).ready(function () {
+<script>
+   $(document).ready(function () {
 
             // All High Count 12 Pm 
 
@@ -47,7 +48,7 @@
                 { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 32
                 { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 33
 
-             
+               { id: 'y5XoL2aTgVY', title: 'Saari duniya jala denge' },     // 34
                   // { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 34
                  //{ id: 'Zlqf9cuaOBw', title: 'Dunki Drop 5:' },   // 34
                   // { id: 'HrnrqYxYrbk', title: 'Satranga:' }, // 34
@@ -55,7 +56,7 @@
 
                 // { id: 'd876afmi0DE', title: 'Rahem:' }, // 34
                 // { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 34
-                  { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
+                // { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 34
                 
                 
               
@@ -107,14 +108,6 @@
                     //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4'  // api 4
                     // Add more API keys here
                 ][apiKeyIndex];
-
-
-
-
-
-
-
-
 
                 // Function to format view count with commas
                 function formatViewCount(viewCount) {
@@ -254,10 +247,12 @@
                     }
                 }
             }, 1000); // 1 seconds
-        });</script>
+        });
 
 
-    
+</script>
+
+
     <style>
         a {
             font-size: 23px;
@@ -1331,8 +1326,7 @@ function displayIndianTime() {
             }
         }
 
-       
-
+     
         var apiAvailable = true; // Variable to track API availability
 
         // HTML input elements ko references se connect karein
