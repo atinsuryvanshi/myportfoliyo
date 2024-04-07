@@ -19,18 +19,18 @@
             { id: 'Oh5WjBqud5k', title: 'Bawali' },     // 3 right
             { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
             { id: '87JIOAX3njM', title: 'Jhumka' },     // 5 right
-            { id: '9Z79T_o4v8c', title: 'Lutt Gya:' },  // 6 right
+            { id: '9Z79T_o4v8c', title: 'Lutt Gya' },  // 6 right
             { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
             { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 8 remove this song
             { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
             { id: '0c66ksfigtU', title: 'Doja cat' },    // 10
             { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
             { id: '9alAlD059hc', title: 'Kygo Whatever' },    // 12
-            { id: 'HrnrqYxYrbk', title: 'Satranga:' },  // 13
-            { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat:' },//  14
+            { id: 'HrnrqYxYrbk', title: 'Satranga' },  // 13
+            { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat' },//  14
             { id: 'ic8j13piAhQ', title: 'Taylor Sift' },  //  15            
             { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa' }, // 16
-            { id: 'vdY5SFZBgnk', title: 'Shami Shami :' },// 17
+            { id: 'vdY5SFZBgnk', title: 'Shami Shami' },// 17
             { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
             { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
             { id: 'y_RHQ4mBDKA', title: 'Bedardi Se' }, // 20
@@ -45,8 +45,8 @@
             { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
             { id: '8sLS2knUa6Y', title: 'Kya Chaiye' },// 30
             { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
-            { id: 'PmdyY38g6Rg', title: 'Jamal:' }, // 32
-            { id: 'uPl_jL9mCKc', title: 'Koka:' }, // 33
+            { id: 'PmdyY38g6Rg', title: 'Jamal' }, // 32
+            { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
             { id: '', title: 'Video Id 34' }, // 34
             
           
@@ -566,6 +566,12 @@ fs.writeFileSync(filePath, data);
 
 
 
+.box {
+        border: 2px solid white;
+        padding: 3px;
+        display: inline-block;
+        margin: 2px;
+    }
 
 
 
@@ -984,10 +990,21 @@ iframe {
                 <a rel="Jhoome.html" style="text-align: center; color:white;">
                     <div id="video35" style="text-align: center;">
                         <span id="remainingViews" style="font-size: 21px; color: white;"></span>
-                        <span id="previousCumulativeViews34" style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter; font-weight: bold;"></span>
-                        <span id="views00" style="font-size: 21px; color: rgb(25, 430, 50);">Gain:</span>
-                        <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 60px; font-size: 15px;" />
+                        <div class="box">
+                          <span id="views000" style="font-size: 21px; color: rgb(0, 255, 255);">_ _ _</span>
+                      </div>
+                      <div class="box">
+                          <span id="previousCumulativeViews34" style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter; font-weight: bold;">_ _ _</span>
+                      </div>
+                      <div class="box">
+                          <span id="views00" style="font-size: 21px; color: rgb(25, 430, 50);">Gain:</span>
+                      </div>
+                      
+                          <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 60px; font-size: 15px; height: 35px; " />
+
+
                         <span id="divisionResult" style="color: white; font-size: 21px;"></span>
+                        
                         <div style="margin-left: 60px;">
                             <div style="display: none;">
                                 <input type="number" id="subtractionValue2" placeholder="Value 2" style="display: none;">
@@ -1014,9 +1031,12 @@ iframe {
                         <span class="target-label" style="color: white; margin-left: 0px;">Target:</span>
                         <input type="number" id="targetViewsTradexInput" placeholder="Target views" style="width: 90px;" onkeydown="handleTargetViewsInputKeyPress(event)" />
                         <button id="updateTargetViewsTradexButton" style="background-color: white; color: black; width: 60px;">Update</button>
-                        <div id="title34" href="#" onclick="refreshIframe('tradexsong'); return false; " style="color: white; text-decoration: none; margin-right: 20px;">Select Song</div>
-                        <span id="viewCount34" style="font-size: 21px;"></span>
+                        
                     </div>
+                        <span id="title34" href="#" onclick="refreshIframe('tradexsong'); return false; " style="color: white; text-decoration: none; margin-right: 2px;">Select Song</span>
+                        <span id="viewCount34" style="font-size: 21px;">:</span>
+                     
+
                 </a>
             </div>
         </div>
@@ -1026,7 +1046,7 @@ iframe {
 
 <body>
   <script>
-    var lastClickedVideoId = null; // Track the last clicked video ID
+     var lastClickedVideoId = null; // Track the last clicked video ID
     var autoClickTimeout = null; // Track the auto-click timeout
 
     // Function to handle clicks on video IDs
@@ -1042,8 +1062,10 @@ iframe {
 
             // Update previous cumulative views and views gain for video ID 34
             var prevCumulativeViews = document.getElementById("previousCumulativeViews" + videoId).innerText;
+            var prevCumulativeViewsTwo = document.getElementById("previousCumulativeViewsTwo" + videoId).innerText;
             var viewsgain = document.getElementById("viewsgain" + videoId).innerText;
             document.getElementById("previousCumulativeViews34").innerText = prevCumulativeViews;
+            document.getElementById("views000").innerText = prevCumulativeViewsTwo;
             document.getElementById("views00").innerText = viewsgain;
 
             // Remove auto-click from previously clicked video
@@ -1080,6 +1102,8 @@ iframe {
         document.getElementById("title" + videoId).click();
     }
 </script>
+
+
 
 
 
