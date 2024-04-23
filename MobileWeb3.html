@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Song</title>
+    <link rel="stylesheet" type="text/css" href="all_songs.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script> $(document).ready(function () {
+
+        // All High Count 12 Pm 
+
+        var videos = [
+            { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
+            { id: 'VbSJ6fhsHZw', title: 'Keemti' },// 1 right
+            { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
+            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Anothet' },   // 3 right
+            { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
+            { id: 'HfzbN5ky5Co', title: 'Xavi - La Diabla' },   // 5 right
+            { id: '9Z79T_o4v8c', title: 'Lutt Gya' },  // 6 right
+            { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
+            { id: 'VuG7ge_8I2Y', title: 'MaanMeri Jaan' },       // 8 remove this song
+            { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
+            { id: '0c66ksfigtU', title: 'Doja cat' },    // 10
+            { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
+            { id: '9alAlD059hc', title: 'Kygo Whatever' },    // 12
+            { id: 'HrnrqYxYrbk', title: 'Satranga' },  // 13
+            { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat' },//  14
+            { id: 'ic8j13piAhQ', title: 'Taylor Sift' },  //  15            
+            { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa' }, // 16
+            { id: 'vdY5SFZBgnk', title: 'Shami Shami' },// 17
+            { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
+            { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
+            { id: 'y_RHQ4mBDKA', title: 'Bedardi Se' }, // 20
+            { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
+            { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22 removed this song
+            { id: '8AtiHCDGZ8c', title: 'Tate Mcrai' },// 23
+            { id: 'G-XMiVMlLRI', title: 'Dance Rani' },// 24
+            { id: 'cii6ruuycQA', title: 'Olivia Rodrigo - Deja' },// 25  
+            { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
+            { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
+            { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
+            { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
+            { id: '8sLS2knUa6Y', title: 'Kya Chaiye' },// 30
+            { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
+            { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
+            { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
+            { id: '', title: 'Video Id 34' }, // 34
+            
+          
+          
+         
+          
+          
+        ];
+        
+        // वीडियो के नाम या व्यूज पर क्लिक किया जाता है
+$('#video8, #viewCount8').click(function() {
+    // जानकारी लें
+    var videoId = $(this).attr('id'); // क्लिक किया गया एलिमेंट का आईडी
+
+    // अब, क्लिक किए गए वीडियो की जानकारी को उतारें
+    var clickedVideoId = videoId.substring(5); // "video8" या "viewCount8" से "8" निकालें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को पास करें
+    var oldVideoId = "video" + clickedVideoId;
+    var oldCumulativeViewsId = "previousCumulativeViews" + clickedVideoId;
+    var oldViewsgainId = "viewsgain" + clickedVideoId;
+
+    // अब, आपको इन विशिष्ट ID को नए विडियो की ID, previousCumulativeViews, और viewsgain के साथ बदलना होगा
+    var newVideoId = "video34"; // "video8" को "video34" में बदलें
+    var newCumulativeViewsId = "previousCumulativeViews34"; // "previousCumulativeViews8" को "previousCumulativeViews34" में बदलें
+    var newViewsgainId = "viewsgain34"; // "viewsgain8" को "viewsgain34" में बदलें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को नए ID के साथ बदलें
+    $('#' + oldVideoId).attr('id', newVideoId);
+    $('#' + oldCumulativeViewsId).attr('id', newCumulativeViewsId);
+    $('#' + oldViewsgainId).attr('id', newViewsgainId);
+
+    // अब, आपको उन्हें वापस बदलना होगा
+    $('#' + newVideoId).attr('id', oldVideoId);
+    $('#' + newCumulativeViewsId).attr('id', oldCumulativeViewsId);
+    $('#' + newViewsgainId).attr('id', oldViewsgainId);
+
+    // अब, आपको वीडियो के नाम और व्यूज को अपडेट कर सकते हैं
+    // उपयुक्त लॉजिक जोड़ें
+});
+
+
+
+        function updateViewCounts(apiKeyIndex) {
+            var apiKey = [
+                 //'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
+               // 'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
+               //  'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
+                // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
+                //'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
+               //  'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
+                // 'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
+               //  'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41.
+               //  'AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I',
+               //  'AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M',
+               //  'AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY', // api 39
+                // 'AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE',
+                // 'AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU',
+               //  'AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs',
+                // 'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
+                 //'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
+              //   'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
+               //  'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
+                // 'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
+                // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
+               //  'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
+                // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
+                // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
+                // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
+                // 'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
+                // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
+                // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
+                // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
+                // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
+                // 'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
+                // 'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
+                // 'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
+                // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
+                // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
+                // 'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
+                // 'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
+                //'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
+                //'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM', // api 5
+                //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4',  // api 4
+
+              
+                // 'AIzaSyBDQYflCrBold112eIZiTjg9LdhHyPmNVg', // API 31
+              // 'AIzaSyCxa9wXRY92xfjshIBsRhkcQzPicd9Pb9g',  // API 31 AGAIN
+                
+                'AIzaSyCQI6gxAN86WRPb9pVKvlvJY3CXexyyEK4', // API 32
+                // 'AIzaSyAn3dHiR7UWS8xocDWP_wtFwL2Q4Tx2Pc0', // API 33
+                 // 'AIzaSyAUukDs2b3S5P1pacPBEfBHUdQLCp_M4bM',// API 34
+                
+                // 'AIzaSyBQ7GY0joc5i8LliB6JVBbAdmYckZTdBdE', // API 35
+              //  'AIzaSyCBLtOrzjTjXMq48ll8IqPlcrzyokr4bLU', // API 36
+             // 'AIzaSyAUZW7jsgCrdAL8v5Y28aGNX4K9S5s9_fA' , // API 37
+             // 'AIzaSyA8iM7oqlz0Cs6AX7Qcmy6WEdHmtcv9HVY' , // API 38
+            // 'AIzaSyCofzvCP2IAksB3LgQPbPv-vbwl3-X3L5Q' , // API 39
+            // 'AIzaSyCVrJsRdefEGUlkyT1WCpiWqq7Mi3nSBtM', // API 40
+                
+                
+                // Add more API keys here
+            ][apiKeyIndex];
+
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                frt
+            }
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+
+
+            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+            // Build comma-separated list of video IDs1111111111111111111111111111111111       
+            var videoIdList = videos.map(function (video) {
+                return video.id;
+            }).join(',');
+
+            // Prepare the API request URL
+            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function (data) {
+                    var currentTime = Date.now();
+                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
+                    for (var i = 0; i < data.items.length; i++) {
+                        var viewCount = parseInt(data.items[i].statistics.viewCount);
+                        var previousViewCount = previousViewCounts[i] || viewCount;
+                        var viewsGain = viewCount - previousViewCount;
+                        previousViewCounts[i] = viewCount;
+
+                        // Reset cumulative gain views after 3 minutes
+                        if (timeElapsed >= intervalResetTime) {
+                            resetTimestamp = currentTime;
+                            cumulativeGainViews[i] = 0;
+                            // Update previous cumulative views after the reset interval
+                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
+                            previousCumulativeViews[i] += cumulativeGainViews[i];
+
+                            
+
+                        }
+
+                        if (timeElapsed < intervalResetTime) {
+                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
+                        }
+
+                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
+                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+                       
+
+
+                        function shouldSavePreviousCumulativeViews() {
+                            var currentTime = new Date();
+                            var currentMinutes = currentTime.getMinutes();
+                            var currentSeconds = currentTime.getSeconds();
+
+                            // Check if the current time is at 4:58 or 9:58
+                            return (currentMinutes === 4 && currentSeconds === 49) ||
+                                (currentMinutes === 4 && currentSeconds === 50) ||
+                                (currentMinutes === 9 && currentSeconds === 50) ||
+                                (currentMinutes === 14 && currentSeconds === 50) ||
+                                (currentMinutes === 19 && currentSeconds === 50) ||
+                                (currentMinutes === 24 && currentSeconds === 50) ||
+                                (currentMinutes === 29 && currentSeconds === 50) ||
+                                (currentMinutes === 34 && currentSeconds === 50) ||
+                                (currentMinutes === 39 && currentSeconds === 50) ||
+                                (currentMinutes === 44 && currentSeconds === 50) ||
+                                (currentMinutes === 49 && currentSeconds === 50) ||
+                                (currentMinutes === 54 && currentSeconds === 50) ||
+                                (currentMinutes === 59 && currentSeconds === 50);
+
+                        }
+
+                        // Function to save the value of previousCumulativeViews
+                        function savePreviousCumulativeViews() {
+                            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                if (cumulativeGainViews[i] > 0) {
+                                    // Save the value at 4:58 or 9:58
+                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                                }
+                            }
+                        }
+
+                        
+                        // Check if it's time to save the previousCumulativeViews
+                        if (shouldSavePreviousCumulativeViews()) {
+                            savePreviousCumulativeViews();
+                        }
+
+                        if (isTargetUpdateTime()) {
+                            previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                        }
+                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                        var title = videos[i].title;
+                        $('#title' + i).text(title);
+                    }
+                },
+
+                
+                error: function (error) {
+                    console.log('Error:', error);
+                    for (var i = 0; i < videos.length; i++) {
+                        $('#viewCount' + i).text('API Not Available');
+                        $('#title' + i).text(videos[i].title);
+                    }
+                }
+            });
+        }
+
+        function saveViews(views) {
+// views को एक स्थानीय फ़ाइल में सहेजें
+const filePath = "views.json";
+const data = JSON.stringify(views);
+fs.writeFileSync(filePath, data);
+}
+
+
+
+        setInterval(function () {
+            if (apiAvailable) {
+                updateViewCounts(0);
+            } else {
+                for (var i = 0; i < videos.length; i++) {
+                    $('#viewCount' + i).text('API Not Available');
+                    $('#title' + i).text(videos[i].title);
+                }
+            }
+        }, 1000); // 1 seconds
+    });
+
+</script>
+
+
+
+
+
+
+
+    <style>
+        a {
+            font-size: 23px;
+            margin-left: 0px;
+            top: 21.1px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 50px;
+        }
+
+        iframe {
+            width: 370px;
+            height: 300px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .field {
+            display: inline-block;
+            width: 370px;
+            height: 300px;
+            margin-left: 21.1px;
+        }
+
+        .field2 {
+            display: inline-block;
+            margin-left: 23px;
+        }
+
+        tradexweb {
+            display: inline-block;
+        }
+
+
+        body {
+            background-color: black;
+            max-width: 100%;
+        }
+
+        .field {
+            margin-bottom: 21.1px;
+        }
+
+        .field iframe {
+            width: 100%;
+            height: 335px;
+        }
+
+        .field .under {
+            text-align: left;
+        }
+
+        .field .under a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .under a {
+        text-decoration: none;
+    }
+
+        .field .under a:hover {
+            text-decoration: underline;
+        }
+
+        .field .under #video1,
+        .field .under #video2,
+        .field .under #video3 {
+            font-size: 23px;
+        }
+
+        /* Define CSS classes to change color */
+        .completed {
+            color: rgb(25, 430, 50);
+            font-weight: bold;
+        }
+
+        .not-completed {
+            color: white;
+        }
+
+        @media (max-width: 1700px) {
+            .field {
+                width: 23%;
+                /* 4 iframe के लिए 23%  दिया गया है */
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .field {
+                width: 30.5%;
+                /* 3 iframe के लिए 31% व्यापार दिया गया है */
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .field {
+                width: 45%;
+                /* 2 iframe के लिए 45% व्यापार दिया गया है */
+
+            }
+        }
+
+        @media (max-width: 700px) {
+            .field {
+                width: 500px
+                    /* 1 iframe के लिए 500px व्यापार दिया गया है */
+            }
+        }
+
+        @media (max-width: 570px) {
+            .field {
+                width: 85%;
+                /* 1 iframe के लिए 85% व्यापार दिया गया है */
+
+            }
+        }
+
+        @media (max-width: 1400px) {
+            hr {
+                display: none;
+            }
+        }
+
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            margin-bottom: 0px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100px;
+        }
+
+        button {
+            padding: 8px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 0px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        table {
+        font-size: 18px;
+        color: rgb(224, 219, 219);
+        
+        
+    }
+
+    table th, table td {
+        padding: 6px;
+        
+    }
+  
+    table th:nth-child(2),
+    table td:nth-child(2),
+    table th:nth-child(3),
+    table td:nth-child(3) {
+        font-weight: bold;
+    }
+
+    /* To style the "Views Gain" text */
+    #viewsgain15,
+    #viewsgain17,
+    #viewsgain28,
+    #viewsgain29,
+    #viewsgain23,
+    #viewsgain3,
+    #viewsgain16,
+    #viewsgain18,
+    #viewsgain14,
+    #viewsgain27,
+    #viewsgain11,
+    #viewsgain20,
+    #viewsgain21,
+    #viewsgain7,
+    #viewsgain26,
+    #viewsgain19,
+    #viewsgain9,
+    #viewsgain1,
+    #viewsgain24,
+    #viewsgain4,
+    #viewsgain25,
+    #viewsgain0,
+    #viewsgain2,
+    #viewsgain5,
+    #viewsgain34,
+    #viewsgain6,
+    #viewsgain10,
+    #viewsgain13,
+    #viewsgain30,
+    #viewsgai22,
+    #viewsgain8,
+    #viewsgain20,
+    #viewsgain12,
+    #viewsgain31,
+    #viewsgain32,
+    #viewsgain33,
+    #viewsgain34
+    
+    {
+        font-weight: bold;
+        font-size: 18.5px;
+        color:  rgb(25, 430, 50);
+        text-align: center;
+       
+    }
+
+    [id^='Highest11AMViews'] {
+    font-weight: bold;
+    color:rgb(234, 234, 241);
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Arial', sans-serif;
+}
+
+[id^='previousCumulativeViews'] {
+    font-weight: bold;
+    color:rgb(0, 255, 255);
+    text-align: center;
+    font-size: 18.5px;
+}
+
+
+.container {
+    display: flex;
+}
+
+.iframe {
+    flex: 0 0 30%; /* Adjust the width of the iframe */
+    height: 740px; /* Adjust the height of the iframe */
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: scroll; /* Enable vertical scrolling for the table */
+    max-height: 650px; /* Set max height for the table */
+}
+
+
+.table-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for the table */
+    
+}
+
+
+
+.box {
+        border: 2px solid white;
+        padding: 3px;
+        display: inline-block;
+        margin: 2px;
+    }
+
+
+
+
+
+    /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 2em;
+    color: #fff;
+}
+
+/* Main content layout */
+main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Song table styles */
+.song-table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+   
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Iframe container */
+.iframe-container {
+    flex: 0 0 50%;
+    margin-left: 40px;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+    
+    </style>
+</head>
+
+
+<body style="background-color: black">
+
+   
+       
+       
+
+
+    <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
+    
+        <div class="field3" style="text-underline-position: unset;">
+            
+          
+            <div class="table-container" >
+    
+                <table>
+                    <!-- Your table content here -->
+                </table>
+                <table border="2">
+                      <tr>
+                         <th>Songs Name</th>
+                         <th>Total Views</th>
+                         <th>10Minutes ago </th>
+                         <th>5Minutes ago </th>
+                         <th>Current Views</th>
+ 
+                                      
+                     </tr>
+                     
+                    
+     
+                     <tr>
+                         <td id="title8">MAAN MERI</td>
+                         <td id="viewCount8">Loading...</td>
+                         <td id="previousCumulativeViewsTwo8">_ _ _</td>
+                         <td id="previousCumulativeViews8">_ _ _</td>
+                         <td id="viewsgain8">Gain:</td>
+
+ 
+   <tr>
+                         <td id="title17">SHAMI SHAMI</td>
+                         <td id="viewCount17">Loading...</td>
+                         <td id="previousCumulativeViewsTwo17">_ _  _</td>
+                         <td id="previousCumulativeViews17">_ _  _</td>
+                         <td id="viewsgain17">Gain:</td>
+
+                        
+                     </tr>
+                     <tr>
+                         <td id="title28">NAIYO LAGDA</td>
+                         <td id="viewCount28">Loading...</td>
+                         <td id="previousCumulativeViewsTwo28">_ _  _</td>
+                         <td id="previousCumulativeViews28">_ _  _</td>
+                         <td id="viewsgain28">Gain:</td>
+  
+                         
+                     </tr>
+                     <tr>
+                         <td id="title29">TERE VAASTE</td>
+                         <td id="viewCount29">Loading...</td>
+                         <td id="previousCumulativeViewsTwo29">_ _  _</td>
+                         <td id="previousCumulativeViews29">_ _  _</td>
+                         <td id="viewsgain29">Gain:</td>
+
+                        
+                       
+                    </tr>
+                   
+                    <tr>
+                        
+                        <td id="title31">Arina Grande</td>   
+                        <td id="viewCount31">Loading...</td>
+                        <td id="previousCumulativeViewsTwo31">_ _ _</td>
+                        <td id="previousCumulativeViews31">_ _ _</td>
+                        <td id="viewsgain31">Gain:</td>
+                  
+                       
+                    </tr>
+               
+                    <tr>
+                        <td id="title15">Tylor Sift</td>
+                        <td id="viewCount15">Loading...</td>
+                        <td id="previousCumulativeViewsTwo15">_ _ _ </td>
+                        <td id="previousCumulativeViews15">_ _ _ </td>
+                        <td id="viewsgain15">Gain:</td>
+                    
+    
+                    </tr>
+                  
+                    <tr>
+                        <td id="title3">Tom Odell - Anothet</td>
+                        <td id="viewCount3">Loading...</td>
+                        <td id="previousCumulativeViewsTwo3">_ _ _ </td>
+                        <td id="previousCumulativeViews3">_ _ _</td>
+                        <td id="viewsgain3">Gain:</td>
+                  
+                        
+                    </tr>
+        
+                    <tr>
+                        <td id="title16">SRIVALI </td>
+                        <td id="viewCount16">Loading...</td>
+                        <td id="previousCumulativeViewsTwo16">_ _ _ </td>
+                        <td id="previousCumulativeViews16">_ _ _</td>
+                        <td id="viewsgain16">Gain:</td>
+              
+                       
+                    </tr>
+                    <tr>
+                        <td id="title18">BOLEGA SALA</td>
+                        <td id="viewCount18">Loading...</td>
+                        <td id="previousCumulativeViewsTwo18">_ _ _</td>
+                        <td id="previousCumulativeViews18">_ _ _</td>
+                        <td id="viewsgain18">Gain:</td>
+                       
+                        
+                    </tr>
+                    <tr>
+                        <td id="title14">EK MULAQUAT</td>
+                        <td id="viewCount14">Loading...</td>
+                        <td id="previousCumulativeViewsTwo14">_ _ _</td>
+                        <td id="previousCumulativeViews14">_ _ _</td>
+                        <td id="viewsgain14">Gain:</td>
+                       
+                    </tr>
+                    <tr>
+                        <td id="title10">Doja Cat </td>
+                        <td id="viewCount10">Loading...</td>
+                        <td id="previousCumulativeViewsTwo10">_ _ _</td>
+                        <td id="previousCumulativeViews10">_ _ _</td>
+                        <td id="viewsgain10">Gain:</td>
+                       
+                    </tr>
+                    <tr>
+                        <td id="title27">APNA BANALE</td>
+                        <td id="viewCount27">Loading...</td>
+                        <td id="previousCumulativeViewsTwo27">_ _ _</td>
+                        <td id="previousCumulativeViews27">_ _ _</td>
+                        <td id="viewsgain27">Gain:</td>
+                       
+                    </tr>
+                    <tr>
+                        <td id="title11">JHOOME</td>
+                        <td id="viewCount11">Loading...</td>
+                        <td id="previousCumulativeViewsTwo11">_ _ _</td>
+                        <td id="previousCumulativeViews11">_ _ _</td>
+                        <td id="viewsgain11">Gain:</td>
+                       
+                    </tr>
+                    <tr>
+                        <td id="title21">IS QUADER</td>
+                        <td id="viewCount21">Loading...</td>
+                        <td id="previousCumulativeViewsTwo21">_ _ _</td>
+                        <td id="previousCumulativeViews21">_ _ _</td>
+                        <td id="viewsgain21">Gain:</td>
+                       
+                    </tr>
+               
+                
+        
+              
+                <tr>
+                    <td id="title20">BEDARDI SE</td>
+                    <td id="viewCount20">Loading...</td>
+                    <td id="previousCumulativeViewsTwo20">_ _ _</td>
+                    <td id="previousCumulativeViews20">_ _ _</td>
+                    <td id="viewsgain20">Gain:</td>
+                  
+                </tr>
+                <tr>
+                    <td id="title7">CHALEYA</td>
+                    <td id="viewCount7">Loading...</td>
+                    <td id="previousCumulativeViewsTwo7">_ _ _</td>
+                    <td id="previousCumulativeViews7">_ _ _</td>
+                    <td id="viewsgain7">Gain:</td>
+                    
+                </tr>
+                <tr>
+                    <td id="title26">BESHRAM</td>
+                    <td id="viewCount26">Loading...</td>
+                    <td id="previousCumulativeViewsTwo26">_ _ _</td>
+                    <td id="previousCumulativeViews26">_ _ _</td>
+                    <td id="viewsgain26">Gain:</td>
+                  
+                </tr>
+                <tr>
+                    <td id="title30">KYA CHAIYE</td>
+                    <td id="viewCount30">Loading...</td>
+                    <td id="previousCumulativeViewsTwo30">_ _ _</td>
+                    <td id="previousCumulativeViews30">_ _ _</td>
+                    <td id="viewsgain30">Gain:</td>
+                  
+                </tr>
+                <tr>
+                    <td id="title33">Koka</td>
+                    <td id="viewCount33">Loading...</td>
+                    <td id="previousCumulativeViewsTwo33">_ _ _</td>
+                    <td id="previousCumulativeViews33"> _ _ _</td>
+                    <td id="viewsgain33">Gain:</td>
+                   
+                </tr>
+        
+                <tr>
+                    <td id="title19">BARSAT KI</td>
+                    <td id="viewCount19">Loading...</td>
+                    <td id="previousCumulativeViewsTwo19">_ _ _</td>
+                    <td id="previousCumulativeViews19">_ _ _</td>
+                    <td id="viewsgain19">Gain:</td>
+                   
+                </tr>
+                <tr>
+                    <td id="title9">KAROL JI</td>
+                    <td id="viewCount9">Loading...</td>
+                    <td id="previousCumulativeViewsTwo9">_ _ _</td>
+                    <td id="previousCumulativeViews9">_ _ _</td>
+                    <td id="viewsgain9">Gain:</td>
+                  
+                </tr>
+                <tr>
+                    <td id="title1">KEEMTI</td>
+                    <td id="viewCount1">Loading...</td>
+                    <td id="previousCumulativeViewsTwo1">_ _ _</td>
+                    <td id="previousCumulativeViews1">_ _ _</td>
+                    <td id="viewsgain1">Gain:</td>
+                    
+                </tr>
+                <tr>
+                    <td id="title23">Tate McRai</td>
+                    <td id="viewCount23">Loading...</td>
+                    <td id="previousCumulativeViewsTwo23">_ _ _</td>
+                    <td id="previousCumulativeViews23">_ _ _</td>
+                    <td id="viewsgain23">Gain:</td>
+                    
+                </tr>
+               
+                <tr>
+                    <td id="title4">NACHO NACHO</td>
+                    <td id="viewCount4">Loading...</td>
+                    <td id="previousCumulativeViewsTwo4">_ _ _</td>
+                    <td id="previousCumulativeViews4">_ _ _</td>
+                    <td id="viewsgain4">Gain:</td>
+                    
+                </tr>
+                <tr>
+                    <td id="title24">DANCE RANI</td>
+                    <td id="viewCount24">Loading...</td>
+                    <td id="previousCumulativeViewsTwo24">_ _ _</td>
+                    <td id="previousCumulativeViews24">_ _ _</td>
+                    <td id="viewsgain24">Gain:</td>
+                  
+                </tr>
+                <tr>
+                    <td id="title0">SIMROON</td>
+                    <td id="viewCount0">Loading...</td>
+                    <td id="previousCumulativeViewsTwo0">_ _ _</td>
+                    <td id="previousCumulativeViews0">_ _ _</td>
+                    <td id="viewsgain0">Gain:</td>
+                   
+                </tr>
+                <tr>
+                    <td id="title25">Olivia Rodrigo - Deja </td>
+                    <td id="viewCount25">Loading...</td>
+                    <td id="previousCumulativeViewsTwo25">_ _ _</td>
+                    <td id="previousCumulativeViews25">_ _ _ </td>
+                    <td id="viewsgain25">Gain:</td>
+                    
+                </tr>
+               
+                <tr>
+                    <td id="title2">MEIN NIKLA</td>
+                    <td id="viewCount2">Loading...</td>
+                    <td id="previousCumulativeViewsTwo2">_ _ _</td>
+                    <td id="previousCumulativeViews2">_ _ _</td>
+                    <td id="viewsgain2">Gain:</td>
+                   
+                </tr>
+        
+            <tr>
+                <td id="title5">Xavi - La Diabla</td>
+                <td id="viewCount5">Loading...</td>
+                <td id="previousCumulativeViewsTwo5">_ _ _</td>
+                <td id="previousCumulativeViews5">_ _ _</td>
+                <td id="viewsgain5">Gain:</td>
+               
+            </tr>
+            <tr>
+                <td id="title12">Kygo Whatever</td>
+                <td id="viewCount12">Loading...</td>
+                <td id="previousCumulativeViewsTwo12">_ _ _</td>
+                <td id="previousCumulativeViews12">_ _ _</td>
+                <td id="viewsgain12">Gain:</td>
+                
+            </tr>
+            <tr>
+                <td id="title13">SATRANG</td>
+                <td id="viewCount13">Loading...</td>
+                <td id="previousCumulativeViewsTwo13">_ _ _</td>
+                <td id="previousCumulativeViews13"> _ _ _</td>
+                <td id="viewsgain13">Gain:</td>
+             
+            </tr>
+          
+        
+           
+            <tr>
+                <td id="title6">LUTT PUTT</td>
+                <td id="viewCount6">Loading...</td>
+                <td id="previousCumulativeViewsTwo6">_ _ _</td>
+                <td id="previousCumulativeViews6">_ _ _</td>
+                <td id="viewsgain6">Gain:</td>
+            </tr>
+           
+
+            <tr>
+                <td id="title32">Tyla - Water</td>
+                <td id="viewCount32">Loading...</td>
+                <td id="previousCumulativeViewsTwo32">_ _ _ </td>
+                <td id="previousCumulativeViews32">_ _ _</td>
+                <td id="viewsgain32">Gain:</td>
+               
+            </tr>
+        </table>          
+                </table>
+            </div>
+    
+        
+    
+    
+       
+        
+        
+    
+    
+        <div class="iframe-container">
+            <div class="under">
+                <a rel="Jhoome.html" style="text-align: center; color:white;">
+                    <div id="video35" style="text-align: center;">
+                        <span id="remainingViews" style="font-size: 21px; color: white;"></span>
+                        <div class="box">
+                          <span id="views000" style="font-size: 21px; color: rgb(0, 255, 255);">_ _ _</span>
+                      </div>
+                      <div class="box">
+                          <span id="previousCumulativeViews34" style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter; font-weight: bold;">_ _ _</span>
+                      </div>
+                      <div class="box">
+                          <span id="views00" style="font-size: 21px; color: rgb(25, 430, 50);">Gain:</span>
+                      </div>
+                      
+                          <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Average" style="width: 60px; font-size: 15px; height: 35px; " />
+
+
+                        <span id="divisionResult" style="color: white; font-size: 21px;"></span>
+                        
+                        <div style="margin-left: 60px;">
+                            <div style="display: none;">
+                                <input type="number" id="subtractionValue2" placeholder="Value 2" style="display: none;">
+                                <input type="number" id="subtractionValue3" placeholder="Next Views" style="display: none;">
+                                <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br>
+                            </div>
+                            <span id="targetViewsTradex" class="target-count" style="color: white; font-style: normal; font-weight: normal; font-size: 21.1px; display: none;"></span>
+                            <div style="margin-right: 50px; display: none; ">
+                                <span id="indianTime" style="font-size: 21px; color: white; margin-top: 700px;"></span>
+                                <span>
+                                    <input type="number" id="num1" name="num1" placeholder="Remaining" style="width: 80px;">
+                                    <input type="number" id="subtractionValue1" placeholder="Predict" style="margin-right: 1px; width: 60px;">
+                                    <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
+                                    <span id="result" style="color: white; font-size: 21.3px;"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="under" style="text-align: center;">
+                <a id="a12" style="text-decoration: none;">
+                    <div>
+                        <span class="target-label" style="color: white; margin-left: 0px;">Target:</span>
+                        <input type="number" id="targetViewsTradexInput" placeholder="Target views" style="width: 90px;" onkeydown="handleTargetViewsInputKeyPress(event)" />
+                        <button id="updateTargetViewsTradexButton" style="background-color: white; color: black; width: 60px;">Update</button>
+                        
+                    </div>
+                        <span id="title34" href="#" onclick="refreshIframe('tradexsong'); return false; " style="color: white; text-decoration: none; margin-right: 2px;">Select Song</span>
+                        <span id="viewCount34" style="font-size: 21px;">:</span>
+                     
+
+                </a>
+            </div>
+        </div>
+        
+    
+    </body>
+
+<body>
+  <script>
+     var lastClickedVideoId = null; // Track the last clicked video ID
+    var autoClickTimeout = null; // Track the auto-click timeout
+
+    // Function to handle clicks on video IDs
+    function handleVideoClick(videoId) {
+        return function(event) {
+            event.preventDefault(); // Prevent default behavior of anchor tag
+
+            // Update view count and title for video ID 34
+            var views = document.getElementById("viewCount" + videoId).innerText;
+            document.getElementById("viewCount34").innerText = views;
+            var title = document.getElementById("title" + videoId).innerText;
+            document.getElementById("title34").innerText = title;
+
+            // Update previous cumulative views and views gain for video ID 34
+            var prevCumulativeViews = document.getElementById("previousCumulativeViews" + videoId).innerText;
+            var prevCumulativeViewsTwo = document.getElementById("previousCumulativeViewsTwo" + videoId).innerText;
+            var viewsgain = document.getElementById("viewsgain" + videoId).innerText;
+            document.getElementById("previousCumulativeViews34").innerText = prevCumulativeViews;
+            document.getElementById("views000").innerText = prevCumulativeViewsTwo;
+            document.getElementById("views00").innerText = viewsgain;
+
+            // Remove auto-click from previously clicked video
+            if (lastClickedVideoId !== null) {
+                clearTimeout(autoClickTimeout);
+            }
+
+            // Set auto-click for the currently clicked video
+            lastClickedVideoId = videoId;
+            autoClickTimeout = setTimeout(function() {
+                autoClick(videoId);
+            }, 0); // Starting auto click after 0 milliseconds
+        }
+    }
+
+    // Assign click event listeners to all video IDs
+    for (var i = 0; i <= 35; i++) {
+    // Skip adding event listener for video ID 22
+    if (i !== 22) {
+        document.getElementById("title" + i).addEventListener("click", handleVideoClick(i));
+    }
+}
+
+    // Automatic click function
+    function autoClick(videoId) {
+        var prevCumulativeViews = document.getElementById("previousCumulativeViews" + videoId).innerText;
+        var viewsgain = document.getElementById("viewsgain" + videoId).innerText;
+
+        // Update corresponding values for video ID 34
+        document.getElementById("previousCumulativeViews34").innerText = prevCumulativeViews;
+        document.getElementById("views00").innerText = viewsgain;
+
+        // Click the video again
+        document.getElementById("title" + videoId).click();
+    }
+</script>
+
+
+
+
+
+
+
+    
+    <script>
+// 1.add java song with see id
+// 2.add table 
+// 3.edit i frame container 5 id
+//edit raming views - id all change then table id redit
+
+$(document).ready(function () {
+    // Function to save data
+    function saveData(data, targetId) {
+        // Save data to the target ID
+        $('#' + targetId).text(data);
+    }
+
+    // Function to check if the current time is at specific minutes and 48 seconds
+    function isTargetUpdateTime() {
+        var currentTime = new Date();
+        var currentMinutes = currentTime.getMinutes();
+        var currentSeconds = currentTime.getSeconds();
+        var targetMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59];
+
+        // Check if the current minutes match any of the target minutes, and the seconds are 48
+        return targetMinutes.includes(currentMinutes) && currentSeconds === 48;
+    }
+
+    // Function to update view counts
+    function updateViewCounts(apiKeyIndex) {
+        // Your existing code for updating view counts goes here
+        
+        // Check if it's time to save the previousCumulativeViews
+        if (isTargetUpdateTime()) {
+            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                var previousCumulativeViewsId = "previousCumulativeViews" + i;
+                var previousCumulativeViewsTwoId = "previousCumulativeViewsTwo" + i;
+                var dataToSave = $('#' + previousCumulativeViewsId).text();
+                saveData(dataToSave, previousCumulativeViewsTwoId);
+            }
+        }
+    }
+
+    // Call the function to update view counts every second
+     // Call the function to update view counts every second
+    setInterval(function() {
+        updateViewCounts(0);
+    }, 1000); // Every second
+});
+// Function to display Indian time and handle views gain reset and saving previous views
+function displayIndianTime() {
+    const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        minute: 'numeric',
+        second: 'numeric'
+    };
+
+    const currentTime = new Date();
+    const indianMinutes = currentTime.getMinutes();
+    const indianSeconds = currentTime.getSeconds();
+
+    // Check if the time is one of the specified reset times
+    const resetTimes = [
+        { minutes: 4, seconds: 51 },
+        { minutes: 9, seconds: 51 },
+        { minutes: 14, seconds: 51 },
+        { minutes: 19, seconds: 51 },
+        { minutes: 24, seconds: 51 },
+        { minutes: 29, seconds: 51 },
+        { minutes: 34, seconds: 51 },
+        { minutes: 39, seconds: 51 },
+        { minutes: 44, seconds: 51 },
+        { minutes: 49, seconds: 51 },
+        { minutes: 54, seconds: 51 },
+        { minutes: 59, seconds: 51 }
+    ];
+
+    const shouldResetViewsGain = resetTimes.some(time => time.minutes === indianMinutes && time.seconds === indianSeconds);
+    if (shouldResetViewsGain) {
+        resetViewsGain(); // Call the function to reset views gain
+    }
+
+    // Check if the time is one of the specified times to save previous views
+    const shouldSavePreviousViews = (indianMinutes === 4 && indianSeconds === 49) ||
+                                    (indianMinutes === 4 && indianSeconds === 50) ||
+                                    (indianMinutes === 9 && indianSeconds === 50) ||
+                                    (indianMinutes === 14 && indianSeconds === 50) ||
+                                    (indianMinutes === 19 && indianSeconds === 50) ||
+                                    (indianMinutes === 24 && indianSeconds === 50) ||
+                                    (indianMinutes === 29 && indianSeconds === 50) ||
+                                    (indianMinutes === 34 && indianSeconds === 50) ||
+                                    (indianMinutes === 39 && indianSeconds === 50) ||
+                                    (indianMinutes === 44 && indianSeconds === 50) ||
+                                    (indianMinutes === 49 && indianSeconds === 50) ||
+                                    (indianMinutes === 54 && indianSeconds === 50) ||
+                                    (indianMinutes === 59 && indianSeconds === 50);
+
+    if (shouldSavePreviousViews) {
+        savePreviousViews(); // Call the function to save previous views
+    }
+
+    const indianTime = currentTime.toLocaleString('en-US', options);
+    document.getElementById('indianTime').textContent = indianTime;
+}
+
+// Function to reset views gain
+function resetViewsGain() {
+    for (var i = 0; i < cumulativeGainViews.length; i++) {
+        cumulativeGainViews[i] = 0; // Reset each element to 0
+        $('#viewsgain' + i).text(': ' + formatViewCount(cumulativeGainViews[i])); // Update viewsgain display
+    }
+}
+
+// Function to save previous views
+function savePreviousViews() {
+    for (var i = 0; i < cumulativeGainViews.length; i++) {
+        if (cumulativeGainViews[i] > 0) {
+            $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i])); // Save previous views
+        }
+    }
+}
+
+// Update time every second
+setInterval(displayIndianTime, 1000);
+displayIndianTime();
+
+
+        // HTML input elements ko references se connect karein
+        var divisionFactorInput = document.getElementById('divisionFactor');
+        var num2Input = document.getElementById('num2');
+
+        // Function jo value ko update karega
+        function updateValues() {
+            var divisionFactorValue = divisionFactorInput.value;
+            num2Input.value = divisionFactorValue;
+        }
+
+        // divisionFactor ki value change hone par function ko call karein
+        divisionFactorInput.addEventListener('input', updateValues);
+
+
+        document.getElementById("subtractionValue2").addEventListener("input", function () {
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            if (!isNaN(subtractionValue2)) {
+                var newNum1 = num1 - subtractionValue2;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue3").addEventListener("input", function () {
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+            if (!isNaN(subtractionValue3)) {
+                var newNum1 = num1Original - subtractionValue3;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        function clearSubtractionValue(inputElement) {
+            inputElement.value = '';
+            document.getElementById("num1").value = num1Original;
+            updateResult();
+        }
+
+        document.getElementById("subtractionValue1").addEventListener("input", function () {
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            if (isNaN(subtractionValue1)) {
+                clearSubtractionValue(this);
+            } else {
+                // Your existing logic for subtracting subtractionValue1
+            }
+        });
+
+
+        var num1Original = 0;
+
+        document.getElementById("num1").addEventListener("input", function () {
+            num1Original = parseFloat(document.getElementById("num1").value);
+            updateResult();
+        });
+
+        document.getElementById("num2").addEventListener("input", function () {
+            updateResult();
+        });
+
+        document.getElementById("subtractionValue1").addEventListener("input", function () {
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            if (!isNaN(subtractionValue1)) {
+                var newNum1 = num1Original - subtractionValue1;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue2").addEventListener("input", function () {
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            if (!isNaN(subtractionValue2)) {
+                var newNum1 = num1Original - subtractionValue2;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue3").addEventListener("input", function () {
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+            if (!isNaN(subtractionValue3)) {
+                var newNum1 = num1Original - subtractionValue3;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        function updateResult() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            var resultParagraph = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultParagraph.innerHTML = "";
+            } else {
+                if (num2 === 0) {
+                    resultParagraph.innerHTML = "";
+                } else {
+                    var divisionResult = num1 / num2;
+                    resultParagraph.innerHTML = "" + divisionResult.toFixed(2);
+                }
+            }
+        }
+
+        function subtractAllValues() {
+            var num1Input = document.getElementById("num1");
+            var num1 = parseFloat(num1Input.value);
+
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+
+            if (!isNaN(num1)) {
+                num1Original = num1; // Update the original value for subsequent calculations
+                if (!isNaN(subtractionValue1)) num1 -= subtractionValue1;
+                if (!isNaN(subtractionValue2)) num1 -= subtractionValue2;
+                if (!isNaN(subtractionValue3)) num1 -= subtractionValue3;
+
+                num1Input.value = num1.toString();
+                updateResult();
+            }
+        }
+
+        updateResult();
+
+        var previousCumulativeViews = []; // Array to store previous cumulative gain views
+        var previousViewCounts = [];
+        var cumulativeGainViews = [];
+        var intervalResetTime = 9999997.5; // 45550 minutes in seconds
+        var resetTimestamp = Date.now();
+
+        // Function to check if the current time is one second before a reset time
+        function shouldUpdateCumulativeGain() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            // Check if the current time is one second before any of the reset times
+            return resetTimes.some(function (resetTime) {
+                return (
+                    resetTime.minutes === currentMinutes &&
+                    resetTime.seconds === currentSeconds - 1
+                );
+            });
+        }
+
+        function updateViewCountParagraph(videoIndex, viewCount) {
+            var viewCountParagraph = document.getElementById('viewCountParagraph' + videoIndex);
+            if (viewCountParagraph) {
+                viewCountParagraph.textContent = 'Views: ' + viewCount;
+            }
+        }
+
+
+
+        // Update the view count paragraph when the video link is clicked
+        $("#video1").on("load", function () {
+            var viewCount = $("#viewCount0").text();
+            updateViewCountParagraph(0, viewCount);
+        });
+
+
+        function calculateDivision() {
+            var divisionFactor = parseInt(document.getElementById('divisionFactor').value);
+            var remainingViews = parseInt(document.getElementById('remainingViews').textContent.split(' ')[2].replace(/,/g, ''));
+
+            if (!isNaN(divisionFactor)) {
+                var divisionResult = remainingViews / divisionFactor;
+                document.getElementById('divisionResult').textContent = '' + divisionResult.toFixed(2);
+            } else {
+                document.getElementById('divisionResult').textContent = '';
+            }
+        }
+        // Original targetUpdateTime
+        var targetUpdateTime = { minutes: 4, seconds: 58 };
+
+        // Ensure minutes don't exceed 59
+        if (targetUpdateTime.minutes > 59) {
+            targetUpdateTime.minutes = targetUpdateTime.minutes % 60;
+        }
+        // The result will now be 21 minutes and 58 seconds
+        console.log(targetUpdateTime);
+
+        // Function to check if the current time matches the targetUpdateTime
+        function isTargetUpdateTime() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            return currentMinutes === targetUpdateTime.minutes && currentSeconds === targetUpdateTime.seconds;
+        }
+
+        function handleTargetViewsInputKeyPress(event) {
+            // Check if the key pressed is the "Enter" key (keyCode 13)
+            if (event.keyCode === 13) {
+                // Trigger the "Update" button click event
+                document.getElementById("updateTargetViewsTradexButton").click();
+            }
+        }
+
+        // Rest of your existing JavaScript code...
+
+        $(document).ready(function () {
+            // Update the target views when the "Update" button is clicked
+            $("#updateTargetViewsTradexButton").click(function () {
+                var newTargetViews = parseInt($("#targetViewsTradexInput").val());
+                if (!isNaN(newTargetViews)) {
+                    // Update your target views logic here
+                } else {
+                    // alert("Please enter a valid number for the target views.");
+                }
+            });
+
+            // Other parts of your existing code...
+        });
+        $('#updateTargetButton').click(function () {
+            // Get the value from the input field
+            var newTargetViews = parseInt($('#targetViewsInput').val());
+
+            // Check if the input is a valid number
+            if (!isNaN(newTargetViews)) {
+                // Update the target views on the screen
+                targetViewsTradex = newTargetViews;
+                $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+
+                // Update the remaining views based on the new target
+                var currentViewsTradex = parseInt($('#viewCount34').text().replace(/,/g, ''), 10);
+                var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+                $('#num1').val(targetViewsTradex - currentViewsTradex);
+                $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+
+            } else {
+                //  alert('Please enter a valid number for the target views.');
+            }
+        });
+        // Function to format view count with commas
+        function formatViewCount(viewCount) {
+            return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Function to calculate remaining views
+        function calculateRemainingViews(currentViews, targetViews) {
+            return Math.max(targetViews - currentViews, 0);
+        }
+
+        $(document).ready(function () {
+            // Define the target view count for the "Tradex Song" video
+            var targetViewsTradex = // 1000000;
+
+                // Function to format view count with commas
+                function formatViewCount(viewCount) {
+                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+            // Function to calculate remaining views
+            function calculateRemainingViews(currentViews, targetViews) {
+                return Math.max(targetViews - currentViews, 0);
+            }
+
+            // Update the target views when the "Update Target Views" button is clicked
+            $('#updateTargetViewsTradexButton').click(function () {
+                var newTargetViews = parseInt($('#targetViewsTradexInput').val());
+                if (!isNaN(newTargetViews)) {
+                    targetViewsTradex = newTargetViews;
+                    $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+                } else {
+                    //  alert('Please enter a valid number for the target views.');
+                }
+            });
+
+            // Function to update view counts and remaining views
+            function updateViewCounts() {
+                // Calculate and display the remaining views
+                var currentViewsTradex = parseInt($('#viewCount34').text().replace(/,/g, ''), 10);
+                var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+                $('#remainingViews').text('Remaining : ' + formatViewCount(remainingViews));
+
+                // Check if the target views have been reached
+                if (currentViewsTradex >= targetViewsTradex) {
+                    $('#video34').addClass('completed'); // Apply the completed class to the video view count
+                    $('#remainingViews.completed').css('color', 'green'); // Change the color as needed
+                    $('#remainingViews').text('Views Completed ✅✅✅'); // Change the text to indicate completion
+                    $('#num1').text('');
+                } else {
+                    $('#video34').removeClass('completed'); // Remove the completed class from the video view count
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                    $('#remainingViews').text('Remaining : ' + formatViewCount(remainingViews)); // Restore the original text
+
+                }
+            }
+
+            // Define the reset times with both minutes and seconds
+            var resetTimes = [
+                { minutes: 4, seconds: 51 },
+                { minutes: 9, seconds: 51 },
+                { minutes: 14, seconds: 51 },
+                { minutes: 19, seconds: 51 },
+                { minutes: 24, seconds: 51 },
+                { minutes: 29, seconds: 51 },
+                { minutes: 34, seconds: 51 },
+                { minutes: 39, seconds: 51 },
+                { minutes: 44, seconds: 51 },
+                { minutes: 49, seconds: 51 },
+                { minutes: 54, seconds: 51 },
+                { minutes: 59, seconds: 51 },
+            ];
+
+            // Function to check if the current time is a reset time
+            function shouldResetCumulativeGain() {
+                var currentTime = new Date();
+                var currentMinutes = currentTime.getMinutes();
+                var currentSeconds = currentTime.getSeconds();
+
+                // Check if the current time matches any of the reset times
+                return resetTimes.some(function (resetTime) {
+                    return resetTime.minutes === currentMinutes && resetTime.seconds === currentSeconds;
+                });
+            }
+
+            // Function to reset cumulative gain views
+            function resetCumulativeGain() {
+                cumulativeGainViews = cumulativeGainViews.map(function () {
+                    return 0; // Reset each element to 0
+                });
+            }
+
+            // Function to update view counts and handle reset
+            function updateViewCountsAndReset() {
+                if (shouldResetCumulativeGain()) {
+                    resetCumulativeGain();
+                }
+
+                // Your existing code to update view counts
+                // ...
+            }
+
+            // Initial view count update and reset check
+            setInterval(function () {
+                updateViewCountsAndReset();
+            }, 1000); // Update every second
+
+            updateViewCounts();
+
+            // Refresh view counts and remaining views every 0 seconds
+            setInterval(function () {
+                updateViewCounts();
+            }, 0); // 30 seconds
+        });
+
+        function refreshIframe(iframeId) {
+            var iframe = document.getElementById(iframeId);
+            if (iframe) {
+                var src = iframe.src;
+                iframe.src = src; // Refresh the iframe by resetting the src
+            }
+        }
+
+           var apiAvailable = true; // Variable to track API availability
+
+        // HTML input elements ko references se connect karein
+        var divisionFactorInput = document.getElementById('divisionFactor');
+        var num2Input = document.getElementById('num2');
+
+        // Function to update num2 and recalculate result
+        function updateValuesAndCalculate() {
+            var divisionFactorValue = divisionFactorInput.value;
+            num2Input.value = divisionFactorValue - 1;
+            updateResult(); // Call the function that recalculates the result
+        }
+
+        // divisionFactor ki value change hone par function ko call karein
+        divisionFactorInput.addEventListener('input', updateValuesAndCalculate);
+
+
+        function updateResult() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(num2Input.value); // Use the updated num2 value
+
+            var resultParagraph = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultParagraph.innerHTML = "";
+            } else {
+                if (num2 === 0) {
+                    resultParagraph.innerHTML = "";
+                } else {
+                    var divisionResult = num1 / num2;
+                    resultParagraph.innerHTML = "" + divisionResult.toFixed(2);
+                }
+            }
+        }
+
+        // शेष दृश्य पर क्लिक करने के लिए इवेंट लिस्टेनर सेट करें
+        $('#remainingViews').click(function () {
+            // "Remaining Views" की मान पकड़ें
+            var remainingViewsValue = parseFloat($('#remainingViews').text().split(' ')[2].replace(/,/g, ''));
+
+            // num1 में "Remaining Views" की मान सेट करें
+            document.getElementById('num1').value = remainingViewsValue;
+        });
+
+
+        // Function to check if the current time is a reset time
+        function shouldResetCumulativeGain() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            // Check if the current time matches any of the reset times
+            return resetTimes.some(function (resetTime) {
+                return resetTime.minutes === currentMinutes && resetTime.seconds === currentSeconds;
+            });
+        }
+
+        // Function to reset cumulative gain views
+        function resetCumulativeGain() {
+            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                cumulativeGainViews[i] = 0; // Reset each element to 0
+            }
+        }
+
+        // Function to update view counts and handle reset
+        function updateViewCountsAndReset() {
+            if (shouldResetCumulativeGain()) {
+                resetCumulativeGain();
+            }
+        }
+        // Initial view count update and reset check
+        setInterval(function () {
+            updateViewCountsAndReset();
+        }, 1000);
+
+        // Original values of num1 and substractvalue1
+
+
+// Now, num2 will have the same value as num1 + substractvalue1
+
+// बैकग्राउंड शेड्यूलर बनाएं
+const scheduler = new Scheduler();
+
+// हर मिनट में API को कॉल करें
+scheduler.scheduleRepeatingTask(1000 * 60, () => {
+  // API को कॉल करें
+  callApi();
+});
+
+// API को कॉल करने का फ़ंक्शन
+function callApi() {
+  // API को कॉल करें
+  const response = fetch('AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo');
+
+  // response को संभालें
+  response.then((data) => {
+    // views को अपडेट करें
+    updateViews(data.views);
+  });
+}
+
+// डेटा को localStorage में सहेजना
+function saveData() {
+  var views = 100; // आपके व्यूज की मान यहाँ होगी
+  localStorage.setItem('viewsData', JSON.stringify({ views: views }));
+}
+
+// पिछले डेटा को localStorage से पुनः लोड करना
+function loadData() {
+  var storedData = localStorage.getItem('viewsData');
+  if (storedData) {
+    var data = JSON.parse(storedData);
+    var previousViews = data.views;
+    // यहाँ आपके पिछले व्यूज का उपयोग करें
+    console.log('पिछले व्यूज: ' + previousViews);
+  }
+}
+
+// वेबसाइट को रिफ्रेश करने पर डेटा सहेजना और पुनः लोड करना
+window.onload = function() {
+  saveData();
+  loadData();
+};
+
+
+    </script>
+
+</body>
+
+</html>
