@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaptopWeb1</title>
+    <title>Laptop Web</title>
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -14,21 +14,21 @@
 
         var videos = [
             { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
-            { id: 'VbSJ6fhsHZw', title: 'Keemti' },// 1 right
+            { id: 'Oa_RSwwpPaA', title: 'Beautiful Things ' },// 1 right
             { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
-            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Anothet' },   // 3 right
+            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
             { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
             { id: 'HfzbN5ky5Co', title: 'Xavi - La Diabla' },   // 5 right
-            { id: '9Z79T_o4v8c', title: 'Lutt Gya' },  // 6 right
+            { id: 'aezstCBHOPQ', title: 'Too Sweet' },  // 6 right
             { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
-            { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 8 remove this song
+            { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
             { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
             { id: '0c66ksfigtU', title: 'Doja cat' },    // 10
             { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
             { id: '9alAlD059hc', title: 'Kygo Whatever' },    // 12
-            { id: 'HrnrqYxYrbk', title: 'Satranga' },  // 13
+            { id: 'GZ3zL7kT6_c', title: 'Lose Control' },  // 13
             { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat' },//  14
-            { id: 'ic8j13piAhQ', title: 'Taylor Sift' },  //  15            
+            { id: 'JKrDdsgXuso', title: 'Stick Season' },  //  15        
             { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa' }, // 16
             { id: 'vdY5SFZBgnk', title: 'Shami Shami' },// 17
             { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
@@ -43,7 +43,7 @@
             { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
             { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
             { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
-            { id: '8sLS2knUa6Y', title: 'Kya Chaiye' },// 30
+            { id: 'V2G8ESoDXm8', title: 'Seturn' },// 30
             { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
             { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
             { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
@@ -55,6 +55,293 @@
           
           
         ];
+
+
+       
+let apiInterval;
+
+
+
+
+
+function updateViews(apiKey) {
+    videos.forEach(video => {
+        if (video.id) {
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${video.id}&key=${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const viewCount = data.items[0].statistics.viewCount;
+                    console.log(`Title: ${video.title}, Views: ${viewCount}`);
+                })
+                .catch(error => {
+                    console.error('Error fetching video data:', error);
+                    // If there's an error, select a random API key between API1 to API20
+                    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
+                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+                    updateViews(activeApi); // Update views with the newly selected API key
+                });
+        }
+    });
+}
+
+function deactivateApis() {
+            document.querySelectorAll('.api').forEach(api => api.style.color = ''); // Reset color for all APIs
+        }
+
+        // Generate random number between 1 and 20
+        const randomIndex = Math.floor(Math.random() * 49) + 1;
+        // Initially select a random API key between API1 to API20
+        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+        deactivateApis(); // Deactivate all APIs initially
+        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+
+        // Event listener to handle API selection
+        document.querySelectorAll('.api').forEach(span => {
+            span.addEventListener('click', () => {
+                deactivateApis(); // Deactivate all APIs
+                span.style.color = 'red'; // Set color to red for the selected API
+                activeApi = span.getAttribute('value');
+                console.log(`Active API set to: ${activeApi}`);
+                updateViews(activeApi); // Update views with the newly selected API key
+                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+            });
+        });
+
+function setApiRefreshInterval(interval, button) {
+    clearInterval(apiInterval);
+    apiInterval = setInterval(() => {
+        updateViews(activeApi);
+    }, interval);
+
+    // Button highlight logic
+    document.querySelectorAll('button').forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+
+document.getElementById('Refresh1Second').addEventListener('click', (e) => setApiRefreshInterval(1000, e.target));
+document.getElementById('Refresh10Second').addEventListener('click', (e) => setApiRefreshInterval(10000, e.target));
+document.getElementById('Refresh30Second').addEventListener('click', (e) => setApiRefreshInterval(30000, e.target));
+
+document.querySelectorAll('.api').forEach(span => {
+    span.addEventListener('click', () => {
+        document.querySelectorAll('.api').forEach(api => api.classList.remove('active-api'));
+        span.classList.add('active-api');
+        activeApi = span.getAttribute('value');
+        console.log(`Active API set to: ${activeApi}`);
+    });
+});
+
+
+
+
+
+function displayIndianTime() {
+    const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        minute: 'numeric',
+        second: 'numeric'
+    };
+
+    const currentTime = new Date();
+    const indianMinutes = currentTime.getMinutes();
+    const indianSeconds = currentTime.getSeconds();
+
+    // Check if the current time matches specified intervals (4:45, 4:46, 4:47, etc.)
+    const specifiedMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 45, 49, 54, 59];
+    const specifiedSeconds = [ 48 , 49 , 50];
+
+    if (specifiedMinutes.includes(indianMinutes) && specifiedSeconds.includes(indianSeconds)) {
+        // Call the function to refresh API
+        updateViews(activeApi);
+    }
+
+    // Display Indian Standard Time on the webpage
+    document.getElementById('indianTime').textContent = currentTime.toLocaleTimeString('en-IN', options);
+}
+
+// Set interval to update time every second
+setInterval(displayIndianTime, 1000);
+
+// Start the API calls with a default interval
+setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
+
+
+        function updateViews(apiKey) {
+           
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                frt
+            }
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+
+
+            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+            // Build comma-separated list of video IDs1111111111111111111111111111111111       
+            var videoIdList = videos.map(function (video) {
+                return video.id;
+            }).join(',');
+
+            // Prepare the API request URL
+            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+        
+
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function (data) {
+                    var currentTime = Date.now();
+                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
+                    for (var i = 0; i < data.items.length; i++) {
+                        var viewCount = parseInt(data.items[i].statistics.viewCount);
+                        var previousViewCount = previousViewCounts[i] || viewCount;
+                        var viewsGain = viewCount - previousViewCount;
+                        previousViewCounts[i] = viewCount;
+
+                        // Reset cumulative gain views after 3 minutes
+                        if (timeElapsed >= intervalResetTime) {
+                            resetTimestamp = currentTime;
+                            cumulativeGainViews[i] = 0;
+                            // Update previous cumulative views after the reset interval
+                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
+                            previousCumulativeViews[i] += cumulativeGainViews[i];
+
+                            
+
+                        }
+
+                        if (timeElapsed < intervalResetTime) {
+                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
+                        }
+
+                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
+                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+                       
+                    
+
+                        function shouldSavePreviousCumulativeViews() {
+                            var currentTime = new Date();
+                            var currentMinutes = currentTime.getMinutes();
+                            var currentSeconds = currentTime.getSeconds();
+
+                            // Check if the current time is at 4:58 or 9:58
+                            return
+                                (currentMinutes === 4 && currentSeconds === 50) ||
+                                (currentMinutes === 9 && currentSeconds === 50) ||
+                                (currentMinutes === 14 && currentSeconds === 50) ||
+                                (currentMinutes === 19 && currentSeconds === 50) ||
+                                (currentMinutes === 24 && currentSeconds === 50) ||
+                                (currentMinutes === 29 && currentSeconds === 50) ||
+                                (currentMinutes === 34 && currentSeconds === 50) ||
+                                (currentMinutes === 39 && currentSeconds === 50) ||
+                                (currentMinutes === 44 && currentSeconds === 50) ||
+                                (currentMinutes === 49 && currentSeconds === 50) ||
+                                (currentMinutes === 54 && currentSeconds === 50) ||
+                                (currentMinutes === 59 && currentSeconds === 50);
+
+                        }
+
+                        // Function to save the value of previousCumulativeViews
+                        function savePreviousCumulativeViews() {
+                            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                if (cumulativeGainViews[i] > 0) {
+                                    // Save the value at 4:58 or 9:58
+                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                                }
+                            }
+                        }
+                    
+                        
+                        // Check if it's time to save the previousCumulativeViews
+                        if (shouldSavePreviousCumulativeViews()) {
+                            savePreviousCumulativeViews();
+                        }
+
+                        if (isTargetUpdateTime()) {
+                            previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                        }
+                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                        var title = videos[i].title;
+                        $('#title' + i).text(title);
+                    }
+                },
+
+                
+                error: function (error) {
+                    console.log('Error:', error);
+                    for (var i = 0; i < videos.length; i++) {
+                        $('#viewCount' + i).text('API Not Available');
+                        $('#title' + i).text(videos[i].title);
+                    }
+                }
+            });
+        }
+
+      
+
+        // Function to handle API selection
+        $('.api').click(function() {
+            var clickedAPI = $(this).attr('value');
+            if (clickedAPI !== selectedAPI) {
+                selectedAPI = clickedAPI;
+                updateViews(selectedAPI); // Update views with the newly selected API key
+            }
+        });
+
+        // Initially select the first API key
+        selectedAPI = $('#API5').attr('value');
+        updateViews(selectedAPI); // Update views with the initially selected API keyy
+
+  $('.api').click(function() {
+            $('.api').removeClass('selected'); // Remove 'selected' class from all APIs
+            $(this).addClass('selected'); // Add 'selected' class to the clicked API
+            selectedAPI = $(this).attr('value');
+        });
+
+        // Initially select the first API key
+   
+
+        function updateViewCounts(apiKeyIndex) {
+            var apiKey = [
+               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
+             
+             
+                
+                // Add more API keys here
+            ][apiKeyIndex];
+
+
+
+        }
+
+
+
+
+
+
+
         
         // वीडियो के नाम या व्यूज पर क्लिक किया जाता है
 $('#video8, #viewCount8').click(function() {
@@ -90,188 +377,7 @@ $('#video8, #viewCount8').click(function() {
 
 
 
-        function updateViewCounts(apiKeyIndex) {
-            var apiKey = [
-                 //'AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A', // api 1
-               // 'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA',
-               //  'AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs',
-                // 'AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4',
-                //'AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4',
-               //  'AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI',
-                // 'AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI',
-               //  'AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc', //api 41.
-               //  'AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I',
-               //  'AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M',
-                // 'AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY', // api 39
-                // 'AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE',
-                // 'AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU',
-                // 'AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs',
-               //  'AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A',
-                // 'AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo',
-                // 'AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo', // api 30
-               //  'AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw',  // api 29
-               //  'AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w-0', // api 30
-                // 'AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo', // api 31
-               //  'AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc', // api 28
-                // 'AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8', // api 27
-                // 'AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY', // api 26
-                // 'AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI', // api 25
-                // 'AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA', // api 24
-                // 'AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ', // api 23
-                // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 22
-                // 'AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU', // api 21
-                // 'AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo', // api 20
-                // 'AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8', // api 19
-                // 'AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc', // api 18
-                // 'AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE', // api 17
-                // 'AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg', // a[i 16
-                // 'AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA', // api 9
-                // 'AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA', // api 8
-                // 'AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4', // api 7
-                //'AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0', // api 6
-                //'AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM', // api 5
-                //'AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4',  // api 4
-               // 'AIzaSyBDQYflCrBold112eIZiTjg9LdhHyPmNVg', // API 31
-               //'AIzaSyCxa9wXRY92xfjshIBsRhkcQzPicd9Pb9g',  // API 31 AGAIN
-                
-                //'AIzaSyCQI6gxAN86WRPb9pVKvlvJY3CXexyyEK4', // API 32
-                // 'AIzaSyAn3dHiR7UWS8xocDWP_wtFwL2Q4Tx2Pc0', // API 33
-                 // 'AIzaSyAUukDs2b3S5P1pacPBEfBHUdQLCp_M4bM',// API 34
-
-                 'AIzaSyBQ7GY0joc5i8LliB6JVBbAdmYckZTdBdE', // API 35
-              //  'AIzaSyCBLtOrzjTjXMq48ll8IqPlcrzyokr4bLU', // API 36
-             // 'AIzaSyAUZW7jsgCrdAL8v5Y28aGNX4K9S5s9_fA' , // API 37
-
-             //  'AIzaSyA8iM7oqlz0Cs6AX7Qcmy6WEdHmtcv9HVY' , // API 38
-            // 'AIzaSyCofzvCP2IAksB3LgQPbPv-vbwl3-X3L5Q' , // API 39
-            // 'AIzaSyCVrJsRdefEGUlkyT1WCpiWqq7Mi3nSBtM', // API 40
-                
-                
-                // Add more API keys here
-            ][apiKeyIndex];
-
-            // Function to format view count with commas
-            function formatViewCount(viewCount) {
-                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                frt
-            }
-
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = apiKeys[apiKeyIndex];
-            }
-            // Function to format view count with commas
-            function formatViewCount(viewCount) {
-                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = apiKeys[apiKeyIndex];
-            }
-
-
-            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
-
-            // Build comma-separated list of video IDs1111111111111111111111111111111111       
-            var videoIdList = videos.map(function (video) {
-                return video.id;
-            }).join(',');
-
-            // Prepare the API request URL
-            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
-
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function (data) {
-                    var currentTime = Date.now();
-                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
-                    for (var i = 0; i < data.items.length; i++) {
-                        var viewCount = parseInt(data.items[i].statistics.viewCount);
-                        var previousViewCount = previousViewCounts[i] || viewCount;
-                        var viewsGain = viewCount - previousViewCount;
-                        previousViewCounts[i] = viewCount;
-
-                        // Reset cumulative gain views after 3 minutes
-                        if (timeElapsed >= intervalResetTime) {
-                            resetTimestamp = currentTime;
-                            cumulativeGainViews[i] = 0;
-                            // Update previous cumulative views after the reset interval
-                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
-                            previousCumulativeViews[i] += cumulativeGainViews[i];
-
-                            
-
-                        }
-
-                        if (timeElapsed < intervalResetTime) {
-                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
-                        }
-
-                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
-                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-                       
-
-
-                        function shouldSavePreviousCumulativeViews() {
-                            var currentTime = new Date();
-                            var currentMinutes = currentTime.getMinutes();
-                            var currentSeconds = currentTime.getSeconds();
-
-                            // Check if the current time is at 4:58 or 9:58
-                            return (currentMinutes === 4 && currentSeconds === 49) ||
-                                (currentMinutes === 4 && currentSeconds === 50) ||
-                                (currentMinutes === 9 && currentSeconds === 50) ||
-                                (currentMinutes === 14 && currentSeconds === 50) ||
-                                (currentMinutes === 19 && currentSeconds === 50) ||
-                                (currentMinutes === 24 && currentSeconds === 50) ||
-                                (currentMinutes === 29 && currentSeconds === 50) ||
-                                (currentMinutes === 34 && currentSeconds === 50) ||
-                                (currentMinutes === 39 && currentSeconds === 50) ||
-                                (currentMinutes === 44 && currentSeconds === 50) ||
-                                (currentMinutes === 49 && currentSeconds === 50) ||
-                                (currentMinutes === 54 && currentSeconds === 50) ||
-                                (currentMinutes === 59 && currentSeconds === 50);
-
-                        }
-
-                        // Function to save the value of previousCumulativeViews
-                        function savePreviousCumulativeViews() {
-                            for (var i = 0; i < cumulativeGainViews.length; i++) {
-                                if (cumulativeGainViews[i] > 0) {
-                                    // Save the value at 4:58 or 9:58
-                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-
-                                }
-                            }
-                        }
-
-                        
-                        // Check if it's time to save the previousCumulativeViews
-                        if (shouldSavePreviousCumulativeViews()) {
-                            savePreviousCumulativeViews();
-                        }
-
-                        if (isTargetUpdateTime()) {
-                            previousCumulativeViews[i] = cumulativeGainViews[i];
-
-                        }
-                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
-
-                        var title = videos[i].title;
-                        $('#title' + i).text(title);
-                    }
-                },
-
-                
-                error: function (error) {
-                    console.log('Error:', error);
-                    for (var i = 0; i < videos.length; i++) {
-                        $('#viewCount' + i).text('API Not Available');
-                        $('#title' + i).text(videos[i].title);
-                    }
-                }
-            });
-        }
-
+       
         function saveViews(views) {
 // views को एक स्थानीय फ़ाइल में सहेजें
 const filePath = "views.json";
@@ -293,6 +399,8 @@ fs.writeFileSync(filePath, data);
         }, 1000); // 1 seconds
     });
 
+  
+
 </script>
 
 
@@ -302,6 +410,54 @@ fs.writeFileSync(filePath, data);
 
 
     <style>
+        
+   .api-container {
+        white-space: nowrap; /* APIs in one line */
+        overflow-x: auto; /* Enable horizontal scrollbar */
+       
+        flex: 1;
+    overflow-y: scroll; /* Enable vertical scrolling for the table */ 
+    max-width: 680px;/* Set max height for the table */
+    }
+
+    
+    .api-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for the table */
+    
+}
+
+
+    .api {
+        display: inline-block; /* Display APIs in one line */
+        margin: 0px;
+        padding: 5px;
+        background-color: #071415;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 25px;
+    }
+
+    .api:hover {
+      color: rgb(223, 223, 27);
+    }
+
+    .api.selected {
+            color: yellow;
+        }
+
+
+        .selected {
+            color: red; /* Change color to red for the selected API */
+        }
+.active-api {
+            color: red;
+        }
+        .active-button {
+            background-color: rgb(255, 0, 0);
+            color: white;
+        }
+
+
         a {
             font-size: 23px;
             margin-left: 0px;
@@ -556,7 +712,7 @@ fs.writeFileSync(filePath, data);
 .table-container {
     flex: 1;
     overflow-y: scroll; /* Enable vertical scrolling for the table */
-    max-height: 740px; /* Set max height for the table */
+    max-height: 720px; /* Set max height for the table */
 }
 
 
@@ -667,9 +823,7 @@ iframe {
           
             <div class="table-container" >
     
-                <table>
-                    <!-- Your table content here -->
-                </table>
+    
                 <table border="2">
                     <tr>
                          <th>Songs Name</th>
@@ -740,7 +894,14 @@ iframe {
                     
     
                     </tr>
-                  
+                    <tr>
+                        <td id="title30">SETURN</td>
+                        <td id="viewCount30">Loading...</td>
+                        <td id="previousCumulativeViewsTwo30">_ _ _</td>
+                        <td id="previousCumulativeViews30">_ _ _</td>
+                        <td id="viewsgain30">Gain:</td>
+                      
+                    </tr>
                     <tr>
                         <td id="title3">Tom Odell - Anothet</td>
                         <td id="viewCount3">Loading...</td>
@@ -837,14 +998,7 @@ iframe {
                     <td id="viewsgain26">Gain:</td>
                   
                 </tr>
-                <tr>
-                    <td id="title30">KYA CHAIYE</td>
-                    <td id="viewCount30">Loading...</td>
-                    <td id="previousCumulativeViewsTwo30">_ _ _</td>
-                    <td id="previousCumulativeViews30">_ _ _</td>
-                    <td id="viewsgain30">Gain:</td>
-                  
-                </tr>
+           
                 <tr>
                     <td id="title33">Koka</td>
                     <td id="viewCount33">Loading...</td>
@@ -904,13 +1058,24 @@ iframe {
                   
                 </tr>
                 <tr>
-                    <td id="title0">SIMROON</td>
+                    <td id="title6">Too Sweet</td>
+                    <td id="viewCount6">Loading...</td>
+                    <td id="previousCumulativeViewsTwo6">_ _ _</td>
+                    <td id="previousCumulativeViews6">_ _ _</td>
+                    <td id="viewsgain6">Gain:</td>
+                </tr>
+               
+                <tr>
+                    <td id="title0">The Weekend</td>
                     <td id="viewCount0">Loading...</td>
                     <td id="previousCumulativeViewsTwo0">_ _ _</td>
                     <td id="previousCumulativeViews0">_ _ _</td>
                     <td id="viewsgain0">Gain:</td>
                    
                 </tr>
+
+                       
+        
                 <tr>
                     <td id="title25">Olivia Rodrigo - Deja </td>
                     <td id="viewCount25">Loading...</td>
@@ -918,6 +1083,15 @@ iframe {
                     <td id="previousCumulativeViews25">_ _ _ </td>
                     <td id="viewsgain25">Gain:</td>
                     
+                </tr>
+
+                <tr>
+                    <td id="title13">Lose Control</td>
+                    <td id="viewCount13">Loading...</td>
+                    <td id="previousCumulativeViewsTwo13">_ _ _</td>
+                    <td id="previousCumulativeViews13"> _ _ _</td>
+                    <td id="viewsgain13">Gain:</td>
+                 
                 </tr>
                
                 <tr>
@@ -945,25 +1119,10 @@ iframe {
                 <td id="viewsgain12">Gain:</td>
                 
             </tr>
-            <tr>
-                <td id="title13">SATRANG</td>
-                <td id="viewCount13">Loading...</td>
-                <td id="previousCumulativeViewsTwo13">_ _ _</td>
-                <td id="previousCumulativeViews13"> _ _ _</td>
-                <td id="viewsgain13">Gain:</td>
-             
-            </tr>
+          
           
         
-           
-            <tr>
-                <td id="title6">LUTT PUTT</td>
-                <td id="viewCount6">Loading...</td>
-                <td id="previousCumulativeViewsTwo6">_ _ _</td>
-                <td id="previousCumulativeViews6">_ _ _</td>
-                <td id="viewsgain6">Gain:</td>
-            </tr>
-           
+    
 
             <tr>
                 <td id="title32">Tyla - Water</td>
@@ -978,12 +1137,79 @@ iframe {
         </table>          
                 </table>
             </div>
+
+            
+        <div class="api-container">
+            <span id="API1" class="api" value="AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A">1</span>,
+            <span id="API2" class="api" value="AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA">2</span>,
+            <span id="API3" class="api" value="AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs">3</span>,
+            <span id="API4" class="api" value="AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4">4</span>,
+            <span id="API5" class="api" value="AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4">5</span>,
+            <span id="API6" class="api" value="AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI">6</span>,
+            <span id="API7" class="api" value="AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI">7</span>,
+            <span id="API8" class="api" value="AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc">8</span>,
+            <span id="API9" class="api" value="AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I">9</span>,
+            <span id="API10" class="api" value="AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M">10</span>,
+            <span id="API11" class="api" value="AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY">11</span>,
+            <span id="API12" class="api" value="AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE">12</span>,
+            <span id="API13" class="api" value="AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU">13</span>,
+            <span id="API14" class="api" value="AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs">14</span>,
+            <span id="API15" class="api" value="AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A">15</span>,
+            <span id="API16" class="api" value="AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo">16</span>,
+            <span id="API17" class="api" value="AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo">17</span>,
+            <span id="API18" class="api" value="AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw">18</span>,
+            <span id="API19" class="api" value="AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo">19</span>,
+            <span id="API20" class="api" value="AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc">20</span>
+            <span id="API21" class="api" value="AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo">21</span>
+            <span id="API22" class="api" value="AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8">22</span>,
+            <span id="API23" class="api" value="AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc">23</span>,
+            <span id="API24" class="api" value="AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE">24</span>,
+            <span id="API26" class="api" value="AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg">26</span>,
+            <span id="API27" class="api" value="AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA">27</span>,
+            <span id="API28" class="api" value="AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA">28</span>,
+            <span id="API29" class="api" value="AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4">29</span>,
+            <span id="API30" class="api" value="AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0">30</span>,
+            <span id="API32" class="api" value="AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU">32</span>,
+            <span id="API43" class="api" value="AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8">43</span>,
+            <span id="API44" class="api" value="AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY">44</span>,
+            <span id="API46" class="api" value="AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA">46</span>,
+            <span id="API47" class="api" value="AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ">47</span>,
+            <span id="API48" class="api" value="AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM">48</span>,
+            <span id="API49" class="api" value="AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4">49</span>
+           
+                
+                
+
+            </div>
+    
         </div>
+            
+   <!-- 
+              <span id="API25" class="api" value="AIzaSyBDQYflCrBold112eIZiTjg9LdhHyPmNVg">25</span>,
+             <span id="API31" class="api" value="AIzaSyAUukDs2b3S5P1pacPBEfBHUdQLCp_M4bM">31</span>,
+  <span id="API33" class="api" value="AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w">33</span>,
+ <span id="API34" class="api" value="AIzaSyCxa9wXRY92xfjshIBsRhkcQzPicd9Pb9g">34</span>,
+ <span id="API35" class="api" value="AIzaSyBQ7GY0joc5i8LliB6JVBbAdmYckZTdBdE">35</span>,
+            <span id="API36" class="api" value="AIzaSyCBLtOrzjTjXMq48ll8IqPlcrzyokr4bLU">36</span>,
+            <span id="API37" class="api" value="AIzaSyAUZW7jsgCrdAL8v5Y28aGNX4K9S5s9_fA">37</span>,
+            <span id="API38" class="api" value="AIzaSyA8iM7oqlz0Cs6AX7Qcmy6WEdHmtcv9HVY">38</span>,
+            <span id="API39" class="api" value="AIzaSyCofzvCP2IAksB3LgQPbPv-vbwl3-X3L5Q">39</span>,
+            <span id="API40" class="api" value="AIzaSyCVrJsRdefEGUlkyT1WCpiWqq7Mi3nSBtM">40</span>,
+            <span id="API41" class="api" value="AIzaSyCQI6gxAN86WRPb9pVKvlvJY3CXexyyEK4">41</span>,
+            <span id="API42" class="api" value="AIzaSyAn3dHiR7UWS8xocDWP_wtFwL2Q4Tx2Pc0">42</span>,
+<span id="API45" class="api" value="AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI">45</span>,
+            <div id="activeApiDisplay">Active API: </div>   -->
+
+     
+        
+      
+   
+         
+
+      
+           
         
     
-       
-        
-        
     
     
         <div class="iframe-container">
@@ -1021,6 +1247,11 @@ iframe {
                                                   <span> <input type="number" id="num1" name="num1" placeholder="Remaing"  style="width: 80px;">
                                                      <input type="number" id="subtractionValue1" placeholder="Predict"  style="margin-right: 1px; width: 60px; ">
                                                        <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
+                                                       <span>
+                                                        <button id="Refresh1Second">1  </button>
+                                                        <button id="Refresh10Second">10 </button>
+                                                        <button id="Refresh30Second">30 </button>
+                                                       </span>
                                                          <span id="result" style="color: white;font-size: 21.3px;"></span></div> </a></div> </div></div>
        
     <div class="under" style="text-align: center;">
@@ -1033,13 +1264,20 @@ iframe {
                     <div id="title34" href="#" onclick="refreshIframe('tradexsong'); return false; "
                     style="color: white; text-decoration: none; margin-right: 20px; ">Select Song
                    
-                </div> <span id="viewCount34" style="font-size: 21px;"></span> </div></div></a></div>
+                </div>  <span id="viewCount34" style="font-size: 21px;"></span> </div></div></a></div>
                 
     
     </body>
+  
 
+   
 <body>
+
+    
   <script>
+
+    
+    
     var lastClickedVideoId = null; // Track the last clicked video ID
     var autoClickTimeout = null; // Track the auto-click timeout
 
@@ -1117,7 +1355,7 @@ $(document).ready(function () {
         var targetMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59];
 
         // Check if the current minutes match any of the target minutes, and the seconds are 48
-        return targetMinutes.includes(currentMinutes) && currentSeconds === 48;
+        return targetMinutes.includes(currentMinutes) && currentSeconds === 49;
     }
 
     // Function to update view counts
@@ -1175,7 +1413,7 @@ function displayIndianTime() {
     }
 
     // Check if the time is one of the specified times to save previous views
-    const shouldSavePreviousViews = (indianMinutes === 4 && indianSeconds === 49) ||
+    const shouldSavePreviousViews = 
                                     (indianMinutes === 4 && indianSeconds === 50) ||
                                     (indianMinutes === 9 && indianSeconds === 50) ||
                                     (indianMinutes === 14 && indianSeconds === 50) ||
@@ -1700,6 +1938,7 @@ window.onload = function() {
   saveData();
   loadData();
 };
+
 
 
     </script>
