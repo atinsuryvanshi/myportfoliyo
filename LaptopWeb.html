@@ -426,7 +426,16 @@ fs.writeFileSync(filePath, data);
     
 }
 
-
+.apirefresh {
+        display: inline-block; /* Display APIs in one line */
+        margin: 0px;
+        padding: 5px;
+        background-color: #10100f;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 27px;
+        height: 27px;
+    }
     .api {
         display: inline-block; /* Display APIs in one line */
         margin: 0px;
@@ -435,10 +444,11 @@ fs.writeFileSync(filePath, data);
         border-radius: 5px;
         cursor: pointer;
         width: 25px;
+        height: 25px;
     }
 
     .api:hover {
-      color: rgb(223, 223, 27);
+      color: red;
     }
 
     .api.selected {
@@ -1140,6 +1150,14 @@ iframe {
 
             
         <div class="api-container">
+            <div class="box">
+                
+                <button id="Refresh1Second" class="apirefresh" >1  </button>
+                <button id="Refresh10Second"  class="apirefresh" >10 </button>
+                <button id="Refresh30Second"  class="apirefresh" >30 </button>
+            </div>
+
+            
             <span id="API1" class="api" value="AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A">1</span>,
             <span id="API2" class="api" value="AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA">2</span>,
             <span id="API3" class="api" value="AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs">3</span>,
@@ -1247,11 +1265,7 @@ iframe {
                                                   <span> <input type="number" id="num1" name="num1" placeholder="Remaing"  style="width: 80px;">
                                                      <input type="number" id="subtractionValue1" placeholder="Predict"  style="margin-right: 1px; width: 60px; ">
                                                        <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
-                                                       <span>
-                                                        <button id="Refresh1Second">1  </button>
-                                                        <button id="Refresh10Second">10 </button>
-                                                        <button id="Refresh30Second">30 </button>
-                                                       </span>
+                                                      
                                                          <span id="result" style="color: white;font-size: 21.3px;"></span></div> </a></div> </div></div>
        
     <div class="under" style="text-align: center;">
