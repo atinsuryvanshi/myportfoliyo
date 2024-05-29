@@ -454,7 +454,7 @@
                         <th>Total Views</th>
                         <th>10.Mintues </th>
                         <th>5.Mintues</th>
-                        <th>CurrentViews</th>
+                        <th>Current Views</th>
 
                                      
                     </tr>
@@ -1183,6 +1183,7 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
     for (var i = 0; i < videos.length; i++) {
         $('#viewCount' + i).text('Checking Api');
         $('#title' + i).text(videos[i].title);
+        $('#viewCount34').text('');
     }
     // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
     const randomIndex = Math.floor(Math.random() * 49) + 1;
