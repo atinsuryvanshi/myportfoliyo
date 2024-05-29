@@ -937,7 +937,7 @@ iframe {
             { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
             { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
             { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
-            { id: '', title: 'Video Id 34' }, // 34
+            { id: 'No Id', title: 'Select Song' }, // 34
             
           
           
@@ -1208,6 +1208,7 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
     console.log('Error:', error);
     for (var i = 0; i < videos.length; i++) {
         $('#viewCount' + i).text('API Not Available');
+        $('#viewCount34').text('');
         $('#title' + i).text(videos[i].title);
     }
     // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
@@ -1327,13 +1328,13 @@ fs.writeFileSync(filePath, data);
                 for (var i = 0; i < videos.length; i++) {
                     $('#viewCount' + i).text('API Not Available');
                     $('#title' + i).text(videos[i].title);
-                    
+                  
                 }
             }
         }, 1000); // 1 seconds
     });
 
-  
+   
 
 </script>
     
