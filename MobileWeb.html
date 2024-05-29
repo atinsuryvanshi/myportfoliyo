@@ -289,13 +289,26 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
                 },
 
                 
-                error: function (error) {
-                    console.log('Error:', error);
-                    for (var i = 0; i < videos.length; i++) {
-                        $('#viewCount' + i).text('API Not Available');
-                        $('#title' + i).text(videos[i].title);
-                    }
-                }
+                    error: function (error) {
+    console.log('Error:', error);
+    for (var i = 0; i < videos.length; i++) {
+        $('#viewCount' + i).text('API Not Available');
+        $('#title' + i).text(videos[i].title);
+    }
+    // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
+    const randomIndex = Math.floor(Math.random() * 49) + 1;
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    updateViews(activeApi);
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    $('#activeApiDisplay').text(`Active API: ${activeApi}`);
+    deactivateApis();
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    document.querySelectorAll('.api').forEach(span => {
+        span.removeEventListener('click'); // Remove all click event listeners
+        span.style.pointerEvents = 'none'; // Disable click events on the element
+    });
+}
             });
         }
 
