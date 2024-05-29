@@ -889,15 +889,17 @@ iframe {
                     style="color: white; text-decoration: none; margin-right: 20px; ">Select Song
                    
                 </div>  <span id="viewCount34" style="font-size: 21px;"></span> </div></div></a></div>
-                
+                <button id="ButtonRandomApi" style="display: none;" >RANDOM API </button>   
     
     </body>
 
-  <button id="ButtonRandomApi" style="display: none;" >RANDOM API</button>
+
 
    
 
     <script> 
+
+
     $(document).ready(function () {
 
         // All High Count 12 Pm 
@@ -1231,7 +1233,8 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
 
             });
         }
-
+        $('#viewCount' + i).text(': ' + formatViewCount(viewCount[i]));
+        
       
 
         // Function to handle API selection
