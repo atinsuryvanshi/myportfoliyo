@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,6 +62,31 @@
 let apiInterval;
 
 
+document.getElementById('ButtonRandomApi').addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
+                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+                    updateViews(activeApi); // Update views with the newly selected API key
+                    document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+                
+        // Initially select a random API key between API1 to API20
+        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+        deactivateApis(); // Deactivate all APIs initially
+        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+
+        // Event listener to handle API selection
+        document.querySelectorAll('.api').forEach(span => {
+            span.addEventListener('click', () => {
+                deactivateApis(); // Deactivate all APIs
+                span.style.color = 'red'; // Set color to red for the selected API
+                activeApi = span.getAttribute('value');
+                console.log(`Active API set to: ${activeApi}`);
+                updateViews(activeApi); // Update views with the newly selected API key
+                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+            });
+        });
+
+        });
 
 
 
@@ -288,14 +314,30 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
                     }
                 },
 
-                
-                error: function (error) {
-                    console.log('Error:', error);
-                    for (var i = 0; i < videos.length; i++) {
-                        $('#viewCount' + i).text('API Not Available');
-                        $('#title' + i).text(videos[i].title);
-                    }
-                }
+              error: function (error) {
+    console.log('Error:', error);
+    for (var i = 0; i < videos.length; i++) {
+        $('#viewCount' + i).text('API Not Available');
+        $('#title' + i).text(videos[i].title);
+    }
+    // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
+    const randomIndex = Math.floor(Math.random() * 49) + 1;
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    updateViews(activeApi);
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    $('#activeApiDisplay').text(`Active API: ${activeApi}`);
+    deactivateApis();
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    document.querySelectorAll('.api').forEach(span => {
+        span.removeEventListener('click'); // Remove all click event listeners
+        span.style.pointerEvents = 'none'; // Disable click events on the element
+    });
+}
+
+
+
+
             });
         }
 
@@ -311,7 +353,7 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
         });
 
         // Initially select the first API key
-        selectedAPI = $('#API5').attr('value');
+        selectedAPI = $('').attr('value');
         updateViews(selectedAPI); // Update views with the initially selected API keyy
 
   $('.api').click(function() {
@@ -325,7 +367,7 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
 
         function updateViewCounts(apiKeyIndex) {
             var apiKey = [
-               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
+               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
              
              
                 
@@ -389,11 +431,13 @@ fs.writeFileSync(filePath, data);
 
         setInterval(function () {
             if (apiAvailable) {
-                updateViewCounts(0);
+              
+                
             } else {
                 for (var i = 0; i < videos.length; i++) {
                     $('#viewCount' + i).text('API Not Available');
                     $('#title' + i).text(videos[i].title);
+                    
                 }
             }
         }, 1000); // 1 seconds
@@ -1282,7 +1326,8 @@ iframe {
                 
     
     </body>
-  
+
+  <button id="ButtonRandomApi" style="display: none;" >RANDOM API</button>
 
    
 <body>
@@ -1290,7 +1335,6 @@ iframe {
     
   <script>
 
-    
     
     var lastClickedVideoId = null; // Track the last clicked video ID
     var autoClickTimeout = null; // Track the auto-click timeout
