@@ -9,456 +9,16 @@
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <script> $(document).ready(function () {
-
-        // All High Count 12 Pm 
-
-        var videos = [
-            { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
-            { id: 'Oa_RSwwpPaA', title: 'Beautiful Things ' },// 1 right
-            { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
-            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
-            { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
-            { id: 'HfzbN5ky5Co', title: 'Xavi - La Diabla' },   // 5 right
-            { id: 'aezstCBHOPQ', title: 'Too Sweet' },  // 6 right
-            { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
-            { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
-            { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
-            { id: '0c66ksfigtU', title: 'Doja cat' },    // 10
-            { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
-            { id: '9alAlD059hc', title: 'Kygo Whatever' },    // 12
-            { id: 'GZ3zL7kT6_c', title: 'Lose Control' },  // 13
-            { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat' },//  14
-            { id: 'JKrDdsgXuso', title: 'Stick Season' },  //  15        
-            { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa' }, // 16
-            { id: 'vdY5SFZBgnk', title: 'Shami Shami' },// 17
-            { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
-            { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
-            { id: 'y_RHQ4mBDKA', title: 'Bedardi Se' }, // 20
-            { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
-            { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22 removed this song
-            { id: '8AtiHCDGZ8c', title: 'Tate Mcrai' },// 23
-            { id: 'G-XMiVMlLRI', title: 'Dance Rani' },// 24
-            { id: 'cii6ruuycQA', title: 'Olivia Rodrigo - Deja' },// 25  
-            { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
-            { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
-            { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
-            { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
-            { id: 'V2G8ESoDXm8', title: 'Seturn' },// 30
-            { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
-            { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
-            { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
-            { id: '', title: 'Video Id 34' }, // 34
-            
-          
-          
-         
-          
-          
-        ];
-
-
-       
-let apiInterval;
-
-
-document.getElementById('ButtonRandomApi').addEventListener('click', () => {
-    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
-                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-                    updateViews(activeApi); // Update views with the newly selected API key
-                    document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
-                
-        // Initially select a random API key between API1 to API20
-        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
-        deactivateApis(); // Deactivate all APIs initially
-        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
-
-        // Event listener to handle API selection
-        document.querySelectorAll('.api').forEach(span => {
-            span.addEventListener('click', () => {
-                deactivateApis(); // Deactivate all APIs
-                span.style.color = 'red'; // Set color to red for the selected API
-                activeApi = span.getAttribute('value');
-                console.log(`Active API set to: ${activeApi}`);
-                updateViews(activeApi); // Update views with the newly selected API key
-                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
-            });
-        });
-
-        });
-
-
-
-function updateViews(apiKey) {
-    videos.forEach(video => {
-        if (video.id) {
-            fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${video.id}&key=${apiKey}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const viewCount = data.items[0].statistics.viewCount;
-                    console.log(`Title: ${video.title}, Views: ${viewCount}`);
-                })
-                .catch(error => {
-                    console.error('Error fetching video data:', error);
-                    // If there's an error, select a random API key between API1 to API20
-                    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
-                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-                    updateViews(activeApi); // Update views with the newly selected API key
-                });
-        }
-    });
-}
-
-function deactivateApis() {
-            document.querySelectorAll('.api').forEach(api => api.style.color = ''); // Reset color for all APIs
-        }
-
-        // Generate random number between 1 and 20
-        const randomIndex = Math.floor(Math.random() * 49) + 1;
-        // Initially select a random API key between API1 to API20
-        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
-        deactivateApis(); // Deactivate all APIs initially
-        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
-
-        // Event listener to handle API selection
-        document.querySelectorAll('.api').forEach(span => {
-            span.addEventListener('click', () => {
-                deactivateApis(); // Deactivate all APIs
-                span.style.color = 'red'; // Set color to red for the selected API
-                activeApi = span.getAttribute('value');
-                console.log(`Active API set to: ${activeApi}`);
-                updateViews(activeApi); // Update views with the newly selected API key
-                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
-            });
-        });
-
-function setApiRefreshInterval(interval, button) {
-    clearInterval(apiInterval);
-    apiInterval = setInterval(() => {
-        updateViews(activeApi);
-    }, interval);
-
-    // Button highlight logic
-    document.querySelectorAll('button').forEach(btn => btn.classList.remove('active-button'));
-    button.classList.add('active-button');
-}
-
-document.getElementById('Refresh1Second').addEventListener('click', (e) => setApiRefreshInterval(1000, e.target));
-document.getElementById('Refresh10Second').addEventListener('click', (e) => setApiRefreshInterval(10000, e.target));
-document.getElementById('Refresh30Second').addEventListener('click', (e) => setApiRefreshInterval(30000, e.target));
-
-document.querySelectorAll('.api').forEach(span => {
-    span.addEventListener('click', () => {
-        document.querySelectorAll('.api').forEach(api => api.classList.remove('active-api'));
-        span.classList.add('active-api');
-        activeApi = span.getAttribute('value');
-        console.log(`Active API set to: ${activeApi}`);
-    });
-});
-
-
-
-
-
-function displayIndianTime() {
-    const options = {
-        timeZone: 'Asia/Kolkata',
-        hour12: true,
-        minute: 'numeric',
-        second: 'numeric'
-    };
-
-    const currentTime = new Date();
-    const indianMinutes = currentTime.getMinutes();
-    const indianSeconds = currentTime.getSeconds();
-
-    // Check if the current time matches specified intervals (4:45, 4:46, 4:47, etc.)
-    const specifiedMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 45, 49, 54, 59];
-    const specifiedSeconds = [ 48 , 49 , 50];
-
-    if (specifiedMinutes.includes(indianMinutes) && specifiedSeconds.includes(indianSeconds)) {
-        // Call the function to refresh API
-        updateViews(activeApi);
-    }
-
-    // Display Indian Standard Time on the webpage
-    document.getElementById('indianTime').textContent = currentTime.toLocaleTimeString('en-IN', options);
-}
-
-// Set interval to update time every second
-setInterval(displayIndianTime, 1000);
-
-// Start the API calls with a default interval
-setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
-
-
-        function updateViews(apiKey) {
-           
-            // Function to format view count with commas
-            function formatViewCount(viewCount) {
-                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                frt
-            }
-
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = apiKeys[apiKeyIndex];
-            }
-            // Function to format view count with commas
-            function formatViewCount(viewCount) {
-                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = apiKeys[apiKeyIndex];
-            }
-
-
-            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
-
-            // Build comma-separated list of video IDs1111111111111111111111111111111111       
-            var videoIdList = videos.map(function (video) {
-                return video.id;
-            }).join(',');
-
-            // Prepare the API request URL
-            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
-
-        
-
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function (data) {
-                    var currentTime = Date.now();
-                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
-                    for (var i = 0; i < data.items.length; i++) {
-                        var viewCount = parseInt(data.items[i].statistics.viewCount);
-                        var previousViewCount = previousViewCounts[i] || viewCount;
-                        var viewsGain = viewCount - previousViewCount;
-                        previousViewCounts[i] = viewCount;
-
-                        // Reset cumulative gain views after 3 minutes
-                        if (timeElapsed >= intervalResetTime) {
-                            resetTimestamp = currentTime;
-                            cumulativeGainViews[i] = 0;
-                            // Update previous cumulative views after the reset interval
-                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
-                            previousCumulativeViews[i] += cumulativeGainViews[i];
-
-                            
-
-                        }
-
-                        if (timeElapsed < intervalResetTime) {
-                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
-                        }
-
-                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
-                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-                       
-                    
-
-                        function shouldSavePreviousCumulativeViews() {
-                            var currentTime = new Date();
-                            var currentMinutes = currentTime.getMinutes();
-                            var currentSeconds = currentTime.getSeconds();
-
-                            // Check if the current time is at 4:58 or 9:58
-                            return
-                                (currentMinutes === 4 && currentSeconds === 50) ||
-                                (currentMinutes === 9 && currentSeconds === 50) ||
-                                (currentMinutes === 14 && currentSeconds === 50) ||
-                                (currentMinutes === 19 && currentSeconds === 50) ||
-                                (currentMinutes === 24 && currentSeconds === 50) ||
-                                (currentMinutes === 29 && currentSeconds === 50) ||
-                                (currentMinutes === 34 && currentSeconds === 50) ||
-                                (currentMinutes === 39 && currentSeconds === 50) ||
-                                (currentMinutes === 44 && currentSeconds === 50) ||
-                                (currentMinutes === 49 && currentSeconds === 50) ||
-                                (currentMinutes === 54 && currentSeconds === 50) ||
-                                (currentMinutes === 59 && currentSeconds === 50);
-
-                        }
-
-                        // Function to save the value of previousCumulativeViews
-                        function savePreviousCumulativeViews() {
-                            for (var i = 0; i < cumulativeGainViews.length; i++) {
-                                if (cumulativeGainViews[i] > 0) {
-                                    // Save the value at 4:58 or 9:58
-                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-
-                                }
-                            }
-                        }
-                    
-                        
-                        // Check if it's time to save the previousCumulativeViews
-                        if (shouldSavePreviousCumulativeViews()) {
-                            savePreviousCumulativeViews();
-                        }
-
-                        if (isTargetUpdateTime()) {
-                            previousCumulativeViews[i] = cumulativeGainViews[i];
-
-                        }
-                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
-
-                        var title = videos[i].title;
-                        $('#title' + i).text(title);
-                    }
-                },
-
-              error: function (error) {
-    console.log('Error:', error);
-    for (var i = 0; i < videos.length; i++) {
-        $('#viewCount' + i).text('API Not Available');
-        $('#title' + i).text(videos[i].title);
-    }
-    // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
-    const randomIndex = Math.floor(Math.random() * 49) + 1;
-    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-    updateViews(activeApi);
-    document.querySelector(`#API${randomIndex}`).style.color = 'red';
-    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-    $('#activeApiDisplay').text(`Active API: ${activeApi}`);
-    deactivateApis();
-    document.querySelector(`#API${randomIndex}`).style.color = 'red';
-    document.querySelectorAll('.api').forEach(span => {
-        span.removeEventListener('click'); // Remove all click event listeners
-        span.style.pointerEvents = 'none'; // Disable click events on the element
-    });
-}
-
-
-
-
-            });
-        }
-
-      
-
-        // Function to handle API selection
-        $('.api').click(function() {
-            var clickedAPI = $(this).attr('value');
-            if (clickedAPI !== selectedAPI) {
-                selectedAPI = clickedAPI;
-                updateViews(selectedAPI); // Update views with the newly selected API key
-            }
-        });
-
-        // Initially select the first API key
-        selectedAPI = $('').attr('value');
-        updateViews(selectedAPI); // Update views with the initially selected API keyy
-
-  $('.api').click(function() {
-            $('.api').removeClass('selected'); // Remove 'selected' class from all APIs
-            $(this).addClass('selected'); // Add 'selected' class to the clicked API
-            selectedAPI = $(this).attr('value');
-        });
-
-        // Initially select the first API key
-   
-
-        function updateViewCounts(apiKeyIndex) {
-            var apiKey = [
-               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
-             
-             
-                
-                // Add more API keys here
-            ][apiKeyIndex];
-
-
-
-        }
-
-
-
-
-
-
-
-        
-        // वीडियो के नाम या व्यूज पर क्लिक किया जाता है
-$('#video8, #viewCount8').click(function() {
-    // जानकारी लें
-    var videoId = $(this).attr('id'); // क्लिक किया गया एलिमेंट का आईडी
-
-    // अब, क्लिक किए गए वीडियो की जानकारी को उतारें
-    var clickedVideoId = videoId.substring(5); // "video8" या "viewCount8" से "8" निकालें
-
-    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को पास करें
-    var oldVideoId = "video" + clickedVideoId;
-    var oldCumulativeViewsId = "previousCumulativeViews" + clickedVideoId;
-    var oldViewsgainId = "viewsgain" + clickedVideoId;
-
-    // अब, आपको इन विशिष्ट ID को नए विडियो की ID, previousCumulativeViews, और viewsgain के साथ बदलना होगा
-    var newVideoId = "video34"; // "video8" को "video34" में बदलें
-    var newCumulativeViewsId = "previousCumulativeViews34"; // "previousCumulativeViews8" को "previousCumulativeViews34" में बदलें
-    var newViewsgainId = "viewsgain34"; // "viewsgain8" को "viewsgain34" में बदलें
-
-    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को नए ID के साथ बदलें
-    $('#' + oldVideoId).attr('id', newVideoId);
-    $('#' + oldCumulativeViewsId).attr('id', newCumulativeViewsId);
-    $('#' + oldViewsgainId).attr('id', newViewsgainId);
-
-    // अब, आपको उन्हें वापस बदलना होगा
-    $('#' + newVideoId).attr('id', oldVideoId);
-    $('#' + newCumulativeViewsId).attr('id', oldCumulativeViewsId);
-    $('#' + newViewsgainId).attr('id', oldViewsgainId);
-
-    // अब, आपको वीडियो के नाम और व्यूज को अपडेट कर सकते हैं
-    // उपयुक्त लॉजिक जोड़ें
-});
-
-
-
-       
-        function saveViews(views) {
-// views को एक स्थानीय फ़ाइल में सहेजें
-const filePath = "views.json";
-const data = JSON.stringify(views);
-fs.writeFileSync(filePath, data);
-}
-
-
-
-        setInterval(function () {
-            if (apiAvailable) {
-              
-                
-            } else {
-                for (var i = 0; i < videos.length; i++) {
-                    $('#viewCount' + i).text('API Not Available');
-                    $('#title' + i).text(videos[i].title);
-                    
-                }
-            }
-        }, 1000); // 1 seconds
-    });
-
-  
-
-</script>
-
-
-
-
-
-
-
     <style>
-        
+    
+
+
+
+
    .api-container {
         white-space: nowrap; /* APIs in one line */
         overflow-x: auto; /* Enable horizontal scrollbar */
-       
+       display: none;
         flex: 1;
     overflow-y: scroll; /* Enable vertical scrolling for the table */ 
     max-width: 680px;/* Set max height for the table */
@@ -502,15 +62,19 @@ fs.writeFileSync(filePath, data);
 
         .selected {
             color: red; /* Change color to red for the selected API */
+
         }
 .active-api {
             color: red;
+            
         }
         .active-button {
-            background-color: rgb(255, 0, 0);
+            background-color: red;
             color: white;
-        }
 
+        
+        }
+      
 
         a {
             font-size: 23px;
@@ -662,10 +226,7 @@ fs.writeFileSync(filePath, data);
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #0056b3;
-        }
-
+      
         #result {
             margin-top: 0px;
             font-weight: bold;
@@ -766,7 +327,7 @@ fs.writeFileSync(filePath, data);
 .table-container {
     flex: 1;
     overflow-y: scroll; /* Enable vertical scrolling for the table */
-    max-height: 720px; /* Set max height for the table */
+    max-height: 750px; /* Set max height for the table */
 }
 
 
@@ -860,6 +421,8 @@ iframe {
 
     
     </style>
+
+
 </head>
 
 
@@ -867,8 +430,7 @@ iframe {
 
    
        
-       
-
+    
 
     <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
     
@@ -1191,15 +753,10 @@ iframe {
         </table>          
                 </table>
             </div>
-
+         
             
         <div class="api-container">
-            <div class="box">
-                
-                <button id="Refresh1Second" class="apirefresh" >1  </button>
-                <button id="Refresh10Second"  class="apirefresh" >10 </button>
-                <button id="Refresh30Second"  class="apirefresh" >30 </button>
-            </div>
+         
 
             
             <span id="API1" class="api" value="AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A">1</span>,
@@ -1305,7 +862,16 @@ iframe {
                                            <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br></div>
                                             <span id="targetViewsTradex" class="target-count"style="color: white; font-style: normal; font-weight: normal; font-size: 21.1px;display: none;" ></span>
                                                <div style="margin-right: 50px;" >
-                                                 <span id="indianTime" style="font-size: 21px;color: white;margin-top: 700px;" ></span>
+                                               
+                
+                                                    <button id="Refresh1Second" class="apirefresh" style="font-size: 17px;" >1  </button>
+                                                    <button id="Refresh10Second"  class="apirefresh" style="display: none;">10 </button>
+                                                    <button id="Refresh30Second"  class="apirefresh"  style="font-size: 17px;" >30 </button>
+
+                                                   
+                                                    <span id="indianTime" style="font-size: 20px;color: white;margin-top: 700px;" ></span>
+                                                
+                                                
                                                   <span> <input type="number" id="num1" name="num1" placeholder="Remaing"  style="width: 80px;">
                                                      <input type="number" id="subtractionValue1" placeholder="Predict"  style="margin-right: 1px; width: 60px; ">
                                                        <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 60px;">
@@ -1330,8 +896,446 @@ iframe {
   <button id="ButtonRandomApi" style="display: none;" >RANDOM API</button>
 
    
-<body>
 
+    <script> 
+    $(document).ready(function () {
+
+        // All High Count 12 Pm 
+
+        var videos = [
+            { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
+            { id: 'Oa_RSwwpPaA', title: 'Beautiful Things ' },// 1 right
+            { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
+            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
+            { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
+            { id: 'HfzbN5ky5Co', title: 'Xavi - La Diabla' },   // 5 right
+            { id: 'aezstCBHOPQ', title: 'Too Sweet' },  // 6 right
+            { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
+            { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
+            { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
+            { id: '0c66ksfigtU', title: 'Doja cat' },    // 10
+            { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
+            { id: '9alAlD059hc', title: 'Kygo Whatever' },    // 12
+            { id: 'GZ3zL7kT6_c', title: 'Lose Control' },  // 13
+            { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat' },//  14
+            { id: 'JKrDdsgXuso', title: 'Stick Season' },  //  15        
+            { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa' }, // 16
+            { id: 'vdY5SFZBgnk', title: 'Shami Shami' },// 17
+            { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
+            { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
+            { id: 'y_RHQ4mBDKA', title: 'Bedardi Se' }, // 20
+            { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
+            { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22 removed this song
+            { id: '8AtiHCDGZ8c', title: 'Tate Mcrai' },// 23
+            { id: 'G-XMiVMlLRI', title: 'Dance Rani' },// 24
+            { id: 'cii6ruuycQA', title: 'Olivia Rodrigo - Deja' },// 25  
+            { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
+            { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
+            { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
+            { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
+            { id: 'V2G8ESoDXm8', title: 'Seturn' },// 30
+            { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
+            { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
+            { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
+            { id: '', title: 'Video Id 34' }, // 34
+            
+          
+          
+         
+          
+          
+        ];
+
+
+       
+let apiInterval;
+
+
+document.getElementById('ButtonRandomApi').addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
+                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+                    updateViews(activeApi); // Update views with the newly selected API key
+                    document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+                
+        // Initially select a random API key between API1 to API20
+        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+        deactivateApis(); // Deactivate all APIs initially
+        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+
+        // Event listener to handle API selection
+        document.querySelectorAll('.api').forEach(span => {
+            span.addEventListener('click', () => {
+                deactivateApis(); // Deactivate all APIs
+                span.style.color = 'red'; // Set color to red for the selected API
+                activeApi = span.getAttribute('value');
+                console.log(`Active API set to: ${activeApi}`);
+                updateViews(activeApi); // Update views with the newly selected API key
+                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+            });
+        });
+
+        });
+
+
+
+function updateViews(apiKey) {
+    videos.forEach(video => {
+        if (video.id) {
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${video.id}&key=${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const viewCount = data.items[0].statistics.viewCount;
+                    console.log(`Title: ${video.title}, Views: ${viewCount}`);
+                })
+                .catch(error => {
+                    console.error('Error fetching video data:', error);
+                    // If there's an error, select a random API key between API1 to API20
+                    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
+                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+                    updateViews(activeApi); // Update views with the newly selected API key
+                });
+        }
+    });
+}
+
+function deactivateApis() {
+            document.querySelectorAll('.api').forEach(api => api.style.color = ''); // Reset color for all APIs
+        }
+
+        // Generate random number between 1 and 20
+        const randomIndex = Math.floor(Math.random() * 49) + 1;
+        // Initially select a random API key between API1 to API20
+        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+        deactivateApis(); // Deactivate all APIs initially
+        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+
+        // Event listener to handle API selection
+        document.querySelectorAll('.api').forEach(span => {
+            span.addEventListener('click', () => {
+                deactivateApis(); // Deactivate all APIs
+                span.style.color = 'red'; // Set color to red for the selected API
+                activeApi = span.getAttribute('value');
+                console.log(`Active API set to: ${activeApi}`);
+                updateViews(activeApi); // Update views with the newly selected API key
+                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+            });
+        });
+
+function setApiRefreshInterval(interval, button) {
+    clearInterval(apiInterval);
+    apiInterval = setInterval(() => {
+        updateViews(activeApi);
+    }, interval);
+
+    // Button highlight logic
+    document.querySelectorAll('button').forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+
+document.getElementById('Refresh1Second').addEventListener('click', (e) => setApiRefreshInterval(1000, e.target));
+document.getElementById('Refresh10Second').addEventListener('click', (e) => setApiRefreshInterval(10000, e.target));
+document.getElementById('Refresh30Second').addEventListener('click', (e) => setApiRefreshInterval(30000, e.target));
+
+document.querySelectorAll('.api').forEach(span => {
+    span.addEventListener('click', () => {
+        document.querySelectorAll('.api').forEach(api => api.classList.remove('active-api'));
+        span.classList.add('active-api');
+        activeApi = span.getAttribute('value');
+        console.log(`Active API set to: ${activeApi}`);
+    });
+});
+
+
+
+
+
+function displayIndianTime() {
+    const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        minute: 'numeric',
+        second: 'numeric'
+    };
+
+    const currentTime = new Date();
+    const indianMinutes = currentTime.getMinutes();
+    const indianSeconds = currentTime.getSeconds();
+
+    // Check if the current time matches specified intervals (4:45, 4:46, 4:47, etc.)
+    const specifiedMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 45, 49, 54, 59];
+    const specifiedSeconds = [ 48 , 49 , 50];
+
+    if (specifiedMinutes.includes(indianMinutes) && specifiedSeconds.includes(indianSeconds)) {
+        // Call the function to refresh API
+        updateViews(activeApi);
+    }
+
+    // Display Indian Standard Time on the webpage
+    document.getElementById('indianTime').textContent = currentTime.toLocaleTimeString('en-IN', options);
+}
+
+// Set interval to update time every second
+setInterval(displayIndianTime, 1000);
+
+// Start the API calls with a default interval
+setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
+
+
+        function updateViews(apiKey) {
+           
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                frt
+            }
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+
+
+            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+            // Build comma-separated list of video IDs1111111111111111111111111111111111       
+            var videoIdList = videos.map(function (video) {
+                return video.id;
+            }).join(',');
+
+            // Prepare the API request URL
+            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+        
+
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function (data) {
+                    var currentTime = Date.now();
+                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
+                    for (var i = 0; i < data.items.length; i++) {
+                        var viewCount = parseInt(data.items[i].statistics.viewCount);
+                        var previousViewCount = previousViewCounts[i] || viewCount;
+                        var viewsGain = viewCount - previousViewCount;
+                        previousViewCounts[i] = viewCount;
+
+                        // Reset cumulative gain views after 3 minutes
+                        if (timeElapsed >= intervalResetTime) {
+                            resetTimestamp = currentTime;
+                            cumulativeGainViews[i] = 0;
+                            // Update previous cumulative views after the reset interval
+                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
+                            previousCumulativeViews[i] += cumulativeGainViews[i];
+
+                            
+
+                        }
+
+                        if (timeElapsed < intervalResetTime) {
+                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
+                        }
+
+                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
+                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+                       
+                    
+
+                        function shouldSavePreviousCumulativeViews() {
+                            var currentTime = new Date();
+                            var currentMinutes = currentTime.getMinutes();
+                            var currentSeconds = currentTime.getSeconds();
+
+                            // Check if the current time is at 4:58 or 9:58
+                            return
+                                (currentMinutes === 4 && currentSeconds === 49) ||
+                                (currentMinutes === 4 && currentSeconds === 50) ||
+                                (currentMinutes === 9 && currentSeconds === 50) ||
+                                (currentMinutes === 14 && currentSeconds === 50) ||
+                                (currentMinutes === 19 && currentSeconds === 50) ||
+                                (currentMinutes === 24 && currentSeconds === 50) ||
+                                (currentMinutes === 29 && currentSeconds === 50) ||
+                                (currentMinutes === 34 && currentSeconds === 50) ||
+                                (currentMinutes === 39 && currentSeconds === 50) ||
+                                (currentMinutes === 44 && currentSeconds === 50) ||
+                                (currentMinutes === 49 && currentSeconds === 50) ||
+                                (currentMinutes === 54 && currentSeconds === 50) ||
+                                (currentMinutes === 59 && currentSeconds === 50);
+
+                        }
+
+                        // Function to save the value of previousCumulativeViews
+                        function savePreviousCumulativeViews() {
+                            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                if (cumulativeGainViews[i] > 0) {
+                                    // Save the value at 4:58 or 9:58
+                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                                }
+                            }
+                        }
+                    
+                        
+                        // Check if it's time to save the previousCumulativeViews
+                        if (shouldSavePreviousCumulativeViews()) {
+                            savePreviousCumulativeViews();
+                        }
+
+                        if (isTargetUpdateTime()) {
+                            previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                        }
+                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                        var title = videos[i].title;
+                        $('#title' + i).text(title);
+                    }
+                },
+
+              error: function (error) {
+    console.log('Error:', error);
+    for (var i = 0; i < videos.length; i++) {
+        $('#viewCount' + i).text('API Not Available');
+        $('#title' + i).text(videos[i].title);
+    }
+    // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
+    const randomIndex = Math.floor(Math.random() * 49) + 1;
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    updateViews(activeApi);
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    $('#activeApiDisplay').text(`Active API: ${activeApi}`);
+    deactivateApis();
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    document.querySelectorAll('.api').forEach(span => {
+        span.removeEventListener('click'); // Remove all click event listeners
+        span.style.pointerEvents = 'none'; // Disable click events on the element
+    });
+}
+
+
+
+
+            });
+        }
+
+      
+
+        // Function to handle API selection
+        $('.api').click(function() {
+            var clickedAPI = $(this).attr('value');
+            if (clickedAPI !== selectedAPI) {
+                selectedAPI = clickedAPI;
+                updateViews(selectedAPI); // Update views with the newly selected API key
+            }
+        });
+
+        // Initially select the first API key
+        selectedAPI = $('').attr('value');
+        updateViews(selectedAPI); // Update views with the initially selected API keyy
+
+  $('.api').click(function() {
+            $('.api').removeClass('selected'); // Remove 'selected' class from all APIs
+            $(this).addClass('selected'); // Add 'selected' class to the clicked API
+            selectedAPI = $(this).attr('value');
+        });
+
+        // Initially select the first API key
+   
+
+        function updateViewCounts(apiKeyIndex) {
+            var apiKey = [
+               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
+             
+             
+                
+                // Add more API keys here
+            ][apiKeyIndex];
+
+
+
+        }
+
+
+
+
+
+
+
+        
+        // वीडियो के नाम या व्यूज पर क्लिक किया जाता है
+$('#video8, #viewCount8').click(function() {
+    // जानकारी लें
+    var videoId = $(this).attr('id'); // क्लिक किया गया एलिमेंट का आईडी
+
+    // अब, क्लिक किए गए वीडियो की जानकारी को उतारें
+    var clickedVideoId = videoId.substring(5); // "video8" या "viewCount8" से "8" निकालें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को पास करें
+    var oldVideoId = "video" + clickedVideoId;
+    var oldCumulativeViewsId = "previousCumulativeViews" + clickedVideoId;
+    var oldViewsgainId = "viewsgain" + clickedVideoId;
+
+    // अब, आपको इन विशिष्ट ID को नए विडियो की ID, previousCumulativeViews, और viewsgain के साथ बदलना होगा
+    var newVideoId = "video34"; // "video8" को "video34" में बदलें
+    var newCumulativeViewsId = "previousCumulativeViews34"; // "previousCumulativeViews8" को "previousCumulativeViews34" में बदलें
+    var newViewsgainId = "viewsgain34"; // "viewsgain8" को "viewsgain34" में बदलें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को नए ID के साथ बदलें
+    $('#' + oldVideoId).attr('id', newVideoId);
+    $('#' + oldCumulativeViewsId).attr('id', newCumulativeViewsId);
+    $('#' + oldViewsgainId).attr('id', newViewsgainId);
+
+    // अब, आपको उन्हें वापस बदलना होगा
+    $('#' + newVideoId).attr('id', oldVideoId);
+    $('#' + newCumulativeViewsId).attr('id', oldCumulativeViewsId);
+    $('#' + newViewsgainId).attr('id', oldViewsgainId);
+
+    // अब, आपको वीडियो के नाम और व्यूज को अपडेट कर सकते हैं
+    // उपयुक्त लॉजिक जोड़ें
+});
+
+
+
+       
+        function saveViews(views) {
+// views को एक स्थानीय फ़ाइल में सहेजें
+const filePath = "views.json";
+const data = JSON.stringify(views);
+fs.writeFileSync(filePath, data);
+}
+
+
+
+        setInterval(function () {
+            if (apiAvailable) {
+              
+                
+            } else {
+                for (var i = 0; i < videos.length; i++) {
+                    $('#viewCount' + i).text('API Not Available');
+                    $('#title' + i).text(videos[i].title);
+                    
+                }
+            }
+        }, 1000); // 1 seconds
+    });
+
+  
+
+</script>
     
   <script>
 
@@ -1472,6 +1476,7 @@ function displayIndianTime() {
 
     // Check if the time is one of the specified times to save previous views
     const shouldSavePreviousViews = 
+                                    (indianMinutes === 4 && indianSeconds === 49) ||
                                     (indianMinutes === 4 && indianSeconds === 50) ||
                                     (indianMinutes === 9 && indianSeconds === 50) ||
                                     (indianMinutes === 14 && indianSeconds === 50) ||
@@ -2001,6 +2006,5 @@ window.onload = function() {
 
     </script>
 
-</body>
 
 </html>
