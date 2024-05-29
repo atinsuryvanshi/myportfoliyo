@@ -8,827 +8,428 @@
     <link rel="stylesheet" type="text/css" href="all_songs.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <script> $(document).ready(function () {
 
-        // All High Count 12 Pm 
 
-        var videos = [
-            { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
-            { id: 'Oa_RSwwpPaA', title: 'Beautiful Things ' },// 1 right
-            { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
-            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
-            { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
-            { id: 'HfzbN5ky5Co', title: 'Xavi - La Diabla' },   // 5 right
-            { id: 'aezstCBHOPQ', title: 'Too Sweet' },  // 6 right
-            { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
-            { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
-            { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
-            { id: '0c66ksfigtU', title: 'Doja cat' },    // 10
-            { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
-            { id: '9alAlD059hc', title: 'Kygo Whatever' },    // 12
-            { id: 'GZ3zL7kT6_c', title: 'Lose Control' },  // 13
-            { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat' },//  14
-            { id: 'JKrDdsgXuso', title: 'Stick Season' },  //  15        
-            { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa' }, // 16
-            { id: 'vdY5SFZBgnk', title: 'Shami Shami' },// 17
-            { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
-            { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
-            { id: 'y_RHQ4mBDKA', title: 'Bedardi Se' }, // 20
-            { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
-            { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22 removed this song
-            { id: '8AtiHCDGZ8c', title: 'Tate Mcrai' },// 23
-            { id: 'G-XMiVMlLRI', title: 'Dance Rani' },// 24
-            { id: 'cii6ruuycQA', title: 'Olivia Rodrigo - Deja' },// 25  
-            { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
-            { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
-            { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
-            { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
-            { id: 'V2G8ESoDXm8', title: 'Seturn' },// 30
-            { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
-            { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
-            { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
-            { id: '', title: 'Video Id 34' }, // 34
-            
-          
-          
-         
-          
-          
-        ];
 
 
-       
-let apiInterval;
 
 
 
+    <style>
+    
 
 
-function updateViews(apiKey) {
-    videos.forEach(video => {
-        if (video.id) {
-            fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${video.id}&key=${apiKey}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const viewCount = data.items[0].statistics.viewCount;
-                    console.log(`Title: ${video.title}, Views: ${viewCount}`);
-                })
-                .catch(error => {
-                    console.error('Error fetching video data:', error);
-                    // If there's an error, select a random API key between API1 to API20
-                    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
-                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-                    updateViews(activeApi); // Update views with the newly selected API key
-                });
-        }
-    });
-}
 
-function deactivateApis() {
-            document.querySelectorAll('.api').forEach(api => api.style.color = ''); // Reset color for all APIs
-        }
 
-        // Generate random number between 1 and 20
-        const randomIndex = Math.floor(Math.random() * 49) + 1;
-        // Initially select a random API key between API1 to API20
-        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
-        deactivateApis(); // Deactivate all APIs initially
-        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
-
-        // Event listener to handle API selection
-        document.querySelectorAll('.api').forEach(span => {
-            span.addEventListener('click', () => {
-                deactivateApis(); // Deactivate all APIs
-                span.style.color = 'red'; // Set color to red for the selected API
-                activeApi = span.getAttribute('value');
-                console.log(`Active API set to: ${activeApi}`);
-                updateViews(activeApi); // Update views with the newly selected API key
-                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
-            });
-        });
-
-function setApiRefreshInterval(interval, button) {
-    clearInterval(apiInterval);
-    apiInterval = setInterval(() => {
-        updateViews(activeApi);
-    }, interval);
-
-    // Button highlight logic
-    document.querySelectorAll('button').forEach(btn => btn.classList.remove('active-button'));
-    button.classList.add('active-button');
-}
-
-document.getElementById('Refresh1Second').addEventListener('click', (e) => setApiRefreshInterval(1000, e.target));
-document.getElementById('Refresh10Second').addEventListener('click', (e) => setApiRefreshInterval(10000, e.target));
-document.getElementById('Refresh30Second').addEventListener('click', (e) => setApiRefreshInterval(30000, e.target));
-
-document.querySelectorAll('.api').forEach(span => {
-    span.addEventListener('click', () => {
-        document.querySelectorAll('.api').forEach(api => api.classList.remove('active-api'));
-        span.classList.add('active-api');
-        activeApi = span.getAttribute('value');
-        console.log(`Active API set to: ${activeApi}`);
-    });
-});
-
-
-
-
-
-function displayIndianTime() {
-    const options = {
-        timeZone: 'Asia/Kolkata',
-        hour12: true,
-        minute: 'numeric',
-        second: 'numeric'
-    };
-
-    const currentTime = new Date();
-    const indianMinutes = currentTime.getMinutes();
-    const indianSeconds = currentTime.getSeconds();
-
-    // Check if the current time matches specified intervals (4:45, 4:46, 4:47, etc.)
-    const specifiedMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 45, 49, 54, 59];
-    const specifiedSeconds = [ 48 , 49 , 50];
-
-    if (specifiedMinutes.includes(indianMinutes) && specifiedSeconds.includes(indianSeconds)) {
-        // Call the function to refresh API
-        updateViews(activeApi);
-    }
-
-    // Display Indian Standard Time on the webpage
-    document.getElementById('indianTime').textContent = currentTime.toLocaleTimeString('en-IN', options);
-}
-
-// Set interval to update time every second
-setInterval(displayIndianTime, 1000);
-
-// Start the API calls with a default interval
-setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
-
-
-        function updateViews(apiKey) {
-           
-            // Function to format view count with commas
-            function formatViewCount(viewCount) {
-                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                frt
-            }
-
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = apiKeys[apiKeyIndex];
-            }
-            // Function to format view count with commas
-            function formatViewCount(viewCount) {
-                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            }
-            function updateViewCounts(apiKeyIndex) {
-                var apiKey = apiKeys[apiKeyIndex];
-            }
-
-
-            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
-
-            // Build comma-separated list of video IDs1111111111111111111111111111111111       
-            var videoIdList = videos.map(function (video) {
-                return video.id;
-            }).join(',');
-
-            // Prepare the API request URL
-            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
-
-        
-
-            $.ajax({
-                url: requestUrl,
-                type: 'GET',
-                success: function (data) {
-                    var currentTime = Date.now();
-                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
-                    for (var i = 0; i < data.items.length; i++) {
-                        var viewCount = parseInt(data.items[i].statistics.viewCount);
-                        var previousViewCount = previousViewCounts[i] || viewCount;
-                        var viewsGain = viewCount - previousViewCount;
-                        previousViewCounts[i] = viewCount;
-
-                        // Reset cumulative gain views after 3 minutes
-                        if (timeElapsed >= intervalResetTime) {
-                            resetTimestamp = currentTime;
-                            cumulativeGainViews[i] = 0;
-                            // Update previous cumulative views after the reset interval
-                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
-                            previousCumulativeViews[i] += cumulativeGainViews[i];
-
-                            
-
-                        }
-
-                        if (timeElapsed < intervalResetTime) {
-                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
-                        }
-
-                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
-                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-                       
-                    
-
-                        function shouldSavePreviousCumulativeViews() {
-                            var currentTime = new Date();
-                            var currentMinutes = currentTime.getMinutes();
-                            var currentSeconds = currentTime.getSeconds();
-
-                            // Check if the current time is at 4:58 or 9:58
-                            return
-                                (currentMinutes === 4 && currentSeconds === 50) ||
-                                (currentMinutes === 9 && currentSeconds === 50) ||
-                                (currentMinutes === 14 && currentSeconds === 50) ||
-                                (currentMinutes === 19 && currentSeconds === 50) ||
-                                (currentMinutes === 24 && currentSeconds === 50) ||
-                                (currentMinutes === 29 && currentSeconds === 50) ||
-                                (currentMinutes === 34 && currentSeconds === 50) ||
-                                (currentMinutes === 39 && currentSeconds === 50) ||
-                                (currentMinutes === 44 && currentSeconds === 50) ||
-                                (currentMinutes === 49 && currentSeconds === 50) ||
-                                (currentMinutes === 54 && currentSeconds === 50) ||
-                                (currentMinutes === 59 && currentSeconds === 50);
-
-                        }
-
-                        // Function to save the value of previousCumulativeViews
-                        function savePreviousCumulativeViews() {
-                            for (var i = 0; i < cumulativeGainViews.length; i++) {
-                                if (cumulativeGainViews[i] > 0) {
-                                    // Save the value at 4:58 or 9:58
-                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
-
-                                }
-                            }
-                        }
-                    
-                        
-                        // Check if it's time to save the previousCumulativeViews
-                        if (shouldSavePreviousCumulativeViews()) {
-                            savePreviousCumulativeViews();
-                        }
-
-                        if (isTargetUpdateTime()) {
-                            previousCumulativeViews[i] = cumulativeGainViews[i];
-
-                        }
-                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
-
-                        var title = videos[i].title;
-                        $('#title' + i).text(title);
-                    }
-                },
-
-                
-                    error: function (error) {
-    console.log('Error:', error);
-    for (var i = 0; i < videos.length; i++) {
-        $('#viewCount' + i).text('API Not Available');
-        $('#title' + i).text(videos[i].title);
-    }
-    // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
-    const randomIndex = Math.floor(Math.random() * 49) + 1;
-    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-    updateViews(activeApi);
-    document.querySelector(`#API${randomIndex}`).style.color = 'red';
-    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-    $('#activeApiDisplay').text(`Active API: ${activeApi}`);
-    deactivateApis();
-    document.querySelector(`#API${randomIndex}`).style.color = 'red';
-    document.querySelectorAll('.api').forEach(span => {
-        span.removeEventListener('click'); // Remove all click event listeners
-        span.style.pointerEvents = 'none'; // Disable click events on the element
-    });
-}
-            });
-        }
-
-      
-
-        // Function to handle API selection
-        $('.api').click(function() {
-            var clickedAPI = $(this).attr('value');
-            if (clickedAPI !== selectedAPI) {
-                selectedAPI = clickedAPI;
-                updateViews(selectedAPI); // Update views with the newly selected API key
-            }
-        });
-
-        // Initially select the first API key
-        selectedAPI = $('#API5').attr('value');
-        updateViews(selectedAPI); // Update views with the initially selected API keyy
-
-  $('.api').click(function() {
-            $('.api').removeClass('selected'); // Remove 'selected' class from all APIs
-            $(this).addClass('selected'); // Add 'selected' class to the clicked API
-            selectedAPI = $(this).attr('value');
-        });
-
-        // Initially select the first API key
-   
-
-        function updateViewCounts(apiKeyIndex) {
-            var apiKey = [
-               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
-             
-             
-                
-                // Add more API keys here
-            ][apiKeyIndex];
-
-
-
-        }
-
-
-
-
-
-
-
-        
-        // वीडियो के नाम या व्यूज पर क्लिक किया जाता है
-$('#video8, #viewCount8').click(function() {
-    // जानकारी लें
-    var videoId = $(this).attr('id'); // क्लिक किया गया एलिमेंट का आईडी
-
-    // अब, क्लिक किए गए वीडियो की जानकारी को उतारें
-    var clickedVideoId = videoId.substring(5); // "video8" या "viewCount8" से "8" निकालें
-
-    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को पास करें
-    var oldVideoId = "video" + clickedVideoId;
-    var oldCumulativeViewsId = "previousCumulativeViews" + clickedVideoId;
-    var oldViewsgainId = "viewsgain" + clickedVideoId;
-
-    // अब, आपको इन विशिष्ट ID को नए विडियो की ID, previousCumulativeViews, और viewsgain के साथ बदलना होगा
-    var newVideoId = "video34"; // "video8" को "video34" में बदलें
-    var newCumulativeViewsId = "previousCumulativeViews34"; // "previousCumulativeViews8" को "previousCumulativeViews34" में बदलें
-    var newViewsgainId = "viewsgain34"; // "viewsgain8" को "viewsgain34" में बदलें
-
-    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को नए ID के साथ बदलें
-    $('#' + oldVideoId).attr('id', newVideoId);
-    $('#' + oldCumulativeViewsId).attr('id', newCumulativeViewsId);
-    $('#' + oldViewsgainId).attr('id', newViewsgainId);
-
-    // अब, आपको उन्हें वापस बदलना होगा
-    $('#' + newVideoId).attr('id', oldVideoId);
-    $('#' + newCumulativeViewsId).attr('id', oldCumulativeViewsId);
-    $('#' + newViewsgainId).attr('id', oldViewsgainId);
-
-    // अब, आपको वीडियो के नाम और व्यूज को अपडेट कर सकते हैं
-    // उपयुक्त लॉजिक जोड़ें
-});
-
-
-
-       
-        function saveViews(views) {
-// views को एक स्थानीय फ़ाइल में सहेजें
-const filePath = "views.json";
-const data = JSON.stringify(views);
-fs.writeFileSync(filePath, data);
-}
-
-
-
-        setInterval(function () {
-            if (apiAvailable) {
-                updateViewCounts(0);
-            } else {
-                for (var i = 0; i < videos.length; i++) {
-                    $('#viewCount' + i).text('API Not Available');
-                    $('#title' + i).text(videos[i].title);
-                }
-            }
-        }, 1000); // 1 seconds
-    });
-
-  
-
-</script>
-
-
-
-
-
-
-
-
-<style>
-        
         .api-container {
-        white-space: nowrap; /* APIs in one line */
-        overflow-x: auto; /* Enable horizontal scrollbar */
-       
-        flex: 1;
-    overflow-y: scroll; /* Enable vertical scrolling for the table */ 
-    max-width: 600px;/* Set max height for the table */
-    }
-
-    
-    .api-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for the table */
-    
-}
-
-.apirefresh {
-        display: inline-block; /* Display APIs in one line */
-        margin: 0px;
-        padding: 5px;
-        background-color: #10100f;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 27px;
-        height: 27px;
-    }
-    .api {
-        display: inline-block; /* Display APIs in one line */
-        margin: 0px;
-        padding: 5px;
-        background-color: #071415;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 25px;
-        height: 25px;
-    }
-     .api:hover {
-       color: rgb(223, 223, 27);
+             white-space: nowrap; /* APIs in one line */
+             overflow-x: auto; /* Enable horizontal scrollbar */
+            display: none;
+             flex: 1;
+         overflow-y: scroll; /* Enable vertical scrolling for the table */ 
+         max-width: 680px;/* Set max height for the table */
+         }
+     
+         
+         .api-container::-webkit-scrollbar {
+         display: none; /* Hide scrollbar for the table */
+         
      }
- 
-     .api.selected {
-             color: yellow;
+     
+     .apirefresh {
+             display: inline-block; /* Display APIs in one line */
+             margin: 0px;
+             padding: 5px;
+             background-color: #10100f;
+             border-radius: 5px;
+             cursor: pointer;
+             width: 27px;
+             height: 27px;
          }
- 
- 
-         .selected {
-             color: red; /* Change color to red for the selected API */
+         .api {
+             display: inline-block; /* Display APIs in one line */
+             margin: 0px;
+             padding: 5px;
+             background-color: #071415;
+             border-radius: 5px;
+             cursor: pointer;
+             width: 25px;
+             height: 25px;
          }
- .active-api {
-             color: red;
+     
+         .api:hover {
+           color: red;
          }
-         .active-button {
-             background-color: rgb(255, 0, 0);
-             color: white;
-         }
- 
- 
-         a {
-             font-size: 23px;
-             margin-left: 0px;
-             top: 21.1px;
-             color: white;
-             font-weight: bold;
-             box-shadow: 50px;
-         }
- 
-         iframe {
-             width: 370px;
-             height: 300px;
-             border-radius: 30px;
-             display: inline-block;
-         }
- 
-         .field {
-             display: inline-block;
-             width: 370px;
-             height: 300px;
-             margin-left: 21.1px;
-         }
- 
-         .field2 {
-             display: inline-block;
-             margin-left: 23px;
-         }
- 
-         tradexweb {
-             display: inline-block;
-         }
- 
- 
-         body {
-             background-color: black;
-             max-width: 100%;
-         }
- 
-         .field {
-             margin-bottom: 21.1px;
-         }
- 
-         .field iframe {
-             width: 100%;
-             height: 335px;
-         }
- 
-         .field .under {
-             text-align: left;
-         }
- 
-         .field .under a {
-             color: white;
+     
+         .api.selected {
+                 color: yellow;
+             }
+     
+     
+             .selected {
+                 color: red; /* Change color to red for the selected API */
+     
+             }
+     .active-api {
+                 color: red;
+                 
+             }
+             .active-button {
+                 background-color: red;
+                 color: white;
+     
+             
+             }
+           
+     
+             a {
+                 font-size: 23px;
+                 margin-left: 0px;
+                 top: 21.1px;
+                 color: white;
+                 font-weight: bold;
+                 box-shadow: 50px;
+             }
+     
+             iframe {
+                 width: 370px;
+                 height: 300px;
+                 border-radius: 30px;
+                 display: inline-block;
+             }
+     
+             .field {
+                 display: inline-block;
+                 width: 370px;
+                 height: 300px;
+                 margin-left: 21.1px;
+             }
+     
+             .field2 {
+                 display: inline-block;
+                 margin-left: 23px;
+             }
+     
+             tradexweb {
+                 display: inline-block;
+             }
+     
+     
+             body {
+                 background-color: black;
+                 max-width: 100%;
+             }
+     
+             .field {
+                 margin-bottom: 21.1px;
+             }
+     
+             .field iframe {
+                 width: 100%;
+                 height: 335px;
+             }
+     
+             .field .under {
+                 text-align: left;
+             }
+     
+             .field .under a {
+                 color: white;
+                 text-decoration: none;
+             }
+     
+             .under a {
              text-decoration: none;
          }
- 
-         .under a {
-         text-decoration: none;
-     }
- 
-         .field .under a:hover {
-             text-decoration: underline;
-         }
- 
-         .field .under #video1,
-         .field .under #video2,
-         .field .under #video3 {
-             font-size: 23px;
-         }
- 
-         /* Define CSS classes to change color */
-         .completed {
-             color: rgb(25, 430, 50);
-             font-weight: bold;
-         }
- 
-         .not-completed {
-             color: white;
-         }
- 
-         @media (max-width: 1700px) {
-             .field {
-                 width: 23%;
-                 /* 4 iframe के लिए 23%  दिया गया है */
-             }
-         }
- 
-         @media (max-width: 1400px) {
-             .field {
-                 width: 30.5%;
-                 /* 3 iframe के लिए 31% व्यापार दिया गया है */
-             }
-         }
- 
-         @media (max-width: 1000px) {
-             .field {
-                 width: 45%;
-                 /* 2 iframe के लिए 45% व्यापार दिया गया है */
- 
-             }
-         }
- 
-         @media (max-width: 700px) {
-             .field {
-                 width: 500px
-                     /* 1 iframe के लिए 500px व्यापार दिया गया है */
-             }
-         }
- 
-         @media (max-width: 570px) {
-             .field {
-                 width: 85%;
-                 /* 1 iframe के लिए 85% व्यापार दिया गया है */
- 
-             }
-         }
- 
-         @media (max-width: 1400px) {
-             hr {
-                 display: none;
-             }
-         }
- 
- 
-         h2 {
-             color: #333;
-         }
- 
-         label {
-             display: block;
-             margin-bottom: 0px;
-         }
- 
-         input[type="number"] {
-             padding: 5px;
-             margin-bottom: 0px;
-             border: 1px solid #ccc;
-             border-radius: 4px;
-             width: 100px;
-         }
- 
-         button {
-             padding: 8px 10px;
-             background-color: #007bff;
-             color: #fff;
-             border: none;
-             border-radius: 4px;
-             cursor: pointer;
-         }
- 
-         button:hover {
-             background-color: #0056b3;
-         }
- 
-         #result {
-             margin-top: 0px;
-             font-weight: bold;
-             margin-left: 5px;
-         }
- 
-         table {
-         font-size: 18px;
-         color: rgb(224, 219, 219);
-         
-         
-     }
- 
-     table th, table td {
-         padding: 6px;
-         
-     }
-   
-     table th:nth-child(2),
-     table td:nth-child(2),
-     table th:nth-child(3),
-     table td:nth-child(3) {
-         font-weight: bold;
-     }
- 
-     /* To style the "Views Gain" text */
-     #viewsgain15,
-     #viewsgain17,
-     #viewsgain28,
-     #viewsgain29,
-     #viewsgain23,
-     #viewsgain3,
-     #viewsgain16,
-     #viewsgain18,
-     #viewsgain14,
-     #viewsgain27,
-     #viewsgain11,
-     #viewsgain20,
-     #viewsgain21,
-     #viewsgain7,
-     #viewsgain26,
-     #viewsgain19,
-     #viewsgain9,
-     #viewsgain1,
-     #viewsgain24,
-     #viewsgain4,
-     #viewsgain25,
-     #viewsgain0,
-     #viewsgain2,
-     #viewsgain5,
-     #viewsgain34,
-     #viewsgain6,
-     #viewsgain10,
-     #viewsgain13,
-     #viewsgain30,
-     #viewsgai22,
-     #viewsgain8,
-     #viewsgain20,
-     #viewsgain12,
-     #viewsgain31,
-     #viewsgain32,
-     #viewsgain33,
-     #viewsgain34
      
-     {
+             .field .under a:hover {
+                 text-decoration: underline;
+             }
+     
+             .field .under #video1,
+             .field .under #video2,
+             .field .under #video3 {
+                 font-size: 23px;
+             }
+     
+             /* Define CSS classes to change color */
+             .completed {
+                 color: rgb(25, 430, 50);
+                 font-weight: bold;
+             }
+     
+             .not-completed {
+                 color: white;
+             }
+     
+             @media (max-width: 1700px) {
+                 .field {
+                     width: 23%;
+                     /* 4 iframe के लिए 23%  दिया गया है */
+                 }
+             }
+     
+             @media (max-width: 1400px) {
+                 .field {
+                     width: 30.5%;
+                     /* 3 iframe के लिए 31% व्यापार दिया गया है */
+                 }
+             }
+     
+             @media (max-width: 1000px) {
+                 .field {
+                     width: 45%;
+                     /* 2 iframe के लिए 45% व्यापार दिया गया है */
+     
+                 }
+             }
+     
+             @media (max-width: 700px) {
+                 .field {
+                     width: 500px
+                         /* 1 iframe के लिए 500px व्यापार दिया गया है */
+                 }
+             }
+     
+             @media (max-width: 570px) {
+                 .field {
+                     width: 85%;
+                     /* 1 iframe के लिए 85% व्यापार दिया गया है */
+     
+                 }
+             }
+     
+             @media (max-width: 1400px) {
+                 hr {
+                     display: none;
+                 }
+             }
+     
+     
+             h2 {
+                 color: #333;
+             }
+     
+             label {
+                 display: block;
+                 margin-bottom: 0px;
+             }
+     
+             input[type="number"] {
+                 padding: 5px;
+                 margin-bottom: 0px;
+                 border: 1px solid #ccc;
+                 border-radius: 4px;
+                 width: 100px;
+             }
+     
+             button {
+                 padding: 8px 10px;
+                 background-color: #007bff;
+                 color: #fff;
+                 border: none;
+                 border-radius: 4px;
+                 cursor: pointer;
+             }
+     
+           
+             #result {
+                 margin-top: 0px;
+                 font-weight: bold;
+                 margin-left: 5px;
+             }
+     
+             table {
+             font-size: 18px;
+             color: rgb(224, 219, 219);
+             
+             
+         }
+     
+         table th, table td {
+             padding: 6px;
+             
+         }
+       
+         table th:nth-child(2),
+         table td:nth-child(2),
+         table th:nth-child(3),
+         table td:nth-child(3) {
+             font-weight: bold;
+         }
+
+         
+     
+         /* To style the "Views Gain" text */
+         #viewsgain15,
+         #viewsgain17,
+         #viewsgain28,
+         #viewsgain29,
+         #viewsgain23,
+         #viewsgain3,
+         #viewsgain16,
+         #viewsgain18,
+         #viewsgain14,
+         #viewsgain27,
+         #viewsgain11,
+         #viewsgain20,
+         #viewsgain21,
+         #viewsgain7,
+         #viewsgain26,
+         #viewsgain19,
+         #viewsgain9,
+         #viewsgain1,
+         #viewsgain24,
+         #viewsgain4,
+         #viewsgain25,
+         #viewsgain0,
+         #viewsgain2,
+         #viewsgain5,
+         #viewsgain34,
+         #viewsgain6,
+         #viewsgain10,
+         #viewsgain13,
+         #viewsgain30,
+         #viewsgai22,
+         #viewsgain8,
+         #viewsgain20,
+         #viewsgain12,
+         #viewsgain31,
+         #viewsgain32,
+         #viewsgain33,
+         #viewsgain34
+         
+         {
+             font-weight: bold;
+             font-size: 18.5px;
+             color:  rgb(25, 430, 50);
+             text-align: center;
+            
+         }
+     
+         [id^='Highest11AMViews'] {
          font-weight: bold;
-         font-size: 18.5px;
-         color:  rgb(25, 430, 50);
+         color:rgb(234, 234, 241);
          text-align: center;
+         font-size: 17px;
+         font-family: 'Arial', sans-serif;
+     }
+     
+     [id^='previousCumulativeViews'] {
+         font-weight: bold;
+         color:rgb(0, 255, 255);
+         text-align: center;
+         font-size: 18.5px;
+     }
+     
+     
+     .container {
+         display: flex;
+     }
+     
+     .iframe {
+         flex: 0 0 30%; /* Adjust the width of the iframe */
+         height: 740px; /* Adjust the height of the iframe */
+     }
+     
+     .table-container {
+         flex: 1;
+         overflow-y: scroll; /* Enable vertical scrolling for the table */
+         max-height: 750px; /* Set max height for the table */
+     }
+     
+     
+     .table-container::-webkit-scrollbar {
+         display: none; /* Hide scrollbar for the table */
+         
+     }
+     
+     
+     
+     
+     .box {
+             border: 2px solid white;
+             padding: 3px;
+             display: inline-block;
+             margin: 2px;
+         }
+     
+     
+     
+         /* Reset default margin and padding */
+     * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+     }
+     
+     /* Body styles */
+     body {
+         font-family: 'Arial', sans-serif;
+         background-color: #1a1a1a;
+         color: #fff;
+         margin: 0;
+         padding: 0;
+     }
+     
+     /* Header styles */
+     header {
+         background-color: #333;
+         text-align: center;
+         padding: 20px 0;
+     }
+     
+     h1 {
+         font-size: 2em;
+         color: #fff;
+     }
+     
+     /* Main content layout */
+     main {
+         display: flex;
+         justify-content: space-between;
+         flex-wrap: wrap;
+         padding: 20px;
+     }
+     
+     /* Song table styles */
+     .song-table {
+         width: 100%;
+         margin-bottom: 20px;
+     }
+     
+     table {
+         width: 100%;
+         border-collapse: collapse;
+     }
+     
+     table th, table td {
+         border: 1px solid #fff;
+         padding: 10px;
+         text-align: center;
+     }
+     
+     table th {
         
+         color: #fff;
+         font-weight: bold;
      }
- 
-     [id^='Highest11AMViews'] {
-     font-weight: bold;
-     color:rgb(234, 234, 241);
-     text-align: center;
-     font-size: 17px;
-     font-family: 'Arial', sans-serif;
- }
- 
- [id^='previousCumulativeViews'] {
-     font-weight: bold;
-     color:rgb(0, 255, 255);
-     text-align: center;
-     font-size: 18.5px;
- }
- 
- 
- .container {
-     display: flex;
- }
- 
- .iframe {
-     flex: 0 0 30%; /* Adjust the width of the iframe */
-     height: 740px; /* Adjust the height of the iframe */
- }
- 
- .table-container {
-     flex: 1;
-     overflow-y: scroll; /* Enable vertical scrolling for the table */
-     max-height: 720px; /* Set max height for the table */
- }
- 
- 
- .table-container::-webkit-scrollbar {
-     display: none; /* Hide scrollbar for the table */
      
- }
- 
- 
- 
- 
- .box {
-         border: 2px solid white;
-         padding: 3px;
-         display: inline-block;
-         margin: 2px;
+     /* Iframe container */
+     .iframe-container {
+         flex: 0 0 50%;
+         margin-left: 40px;
      }
- 
- 
- 
-     /* Reset default margin and padding */
- * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
- }
- 
- /* Body styles */
- body {
-     font-family: 'Arial', sans-serif;
-     background-color: #1a1a1a;
-     color: #fff;
-     margin: 0;
-     padding: 0;
- }
- 
- /* Header styles */
- header {
-     background-color: #333;
-     text-align: center;
-     padding: 20px 0;
- }
- 
- h1 {
-     font-size: 2em;
-     color: #fff;
- }
- 
- /* Main content layout */
- main {
-     display: flex;
-     justify-content: space-between;
-     flex-wrap: wrap;
-     padding: 20px;
- }
- 
- /* Song table styles */
- .song-table {
-     width: 100%;
-     margin-bottom: 20px;
- }
- 
- table {
-     width: 100%;
-     border-collapse: collapse;
- }
- 
- table th, table td {
-     border: 1px solid #fff;
-     padding: 10px;
-     text-align: center;
- }
- 
- table th {
-    
-     color: #fff;
-     font-weight: bold;
- }
- 
- /* Iframe container */
- .iframe-container {
-     flex: 0 0 50%;
-     margin-left: 40px;
- }
- 
- iframe {
-     width: 100%;
-     height: 500px;
-     border: none;
- }
- 
      
-     </style>
+     iframe {
+         width: 100%;
+         height: 500px;
+         border: none;
+     }
+     
+         
+         </style>
+     
 </head>
 
 
@@ -846,9 +447,7 @@ fs.writeFileSync(filePath, data);
           
             <div class="table-container" >
     
-                <table>
-                    <!-- Your table content here -->
-                </table>
+                
                 <table border="2">
                     <tr>
                         <th>Songs Name</th>
@@ -1157,20 +756,29 @@ fs.writeFileSync(filePath, data);
                <td id="viewsgain32">Gain:</td>
               
            </tr>
-        </table>          
-                </table>
-            </div>
-    
+        </table>    
               
+                </table>
+                
+            </div>
+           
+         
+         <div style="width: 100%; background-color: black;">
+            
+            
+            <button id="Refresh1Second" class="apirefresh"  style="font-size: 20px; margin-left: 0%;">1  </button>
+               <span id="indianTime" style="font-size: 20px; font-weight: bold; text-align: center;  margin-left: 50%; "   ></span>
+               <button id="Refresh30Second"  class="apirefresh" style= "font-size: 20px;  margin-left: 28.5%;" >30 </button>
+               
+          
+
+                <button id="Refresh10Second"  class="apirefresh" style="display: none;" >10 </button>
+        
+</div>
             <div class="api-container">
 
-                <span id="indianTime" style="font-size: 20px;"></span>
-                <div class="box">
-                  
-                    <button id="Refresh1Second" class="apirefresh" >1  </button>
-                    <button id="Refresh10Second"  class="apirefresh" >10 </button>
-                    <button id="Refresh30Second"  class="apirefresh" >30 </button>
-                </div>
+           
+               
                 <span id="API1" class="api" value="AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A">1</span>,
                 <span id="API2" class="api" value="AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA">2</span>,
                 <span id="API3" class="api" value="AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs">3</span>,
@@ -1207,30 +815,20 @@ fs.writeFileSync(filePath, data);
                 <span id="API47" class="api" value="AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ">47</span>,
                 <span id="API48" class="api" value="AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM">48</span>,
                 <span id="API49" class="api" value="AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4">49</span>
-               
-              
-                    
-    
-                </div>
-        
-            
-                            
-   <!-- 
-              <span id="API25" class="api" value="AIzaSyBDQYflCrBold112eIZiTjg9LdhHyPmNVg">25</span>,
-             <span id="API31" class="api" value="AIzaSyAUukDs2b3S5P1pacPBEfBHUdQLCp_M4bM">31</span>,
-  <span id="API33" class="api" value="AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w">33</span>,
- <span id="API34" class="api" value="AIzaSyCxa9wXRY92xfjshIBsRhkcQzPicd9Pb9g">34</span>,
- <span id="API35" class="api" value="AIzaSyBQ7GY0joc5i8LliB6JVBbAdmYckZTdBdE">35</span>,
-            <span id="API36" class="api" value="AIzaSyCBLtOrzjTjXMq48ll8IqPlcrzyokr4bLU">36</span>,
-            <span id="API37" class="api" value="AIzaSyAUZW7jsgCrdAL8v5Y28aGNX4K9S5s9_fA">37</span>,
-            <span id="API38" class="api" value="AIzaSyA8iM7oqlz0Cs6AX7Qcmy6WEdHmtcv9HVY">38</span>,
-            <span id="API39" class="api" value="AIzaSyCofzvCP2IAksB3LgQPbPv-vbwl3-X3L5Q">39</span>,
-            <span id="API40" class="api" value="AIzaSyCVrJsRdefEGUlkyT1WCpiWqq7Mi3nSBtM">40</span>,
-            <span id="API41" class="api" value="AIzaSyCQI6gxAN86WRPb9pVKvlvJY3CXexyyEK4">41</span>,
-            <span id="API42" class="api" value="AIzaSyAn3dHiR7UWS8xocDWP_wtFwL2Q4Tx2Pc0">42</span>,
-<span id="API45" class="api" value="AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI">45</span>,
-            <div id="activeApiDisplay">Active API: </div>   -->
-
+                <span id="API25" class="api" value="AIzaSyBDQYflCrBold112eIZiTjg9LdhHyPmNVg">25</span>,
+                <span id="API31" class="api" value="AIzaSyAUukDs2b3S5P1pacPBEfBHUdQLCp_M4bM">31</span>,
+                <span id="API33" class="api" value="AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w">33</span>,
+                <span id="API34" class="api" value="AIzaSyCxa9wXRY92xfjshIBsRhkcQzPicd9Pb9g">34</span>,
+                <span id="API35" class="api" value="AIzaSyBQ7GY0joc5i8LliB6JVBbAdmYckZTdBdE">35</span>,
+                <span id="API36" class="api" value="AIzaSyCBLtOrzjTjXMq48ll8IqPlcrzyokr4bLU">36</span>,
+                <span id="API37" class="api" value="AIzaSyAUZW7jsgCrdAL8v5Y28aGNX4K9S5s9_fA">37</span>,
+                <span id="API38" class="api" value="AIzaSyA8iM7oqlz0Cs6AX7Qcmy6WEdHmtcv9HVY">38</span>,
+                <span id="API39" class="api" value="AIzaSyCofzvCP2IAksB3LgQPbPv-vbwl3-X3L5Q">39</span>,
+                <span id="API40" class="api" value="AIzaSyCVrJsRdefEGUlkyT1WCpiWqq7Mi3nSBtM">40</span>,
+                <span id="API41" class="api" value="AIzaSyCQI6gxAN86WRPb9pVKvlvJY3CXexyyEK4">41</span>,
+                <span id="API42" class="api" value="AIzaSyAn3dHiR7UWS8xocDWP_wtFwL2Q4Tx2Pc0">42</span>,
+               <span id="API45" class="api" value="AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI">45</span>,
+            </div>    
      
     
     
@@ -1298,7 +896,414 @@ fs.writeFileSync(filePath, data);
     
     </body>
 
-<body>
+
+    <script> $(document).ready(function () {
+
+        // All High Count 12 Pm 
+
+        var videos = [
+            { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
+            { id: 'Oa_RSwwpPaA', title: 'Beautiful Things ' },// 1 right
+            { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
+            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
+            { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
+            { id: 'HfzbN5ky5Co', title: 'Xavi - La Diabla' },   // 5 right
+            { id: 'aezstCBHOPQ', title: 'Too Sweet' },  // 6 right
+            { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
+            { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
+            { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
+            { id: '0c66ksfigtU', title: 'Doja cat' },    // 10
+            { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
+            { id: '9alAlD059hc', title: 'Kygo Whatever' },    // 12
+            { id: 'GZ3zL7kT6_c', title: 'Lose Control' },  // 13
+            { id: 'HKw-2tWGr9g', title: 'Ek Mulaquat' },//  14
+            { id: 'JKrDdsgXuso', title: 'Stick Season' },  //  15        
+            { id: 'hcMzwMrr1tE', title: 'Srivaali Pushpa' }, // 16
+            { id: 'vdY5SFZBgnk', title: 'Shami Shami' },// 17
+            { id: 'sqmNziU3OxQ', title: 'O Bolega' }, // 18
+            { id: 'YIucrdfR6rI', title: 'Barsaat Ki Dhun' }, // 19
+            { id: 'y_RHQ4mBDKA', title: 'Bedardi Se' }, // 20
+            { id: 'TBlixHMv_GQ', title: 'Is Quder' },      // 21
+            { id: 'J1rOfVst-EQ', title: 'Bhool Bhuleya 2' }, // 22 removed this song
+            { id: '8AtiHCDGZ8c', title: 'Tate Mcrai' },// 23
+            { id: 'G-XMiVMlLRI', title: 'Dance Rani' },// 24
+            { id: 'cii6ruuycQA', title: 'Olivia Rodrigo - Deja' },// 25  
+            { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
+            { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
+            { id: 'lzEop75AeOk', title: 'Naiyo Lagada' },// 28
+            { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
+            { id: 'V2G8ESoDXm8', title: 'Seturn' },// 30
+            { id: 'N1cJFgSuvfY', title: 'Arina Grande' }, // 31
+            { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
+            { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
+            { id: '', title: 'Select Song' }, // 34
+            
+          
+          
+         
+          
+          
+        ];
+
+
+       
+let apiInterval;
+
+
+
+
+
+function updateViews(apiKey) {
+    videos.forEach(video => {
+        if (video.id) {
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${video.id}&key=${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const viewCount = data.items[0].statistics.viewCount;
+                    console.log(`Title: ${video.title}, Views: ${viewCount}`);
+                })
+                .catch(error => {
+                    console.error('Error fetching video data:', error);
+                    // If there's an error, select a random API key between API1 to API20
+                    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
+                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+                    updateViews(activeApi); // Update views with the newly selected API key
+                });
+        }
+    });
+}
+
+function deactivateApis() {
+            document.querySelectorAll('.api').forEach(api => api.style.color = ''); // Reset color for all APIs
+        }
+
+        // Generate random number between 1 and 20
+        const randomIndex = Math.floor(Math.random() * 49) + 1;
+        // Initially select a random API key between API1 to API20
+        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+        deactivateApis(); // Deactivate all APIs initially
+        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+
+        // Event listener to handle API selection
+        document.querySelectorAll('.api').forEach(span => {
+            span.addEventListener('click', () => {
+                deactivateApis(); // Deactivate all APIs
+                span.style.color = 'red'; // Set color to red for the selected API
+                activeApi = span.getAttribute('value');
+                console.log(`Active API set to: ${activeApi}`);
+                updateViews(activeApi); // Update views with the newly selected API key
+                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+            });
+        });
+
+function setApiRefreshInterval(interval, button) {
+    clearInterval(apiInterval);
+    apiInterval = setInterval(() => {
+        updateViews(activeApi);
+    }, interval);
+
+    // Button highlight logic
+    document.querySelectorAll('button').forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+
+document.getElementById('Refresh1Second').addEventListener('click', (e) => setApiRefreshInterval(1000, e.target));
+document.getElementById('Refresh10Second').addEventListener('click', (e) => setApiRefreshInterval(10000, e.target));
+document.getElementById('Refresh30Second').addEventListener('click', (e) => setApiRefreshInterval(30000, e.target));
+
+document.querySelectorAll('.api').forEach(span => {
+    span.addEventListener('click', () => {
+        document.querySelectorAll('.api').forEach(api => api.classList.remove('active-api'));
+        span.classList.add('active-api');
+        activeApi = span.getAttribute('value');
+        console.log(`Active API set to: ${activeApi}`);
+    });
+});
+
+
+
+
+
+function displayIndianTime() {
+    const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        minute: 'numeric',
+        second: 'numeric'
+    };
+
+    const currentTime = new Date();
+    const indianMinutes = currentTime.getMinutes();
+    const indianSeconds = currentTime.getSeconds();
+
+    // Check if the current time matches specified intervals (4:45, 4:46, 4:47, etc.)
+    const specifiedMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 45, 49, 54, 59];
+    const specifiedSeconds = [ 48 , 49 , 50];
+
+    if (specifiedMinutes.includes(indianMinutes) && specifiedSeconds.includes(indianSeconds)) {
+        // Call the function to refresh API
+        updateViews(activeApi);
+    }
+
+    // Display Indian Standard Time on the webpage
+    document.getElementById('indianTime').textContent = currentTime.toLocaleTimeString('en-IN', options);
+}
+
+// Set interval to update time every second
+setInterval(displayIndianTime, 1000);
+
+// Start the API calls with a default interval
+setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
+
+
+        function updateViews(apiKey) {
+           
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                frt
+            }
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+
+
+            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+            // Build comma-separated list of video IDs1111111111111111111111111111111111       
+            var videoIdList = videos.map(function (video) {
+                return video.id;
+            }).join(',');
+
+            // Prepare the API request URL
+            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+        
+
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function (data) {
+                    var currentTime = Date.now();
+                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
+                    for (var i = 0; i < data.items.length; i++) {
+                        var viewCount = parseInt(data.items[i].statistics.viewCount);
+                        var previousViewCount = previousViewCounts[i] || viewCount;
+                        var viewsGain = viewCount - previousViewCount;
+                        previousViewCounts[i] = viewCount;
+
+                        // Reset cumulative gain views after 3 minutes
+                        if (timeElapsed >= intervalResetTime) {
+                            resetTimestamp = currentTime;
+                            cumulativeGainViews[i] = 0;
+                            // Update previous cumulative views after the reset interval
+                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
+                            previousCumulativeViews[i] += cumulativeGainViews[i];
+
+                            
+
+                        }
+
+                        if (timeElapsed < intervalResetTime) {
+                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
+                        }
+
+                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
+                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+                       
+                    
+
+                        function shouldSavePreviousCumulativeViews() {
+                            var currentTime = new Date();
+                            var currentMinutes = currentTime.getMinutes();
+                            var currentSeconds = currentTime.getSeconds();
+
+                            // Check if the current time is at 4:58 or 9:58
+                            return
+                                (currentMinutes === 4 && currentSeconds === 50) ||
+                                (currentMinutes === 9 && currentSeconds === 50) ||
+                                (currentMinutes === 14 && currentSeconds === 50) ||
+                                (currentMinutes === 19 && currentSeconds === 50) ||
+                                (currentMinutes === 24 && currentSeconds === 50) ||
+                                (currentMinutes === 29 && currentSeconds === 50) ||
+                                (currentMinutes === 34 && currentSeconds === 50) ||
+                                (currentMinutes === 39 && currentSeconds === 50) ||
+                                (currentMinutes === 44 && currentSeconds === 50) ||
+                                (currentMinutes === 49 && currentSeconds === 50) ||
+                                (currentMinutes === 54 && currentSeconds === 50) ||
+                                (currentMinutes === 59 && currentSeconds === 50);
+
+                        }
+
+                        // Function to save the value of previousCumulativeViews
+                        function savePreviousCumulativeViews() {
+                            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                if (cumulativeGainViews[i] > 0) {
+                                    // Save the value at 4:58 or 9:58
+                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                                }
+                            }
+                        }
+                    
+                        
+                        // Check if it's time to save the previousCumulativeViews
+                        if (shouldSavePreviousCumulativeViews()) {
+                            savePreviousCumulativeViews();
+                        }
+
+                        if (isTargetUpdateTime()) {
+                            previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                        }
+                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                        var title = videos[i].title;
+                        $('#title' + i).text(title);
+                    }
+                },
+
+                
+                    error: function (error) {
+    console.log('Error:', error);
+    for (var i = 0; i < videos.length; i++) {
+        $('#viewCount' + i).text('Checking Api');
+        $('#title' + i).text(videos[i].title);
+    }
+    // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
+    const randomIndex = Math.floor(Math.random() * 49) + 1;
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    updateViews(activeApi);
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+    $('#activeApiDisplay').text(`Active API: ${activeApi}`);
+    deactivateApis();
+    document.querySelector(`#API${randomIndex}`).style.color = 'red';
+    document.querySelectorAll('.api').forEach(span => {
+        span.removeEventListener('click'); // Remove all click event listeners
+        span.style.pointerEvents = 'none'; // Disable click events on the element
+    });
+}
+            });
+        }
+
+      
+
+        // Function to handle API selection
+        $('.api').click(function() {
+            var clickedAPI = $(this).attr('value');
+            if (clickedAPI !== selectedAPI) {
+                selectedAPI = clickedAPI;
+                updateViews(selectedAPI); // Update views with the newly selected API key
+            }
+        });
+
+        // Initially select the first API key
+        selectedAPI = $('#API5').attr('value');
+        updateViews(selectedAPI); // Update views with the initially selected API keyy
+
+  $('.api').click(function() {
+            $('.api').removeClass('selected'); // Remove 'selected' class from all APIs
+            $(this).addClass('selected'); // Add 'selected' class to the clicked API
+            selectedAPI = $(this).attr('value');
+        });
+
+        // Initially select the first API key
+   
+
+        function updateViewCounts(apiKeyIndex) {
+            var apiKey = [
+               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
+             
+             
+                
+                // Add more API keys here
+            ][apiKeyIndex];
+
+
+
+        }
+
+
+
+
+
+
+
+        
+        // वीडियो के नाम या व्यूज पर क्लिक किया जाता है
+$('#video8, #viewCount8').click(function() {
+    // जानकारी लें
+    var videoId = $(this).attr('id'); // क्लिक किया गया एलिमेंट का आईडी
+
+    // अब, क्लिक किए गए वीडियो की जानकारी को उतारें
+    var clickedVideoId = videoId.substring(5); // "video8" या "viewCount8" से "8" निकालें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को पास करें
+    var oldVideoId = "video" + clickedVideoId;
+    var oldCumulativeViewsId = "previousCumulativeViews" + clickedVideoId;
+    var oldViewsgainId = "viewsgain" + clickedVideoId;
+
+    // अब, आपको इन विशिष्ट ID को नए विडियो की ID, previousCumulativeViews, और viewsgain के साथ बदलना होगा
+    var newVideoId = "video34"; // "video8" को "video34" में बदलें
+    var newCumulativeViewsId = "previousCumulativeViews34"; // "previousCumulativeViews8" को "previousCumulativeViews34" में बदलें
+    var newViewsgainId = "viewsgain34"; // "viewsgain8" को "viewsgain34" में बदलें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को नए ID के साथ बदलें
+    $('#' + oldVideoId).attr('id', newVideoId);
+    $('#' + oldCumulativeViewsId).attr('id', newCumulativeViewsId);
+    $('#' + oldViewsgainId).attr('id', newViewsgainId);
+
+    // अब, आपको उन्हें वापस बदलना होगा
+    $('#' + newVideoId).attr('id', oldVideoId);
+    $('#' + newCumulativeViewsId).attr('id', oldCumulativeViewsId);
+    $('#' + newViewsgainId).attr('id', oldViewsgainId);
+
+    // अब, आपको वीडियो के नाम और व्यूज को अपडेट कर सकते हैं
+    // उपयुक्त लॉजिक जोड़ें
+});
+
+
+
+       
+        function saveViews(views) {
+// views को एक स्थानीय फ़ाइल में सहेजें
+const filePath = "views.json";
+const data = JSON.stringify(views);
+fs.writeFileSync(filePath, data);
+}
+
+
+
+        setInterval(function () {
+            if (apiAvailable) {
+                updateViewCounts(0);
+            } else {
+                for (var i = 0; i < videos.length; i++) {
+                    $('#viewCount' + i).text('API Not Available');
+                    $('#title' + i).text(videos[i].title);
+                }
+            }
+        }, 1000); // 1 seconds
+    });
+
+  
+
+</script>
       
   <script>
 
@@ -1969,6 +1974,5 @@ window.onload = function() {
 
     </script>
 
-</body>
 
 </html>
