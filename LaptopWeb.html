@@ -1207,7 +1207,7 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
               error: function (error) {
     console.log('Error:', error);
     for (var i = 0; i < videos.length; i++) {
-        $('#viewCount' + i).text('API Not Available');
+        $('#viewCount' + i).text('Checking API');
         $('#viewCount34').text('');
         $('#title' + i).text(videos[i].title);
     }
