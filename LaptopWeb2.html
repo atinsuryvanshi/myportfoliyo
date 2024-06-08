@@ -507,6 +507,16 @@ iframe {
                     
     
                     </tr>
+                    
+                    <tr>
+                        <td id="title27">Kendrick Lamars</td>
+                        <td id="viewCount27">Loading...</td>
+                        <td id="previousCumulativeViewsTwo27">_ _ _</td>
+                        <td id="previousCumulativeViews27">_ _ _</td>
+                        <td id="viewsgain27">Gain:</td>
+                       
+                    </tr>
+                    
                     <tr>
                         <td id="title30">SETURN</td>
                         <td id="viewCount30">Loading...</td>
@@ -535,14 +545,7 @@ iframe {
                         <td id="viewsgain10">Gain:</td>
                        
                     </tr>
-                    <tr>
-                        <td id="title27">APNA BANALE</td>
-                        <td id="viewCount27">Loading...</td>
-                        <td id="previousCumulativeViewsTwo27">_ _ _</td>
-                        <td id="previousCumulativeViews27">_ _ _</td>
-                        <td id="viewsgain27">Gain:</td>
-                       
-                    </tr>
+                
                     <tr>
                         <td id="title12">Cowgirls</td>
                         <td id="viewCount12">Loading...</td>
@@ -795,7 +798,7 @@ iframe {
          
 
             <span id="API1" class="api" value="AIzaSyDLVgvuqWl-BVhayrWNb084hVUnkjWlpnc">1</span>, <!--  API A1-->
-            <span id="API2" class="api" value="AIzaSyCUeXJew256VXlVx_xskQIGXUPpWMF6GaU">2</span>, <!--  API A2-->
+            <span id="API2" class="api" value="AIzaSyAeMaFgVABp_IH7TN3SQOTWaG8u5FRa_x4">2</span>, <!--  API A2-->
             <span id="API3" class="api" value="AIzaSyCHkRHIhRpESteBCEIZs-mBRNx6f-OAepA">3</span>,  <!--  API A3-->
             <span id="API4" class="api" value="AIzaSyAst3UrU2iBmFfRIp_3Wt_8RPZRhJdLbPM">4</span>,  <!--  API A4-->
             <span id="API5" class="api" value="AIzaSyA98cBv-1OJKt2bZgr41Laqgron4mmyWxM">5</span>,  <!--  API A5-->
@@ -946,14 +949,14 @@ iframe {
             { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
             { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
             { id: 'HfzbN5ky5Co', title: 'Xavi - La Diabla' },   // 5 right
-            { id: 'aezstCBHOPQ', title: 'Too Sweet' },  // 6 right
+            { id: '_IjWFq1c5M4', title: 'Billie Eilishs BLUE' },  // 6 right
             { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
             { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
             { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
             { id: 'm4TQ-pIg5g4', title: 'Agar Ho Tum' },    // 10
             { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
             { id: 'UpYu9FgcxKo', title: 'Cowgirls' },    // 12
-            { id: 'GZ3zL7kT6_c', title: 'Lose Control' },  // 13
+            { id: 'g6YSdMnCOCU', title: 'Billie Eilishs SKINNY' },  // 13
             { id: 'kLbn61Z4LDI', title: 'Feather' },//  14
             { id: 'JKrDdsgXuso', title: 'Stick Season' },  //  15        
             { id: 'EVbtjaWXQVg', title: 'Down Bad' }, // 16
@@ -967,12 +970,12 @@ iframe {
             { id: 'kN6HHzEXKFU', title: 'Pushpa Pushpa' },// 24
             { id: 'cii6ruuycQA', title: 'Olivia Rodrigo - Deja' },// 25  
             { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
-            { id: 'ElZfdU54Cp8', title: 'Apna Bana le' }, // 27
+            { id: 'T6eK-2OQtew', title: 'Kendrick Lamars' }, // 27
             { id: 'RMmoyP_cpEg', title: 'Miles' },// 28
             { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
-            { id: 'V2G8ESoDXm8', title: 'Seturn' },// 30
+            { id: 'V2G8ESoDXm8', title: 'SZAs Saturn ' },// 30
             { id: 'RpE-hVumiDI', title: 'Dekkha Tenu' }, // 31
-            { id: 'XoiOOiuH8iI', title: 'Tyla - Water' }, // 32
+            { id: '4QIZE708gJ4', title: 'Malones I Had' }, // 32
             { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
             { id: 'No Id', title: 'Select Song' }, // 34
             
@@ -989,7 +992,7 @@ let apiInterval;
 
 
 document.getElementById('ButtonRandomApi').addEventListener('click', () => {
-    const randomIndex = Math.floor(Math.random() * 7) + 1; // Generate random number between 1 and 20
+    const randomIndex = Math.floor(Math.random() * 0) + 1; // Generate random number between 1 and 20
                     activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
                     updateViews(activeApi); // Update views with the newly selected API key
                     document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
@@ -1033,7 +1036,7 @@ function updateViews(apiKey) {
                 .catch(error => {
                     console.error('Error fetching video data:', error);
                     // If there's an error, select a random API key between API1 to API20
-                    const randomIndex = Math.floor(Math.random() * 7) + 1; // Generate random number between 1 and 20
+                    const randomIndex = Math.floor(Math.random() * 0) + 1; // Generate random number between 1 and 20
                     activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
                     updateViews(activeApi); // Update views with the newly selected API key
                 });
@@ -1046,7 +1049,7 @@ function deactivateApis() {
         }
 
         // Generate random number between 1 and 20
-        const randomIndex = Math.floor(Math.random() * 7) + 1;
+        const randomIndex = Math.floor(Math.random() * 0) + 1;
         // Initially select a random API key between API1 to API20
         activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
         $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
@@ -1196,8 +1199,7 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
                             var currentSeconds = currentTime.getSeconds();
 
                             // Check if the current time is at 4:58 or 9:58
-                            return
-                                (currentMinutes === 4 && currentSeconds === 49) ||
+                            return(currentMinutes === 4 && currentSeconds === 49) ||
                                 (currentMinutes === 4 && currentSeconds === 50) ||
                                 (currentMinutes === 9 && currentSeconds === 50) ||
                                 (currentMinutes === 14 && currentSeconds === 50) ||
