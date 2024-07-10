@@ -24,7 +24,7 @@
         .api-container {
              white-space: nowrap; /* APIs in one line */
              overflow-x: auto; /* Enable horizontal scrollbar */
-            display: none;
+            display: block;
              flex: 1;
          overflow-y: scroll; /* Enable vertical scrolling for the table */ 
          max-width: 680px;/* Set max height for the table */
@@ -452,9 +452,9 @@
                     <tr>
                         <th>Songs Name</th>
                         <th>Total Views</th>
-                        <th>10.Min.ago</th>
-                        <th>5.Min.ago </th>
-                        <th>Now.Views</th>
+                        <th>10.Min</th>
+                        <th>5.Min</th>
+                        <th>Current</th>
 
                                      
                     </tr>
@@ -795,64 +795,63 @@
                 <button id="Refresh10Second"  class="apirefresh" style="display: none;" >10 </button>
         
 </div>
-            <div class="api-container">
+<div class="api-container">
+         
 
-           
-               
-                <span id="API1" class="api" value="AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A">1</span>,
-                <span id="API2" class="api" value="AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA">2</span>,
-                <span id="API3" class="api" value="AIzaSyAiEYhGgUDxtkzkGAm6mA0qVnioatRRCZs">3</span>,
-                <span id="API4" class="api" value="AIzaSyDDZW_B9mfXILQ2i0pJRlLbijyBPV-IZZ4">4</span>,
-                <span id="API5" class="api" value="AIzaSyDzYcP9ijfw6PvtOhh2KvtEv2zZ5GX2Kq4">5</span>,
-                <span id="API6" class="api" value="AIzaSyA4dD_pSUpopHRU-6V9M0DAe9hzWIp_ogI">6</span>,
-                <span id="API7" class="api" value="AIzaSyCrtRnjs1UYsUeXt6hGmTsbzJF3pdFCQUI">7</span>,
-                <span id="API8" class="api" value="AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc">8</span>,
-                <span id="API9" class="api" value="AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I">9</span>,
-                <span id="API10" class="api" value="AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M">10</span>,
-                <span id="API11" class="api" value="AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY">11</span>,
-                <span id="API12" class="api" value="AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE">12</span>,
-                <span id="API13" class="api" value="AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU">13</span>,
-                <span id="API14" class="api" value="AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs">14</span>,
-                <span id="API15" class="api" value="AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A">15</span>,
-                <span id="API16" class="api" value="AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo">16</span>,
-                <span id="API17" class="api" value="AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo">17</span>,
-                <span id="API18" class="api" value="AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw">18</span>,
-                <span id="API19" class="api" value="AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo">19</span>,
-                <span id="API20" class="api" value="AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc">20</span>
-                <span id="API21" class="api" value="AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo">21</span>
-                <span id="API22" class="api" value="AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8">22</span>,
-                <span id="API23" class="api" value="AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc">23</span>,
-                <span id="API24" class="api" value="AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE">24</span>,
-                <span id="API26" class="api" value="AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg">26</span>,
-                <span id="API27" class="api" value="AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA">27</span>,
-                <span id="API28" class="api" value="AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA">28</span>,
-                <span id="API29" class="api" value="AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4">29</span>,
-                <span id="API30" class="api" value="AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0">30</span>,
-                <span id="API32" class="api" value="AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU">32</span>,
-                <span id="API43" class="api" value="AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8">43</span>,
-                <span id="API44" class="api" value="AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY">44</span>,
-                <span id="API46" class="api" value="AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA">46</span>,
-                <span id="API47" class="api" value="AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ">47</span>,
-                <span id="API48" class="api" value="AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM">48</span>,
-                <span id="API49" class="api" value="AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4">49</span>
-                <span id="API25" class="api" value="AIzaSyBDQYflCrBold112eIZiTjg9LdhHyPmNVg">25</span>,
-                <span id="API31" class="api" value="AIzaSyAUukDs2b3S5P1pacPBEfBHUdQLCp_M4bM">31</span>,
-                <span id="API33" class="api" value="AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w">33</span>,
-                <span id="API34" class="api" value="AIzaSyCxa9wXRY92xfjshIBsRhkcQzPicd9Pb9g">34</span>,
-                <span id="API35" class="api" value="AIzaSyBQ7GY0joc5i8LliB6JVBbAdmYckZTdBdE">35</span>,
-                <span id="API36" class="api" value="AIzaSyCBLtOrzjTjXMq48ll8IqPlcrzyokr4bLU">36</span>,
-                <span id="API37" class="api" value="AIzaSyAUZW7jsgCrdAL8v5Y28aGNX4K9S5s9_fA">37</span>,
-                <span id="API38" class="api" value="AIzaSyA8iM7oqlz0Cs6AX7Qcmy6WEdHmtcv9HVY">38</span>,
-                <span id="API39" class="api" value="AIzaSyCofzvCP2IAksB3LgQPbPv-vbwl3-X3L5Q">39</span>,
-                <span id="API40" class="api" value="AIzaSyCVrJsRdefEGUlkyT1WCpiWqq7Mi3nSBtM">40</span>,
-                <span id="API41" class="api" value="AIzaSyCQI6gxAN86WRPb9pVKvlvJY3CXexyyEK4">41</span>,
-                <span id="API42" class="api" value="AIzaSyAn3dHiR7UWS8xocDWP_wtFwL2Q4Tx2Pc0">42</span>,
-               <span id="API45" class="api" value="AIzaSyAfp4D5Al8tjq5ndBVuWGy2GZShby7EoVI">45</span>,
-            </div>    
-     
-    
-    
-    
+    <span id="API1" class="api" value="AIzaSyB0WICr_e2PTZLiLG6ywtjTV_Ju-GZqmdQ">1</span>, <!--  API 1 ATIN.INIDA -->
+    <span id="API2" class="api" value="AIzaSyAOIOxuGa5jUUhavqVM6f77W7q6Flx_dyE">2</span>,  <!--  API 2 ATIN.INDIA-->
+    <span id="API3" class="api" value="AIzaSyAeMaFgVABp_IH7TN3SQOTWaG8u5FRa_x4">3</span>, <!--  API A2-->
+    <span id="API4" class="api" value="AIzaSyA59ROQNqPjz8snBzHDepUfJRIN8anJUvc">4</span>,  <!--  API 4 ATIN.INDIA -->
+    <span id="API5" class="api" value="AIzaSyAqeru4eQXVWWq2FrFSM5wxdhZRSIT-dWM">5</span>,  <!--  API 5 ATIN.INDIA-->
+    <span id="API6" class="api" value="AIzaSyCSuXF3uvokgYGG4GwTqUfvqp1CiVdJX8k">6</span>,
+    <span id="API7" class="api" value="AIzaSyCh_9E9pKBTEvLKhqR67SGs6UpQ7S-0ScY">7</span>,  <!-- my project 8334  -->
+    <span id="API8" class="api" value="AIzaSyAACdBDPdi130essK8H61JvkWRdCA9TFjc">8</span>,
+    <span id="API9" class="api" value="AIzaSyC5EfINqP20-EyCZtljOaf9cNTO_QkWM0I">9</span>,
+    <span id="API10" class="api" value="AIzaSyDWtJ5pTeKvEHAiJ0ytdF4KhK8U3wzjL5M">10</span>,
+    <span id="API11" class="api" value="AIzaSyD9CXLMm6PMTdaFyU08naQMi1w0M1kOZVY">11</span>,
+    <span id="API12" class="api" value="AIzaSyCIY3h5chJFmmebBvACiA8I0ngBlBEHdZE">12</span>,
+    <span id="API13" class="api" value="AIzaSyCr2Ea27fWVICRCvyrcSIsMbeKdc2i0JtU">13</span>,
+    <span id="API14" class="api" value="AIzaSyBJTrjWjqTyVGvqtGX3eCpd_7UoC1ZE9Vs">14</span>,
+    <span id="API15" class="api" value="AIzaSyBMUZaISJTWyTxJB3oMMOEBBnCOX3F-e8A">15</span>,
+    <span id="API16" class="api" value="AIzaSyDKBVeDU31-IrFI9u-Q06J1BT852bAmuoo">16</span>,
+    <span id="API17" class="api" value="AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo">17</span>,
+    <span id="API18" class="api" value="AIzaSyDgrjpI_V6zYTcdQzi7Gtgl3VgiyoPfEbw">18</span>,
+    <span id="API19" class="api" value="AIzaSyBK-JDMwfdzmrNxJWDiWtkW0zgnuxGtXLo">19</span>,
+    <span id="API20" class="api" value="AIzaSyBIAiI7DK1mw1HZqQfNPjlDhtWzpZ_catc">20</span>
+    <span id="API21" class="api" value="AIzaSyBwYe3L7njbnL4dPDXIagY7fb4CAgfLJlo">21</span>
+    <span id="API22" class="api" value="AIzaSyCEKbeCdsaoE2WJPokKUZXDOL21zsThud8">22</span>,
+    <span id="API23" class="api" value="AIzaSyAhWmLdCarX900VjJyn61xh1ChT4Z_HDIc">23</span>,
+    <span id="API24" class="api" value="AIzaSyB39usa4VeV5s0kfBlPLkqKsE7N4xPkuXE">24</span>,
+    <span id="API26" class="api" value="AIzaSyCvm4qAzt0fq-N73ceXxkGD8VcvQQvDHjg">26</span>,
+    <span id="API27" class="api" value="AIzaSyC1wc2AxM-tvUfIhX9L-U-dM3E0B2r8qeA">27</span>,
+    <span id="API28" class="api" value="AIzaSyA1cMt7QENC7b3-5vmzPmqPm0K8iYtsumA">28</span>,
+    <span id="API29" class="api" value="AIzaSyABlenNovdbWJf085jJjmOWq-St71Wgoi4">29</span>,
+    <span id="API30" class="api" value="AIzaSyBmBBE8olMaUZKrt28fWagyXFvM7G8pQb0">30</span>,
+    <span id="API32" class="api" value="AIzaSyDKTy9ywCiuFN280udF0MqYYHr9ba_7qLU">32</span>,
+    <span id="API43" class="api" value="AIzaSyCg31_Ek_s_RjQcmQWCryovX92JHbm5DF8">43</span>,
+    <span id="API44" class="api" value="AIzaSyCdyBKv8LmWPKROby-tQnopzhx4E9PpRgY">44</span>,
+    <span id="API46" class="api" value="AIzaSyCvOVBmJHll-yWK5qJjyhtBhz1-wlHOaaA">46</span>,
+    <span id="API47" class="api" value="AIzaSyAfEKmXutkJDfdUlk9JmtwBWplRwZFIJdQ">47</span>,
+    <span id="API48" class="api" value="AIzaSyAxYDNw9tsIbgjS0vglLFPx22xjCckFdXM">48</span>,
+    <span id="API49" class="api" value="AIzaSyCW7g1NyxrFMiJDKJpFq9EEDjJZEoLDYr4">49</span>
+    <span id="API25" class="api" value="AIzaSyBDQYflCrBold112eIZiTjg9LdhHyPmNVg">25</span>,
+    <span id="API31" class="api" value="AIzaSyAUukDs2b3S5P1pacPBEfBHUdQLCp_M4bM">31</span>,
+    <span id="API33" class="api" value="AIzaSyDRPogcQb1SD0aYbCOot_trnxhGief5w">33</span>,
+    <span id="API34" class="api" value="AIzaSyCxa9wXRY92xfjshIBsRhkcQzPicd9Pb9g">34</span>,
+    <span id="API35" class="api" value="AIzaSyBQ7GY0joc5i8LliB6JVBbAdmYckZTdBdE">35</span>,
+    <span id="API36" class="api" value="AIzaSyCBLtOrzjTjXMq48ll8IqPlcrzyokr4bLU">36</span>,
+    <span id="API37" class="api" value="AIzaSyAUZW7jsgCrdAL8v5Y28aGNX4K9S5s9_fA">37</span>,
+    <span id="API38" class="api" value="AIzaSyA8iM7oqlz0Cs6AX7Qcmy6WEdHmtcv9HVY">38</span>,
+    <span id="API39" class="api" value="AIzaSyCofzvCP2IAksB3LgQPbPv-vbwl3-X3L5Q">39</span>,
+    <span id="API40" class="api" value="AIzaSyCVrJsRdefEGUlkyT1WCpiWqq7Mi3nSBtM">40</span>,
+    <span id="API41" class="api" value="AIzaSyCQI6gxAN86WRPb9pVKvlvJY3CXexyyEK4">41</span>,
+    <span id="API42" class="api" value="AIzaSyAn3dHiR7UWS8xocDWP_wtFwL2Q4Tx2Pc0">42</span>,
+   <span id="API45" class="api" value="AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A">45</span>,
+        
+        
+
+    </div>
+
        
      
     
@@ -990,7 +989,7 @@ function updateViews(apiKey) {
                 .catch(error => {
                     console.error('Error fetching video data:', error);
                     // If there's an error, select a random API key between API1 to API20
-                    const randomIndex = Math.floor(Math.random() * 49) + 1; // Generate random number between 1 and 20
+                    const randomIndex = Math.floor(Math.random() * 0) + 1; // Generate random number between 1 and 20
                     activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
                     updateViews(activeApi); // Update views with the newly selected API key
                 });
@@ -1003,7 +1002,7 @@ function deactivateApis() {
         }
 
         // Generate random number between 1 and 20
-        const randomIndex = Math.floor(Math.random() * 49) + 1;
+        const randomIndex = Math.floor(Math.random() * 0) + 1;
         // Initially select a random API key between API1 to API20
         activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
         $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
@@ -1206,18 +1205,8 @@ setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
         $('#viewCount34').text('');
     }
     // Yahaan se neeche ka code execute nahi hoga agar error hat gaya hai
-    const randomIndex = Math.floor(Math.random() * 49) + 1;
-    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-    updateViews(activeApi);
-    document.querySelector(`#API${randomIndex}`).style.color = 'red';
-    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
-    $('#activeApiDisplay').text(`Active API: ${activeApi}`);
-    deactivateApis();
-    document.querySelector(`#API${randomIndex}`).style.color = 'red';
-    document.querySelectorAll('.api').forEach(span => {
-        span.removeEventListener('click'); // Remove all click event listeners
-        span.style.pointerEvents = 'none'; // Disable click events on the element
-    });
+   
+    
 }
             });
         }
