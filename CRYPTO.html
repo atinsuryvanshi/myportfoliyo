@@ -1,42 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="CRYPTO.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Trading</title>
+    <title>Binance BTC Order Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+        #container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            width: 100%;
+        }
+        #orderBook {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+        }
+        .orderRow {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        .buy {
+            color: green;
+        }
+        .sell {
+            color: red;
+        }
+        .price {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 20px;
+        }
+        #BUY {
+            color: green;
+        }
+        #SELL {
+            color: red;
+        }
+        #buy-difference, #sell-difference {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 10px;
+        }
+        #buy-sell-difference {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 10px;
+        }
+        #indian-timer {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .tradingview-widget-container {
+            width: 1200px;
+            height: 600px;
+        }
+    </style>
 </head>
 <body>
-    <div class="field2"> <iframe src="https://web.tradexapp.co/" style="width: 800px; height: 750px;">  </iframe> </div>
-              
-                     
-<!-- TradingView Widget BEGIN -->
-<div class="field2">
-    <div id="tradingview_3f40d"></div>
-    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script type="text/javascript">
-    new TradingView.widget(
-    {
-    "width": 800,
-    "height": 765,
-    "symbol": "BINANCE:BTCUSDT",
-    "timezone": "Etc/UTC",
-    "theme": "dark",
-    "style": "8",
-    "locale": "in",
-    "toolbar_bg": "#f1f3f6",
-    "enable_publishing": true,
-    "hide_legend": true,
-    "withdateranges": true,
-    "range": "1D",
-    "hide_side_toolbar": false,
-    "allow_symbol_change": true,
-    "container_id": "tradingview_3f40d"
-  }
-    );
+  
+
+    <div>
+        <div id="orderBook"></div>
+        <div id="buy-sell-difference" style="display: none;"></div>
+        <div class="price" id="btc-price">Loading...</div>
+        <div id="BUY" class="price" style="display: none;">BUY</div>
+        <div id="SELL" class="price" style="display: none;">SELL</div>
+        <div id="buy-difference" style="display: none;"></div>
+        <div id="sell-difference" style="display: none;"></div>
+        <div id="indian-timer"></div>
+    </div>
+    <script>
+        let lastBTCPrice = 0;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchOrderBook();
+            setInterval(fetchOrderBook, 250); // Update every 250 milliseconds
+            updateIndianTime();
+            setInterval(updateIndianTime, 1000); // Update time every second
+        });
+
+        async function fetchOrderBook() {
+            try {
+                const response = await fetch('https://api.binance.com/api/v3/depth?symbol=BTCUSDT&limit=100');
+                const orderBookData = await response.json();
+                const btcPrice = await fetchBTCPrice();
+                
+                // Process order book data and update HTML
+                displayOrderBook(orderBookData, btcPrice);
+            } catch (error) {
+                console.error('Error fetching order book:', error);
+            }
+        }
+
+        async function fetchBTCPrice() {
+            try {
+                const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                return parseFloat(data.price);
+            } catch (error) {
+                console.error('Error fetching BTC price:', error);
+                return 0; // Return 0 if there's an error
+            }
+        }
+
+        function displayOrderBook(orderBookData, btcPrice) {
+            const orderBookElement = document.getElementById('orderBook');
+            const buyIndicator = document.getElementById('BUY');
+            const sellIndicator = document.getElementById('SELL');
+            const btcPriceElement = document.getElementById('btc-price');
+            const buyDifferenceElement = document.getElementById('buy-difference');
+            const sellDifferenceElement = document.getElementById('sell-difference');
+            const buySellDifferenceElement = document.getElementById('buy-sell-difference');
+
+            orderBookElement.innerHTML = ''; // Clear existing content
+
+            let bids = orderBookData.bids;
+            let asks = orderBookData.asks;
+
+            // Show only top 100 buy and sell orders
+            bids = bids.slice(0, 1);
+            asks = asks.slice(0, 1);
+
+            // Calculate total BTC on buy and sell sides
+            const totalBuyBTC = bids.reduce((total, entry) => total + parseFloat(entry[1]), 0);
+            const totalSellBTC = asks.reduce((total, entry) => total + parseFloat(entry[1]), 0);
+
+            // Display buy or sell indicator based on the larger total
+            if (totalBuyBTC >= 5 && totalSellBTC <= 1.5) {
+                buyIndicator.style.display = 'none';
+                sellIndicator.style.display = 'none';
+            } else if (totalSellBTC >= 5 && totalBuyBTC <= 1.5) {
+                buyIndicator.style.display = 'none';
+                sellIndicator.style.display = 'none';
+            } else {
+                buyIndicator.style.display = 'none';
+                sellIndicator.style.display = 'none';
+            }
+
+            // Display BTC current price
+            btcPriceElement.textContent = btcPrice.toFixed(2);
+
+            // Change BTC price color based on change
+            if (btcPrice < lastBTCPrice) {
+                btcPriceElement.style.color = 'red';
+            } else if (btcPrice > lastBTCPrice) {
+                btcPriceElement.style.color = 'green';
+            }
+            lastBTCPrice = btcPrice;
+
+            // Sort orders in ascending order
+            bids.sort((a, b) => parseFloat(a[0]) - parseFloat(b[0])); // Ascending
+            asks.sort((a, b) => parseFloat(a[0]) - parseFloat(b[0])); // Ascending
+
+            // Display buy orders
+            bids.forEach(entry => {
+                let price = parseFloat(entry[0]).toFixed(2);
+                let amount = parseFloat(entry[1]).toFixed(5);
+
+                const row = document.createElement('div');
+                row.classList.add('orderRow', 'buy');
+                row.innerHTML = `<span>Buy Order ${amount} BTC @ ${price}</span>`;
+                orderBookElement.appendChild(row);
+            });
+
+            // Display sell orders
+            asks.forEach(entry => {
+                let price = parseFloat(entry[0]).toFixed(2);
+                let amount = parseFloat(entry[1]).toFixed(5);
+
+                const row = document.createElement('div');
+                row.classList.add('orderRow', 'sell');
+                row.innerHTML = `<span>Sell Order ${amount} BTC @ ${price}</span>`;
+                orderBookElement.appendChild(row);
+            });
+
+            // Calculate and display the differences
+            const lastBuyPrice = parseFloat(bids[bids.length - 1][0]);
+            const lastSellPrice = parseFloat(asks[asks.length - 1][0]);
+            const buyDifference = lastBuyPrice - btcPrice;
+            const sellDifference = lastSellPrice - btcPrice;
+
+            buyDifferenceElement.textContent = `Buy Difference: ${buyDifference.toFixed(2)}`;
+            sellDifferenceElement.textContent = `Sell Difference: ${sellDifference.toFixed(2)}`;
+
+            // Calculate and display combined buy-sell difference
+            const combinedDifference = buyDifference + sellDifference;
+            buySellDifferenceElement.textContent = `Buy + Sell Difference: ${combinedDifference.toFixed(2)}`;
+        }
+
+        function updateIndianTime() {
+            const indianTimeElement = document.getElementById('indian-timer');
+            const now = new Date();
+            const istOffset = now.getTimezoneOffset() + (330); // IST is UTC +5:30
+            const istTime = new Date(now.getTime() + istOffset * 60000);
+            const hours = istTime.getHours().toString().padStart(2, '0');
+            const minutes = istTime.getMinutes().toString().padStart(2, '0');
+            const seconds = istTime.getSeconds().toString().padStart(2, '0');
+            indianTimeElement.textContent = `Time: ${hours}:${minutes}:${seconds}`;
+        }
     </script>
-  </div>
-  <!-- TradingView Widget END -->
 </body>
 </html>
