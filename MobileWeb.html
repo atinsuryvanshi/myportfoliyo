@@ -468,460 +468,474 @@
                 <table border="2">
                     <tr>
                         <th>Songs Name</th>
-                        <th>Total Views</th>
-                        <th>10Min ago </th>
-                        <th>5Min ago </th>
-                        <th>Current Views</th>
-
-                        <th id="sumViewsHeader" class="sum-views" >Sum Views</th> <!-- Add class for easy targeting -->
-                        <th id="DividedViewsHeader" class="divided-views">Divided Views</th> <!-- New header for divided views -->
-                        <th id="DivideViewsMultiplyViewsGainHeader" class="Divide-Views-Multiply-ViewsGain">Predict Views</th>
+                        <th class="Total-Views">Total</th>
+                        <th>10min </th>
+                        <th>5min</th>
+                        <th>Current</th>
+                        <th id="sumViewsHeader" class="sum-views" >Sum</th> <!-- Add class for easy targeting -->
+                        <th id="DividedViewsHeader" class="divided-views">Divided</th> <!-- New header for divided views -->
+                        <th id="DivideViewsMultiplyViewsGainHeader" class="Divide-Views-Multiply-ViewsGain">Predict</th>
+                        <th id="PreviousPredictHeader" class="Previous-Predict">Predict2</th>
                        </tr>
                    
-                       <tr>
-                           <td id="title18" onclick="showDividedViews(18)" class="clickable-title">Goin Off </td>
-                           <td id="viewCount18">Loading...</td>
-                           <td id="previousCumulativeViewsTwo18">_ _ _</td>
-                           <td id="previousCumulativeViews18">_ _ _</td>
-                           <td id="viewsgain18">Gain:</td>
-                           <td class="sum-views" id="SumViews18">0</td> <!-- Sum Views -->
-                           <td class="divided-views" id="DividedViews18">0</td> <!-- Divided Views -->
-                           <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain18">Result:</td>
-                       </tr>
-                   
-                       <tr>
-                           <td id="title20" onclick="showDividedViews(20)" class="clickable-title">Lisa new woman</td>
-                           <td id="viewCount20">Loading...</td>
-                           <td id="previousCumulativeViewsTwo20">_ _ _</td>
-                           <td id="previousCumulativeViews20">_ _ _</td>
-                           <td id="viewsgain20">Gain:</td>
-                           <td class="sum-views" id="SumViews20">0</td>
-                           <td class="divided-views" id="DividedViews20">0</td>
-                           <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain20">Result:</td>
-                       </tr>
-                       <tr>
-                           <td id="title8" class="clickable-title">MAAN MERI</td>
-                           <td id="viewCount8">Loading...</td>
-                           <td id="previousCumulativeViewsTwo8">_ _ _</td>
-                           <td id="previousCumulativeViews8">_ _ _</td>
-                           <td id="viewsgain8">Gain:</td>
-                           <td class="sum-views" id="SumViews8">0</td>
-                           <td class="divided-views" id="DividedViews8">0</td>
-                           <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain8">Result:</td>
-                       </tr>
-
-                   <tr>
-                       <td id="title29"class="clickable-title">TERE VAASTE</td>
-                       <td id="viewCount29">Loading...</td>
-                       <td id="previousCumulativeViewsTwo29">_ _  _</td>
-                       <td id="previousCumulativeViews29">_ _  _</td>
-                       <td id="viewsgain29">Gain:</td>
-                       <td  class="sum-views" id="SumViews29">0</td>
-                       <td class="divided-views" id="DividedViews29">0</td>
-                       <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain29">Result:</td>
-                  </tr>
-
-
-                   <tr>
-                       <td id="title13"class="clickable-title">Stree 2 - Aaj ki raat</td>
-                       <td id="viewCount13">Loading...</td>
-                       <td id="previousCumulativeViewsTwo13">_ _ _</td>
-                       <td id="previousCumulativeViews13"> _ _ _</td>
-                       <td id="viewsgain13">Gain:</td>
-                       <td  class="sum-views" id="SumViews13">0</td>
-                       <td class="divided-views" id="DividedViews13">0</td>
-                       <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain13">Result:</td>
                     
+                        <tr>
+                            <td id="title18" onclick="showDividedViews(18)" class="clickable-title">Goin Off </td>
+                            <td id="viewCount18">Loading...</td>
+                            <td id="previousCumulativeViewsTwo18">_ _ _</td>
+                            <td id="previousCumulativeViews18">_ _ _</td>
+                            <td id="viewsgain18">Gain:</td>
+                            <td class="sum-views" id="SumViews18">0</td> <!-- Sum Views -->
+                            <td class="divided-views" id="DividedViews18">0</td> <!-- Divided Views -->
+                            <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain18">Result:</td>
+                            <td class="Previous-Predict" id="PreviousPredict18" >Pre Predict</td>
+
+                        </tr>
+                    
+                        <tr>
+                            <td id="title20" onclick="showDividedViews(20)" class="clickable-title">Lisa new woman</td>
+                            <td id="viewCount20">Loading...</td>
+                            <td id="previousCumulativeViewsTwo20">_ _ _</td>
+                            <td id="previousCumulativeViews20">_ _ _</td>
+                            <td id="viewsgain20">Gain:</td>
+                            <td class="sum-views" id="SumViews20">0</td>
+                            <td class="divided-views" id="DividedViews20">0</td>
+                            <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain20">Result:</td>
+                            <td class="Previous-Predict" id="PreviousPredict20" >Pre Predict</td>
+                        </tr>
+                        <tr>
+                            <td id="title8" class="clickable-title">MAAN MERI</td>
+                            <td id="viewCount8">Loading...</td>
+                            <td id="previousCumulativeViewsTwo8">_ _ _</td>
+                            <td id="previousCumulativeViews8">_ _ _</td>
+                            <td id="viewsgain8">Gain:</td>
+                            <td class="sum-views" id="SumViews8">0</td>
+                            <td class="divided-views" id="DividedViews8">0</td>
+                            <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain8">Result:</td>
+                            <td class="Previous-Predict" id="PreviousPredict8" >Pre Predict</td>
+                        </tr>
+
+                    <tr>
+                        <td id="title29"class="clickable-title">TERE VAASTE</td>
+                        <td id="viewCount29">Loading...</td>
+                        <td id="previousCumulativeViewsTwo29">_ _  _</td>
+                        <td id="previousCumulativeViews29">_ _  _</td>
+                        <td id="viewsgain29">Gain:</td>
+                        <td  class="sum-views" id="SumViews29">0</td>
+                        <td class="divided-views" id="DividedViews29">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain29">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict29" >Pre Predict</td>
                    </tr>
-   
-                   <tr>
-                       <td id="title32"class="clickable-title">Malones I Had</td>
-                       <td id="viewCount32">Loading...</td>
-                       <td id="previousCumulativeViewsTwo32">_ _ _ </td>
-                       <td id="previousCumulativeViews32">_ _ _</td>
-                       <td id="viewsgain32">Gain:</td>
-                       <td  class="sum-views" id="SumViews32">0</td>
-                       <td class="divided-views" id="DividedViews32">0</td>
-                       <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain32">Result:</td>
-                      
-                   </tr>
-
-                   <tr>
-                       <td id="title14"class="clickable-title">Davudi</td>
-                       <td id="viewCount14">Loading...</td>
-                       <td id="previousCumulativeViewsTwo14">_ _ _</td>
-                       <td id="previousCumulativeViews14">_ _ _</td>
-                       <td id="viewsgain14">Gain:</td>
-                       <td  class="sum-views" id="SumViews14">0</td>
-                       <td class="divided-views" id="DividedViews14">0</td>
-                       <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain14">Result:</td>
-                      
-                   </tr>
-
-                   
-             
-
-              <tr>
-               <td id="title24"class="clickable-title">Kanguva - Trailer</td>
-               <td id="viewCount24">Loading...</td>
-               <td id="previousCumulativeViewsTwo24">_ _ _</td>
-               <td id="previousCumulativeViews24">_ _ _</td>
-               <td id="viewsgain24">Gain:</td>
-               <td  class="sum-views" id="SumViews24">0</td>
-               <td class="divided-views" id="DividedViews24">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain24">Result:</td>
-             
-           </tr>
-
-                
-           <tr>
-               <td id="title12"class="clickable-title">Hindi dubbed - Meastro Movie</td>
-               <td id="viewCount12">Loading...</td>
-               <td id="previousCumulativeViewsTwo12">_ _ _</td>
-               <td id="previousCumulativeViews12">_ _ _</td>
-               <td id="viewsgain12">Gain:</td>
-               <td  class="sum-views" id="SumViews12">0</td>
-               <td class="divided-views" id="DividedViews12">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain12">Result:</td>
-               
-           </tr>
 
 
-           <tr>
-               <td id="title16"class="clickable-title">Mrbeast 7 days </td>
-               <td id="viewCount16">Loading...</td>
-               <td id="previousCumulativeViewsTwo16">_ _ _ </td>
-               <td id="previousCumulativeViews16">_ _ _</td>
-               <td id="viewsgain16">Gain:</td>
-               <td  class="sum-views" id="SumViews16">0</td>
-               <td class="divided-views" id="DividedViews16">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain16">Result:</td>
-     
+                    <tr>
+                        <td id="title13"class="clickable-title">Stree 2 - Aaj ki raat</td>
+                        <td id="viewCount13">Loading...</td>
+                        <td id="previousCumulativeViewsTwo13">_ _ _</td>
+                        <td id="previousCumulativeViews13"> _ _ _</td>
+                        <td id="viewsgain13">Gain:</td>
+                        <td  class="sum-views" id="SumViews13">0</td>
+                        <td class="divided-views" id="DividedViews13">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain13">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict13" >Pre Predict</td>
+                    </tr>
+    
+                    <tr>
+                        <td id="title32"class="clickable-title">Malones I Had</td>
+                        <td id="viewCount32">Loading...</td>
+                        <td id="previousCumulativeViewsTwo32">_ _ _ </td>
+                        <td id="previousCumulativeViews32">_ _ _</td>
+                        <td id="viewsgain32">Gain:</td>
+                        <td  class="sum-views" id="SumViews32">0</td>
+                        <td class="divided-views" id="DividedViews32">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain32">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict32" >Pre Predict</td>
+                    </tr>
+
+                    <tr>
+                        <td id="title14"class="clickable-title">Davudi</td>
+                        <td id="viewCount14">Loading...</td>
+                        <td id="previousCumulativeViewsTwo14">_ _ _</td>
+                        <td id="previousCumulativeViews14">_ _ _</td>
+                        <td id="viewsgain14">Gain:</td>
+                        <td  class="sum-views" id="SumViews14">0</td>
+                        <td class="divided-views" id="DividedViews14">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain14">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict14" >Pre Predict</td>
+                    </tr>
+
+                    
               
-           </tr>
-        
-           <tr>
-               <td id="title3"class="clickable-title">Tom Odell - Anothet</td>
-               <td id="viewCount3">Loading...</td>
-               <td id="previousCumulativeViewsTwo3">_ _ _ </td>
-               <td id="previousCumulativeViews3">_ _ _</td>
-               <td id="viewsgain3">Gain:</td>
-               <td  class="sum-views" id="SumViews3">0</td>
-               <td class="divided-views" id="DividedViews3">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain3">Result:</td>
+
+               <tr>
+                <td id="title24"class="clickable-title">Kanguva - Trailer</td>
+                <td id="viewCount24">Loading...</td>
+                <td id="previousCumulativeViewsTwo24">_ _ _</td>
+                <td id="previousCumulativeViews24">_ _ _</td>
+                <td id="viewsgain24">Gain:</td>
+                <td  class="sum-views" id="SumViews24">0</td>
+                <td class="divided-views" id="DividedViews24">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain24">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict24" >Pre Predict</td>
+            </tr>
+
+                 
+            <tr>
+                <td id="title12"class="clickable-title">Hindi dubbed - Meastro Movie</td>
+                <td id="viewCount12">Loading...</td>
+                <td id="previousCumulativeViewsTwo12">_ _ _</td>
+                <td id="previousCumulativeViews12">_ _ _</td>
+                <td id="viewsgain12">Gain:</td>
+                <td  class="sum-views" id="SumViews12">0</td>
+                <td class="divided-views" id="DividedViews12">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain12">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict12" >Pre Predict</td>
+            </tr>
+
+ 
+            <tr>
+                <td id="title16"class="clickable-title">Mrbeast 7 days </td>
+                <td id="viewCount16">Loading...</td>
+                <td id="previousCumulativeViewsTwo16">_ _ _ </td>
+                <td id="previousCumulativeViews16">_ _ _</td>
+                <td id="viewsgain16">Gain:</td>
+                <td  class="sum-views" id="SumViews16">0</td>
+                <td class="divided-views" id="DividedViews16">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain16">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict16" >Pre Predict</td>
+               
+            </tr>
          
-               
-           </tr>
-
-       
-                   
-           <tr>
-               <td id="title27"class="clickable-title">Kendrick Lamars</td>
-               <td id="viewCount27">Loading...</td>
-               <td id="previousCumulativeViewsTwo27">_ _ _</td>
-               <td id="previousCumulativeViews27">_ _ _</td>
-               <td id="viewsgain27">Gain:</td>
-               <td  class="sum-views" id="SumViews27">0</td>
-               <td class="divided-views" id="DividedViews27">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain27">Result:</td>
-              
-           </tr>
-        
-
-
-           
-           <tr>
-               <td id="title19"class="clickable-title">Yudhra - official traler </td>
-               <td id="viewCount19">Loading...</td>
-               <td id="previousCumulativeViewsTwo19">_ _ _</td>
-               <td id="previousCumulativeViews19">_ _ _</td>
-               <td id="viewsgain19">Gain:</td>
-               <td  class="sum-views" id="SumViews19">0</td>
-               <td class="divided-views" id="DividedViews19">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain19">Result:</td>
-              
-           </tr>
-
-        
-                   
-           <tr>
-               <td id="title11"class="clickable-title">JHOOME</td>
-               <td id="viewCount11">Loading...</td>
-               <td id="previousCumulativeViewsTwo11">_ _ _</td>
-               <td id="previousCumulativeViews11">_ _ _</td>
-               <td id="viewsgain11">Gain:</td>
-               <td  class="sum-views" id="SumViews11">0</td>
-               <td class="divided-views" id="DividedViews11">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain11">Result:</td>
-           </tr>
-        
-            
-           <tr>
-               <td id="title15"class="clickable-title">Sourav joshi</td>
-               <td id="viewCount15">Loading...</td>
-               <td id="previousCumulativeViewsTwo15">_ _ _ </td>
-               <td id="previousCumulativeViews15">_ _ _ </td>
-               <td id="viewsgain15">Gain:</td>
-               <td  class="sum-views" id="SumViews15">0</td>
-               <td class="divided-views" id="DividedViews15">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain15">Result:</td>
-           
-
-           </tr>
-               
-           <tr>
-               <td id="title10"class="clickable-title">Agar Ho Tum </td>
-               <td id="viewCount10">Loading...</td>
-               <td id="previousCumulativeViewsTwo10">_ _ _</td>
-               <td id="previousCumulativeViews10">_ _ _</td>
-               <td id="viewsgain10">Gain:</td>
-               <td  class="sum-views" id="SumViews10">0</td>
-               <td class="divided-views" id="DividedViews10">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain10">Result:</td>
-              
-           </tr>
-           
-             
-
-            
-               
-               <tr>
-                   <td id="title25"class="clickable-title">Phir aayi haseen </td>
-                   <td id="viewCount25">Loading...</td>
-                   <td id="previousCumulativeViewsTwo25">_ _ _</td>
-                   <td id="previousCumulativeViews25">_ _ _ </td>
-                   <td id="viewsgain25">Gain:</td>
-                   <td  class="sum-views" id="SumViews25">0</td>
-                   <td class="divided-views" id="DividedViews25">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain25">Result:</td>
-                   
-               </tr>
-           
-           
-        
-               <tr>
-                   <td id="title7"class="clickable-title">CHALEYA</td>
-                   <td id="viewCount7">Loading...</td>
-                   <td id="previousCumulativeViewsTwo7">_ _ _</td>
-                   <td id="previousCumulativeViews7">_ _ _</td>
-                   <td id="viewsgain7">Gain:</td>
-                   <td  class="sum-views" id="SumViews7">0</td>
-                   <td class="divided-views" id="DividedViews7">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain7">Result:</td>
-                   
-               </tr>
-
-              
-       
-              
-              <tr>
-                  <td id="title30"class="clickable-title">SETURN</td>
-                  <td id="viewCount30">Loading...</td>
-                  <td id="previousCumulativeViewsTwo30">_ _ _</td>
-                  <td id="previousCumulativeViews30">_ _ _</td>
-                  <td id="viewsgain30">Gain:</td>
-                  <td  class="sum-views" id="SumViews30">0</td>
-                  <td class="divided-views" id="DividedViews30">0</td>
-                  <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain30">Result:</td>
+            <tr>
+                <td id="title3"class="clickable-title">Tom Odell - Anothet</td>
+                <td id="viewCount3">Loading...</td>
+                <td id="previousCumulativeViewsTwo3">_ _ _ </td>
+                <td id="previousCumulativeViews3">_ _ _</td>
+                <td id="viewsgain3">Gain:</td>
+                <td  class="sum-views" id="SumViews3">0</td>
+                <td class="divided-views" id="DividedViews3">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain3">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict3" >Pre Predict</td>
                 
-              </tr>
+            </tr>
 
         
+                    
+            <tr>
+                <td id="title27"class="clickable-title">Kendrick Lamars</td>
+                <td id="viewCount27">Loading...</td>
+                <td id="previousCumulativeViewsTwo27">_ _ _</td>
+                <td id="previousCumulativeViews27">_ _ _</td>
+                <td id="viewsgain27">Gain:</td>
+                <td  class="sum-views" id="SumViews27">0</td>
+                <td class="divided-views" id="DividedViews27">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain27">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict27" >Pre Predict</td>
+            </tr>
+         
 
-
-             
-             
-               <tr>
-                   <td id="title33"class="clickable-title">Koka</td>
-                   <td id="viewCount33">Loading...</td>
-                   <td id="previousCumulativeViewsTwo33">_ _ _</td>
-                   <td id="previousCumulativeViews33"> _ _ _</td>
-                   <td id="viewsgain33">Gain:</td>
-                   <td  class="sum-views" id="SumViews33">0</td>
-                   <td class="divided-views" id="DividedViews33">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain33">Result:</td>
-                  
-               </tr>
-
-               
-               <tr>
-                   <td id="title17"class="clickable-title">House Of Lies</td>
-                   <td id="viewCount17">Loading...</td>
-                   <td id="previousCumulativeViewsTwo17">_ _  _</td>
-                   <td id="previousCumulativeViews17">_ _  _</td>
-                   <td id="viewsgain17">Gain:</td>
-                   <td  class="sum-views" id="SumViews17">0</td>
-                   <td class="divided-views" id="DividedViews17">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain17">Result:</td>
-
-                  
-               </tr>
-
-               <tr>
-                   <td id="title26"class="clickable-title">BESHRAM</td>
-                   <td id="viewCount26">Loading...</td>
-                   <td id="previousCumulativeViewsTwo26">_ _ _</td>
-                   <td id="previousCumulativeViews26">_ _ _</td>
-                   <td id="viewsgain26">Gain:</td>
-                   <td  class="sum-views" id="SumViews26">0</td>
-                   <td class="divided-views" id="DividedViews26">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain26">Result:</td>
-                 
-               </tr>
-
-          
-               <tr>
-                   <td id="title9"class="clickable-title">KAROL JI</td>
-                   <td id="viewCount9">Loading...</td>
-                   <td id="previousCumulativeViewsTwo9">_ _ _</td>
-                   <td id="previousCumulativeViews9">_ _ _</td>
-                   <td id="viewsgain9">Gain:</td>
-                   <td  class="sum-views" id="SumViews9">0</td>
-                   <td class="divided-views" id="DividedViews9">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain9">Result:</td>
-                 
-               </tr>
-             
-               
-       
-       
-             
-
-             
-
-             
-               <tr>
-                   <td id="title21"class="clickable-title">Dhandho</td>
-                   <td id="viewCount21">Loading...</td>
-                   <td id="previousCumulativeViewsTwo21">_ _ _</td>
-                   <td id="previousCumulativeViews21">_ _ _</td>
-                   <td id="viewsgain21">Gain:</td>
-                   <td  class="sum-views" id="SumViews21">0</td>
-                   <td class="divided-views" id="DividedViews21">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain21">Result:</td>
-                  
-               </tr>
 
             
-               <tr>
-                   <td id="title4"class="clickable-title">NACHO NACHO</td>
-                   <td id="viewCount4">Loading...</td>
-                   <td id="previousCumulativeViewsTwo4">_ _ _</td>
-                   <td id="previousCumulativeViews4">_ _ _</td>
-                   <td id="viewsgain4">Gain:</td>
-                   <td class="sum-views" id="SumViews4">0</td>
-                   <td class="divided-views" id="DividedViews4">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain4">Result:</td>
-                   
-               </tr>
+            <tr>
+                <td id="title19"class="clickable-title">Yudhra - official traler </td>
+                <td id="viewCount19">Loading...</td>
+                <td id="previousCumulativeViewsTwo19">_ _ _</td>
+                <td id="previousCumulativeViews19">_ _ _</td>
+                <td id="viewsgain19">Gain:</td>
+                <td  class="sum-views" id="SumViews19">0</td>
+                <td class="divided-views" id="DividedViews19">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain19">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict19" >Pre Predict</td>
+            </tr>
 
-               
-               <tr>
-                   <td id="title28"class="clickable-title">Miles</td>
-                   <td id="viewCount28">Loading...</td>
-                   <td id="previousCumulativeViewsTwo28">_ _  _</td>
-                   <td id="previousCumulativeViews28">_ _  _</td>
-                   <td id="viewsgain28">Gain:</td>
-                   <td  class="sum-views" id="SumViews28">0</td>
-                   <td class="divided-views" id="DividedViews28">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain28">Result:</td>
+         
+                    
+            <tr>
+                <td id="title11"class="clickable-title">JHOOME</td>
+                <td id="viewCount11">Loading...</td>
+                <td id="previousCumulativeViewsTwo11">_ _ _</td>
+                <td id="previousCumulativeViews11">_ _ _</td>
+                <td id="viewsgain11">Gain:</td>
+                <td  class="sum-views" id="SumViews11">0</td>
+                <td class="divided-views" id="DividedViews11">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain11">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict11" >Pre Predict</td>
+            </tr>
+         
+             
+            <tr>
+                <td id="title15"class="clickable-title">Sourav joshi</td>
+                <td id="viewCount15">Loading...</td>
+                <td id="previousCumulativeViewsTwo15">_ _ _ </td>
+                <td id="previousCumulativeViews15">_ _ _ </td>
+                <td id="viewsgain15">Gain:</td>
+                <td  class="sum-views" id="SumViews15">0</td>
+                <td class="divided-views" id="DividedViews15">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain15">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict15" >Pre Predict</td>
 
-                   
-               </tr>
+            </tr>
+                
+            <tr>
+                <td id="title10"class="clickable-title">Agar Ho Tum </td>
+                <td id="viewCount10">Loading...</td>
+                <td id="previousCumulativeViewsTwo10">_ _ _</td>
+                <td id="previousCumulativeViews10">_ _ _</td>
+                <td id="viewsgain10">Gain:</td>
+                <td  class="sum-views" id="SumViews10">0</td>
+                <td class="divided-views" id="DividedViews10">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain10">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict10" >Pre Predict</td>
+            </tr>
+            
               
-               
-            
+
              
+                
+                <tr>
+                    <td id="title25"class="clickable-title">Phir aayi haseen </td>
+                    <td id="viewCount25">Loading...</td>
+                    <td id="previousCumulativeViewsTwo25">_ _ _</td>
+                    <td id="previousCumulativeViews25">_ _ _ </td>
+                    <td id="viewsgain25">Gain:</td>
+                    <td  class="sum-views" id="SumViews25">0</td>
+                    <td class="divided-views" id="DividedViews25">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain25">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict25" >Pre Predict</td>
+                </tr>
+            
+            
+         
+                <tr>
+                    <td id="title7"class="clickable-title">CHALEYA</td>
+                    <td id="viewCount7">Loading...</td>
+                    <td id="previousCumulativeViewsTwo7">_ _ _</td>
+                    <td id="previousCumulativeViews7">_ _ _</td>
+                    <td id="viewsgain7">Gain:</td>
+                    <td  class="sum-views" id="SumViews7">0</td>
+                    <td class="divided-views" id="DividedViews7">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain7">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict7" >Pre Predict</td>
+                </tr>
+
+               
+        
+               
+               <tr>
+                   <td id="title30"class="clickable-title">SETURN</td>
+                   <td id="viewCount30">Loading...</td>
+                   <td id="previousCumulativeViewsTwo30">_ _ _</td>
+                   <td id="previousCumulativeViews30">_ _ _</td>
+                   <td id="viewsgain30">Gain:</td>
+                   <td  class="sum-views" id="SumViews30">0</td>
+                   <td class="divided-views" id="DividedViews30">0</td>
+                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain30">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict30" >Pre Predict</td>
+               </tr>
+
+         
+
+
+              
+              
+                <tr>
+                    <td id="title33"class="clickable-title">Koka</td>
+                    <td id="viewCount33">Loading...</td>
+                    <td id="previousCumulativeViewsTwo33">_ _ _</td>
+                    <td id="previousCumulativeViews33"> _ _ _</td>
+                    <td id="viewsgain33">Gain:</td>
+                    <td  class="sum-views" id="SumViews33">0</td>
+                    <td class="divided-views" id="DividedViews33">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain33">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict33" >Pre Predict</td>
+                </tr>
+
+                
+                <tr>
+                    <td id="title17"class="clickable-title">House Of Lies</td>
+                    <td id="viewCount17">Loading...</td>
+                    <td id="previousCumulativeViewsTwo17">_ _  _</td>
+                    <td id="previousCumulativeViews17">_ _  _</td>
+                    <td id="viewsgain17">Gain:</td>
+                    <td  class="sum-views" id="SumViews17">0</td>
+                    <td class="divided-views" id="DividedViews17">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain17">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict17" >Pre Predict</td>
+                   
+                </tr>
+
+                <tr>
+                    <td id="title26"class="clickable-title">BESHRAM</td>
+                    <td id="viewCount26">Loading...</td>
+                    <td id="previousCumulativeViewsTwo26">_ _ _</td>
+                    <td id="previousCumulativeViews26">_ _ _</td>
+                    <td id="viewsgain26">Gain:</td>
+                    <td  class="sum-views" id="SumViews26">0</td>
+                    <td class="divided-views" id="DividedViews26">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain26">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict26" >Pre Predict</td>
+                </tr>
+
+           
+                <tr>
+                    <td id="title9"class="clickable-title">KAROL JI</td>
+                    <td id="viewCount9">Loading...</td>
+                    <td id="previousCumulativeViewsTwo9">_ _ _</td>
+                    <td id="previousCumulativeViews9">_ _ _</td>
+                    <td id="viewsgain9">Gain:</td>
+                    <td  class="sum-views" id="SumViews9">0</td>
+                    <td class="divided-views" id="DividedViews9">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain9">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict9" >Pre Predict</td>
+                </tr>
+              
+                
+        
+        
+              
+
+              
+
+              
+                <tr>
+                    <td id="title21"class="clickable-title">Dhandho</td>
+                    <td id="viewCount21">Loading...</td>
+                    <td id="previousCumulativeViewsTwo21">_ _ _</td>
+                    <td id="previousCumulativeViews21">_ _ _</td>
+                    <td id="viewsgain21">Gain:</td>
+                    <td  class="sum-views" id="SumViews21">0</td>
+                    <td class="divided-views" id="DividedViews21">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain21">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict21" >Pre Predict</td>
+                </tr>
+
+             
+                <tr>
+                    <td id="title4"class="clickable-title">NACHO NACHO</td>
+                    <td id="viewCount4">Loading...</td>
+                    <td id="previousCumulativeViewsTwo4">_ _ _</td>
+                    <td id="previousCumulativeViews4">_ _ _</td>
+                    <td id="viewsgain4">Gain:</td>
+                    <td class="sum-views" id="SumViews4">0</td>
+                    <td class="divided-views" id="DividedViews4">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain4">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict4" >Pre Predict</td>
+                </tr>
+
+                
+                <tr>
+                    <td id="title28"class="clickable-title">Miles</td>
+                    <td id="viewCount28">Loading...</td>
+                    <td id="previousCumulativeViewsTwo28">_ _  _</td>
+                    <td id="previousCumulativeViews28">_ _  _</td>
+                    <td id="viewsgain28">Gain:</td>
+                    <td  class="sum-views" id="SumViews28">0</td>
+                    <td class="divided-views" id="DividedViews28">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain28">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict28" >Pre Predict</td>
+                    
+                </tr>
+               
+                
+             
+              
+
+                     
+                <tr>
+                        
+                    <td id="title31"class="clickable-title">Dekha Tenu</td>   
+                    <td id="viewCount31">Loading...</td>
+                    <td id="previousCumulativeViewsTwo31">_ _ _</td>
+                    <td id="previousCumulativeViews31">_ _ _</td>
+                    <td id="viewsgain31">Gain:</td>
+                    <td  class="sum-views" id="SumViews31">0</td>
+                    <td class="divided-views" id="DividedViews31">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain31">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict31" >Pre Predict</td>
+                </tr>
+
+                
+                <tr>
+                    <td id="title23"class="clickable-title">MrBeast - Survive 100 days</td>
+                    <td id="viewCount23">Loading...</td>
+                    <td id="previousCumulativeViewsTwo23">_ _ _</td>
+                    <td id="previousCumulativeViews23">_ _ _</td>
+                    <td id="viewsgain23">Gain:</td>
+                    <td  class="sum-views" id="SumViews23">0</td>
+                    <td class="divided-views" id="DividedViews23">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain23">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict23" >Pre Predict</td>
+                </tr>
 
                     
-               <tr>
+                <tr>
+                    <td id="title6"class="clickable-title">Boynextdoor - official music</td>
+                    <td id="viewCount6">Loading...</td>
+                    <td id="previousCumulativeViewsTwo6">_ _ _</td>
+                    <td id="previousCumulativeViews6">_ _ _</td>
+                    <td id="viewsgain6">Gain:</td>
+                    <td  class="sum-views" id="SumViews6">0</td>
+                    <td class="divided-views" id="DividedViews6">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain6">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict6" >Pre Predict</td>
+                </tr>
+
+               
+                <tr>
+                    <td id="title1"class="clickable-title">Beautiful Things</td>
+                    <td id="viewCount1">Loading...</td>
+                    <td id="previousCumulativeViewsTwo1">_ _ _</td>
+                    <td id="previousCumulativeViews1">_ _ _</td>
+                    <td id="viewsgain1">Gain:</td>
+                    <td  class="sum-views" id="SumViews1">0</td>
+                    <td class="divided-views" id="DividedViews1">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain1">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict1" >Pre Predict</td>
+                </tr>
+              
+               
+                <tr>
+                    <td id="title0"class="clickable-title">The Weekend</td>
+                    <td id="viewCount0">Loading...</td>
+                    <td id="previousCumulativeViewsTwo0">_ _ _</td>
+                    <td id="previousCumulativeViews0">_ _ _</td>
+                    <td id="viewsgain0">Gain:</td>
+                    <td class="sum-views" id="SumViews0">0</td>
+                    <td class="divided-views" id="DividedViews0">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain0">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict0" >Pre Predict</td>
+                </tr>
+
                        
-                   <td id="title31"class="clickable-title">Dekha Tenu</td>   
-                   <td id="viewCount31">Loading...</td>
-                   <td id="previousCumulativeViewsTwo31">_ _ _</td>
-                   <td id="previousCumulativeViews31">_ _ _</td>
-                   <td id="viewsgain31">Gain:</td>
-                   <td  class="sum-views" id="SumViews31">0</td>
-                   <td class="divided-views" id="DividedViews31">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain31">Result:</td>
-               </tr>
+        
 
+            
                
-               <tr>
-                   <td id="title23"class="clickable-title">MrBeast - Survive 100 days</td>
-                   <td id="viewCount23">Loading...</td>
-                   <td id="previousCumulativeViewsTwo23">_ _ _</td>
-                   <td id="previousCumulativeViews23">_ _ _</td>
-                   <td id="viewsgain23">Gain:</td>
-                   <td  class="sum-views" id="SumViews23">0</td>
-                   <td class="divided-views" id="DividedViews23">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain23">Result:</td>
-               </tr>
-
-                   
-               <tr>
-                   <td id="title6"class="clickable-title">Boynextdoor - official music</td>
-                   <td id="viewCount6">Loading...</td>
-                   <td id="previousCumulativeViewsTwo6">_ _ _</td>
-                   <td id="previousCumulativeViews6">_ _ _</td>
-                   <td id="viewsgain6">Gain:</td>
-                   <td  class="sum-views" id="SumViews6">0</td>
-                   <td class="divided-views" id="DividedViews6">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain6">Result:</td>
-               </tr>
-
-              
-               <tr>
-                   <td id="title1"class="clickable-title">Beautiful Things</td>
-                   <td id="viewCount1">Loading...</td>
-                   <td id="previousCumulativeViewsTwo1">_ _ _</td>
-                   <td id="previousCumulativeViews1">_ _ _</td>
-                   <td id="viewsgain1">Gain:</td>
-                   <td  class="sum-views" id="SumViews1">0</td>
-                   <td class="divided-views" id="DividedViews1">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain1">Result:</td>
-               </tr>
-             
-              
-               <tr>
-                   <td id="title0"class="clickable-title">The Weekend</td>
-                   <td id="viewCount0">Loading...</td>
-                   <td id="previousCumulativeViewsTwo0">_ _ _</td>
-                   <td id="previousCumulativeViews0">_ _ _</td>
-                   <td id="viewsgain0">Gain:</td>
-                   <td class="sum-views" id="SumViews0">0</td>
-                   <td class="divided-views" id="DividedViews0">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain0">Result:</td>
-               </tr>
-
-                      
-       
-
-           
-              
-               <tr>
-                   <td id="title2"class="clickable-title">MEIN NIKLA</td>
-                   <td id="viewCount2">Loading...</td>
-                   <td id="previousCumulativeViewsTwo2">_ _ _</td>
-                   <td id="previousCumulativeViews2">_ _ _</td>
-                   <td id="viewsgain2">Gain:</td>
-                   <td  class="sum-views" id="SumViews2">0</td>
-                   <td class="divided-views" id="DividedViews2">0</td>
-                   <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain2">Result:</td>
-               </tr>
-       
-           <tr>
-               <td id="title5"class="clickable-title">Xavi - La Diabla</td>
-               <td id="viewCount5">Loading...</td>
-               <td id="previousCumulativeViewsTwo5">_ _ _</td>
-               <td id="previousCumulativeViews5">_ _ _</td>
-               <td id="viewsgain5">Gain:</td>
-               <td  class="sum-views" id="SumViews5">0</td>
-               <td class="divided-views" id="DividedViews5">0</td>
-               <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain5">Result:</td>
-           </tr>
-         
-         
+                <tr>
+                    <td id="title2"class="clickable-title">MEIN NIKLA</td>
+                    <td id="viewCount2">Loading...</td>
+                    <td id="previousCumulativeViewsTwo2">_ _ _</td>
+                    <td id="previousCumulativeViews2">_ _ _</td>
+                    <td id="viewsgain2">Gain:</td>
+                    <td  class="sum-views" id="SumViews2">0</td>
+                    <td class="divided-views" id="DividedViews2">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain2">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict2" >Pre Predict</td>
+                </tr>
+        
+            <tr>
+                <td id="title5"class="clickable-title">Xavi - La Diabla</td>
+                <td id="viewCount5">Loading...</td>
+                <td id="previousCumulativeViewsTwo5">_ _ _</td>
+                <td id="previousCumulativeViews5">_ _ _</td>
+                <td id="viewsgain5">Gain:</td>
+                <td  class="sum-views" id="SumViews5">0</td>
+                <td class="divided-views" id="DividedViews5">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain5">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict5" >Pre Predict</td>
+            </tr>
+          
+          
        
    
           
@@ -1053,252 +1067,271 @@
     </body>
 
 
+
     <script>
 
 
+
+        //___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+        // SAVE SUMDATA VIEWS IN LOCAL STORAGE
+        
         window.onload = function() {
-        const songIds = [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
-    
-        // Load saved values from localStorage and display in table
-        songIds.forEach(id => {
-            // Get SumViews and DividedViews from localStorage
-            const savedSumViews = localStorage.getItem(`SumViews${id}`);
-            const savedDividedViews = localStorage.getItem(`DividedViews${id}`);
-    
-            // If saved values exist, update the table cells with them
-            if (savedSumViews !== null) {
-                document.getElementById(`SumViews${id}`).innerText = savedSumViews;
-            }
-    
-            if (savedDividedViews !== null) {
-                document.getElementById(`DividedViews${id}`).innerText = savedDividedViews;
-            }
-        });
-    
-        // Attach event listener to the button for saving values
-        const calculateSumButton = document.getElementById('calculateSumButton');
-    
-        if (calculateSumButton) {
-            calculateSumButton.addEventListener('click', function() {
-                songIds.forEach(id => {
-                    const sumViews = document.getElementById(`SumViews${id}`).innerText;
-                    const dividedViews = document.getElementById(`DividedViews${id}`).innerText;
-    
-                    // Save these values in localStorage
-                    localStorage.setItem(`SumViews${id}`, sumViews);
-                    localStorage.setItem(`DividedViews${id}`, dividedViews);
-                });
-    
-                // Show alert after saving
-                alert('Values saved to local storage');
+            const songIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
+        
+            // Load saved values from localStorage and display in table
+            songIds.forEach(id => {
+                // Get SumViews and DividedViews from localStorage
+                const savedSumViews = localStorage.getItem(`SumViews${id}`);
+                const savedDividedViews = localStorage.getItem(`DividedViews${id}`);
+        
+                // If saved values exist, update the table cells with them
+                if (savedSumViews !== null) {
+                    document.getElementById(`SumViews${id}`).innerText = savedSumViews;
+                }
+        
+                if (savedDividedViews !== null) {
+                    document.getElementById(`DividedViews${id}`).innerText = savedDividedViews;
+                }
             });
-        } else {
-            console.error('Button with ID "calculateSumButton" not found.');
-        }
-    };
-    
-    
-        </script>
-    
-    
-    
-    <script>
-    // Function to calculate divided views and multiply them with views gain
-    function updateAllDividedViews() {
-        // Get the latest value from sumviewsfromvideotitleclick
-        let sumviewsValue = parseInt(document.getElementById('sumviewsfromvideotitleclick').innerText.replace(/,/g, '')) || 0;
-    
-        // Array of IDs for all songs
-        const songIds = [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
-    
-        // Loop through each song and calculate DividedViews and Multiply with ViewsGain
-        songIds.forEach(id => {
-            // Get the SumViews for the current song
-            let sumViews = parseInt(document.getElementById(`SumViews${id}`).innerText.replace(/,/g, '')) || 0;
-            
-            // Get the ViewsGain for the current song
-            let viewsGain = parseInt(document.getElementById(`viewsgain${id}`).innerText.replace(/,/g, '').replace('Gain:', '')) || 0;
-    
-            // Check if SumViews is 0
-            let dividedValue;
-            if (sumViews === 0) {
-                dividedValue = 0; // If Sum Views is 0, set Divided Views to 0
+        
+            // Attach event listener to the button for saving values
+            const calculateSumButton = document.getElementById('calculateSumButton');
+        
+            if (calculateSumButton) {
+                calculateSumButton.addEventListener('click', function() {
+                    songIds.forEach(id => {
+                        const sumViews = document.getElementById(`SumViews${id}`).innerText;
+                        const dividedViews = document.getElementById(`DividedViews${id}`).innerText;
+        
+                        // Save these values in localStorage
+                        localStorage.setItem(`SumViews${id}`, sumViews);
+                        localStorage.setItem(`DividedViews${id}`, dividedViews);
+                    });
+        
+                    // Show alert after saving
+                    alert('Values saved to local storage');
+                });
             } else {
-                dividedValue = sumviewsValue / sumViews; // Otherwise, calculate the divided value
+                console.error('Button with ID "calculateSumButton" not found.');
             }
-    
-            // Update the Divided Views cell with the calculated value
-            document.getElementById(`DividedViews${id}`).innerText = dividedValue.toFixed(2); // Display with 2 decimal points
-    
-            // Multiply dividedValue with viewsGain
-            let multiplyResult = dividedValue * viewsGain;
-    
-            // Update the DivideViewsMultiplyViewsGain cell with the result
-            document.getElementById(`DivideViewsMultiplyViewsGain${id}`).innerText = multiplyResult.toFixed(0); // Display with 0 decimal points
-        });
-    }
-    
-    // Function to handle title clicks and update DividedViews and MultiplyViewsGain for the clicked song
-    function showDividedViews(id) {
-        // Call the function to update all DividedViews and MultiplyViewsGain
-        updateAllDividedViews();
-    }
-    
-    // Attach event listeners to the title elements
-    document.querySelectorAll('.clickable-title').forEach(title => {
-        title.addEventListener('click', function() {
-            showDividedViews(this.id.replace('title', '')); // Extract ID from title ID and call the function
-        });
-    });
-    
-    // Listen for changes to sumviewsfromvideotitleclick and update divided views and multiply views gain dynamically
-    const sumviewsElement = document.getElementById('sumviewsfromvideotitleclick');
-    const observer = new MutationObserver(updateAllDividedViews);
-    
-    // Observe changes in the sumviewsfromvideotitleclick element
-    observer.observe(sumviewsElement, { childList: true, subtree: true, characterData: true });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    function showDividedViews(id) {
-        let sumViews = parseInt(document.getElementById(`SumViews${id}`).innerText) || 0;
-        let dividedViews = sumViews / id; // Ya koi aur logic jo aap chahte hain
-        document.getElementById(`DividedViews${id}`).innerText = dividedViews.toLocaleString(); // Format kar ke dikhana
-        document.getElementById('sumviewsfromvideotitleclick').innerText = dividedViews.toLocaleString(); // Display in the div
-    }
-    
-    
-    document.getElementById('toggleSumViewsButton').addEventListener('click', function() {
-        // Select all elements with the class "sum-views"
-        const sumViewsElements = document.querySelectorAll('.sum-views');
         
-        // Toggle visibility
-        let isHidden = sumViewsElements[0].style.display === 'none'; // Check if currently hidden
-    
-        // Loop through each element and toggle its display style
-        sumViewsElements.forEach(el => {
-            el.style.display = isHidden ? '' : 'none'; // Show or hide the column cells
-        });
-    
-        // Change button text based on the visibility state
-        this.textContent = isHidden ? 'Hide Sum Views' : 'Show Sum Views';
-    });
-    
-    // Function to display sum views in the div on title click
-    function handleTitleClick(event) {
-        // Get the clicked title's ID (e.g., 'title18') and extract the number (e.g., '18')
-        const titleId = event.target.id;
-        const idNumber = titleId.replace('title', ''); // Extract the number from the ID
-    
-        // Get the corresponding SumViews element (e.g., 'SumViews18')
-        const sumViewsElement = document.getElementById(`SumViews${idNumber}`);
-    
-        // Update the div with the sum views value
-        document.getElementById('sumviewsfromvideotitleclick').innerText = sumViewsElement.innerText;
-    }
-    
-    // Attach click event listeners to all video titles
-    const clickableTitles = document.querySelectorAll('.clickable-title');
-    clickableTitles.forEach(title => {
-        title.addEventListener('click', handleTitleClick);
-    });
-    
-        </script>
-    
-    
-       
-    
-        <script> 
-    // Function to update view counts for a specific song
-    function updateViewCounts(id) {
-        // Parse view counts with comma removal
-        let viewCount = parseInt(document.getElementById(`viewCount${id}`).innerText.replace(/,/g, '') || 0);
-        let prevTwo = parseInt(document.getElementById(`previousCumulativeViewsTwo${id}`).innerText.replace(/,/g, '') || 0);
-        let prevOne = parseInt(document.getElementById(`previousCumulativeViews${id}`).innerText.replace(/,/g, '') || 0);
-        let gain = parseInt(document.getElementById(`viewsgain${id}`).innerText.replace('Gain: ', '').replace(/,/g, '') || 0);
-    
-        // Calculate total sum for this specific song
-        let totalSum = prevTwo + prevOne + gain;
-    
-        // Update the total views in the corresponding cell
-        document.getElementById(`SumViews${id}`).innerText = totalSum.toLocaleString(); // Format the number with commas
-    }
-    
-    // Function to calculate the sum for all songs when the button is clicked
-    function calculateSumForAllSongs() {
-        const songIds = [0 ,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
-        
-        songIds.forEach(id => {
-            updateViewCounts(id);
-        });
-    }
-    
-    // Example API call simulation for updating song data
-    function fetchYouTubeData() {
-        // Simulated data fetching (replace this with actual API calls)
-        const simulatedData = {
-            // Example data format, add your actual data here
-            0: { viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            1: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            2: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            3: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            4: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            5: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            6: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            7: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            8: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            9: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            10: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            11: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            12: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            13: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            14: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            15: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            16: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            17: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            18: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            19: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            20: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            21: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-          
-            23: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            24: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            25: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            26: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            27: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            28: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            29: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            30: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            31: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            32: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            33: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            34: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-            35: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-           
-            // Add more data as needed
+            // Function to update divided views based on sum views and sum views from video title click
+            updateAllDividedViews();
         };
-    
-        for (const [id, data] of Object.entries(simulatedData)) {
-            document.getElementById(`viewCount${id}`).innerText = data.viewCount;
-            document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = data.previousCumulativeViewsTwo;
-            document.getElementById(`previousCumulativeViews${id}`).innerText = data.previousCumulativeViews;
-            document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
+        
+        
+        //___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+        
+        //SAVE viewsgain multiply PREDICTVIEWS and previpous views multipy INTO divide VIEWS 
+        
+        
+        // Function to calculate divided views and multiply them with views gain
+        function updateAllDividedViews() {
+            // Get the latest value from sumviewsfromvideotitleclick
+            let sumviewsValue = parseInt(document.getElementById('sumviewsfromvideotitleclick').innerText.replace(/,/g, '')) || 0;
+        
+            // Array of IDs for all songs
+            const songIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
+        
+            // Loop through each song and calculate DividedViews and Multiply with ViewsGain
+            songIds.forEach(id => {
+                // Get the SumViews for the current song
+                let sumViews = parseInt(document.getElementById(`SumViews${id}`).innerText.replace(/,/g, '')) || 0;
+                
+                // Get the ViewsGain for the current song
+                let viewsGain = parseInt(document.getElementById(`viewsgain${id}`).innerText.replace(/,/g, '').replace('Gain:', '')) || 0;
+        
+                // Calculate divided value
+                let dividedValue = (sumViews === 0) ? 0 : sumviewsValue / sumViews; // Check if SumViews is 0
+        
+                // Update the Divided Views cell with the calculated value
+                document.getElementById(`DividedViews${id}`).innerText = dividedValue.toFixed(2); // Display with 2 decimal points
+        
+                // Multiply dividedValue with viewsGain for DivideViewsMultiplyViewsGain
+                let multiplyResult = dividedValue * viewsGain;
+                document.getElementById(`DivideViewsMultiplyViewsGain${id}`).innerText = multiplyResult.toFixed(0); // Display with 0 decimal points
+        
+                // For PreviousPredict, multiply dividedValue with previousCumulativeViews
+                let previousCumulativeViews = parseInt(document.getElementById(`previousCumulativeViews${id}`).innerText.replace(/,/g, '') || 0);
+                let previousPredictResult = dividedValue * previousCumulativeViews; // Multiply for Previous Predict
+                document.getElementById(`PreviousPredict${id}`).innerText = previousPredictResult.toFixed(0); // Display Previous Predict
+            });
         }
-    }
-    
-    // Set up the button click event listener
-    document.getElementById('calculateSumButton').addEventListener('click', calculateSumForAllSongs);
-    
-    // Simulate fetching data from the API after a delay (for example purposes)
-    setTimeout(fetchYouTubeData, 1000); // 1 second delay before data updates 
+        
+        // Call this function whenever you need to update the values
+        document.querySelectorAll('.clickable-title').forEach(title => {
+            title.addEventListener('click', function() {
+                updateAllDividedViews(); // Call the function to update values when the title is clicked
+            });
+        });
+        
+        
+        
+        
+        
+        
+        // Function to handle title clicks and update DividedViews and MultiplyViewsGain for the clicked song
+        function showDividedViews(id) {
+            // Call the function to update all DividedViews and MultiplyViewsGain
+            updateAllDividedViews();
+        }
+        
+        // Attach event listeners to the title elements
+        document.querySelectorAll('.clickable-title').forEach(title => {
+            title.addEventListener('click', function() {
+                showDividedViews(this.id.replace('title', '')); // Extract ID from title ID and call the function
+            });
+        });
+        
+        // Listen for changes to sumviewsfromvideotitleclick and update divided views and multiply views gain dynamically
+        const sumviewsElement = document.getElementById('sumviewsfromvideotitleclick');
+        const observer = new MutationObserver(updateAllDividedViews);
+        
+        // Observe changes in the sumviewsfromvideotitleclick element
+        observer.observe(sumviewsElement, { childList: true, subtree: true, characterData: true });
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        function showDividedViews(id) {
+            let sumViews = parseInt(document.getElementById(`SumViews${id}`).innerText) || 0;
+            let dividedViews = sumViews / id; // Ya koi aur logic jo aap chahte hain
+            document.getElementById(`DividedViews${id}`).innerText = dividedViews.toLocaleString(); // Format kar ke dikhana
+            document.getElementById('sumviewsfromvideotitleclick').innerText = dividedViews.toLocaleString(); // Display in the div
+        }
+        
+        
+        document.getElementById('toggleSumViewsButton').addEventListener('click', function() {
+            // Select all elements with the class "sum-views"
+            const sumViewsElements = document.querySelectorAll('.sum-views');
+            
+            // Toggle visibility
+            let isHidden = sumViewsElements[0].style.display === 'none'; // Check if currently hidden
+        
+            // Loop through each element and toggle its display style
+            sumViewsElements.forEach(el => {
+                el.style.display = isHidden ? '' : 'none'; // Show or hide the column cells
+            });
+        
+            // Change button text based on the visibility state
+            this.textContent = isHidden ? 'Hide Sum Views' : 'Show Sum Views';
+        });
+        
+        // Function to display sum views in the div on title click
+        function handleTitleClick(event) {
+            // Get the clicked title's ID (e.g., 'title18') and extract the number (e.g., '18')
+            const titleId = event.target.id;
+            const idNumber = titleId.replace('title', ''); // Extract the number from the ID
+        
+            // Get the corresponding SumViews element (e.g., 'SumViews18')
+            const sumViewsElement = document.getElementById(`SumViews${idNumber}`);
+        
+            // Update the div with the sum views value
+            document.getElementById('sumviewsfromvideotitleclick').innerText = sumViewsElement.innerText;
+        }
+        
+        // Attach click event listeners to all video titles
+        const clickableTitles = document.querySelectorAll('.clickable-title');
+        clickableTitles.forEach(title => {
+            title.addEventListener('click', handleTitleClick);
+        });
+        
+            </script>
+        
+        
+           
+        
+            <script> 
+        // Function to update view counts for a specific song
+        function updateViewCounts(id) {
+            // Parse view counts with comma removal
+            let viewCount = parseInt(document.getElementById(`viewCount${id}`).innerText.replace(/,/g, '') || 0);
+            let prevTwo = parseInt(document.getElementById(`previousCumulativeViewsTwo${id}`).innerText.replace(/,/g, '') || 0);
+            let prevOne = parseInt(document.getElementById(`previousCumulativeViews${id}`).innerText.replace(/,/g, '') || 0);
+            let gain = parseInt(document.getElementById(`viewsgain${id}`).innerText.replace('Gain: ', '').replace(/,/g, '') || 0);
+        
+            // Calculate total sum for this specific song
+            let totalSum = prevTwo + prevOne + gain;
+        
+            // Update the total views in the corresponding cell
+            document.getElementById(`SumViews${id}`).innerText = totalSum.toLocaleString(); // Format the number with commas
+        }
+        
+        // Function to calculate the sum for all songs when the button is clicked
+        function calculateSumForAllSongs() {
+            const songIds = [0 ,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
+            
+            songIds.forEach(id => {
+                updateViewCounts(id);
+            });
+        }
+        
+        // Example API call simulation for updating song data
+        function fetchYouTubeData() {
+            // Simulated data fetching (replace this with actual API calls)
+            const simulatedData = {
+                // Example data format, add your actual data here
+                0: { viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                1: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                2: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                3: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                4: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                5: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                6: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                7: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                8: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                9: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                10: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                11: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                12: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                13: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                14: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                15: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                16: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                17: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                18: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                19: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                20: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                21: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+              
+                23: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                24: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                25: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                26: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                27: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                28: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                29: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                30: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                31: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                32: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                33: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                34: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+                35: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+               
+                // Add more data as needed
+            };
+        
+            for (const [id, data] of Object.entries(simulatedData)) {
+                document.getElementById(`viewCount${id}`).innerText = data.viewCount;
+                document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = data.previousCumulativeViewsTwo;
+                document.getElementById(`previousCumulativeViews${id}`).innerText = data.previousCumulativeViews;
+                document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
+            }
+        }
+        
+        // Set up the button click event listener
+        document.getElementById('calculateSumButton').addEventListener('click', calculateSumForAllSongs);
+        
+        // Simulate fetching data from the API after a delay (for example purposes)
+        setTimeout(fetchYouTubeData, 1000); // 1 second delay before data updates
+        
     </script>
     
 
@@ -1307,24 +1340,23 @@
 
         $(document).ready(function () {
     
-       
             var videos = [
             { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
             { id: 'Oa_RSwwpPaA', title: 'Beautiful Things ' },// 1 right
             { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
             { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
             { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
-            { id: 'DRKRI5kv8eU', title: 'Kafara - Episode 59' },   // 5 right    <td id="SumViews">0</td>
-            { id: 'YkCXVgcsGTU', title: 'Boynextdoor - official music' },  // 6 right
+            { id: 'v-94Snw-H4o', title: 'Marvel Studios - Thunderbolts trailer ' },  // 5 right
+            { id: 'UdsO4SM4wKI', title: 'Vicky vidya Ka - Mere Mahobbob' },  // 6 right    <td id="SumViews">0</td>
             { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
             { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
-            { id: 'jZGpkLElSu8', title: 'Karol Ji' },   //  9
+            { id: 'QCZZwZQ4qNs', title: 'Karol Ji - S Antes te song' },   //  9
             { id: 'm4TQ-pIg5g4', title: 'Agar Ho Tum' },    // 10
             { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
             { id: 'Kycaxw_f4RI', title: 'Hindi dubbed - Meastro Movie' },    // 12
             { id: 'roz9sXFkTuE', title: 'Stree 2 - Aaj ki raat ' },  // 13
             { id: '22IEnKGVuUY', title: 'Daavudi' }, // 14
-            { id: '_tN0b3SZdLk', title: 'Sourav joshi - Bathroom lock ho gya' }, // 15    
+            { id: 'X7pHL3Qf_M0', title: 'Sourav joshi - Ride with piyush ' }, // 15    
             { id: 'aRcUVhVlSHg', title: 'MrBeast - Man Vs Woman' }, // 16
             { id: '1T9tLMh99Wo', title: 'Yeonjun - GGUM Oficial music' },// 17
             { id: 'jeiJxgOebuc', title: 'Yudhra - Trailer 2' }, // 18
@@ -1347,6 +1379,7 @@
         
           
         ];
+
 
 
 
@@ -1985,7 +2018,7 @@ displayIndianTime();
                     resultParagraph.innerHTML = "";
                 } else {
                     var divisionResult = num1 / num2;
-                    resultParagraph.innerHTML = "" + divisionResult.toFixed(2);
+                    resultParagraph.innerHTML = "" + divisionResult.toFixed(0);
                 }
             }
         }
@@ -2054,7 +2087,7 @@ displayIndianTime();
 
             if (!isNaN(divisionFactor)) {
                 var divisionResult = remainingViews / divisionFactor;
-                document.getElementById('divisionResult').textContent = '' + divisionResult.toFixed(2);
+                document.getElementById('divisionResult').textContent = '' + divisionResult.toFixed(0);
             } else {
                 document.getElementById('divisionResult').textContent = '';
             }
@@ -2274,7 +2307,7 @@ displayIndianTime();
                     resultParagraph.innerHTML = "";
                 } else {
                     var divisionResult = num1 / num2;
-                    resultParagraph.innerHTML = "" + divisionResult.toFixed(2);
+                    resultParagraph.innerHTML = "" + divisionResult.toFixed(0);
                 }
             }
         }
