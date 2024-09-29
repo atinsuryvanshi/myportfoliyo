@@ -21,7 +21,7 @@
        display: block;
         flex: 1;
     overflow-y: scroll; /* Enable vertical scrolling for the table */ 
-    max-width: 680px;/* Set max height for the table */
+    max-width: 729px;/* Set max height for the table */
     }
 
     
@@ -954,7 +954,7 @@ iframe {
         <div class="api-container">
          
             <button id="toggleSumViewsButton" class="sumtable" style="width: 100px;  display: none;"  >Show Table</button>
-            <button id="calculateSumButton" class="sumtable" style="width: 120px; height: 27px;"> Update Sum</button>
+            <button id="calculateSumButton" class="sumtable" style="width: 100px; height: 27px;"> Update Data</button>
 
           
 
@@ -1011,7 +1011,7 @@ iframe {
     
         <div class="iframe-container">
             
-            <iframe src="https://trading.probo.in/events" style="width: 880px; height: 670px;" id="iframeTrad2"></iframe>
+            <iframe src="https://probo.in/events" style="width: 850px; height: 670px;" id="iframeTrad2"></iframe>
          <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
             <div class="under">
                 <a rel="Jhoome.html" style="text-align: center; color:white;">
@@ -1080,17 +1080,19 @@ iframe {
 
 
 
-//___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-// SAVE SUMDATA VIEWS IN LOCAL STORAGE
 
+
+//___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+// SAVE SUMDATA AND PREVIOUSVIEWS2 DATA IN LOCAL STORAGE
 window.onload = function() {
-    const songIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
+    const songIds = [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
 
     // Load saved values from localStorage and display in table
     songIds.forEach(id => {
         // Get SumViews and DividedViews from localStorage
         const savedSumViews = localStorage.getItem(`SumViews${id}`);
         const savedDividedViews = localStorage.getItem(`DividedViews${id}`);
+        const savedPreviousCumulativeViewsTwo = localStorage.getItem(`previousCumulativeViewsTwo${id}`);
 
         // If saved values exist, update the table cells with them
         if (savedSumViews !== null) {
@@ -1099,6 +1101,10 @@ window.onload = function() {
 
         if (savedDividedViews !== null) {
             document.getElementById(`DividedViews${id}`).innerText = savedDividedViews;
+        }
+
+        if (savedPreviousCumulativeViewsTwo !== null) {
+            document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = savedPreviousCumulativeViewsTwo; // Update this line if the id is different
         }
     });
 
@@ -1110,20 +1116,20 @@ window.onload = function() {
             songIds.forEach(id => {
                 const sumViews = document.getElementById(`SumViews${id}`).innerText;
                 const dividedViews = document.getElementById(`DividedViews${id}`).innerText;
+                const previousCumulativeViewsTwo = document.getElementById(`previousCumulativeViewsTwo${id}`).innerText;
 
                 // Save these values in localStorage
                 localStorage.setItem(`SumViews${id}`, sumViews);
                 localStorage.setItem(`DividedViews${id}`, dividedViews);
-            });
+                localStorage.setItem(`previousCumulativeViewsTwo${id}`, previousCumulativeViewsTwo); // Save the value here
 
-            // Show alert after saving
-            alert('Values saved to local storage');
+                // Show alert after saving
+               
+            });
         });
     } else {
         console.error('Button with ID "calculateSumButton" not found.');
     }
-
-    // Function to update divided views based on sum views and sum views from video title click
     updateAllDividedViews();
 };
 
@@ -1308,7 +1314,7 @@ function fetchYouTubeData() {
         19: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
         20: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
         21: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
-      
+
         23: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
         24: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
         25: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
@@ -1326,10 +1332,39 @@ function fetchYouTubeData() {
         // Add more data as needed
     };
 
+
+    // SAVE PREVIOUS2 VIEWS IN LOCAL STORAGE
+    const songIds = Object.keys(simulatedData);
+
+    songIds.forEach(id => {
+        const data = simulatedData[id];
+
+        // Load previously saved values from local storage if they exist
+        const savedPreviousCumulativeViewsTwo = localStorage.getItem(`previousCumulativeViewsTwo${id}`);
+        const savedViewCount = localStorage.getItem(`viewCount${id}`);
+        const savedPreviousCumulativeViews = localStorage.getItem(`previousCumulativeViews${id}`);
+
+        // Update viewCount and previousCumulativeViewsTwo only if local storage values do not exist
+        document.getElementById(`viewCount${id}`).innerText = savedViewCount ? savedViewCount : data.viewCount;
+        document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = savedPreviousCumulativeViewsTwo ? savedPreviousCumulativeViewsTwo : data.previousCumulativeViewsTwo;
+        document.getElementById(`previousCumulativeViews${id}`).innerText = savedPreviousCumulativeViews ? savedPreviousCumulativeViews : data.previousCumulativeViews;
+
+        // You can similarly update other fields if needed
+    });
+
     for (const [id, data] of Object.entries(simulatedData)) {
         document.getElementById(`viewCount${id}`).innerText = data.viewCount;
         document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = data.previousCumulativeViewsTwo;
         document.getElementById(`previousCumulativeViews${id}`).innerText = data.previousCumulativeViews;
+        document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
+    }
+
+
+
+
+    for (const [id, data] of Object.entries(simulatedData)) {
+        document.getElementById(`viewCount${id}`).innerText = data.viewCount;
+     
         document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
     }
 }
@@ -1338,7 +1373,12 @@ function fetchYouTubeData() {
 document.getElementById('calculateSumButton').addEventListener('click', calculateSumForAllSongs);
 
 // Simulate fetching data from the API after a delay (for example purposes)
-setTimeout(fetchYouTubeData, 1000); // 1 second delay before data updates
+setTimeout(fetchYouTubeData, 0); // 1 second delay before data updates
+
+
+
+
+
 
 
 
@@ -1351,7 +1391,7 @@ setTimeout(fetchYouTubeData, 1000); // 1 second delay before data updates
             { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
             { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another' },   // 3 right
             { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
-            { id: 'v-94Snw-H4o', title: 'Marvel Studios - Thunderbolts trailer ' },  // 5 right
+            { id: '5FrhtahQiRc', title: 'Linkien Park - Heavyy is' },      // 5 right
             { id: 'UdsO4SM4wKI', title: 'Vicky vidya Ka - Mere Mahobbob' },  // 6 right    <td id="SumViews">0</td>
             { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
             { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
@@ -1374,7 +1414,7 @@ setTimeout(fetchYouTubeData, 1000); // 1 second delay before data updates
             { id: 'ATGQdcN4UBs', title: 'Phir aayi haseen' },// 25  
             { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
             { id: 'H58vbez_m4E', title: 'Kendrick Lamars - CURRENT' }, // 27
-            { id: '1MCqR--HSfw', title: 'Saurav Joshi - acsident ho gya' },// 28
+            { id: 'KEfeMPGj-Dw', title: 'CTRL - OFFICIAL TRILER ' }, // 28
             { id: 'X7WXHhokylc', title: 'Tese Vaaste' },// 29
             { id: 'wgVo30yN_oU', title: 'Yudhra - Sohni lagdi' },// 30
             { id: 'RpE-hVumiDI', title: 'Dekkha Tenu' }, // 31
