@@ -1071,56 +1071,59 @@
     <script>
 
 
+ //___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+     // SAVE SUMDATA AND PREVIOUSVIEWS2 DATA IN LOCAL STORAGE
+window.onload = function() {
+    const songIds = [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
 
-        //___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
-        // SAVE SUMDATA VIEWS IN LOCAL STORAGE
-        
-        window.onload = function() {
-            const songIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
-        
-            // Load saved values from localStorage and display in table
+    // Load saved values from localStorage and display in table
+    songIds.forEach(id => {
+        // Get SumViews and DividedViews from localStorage
+        const savedSumViews = localStorage.getItem(`SumViews${id}`);
+        const savedDividedViews = localStorage.getItem(`DividedViews${id}`);
+        const savedPreviousCumulativeViewsTwo = localStorage.getItem(`previousCumulativeViewsTwo${id}`);
+
+        // If saved values exist, update the table cells with them
+        if (savedSumViews !== null) {
+            document.getElementById(`SumViews${id}`).innerText = savedSumViews;
+        }
+
+        if (savedDividedViews !== null) {
+            document.getElementById(`DividedViews${id}`).innerText = savedDividedViews;
+        }
+
+        if (savedPreviousCumulativeViewsTwo !== null) {
+            document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = savedPreviousCumulativeViewsTwo; // Update this line if the id is different
+        }
+    });
+
+    // Attach event listener to the button for saving values
+    const calculateSumButton = document.getElementById('calculateSumButton');
+
+    if (calculateSumButton) {
+        calculateSumButton.addEventListener('click', function() {
             songIds.forEach(id => {
-                // Get SumViews and DividedViews from localStorage
-                const savedSumViews = localStorage.getItem(`SumViews${id}`);
-                const savedDividedViews = localStorage.getItem(`DividedViews${id}`);
-        
-                // If saved values exist, update the table cells with them
-                if (savedSumViews !== null) {
-                    document.getElementById(`SumViews${id}`).innerText = savedSumViews;
-                }
-        
-                if (savedDividedViews !== null) {
-                    document.getElementById(`DividedViews${id}`).innerText = savedDividedViews;
-                }
+                const sumViews = document.getElementById(`SumViews${id}`).innerText;
+                const dividedViews = document.getElementById(`DividedViews${id}`).innerText;
+                const previousCumulativeViewsTwo = document.getElementById(`previousCumulativeViewsTwo${id}`).innerText;
+
+                // Save these values in localStorage
+                localStorage.setItem(`SumViews${id}`, sumViews);
+                localStorage.setItem(`DividedViews${id}`, dividedViews);
+                localStorage.setItem(`previousCumulativeViewsTwo${id}`, previousCumulativeViewsTwo); // Save the value here
+
+                // Show alert after saving
+               
             });
+        });
+    } else {
+        console.error('Button with ID "calculateSumButton" not found.');
+    }
+    updateAllDividedViews();
+};
+
         
-            // Attach event listener to the button for saving values
-            const calculateSumButton = document.getElementById('calculateSumButton');
-        
-            if (calculateSumButton) {
-                calculateSumButton.addEventListener('click', function() {
-                    songIds.forEach(id => {
-                        const sumViews = document.getElementById(`SumViews${id}`).innerText;
-                        const dividedViews = document.getElementById(`DividedViews${id}`).innerText;
-        
-                        // Save these values in localStorage
-                        localStorage.setItem(`SumViews${id}`, sumViews);
-                        localStorage.setItem(`DividedViews${id}`, dividedViews);
-                    });
-        
-                    // Show alert after saving
-                    alert('Values saved to local storage');
-                });
-            } else {
-                console.error('Button with ID "calculateSumButton" not found.');
-            }
-        
-            // Function to update divided views based on sum views and sum views from video title click
-            updateAllDividedViews();
-        };
-        
-        
-        //___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+//___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
         
         //SAVE viewsgain multiply PREDICTVIEWS and previpous views multipy INTO divide VIEWS 
         
@@ -1318,19 +1321,49 @@
                 // Add more data as needed
             };
         
-            for (const [id, data] of Object.entries(simulatedData)) {
-                document.getElementById(`viewCount${id}`).innerText = data.viewCount;
-                document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = data.previousCumulativeViewsTwo;
-                document.getElementById(`previousCumulativeViews${id}`).innerText = data.previousCumulativeViews;
-                document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
-            }
-        }
-        
-        // Set up the button click event listener
-        document.getElementById('calculateSumButton').addEventListener('click', calculateSumForAllSongs);
-        
-        // Simulate fetching data from the API after a delay (for example purposes)
-        setTimeout(fetchYouTubeData, 1000); // 1 second delay before data updates
+         
+
+    // SAVE PREVIOUS2 VIEWS IN LOCAL STORAGE
+    const songIds = Object.keys(simulatedData);
+
+songIds.forEach(id => {
+    const data = simulatedData[id];
+
+    // Load previously saved values from local storage if they exist
+    const savedPreviousCumulativeViewsTwo = localStorage.getItem(`previousCumulativeViewsTwo${id}`);
+    const savedViewCount = localStorage.getItem(`viewCount${id}`);
+    const savedPreviousCumulativeViews = localStorage.getItem(`previousCumulativeViews${id}`);
+
+    // Update viewCount and previousCumulativeViewsTwo only if local storage values do not exist
+    document.getElementById(`viewCount${id}`).innerText = savedViewCount ? savedViewCount : data.viewCount;
+    document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = savedPreviousCumulativeViewsTwo ? savedPreviousCumulativeViewsTwo : data.previousCumulativeViewsTwo;
+    document.getElementById(`previousCumulativeViews${id}`).innerText = savedPreviousCumulativeViews ? savedPreviousCumulativeViews : data.previousCumulativeViews;
+
+    // You can similarly update other fields if needed
+});
+
+for (const [id, data] of Object.entries(simulatedData)) {
+    document.getElementById(`viewCount${id}`).innerText = data.viewCount;
+    document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = data.previousCumulativeViewsTwo;
+    document.getElementById(`previousCumulativeViews${id}`).innerText = data.previousCumulativeViews;
+    document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
+}
+
+
+
+
+for (const [id, data] of Object.entries(simulatedData)) {
+    document.getElementById(`viewCount${id}`).innerText = data.viewCount;
+ 
+    document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
+}
+}
+
+// Set up the button click event listener
+document.getElementById('calculateSumButton').addEventListener('click', calculateSumForAllSongs);
+
+// Simulate fetching data from the API after a delay (for example purposes)
+setTimeout(fetchYouTubeData, 1000); // 1 second delay before data updates
         
     </script>
     
