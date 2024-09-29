@@ -1011,7 +1011,7 @@ iframe {
     
         <div class="iframe-container">
             
-            <iframe src="https://probo.in/events" style="width: 850px; height: 670px;" id="iframeTrad2"></iframe>
+            <iframe src="https://trading.probo.in/events" style="width: 850px; height: 670px;" id="iframeTrad2"></iframe>
          <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
             <div class="under">
                 <a rel="Jhoome.html" style="text-align: center; color:white;">
@@ -1085,7 +1085,7 @@ iframe {
 //___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 // SAVE SUMDATA AND PREVIOUSVIEWS2 DATA IN LOCAL STORAGE
 window.onload = function() {
-    const songIds = [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
+    const songIds = [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]; // Add all other song IDs here
 
     // Load saved values from localStorage and display in table
     songIds.forEach(id => {
@@ -1145,7 +1145,7 @@ function updateAllDividedViews() {
     let sumviewsValue = parseInt(document.getElementById('sumviewsfromvideotitleclick').innerText.replace(/,/g, '')) || 0;
 
     // Array of IDs for all songs
-    const songIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
+    const songIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]; // Add all other song IDs here
 
     // Loop through each song and calculate DividedViews and Multiply with ViewsGain
     songIds.forEach(id => {
@@ -1280,7 +1280,7 @@ function updateViewCounts(id) {
 
 // Function to calculate the sum for all songs when the button is clicked
 function calculateSumForAllSongs() {
-    const songIds = [0 ,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]; // Add all other song IDs here
+    const songIds = [0 ,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]; // Add all other song IDs here
     
     songIds.forEach(id => {
         updateViewCounts(id);
