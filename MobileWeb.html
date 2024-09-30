@@ -1768,65 +1768,67 @@ fs.writeFileSync(filePath, data);
   
 
 </script>
-      
-  <script>
+ 
+<script>
 
-    
-    
+    // Live Value Update on calculation data without 0 millisecond auto click _____________________________________________________________________________________________________________________________________________________________________
+
     var lastClickedVideoId = null; // Track the last clicked video ID
-    var autoClickTimeout = null; // Track the auto-click timeout
+    var autoUpdateInterval = null; // Track the auto-update interval
 
     // Function to handle clicks on video IDs
     function handleVideoClick(videoId) {
         return function(event) {
             event.preventDefault(); // Prevent default behavior of anchor tag
 
-            // Update view count and title for video ID 34
-            var views = document.getElementById("viewCount" + videoId).innerText;
-            document.getElementById("viewCount34").innerText = views;
-            var title = document.getElementById("title" + videoId).innerText;
-            document.getElementById("title34").innerText = title;
+            // Update the UI with video details
+            updateVideoDetails(videoId);
 
-            // Update previous cumulative views and views gain for video ID 34
-            var prevCumulativeViews = document.getElementById("previousCumulativeViews" + videoId).innerText;
-            var prevCumulativeViewsTwo = document.getElementById("previousCumulativeViewsTwo" + videoId).innerText;
-            var viewsgain = document.getElementById("viewsgain" + videoId).innerText;
-            document.getElementById("previousCumulativeViews34").innerText = prevCumulativeViews;
-            document.getElementById("views000").innerText = prevCumulativeViewsTwo;
-            document.getElementById("views00").innerText = viewsgain;
-
-            // Remove auto-click from previously clicked video
-            if (lastClickedVideoId !== null) {
-                clearTimeout(autoClickTimeout);
+            // Clear any previous intervals
+            if (autoUpdateInterval !== null) {
+                clearInterval(autoUpdateInterval);
             }
 
-            // Set auto-click for the currently clicked video
+            // Set a new interval to automatically update the view count for the clicked video every 5 seconds (5000ms)
+            autoUpdateInterval = setInterval(function() {
+                updateVideoDetails(videoId); // Update the details at each interval
+            }, 0);
+
+            // Set the last clicked video ID
             lastClickedVideoId = videoId;
-            autoClickTimeout = setTimeout(function() {
-                autoClick(videoId);
-            }, 0); // Starting auto click after 0 milliseconds
         }
+    }
+
+    // Function to update video details
+    function updateVideoDetails(videoId) {
+        // Update view count and title for video ID 34
+        var views = document.getElementById("viewCount" + videoId).innerText;
+        document.getElementById("viewCount34").innerText = views;
+        var title = document.getElementById("title" + videoId).innerText;
+        document.getElementById("title34").innerText = title;
+
+        // Update previous cumulative views and views gain for video ID 34
+        var prevCumulativeViews = document.getElementById("previousCumulativeViews" + videoId).innerText;
+        var prevCumulativeViewsTwo = document.getElementById("previousCumulativeViewsTwo" + videoId).innerText;
+        var viewsgain = document.getElementById("viewsgain" + videoId).innerText;
+        document.getElementById("previousCumulativeViews34").innerText = prevCumulativeViews;
+        document.getElementById("views000").innerText = prevCumulativeViewsTwo;
+        document.getElementById("views00").innerText = viewsgain;
     }
 
     // Assign click event listeners to all video IDs
     for (var i = 0; i <= 35; i++) {
-    // Skip adding event listener for video ID 22
-    if (i !== 22) {
-        document.getElementById("title" + i).addEventListener("click", handleVideoClick(i));
+        // Skip adding event listener for video ID 22
+        if (i !== 22) {
+            document.getElementById("title" + i).addEventListener("click", handleVideoClick(i));
+        }
     }
-}
 
-    // Automatic click function
-    function autoClick(videoId) {
-        var prevCumulativeViews = document.getElementById("previousCumulativeViews" + videoId).innerText;
-        var viewsgain = document.getElementById("viewsgain" + videoId).innerText;
-
-        // Update corresponding values for video ID 34
-        document.getElementById("previousCumulativeViews34").innerText = prevCumulativeViews;
-        document.getElementById("views00").innerText = viewsgain;
-
-        // Click the video again
-        document.getElementById("title" + videoId).click();
+    // Clear interval when user navigates away from the page or closes the tab
+    window.onbeforeunload = function() {
+        if (autoUpdateInterval !== null) {
+            clearInterval(autoUpdateInterval);
+        }
     }
 </script>
     
