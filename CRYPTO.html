@@ -44,22 +44,6 @@
             text-align: center;
             margin-top: 20px;
         }
-        #BUY {
-            color: green;
-        }
-        #SELL {
-            color: red;
-        }
-        #buy-difference, #sell-difference {
-            font-size: 1.5em;
-            text-align: center;
-            margin-top: 10px;
-        }
-        #buy-sell-difference {
-            font-size: 1.5em;
-            text-align: center;
-            margin-top: 10px;
-        }
         #indian-timer {
             font-size: 1.5em;
             text-align: center;
@@ -75,12 +59,7 @@
 
     <div>
         <div id="orderBook"></div>
-        <div id="buy-sell-difference" style="display: none;"></div>
         <div class="price" id="btc-price">Loading...</div>
-        <div id="BUY" class="price" style="display: none;">BUY</div>
-        <div id="SELL" class="price" style="display: none;">SELL</div>
-        <div id="buy-difference" style="display: none;"></div>
-        <div id="sell-difference" style="display: none;"></div>
         <div id="indian-timer"></div>
     </div>
 
@@ -88,10 +67,9 @@
         let lastBTCPrice = 0;
 
         document.addEventListener("DOMContentLoaded", function() {
-            // WebSocket for real-time order book and BTC price
             connectWebSocket();
             updateIndianTime();
-            setInterval(updateIndianTime, 0); // Update time every second
+            setInterval(updateIndianTime, 1000); // Update time every second
         });
 
         function connectWebSocket() {
@@ -104,16 +82,15 @@
             // Order book update
             orderBookSocket.onmessage = function(event) {
                 const orderBookData = JSON.parse(event.data);
-                const btcPrice = lastBTCPrice; // Use the latest price
-                displayOrderBook(orderBookData, btcPrice);
+                displayOrderBook(orderBookData);
             };
 
             // BTC price update
             priceSocket.onmessage = function(event) {
                 const message = JSON.parse(event.data);
                 const btcPrice = parseFloat(message.p).toFixed(2);
-
                 const btcPriceElement = document.getElementById('btc-price');
+
                 btcPriceElement.textContent = btcPrice;
 
                 // Change BTC price color based on price change
@@ -135,13 +112,8 @@
             };
         }
 
-        function displayOrderBook(orderBookData, btcPrice) {
+        function displayOrderBook(orderBookData) {
             const orderBookElement = document.getElementById('orderBook');
-            const buyIndicator = document.getElementById('BUY');
-            const sellIndicator = document.getElementById('SELL');
-            const buyDifferenceElement = document.getElementById('buy-difference');
-            const sellDifferenceElement = document.getElementById('sell-difference');
-            const buySellDifferenceElement = document.getElementById('buy-sell-difference');
 
             orderBookElement.innerHTML = ''; // Clear existing content
 
@@ -151,22 +123,6 @@
             // Show only top 1 buy and sell orders
             bids = bids.slice(0, 1);
             asks = asks.slice(0, 1);
-
-            // Calculate total BTC on buy and sell sides
-            const totalBuyBTC = bids.reduce((total, entry) => total + parseFloat(entry[1]), 0);
-            const totalSellBTC = asks.reduce((total, entry) => total + parseFloat(entry[1]), 0);
-
-            // Display buy or sell indicator based on the larger total
-            if (totalBuyBTC >= 5 && totalSellBTC <= 1.5) {
-                buyIndicator.style.display = 'none';
-                sellIndicator.style.display = 'none';
-            } else if (totalSellBTC >= 5 && totalBuyBTC <= 1.5) {
-                buyIndicator.style.display = 'none';
-                sellIndicator.style.display = 'none';
-            } else {
-                buyIndicator.style.display = 'none';
-                sellIndicator.style.display = 'none';
-            }
 
             // Sort orders in ascending order
             bids.sort((a, b) => parseFloat(a[0]) - parseFloat(b[0])); // Ascending
@@ -193,19 +149,6 @@
                 row.innerHTML = `<span>Sell Order ${amount} BTC @ ${price}</span>`;
                 orderBookElement.appendChild(row);
             });
-
-            // Calculate and display the differences
-            const lastBuyPrice = parseFloat(bids[bids.length - 1][0]);
-            const lastSellPrice = parseFloat(asks[asks.length - 1][0]);
-            const buyDifference = lastBuyPrice - btcPrice;
-            const sellDifference = lastSellPrice - btcPrice;
-
-            buyDifferenceElement.textContent = `Buy Difference: ${buyDifference.toFixed(2)}`;
-            sellDifferenceElement.textContent = `Sell Difference: ${sellDifference.toFixed(2)}`;
-
-            // Calculate and display combined buy-sell difference
-            const combinedDifference = buyDifference + sellDifference;
-            buySellDifferenceElement.textContent = `Buy + Sell Difference: ${combinedDifference.toFixed(2)}`;
         }
 
         function updateIndianTime() {
