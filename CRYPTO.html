@@ -69,7 +69,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             connectWebSocket();
             updateIndianTime();
-            setInterval(updateIndianTime, 1000); // Update time every second
+            setInterval(updateIndianTime, 0); // Update time every second
         });
 
         function connectWebSocket() {
