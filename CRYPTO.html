@@ -72,7 +72,6 @@
     </style>
 </head>
 <body>
-  
 
     <div>
         <div id="orderBook"></div>
@@ -84,58 +83,72 @@
         <div id="sell-difference" style="display: none;"></div>
         <div id="indian-timer"></div>
     </div>
+
     <script>
         let lastBTCPrice = 0;
 
         document.addEventListener("DOMContentLoaded", function() {
-            fetchOrderBook();
-            setInterval(fetchOrderBook, 250); // Update every 250 milliseconds
+            // WebSocket for real-time order book and BTC price
+            connectWebSocket();
             updateIndianTime();
-            setInterval(updateIndianTime, 1000); // Update time every second
+            setInterval(updateIndianTime, 0); // Update time every second
         });
 
-        async function fetchOrderBook() {
-            try {
-                const response = await fetch('https://api.binance.com/api/v3/depth?symbol=BTCUSDT&limit=100');
-                const orderBookData = await response.json();
-                const btcPrice = await fetchBTCPrice();
-                
-                // Process order book data and update HTML
-                displayOrderBook(orderBookData, btcPrice);
-            } catch (error) {
-                console.error('Error fetching order book:', error);
-            }
-        }
+        function connectWebSocket() {
+            // Binance WebSocket for live BTC order book
+            const orderBookSocket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@depth');
+            
+            // Binance WebSocket for live BTC price
+            const priceSocket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
 
-        async function fetchBTCPrice() {
-            try {
-                const response = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+            // Order book update
+            orderBookSocket.onmessage = function(event) {
+                const orderBookData = JSON.parse(event.data);
+                const btcPrice = lastBTCPrice; // Use the latest price
+                displayOrderBook(orderBookData, btcPrice);
+            };
+
+            // BTC price update
+            priceSocket.onmessage = function(event) {
+                const message = JSON.parse(event.data);
+                const btcPrice = parseFloat(message.p).toFixed(2);
+
+                const btcPriceElement = document.getElementById('btc-price');
+                btcPriceElement.textContent = btcPrice;
+
+                // Change BTC price color based on price change
+                if (btcPrice < lastBTCPrice) {
+                    btcPriceElement.style.color = 'red';
+                } else if (btcPrice > lastBTCPrice) {
+                    btcPriceElement.style.color = 'green';
                 }
-                const data = await response.json();
-                return parseFloat(data.price);
-            } catch (error) {
-                console.error('Error fetching BTC price:', error);
-                return 0; // Return 0 if there's an error
-            }
+                lastBTCPrice = btcPrice;
+            };
+
+            // Handle errors
+            priceSocket.onerror = function(error) {
+                console.error('WebSocket price error:', error);
+            };
+
+            orderBookSocket.onerror = function(error) {
+                console.error('WebSocket order book error:', error);
+            };
         }
 
         function displayOrderBook(orderBookData, btcPrice) {
             const orderBookElement = document.getElementById('orderBook');
             const buyIndicator = document.getElementById('BUY');
             const sellIndicator = document.getElementById('SELL');
-            const btcPriceElement = document.getElementById('btc-price');
             const buyDifferenceElement = document.getElementById('buy-difference');
             const sellDifferenceElement = document.getElementById('sell-difference');
             const buySellDifferenceElement = document.getElementById('buy-sell-difference');
 
             orderBookElement.innerHTML = ''; // Clear existing content
 
-            let bids = orderBookData.bids;
-            let asks = orderBookData.asks;
+            let bids = orderBookData.b;
+            let asks = orderBookData.a;
 
-            // Show only top 100 buy and sell orders
+            // Show only top 1 buy and sell orders
             bids = bids.slice(0, 1);
             asks = asks.slice(0, 1);
 
@@ -154,17 +167,6 @@
                 buyIndicator.style.display = 'none';
                 sellIndicator.style.display = 'none';
             }
-
-            // Display BTC current price
-            btcPriceElement.textContent = btcPrice.toFixed(2);
-
-            // Change BTC price color based on change
-            if (btcPrice < lastBTCPrice) {
-                btcPriceElement.style.color = 'red';
-            } else if (btcPrice > lastBTCPrice) {
-                btcPriceElement.style.color = 'green';
-            }
-            lastBTCPrice = btcPrice;
 
             // Sort orders in ascending order
             bids.sort((a, b) => parseFloat(a[0]) - parseFloat(b[0])); // Ascending
