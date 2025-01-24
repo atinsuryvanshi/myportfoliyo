@@ -1,344 +1,3018 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Education Website</title>
-  <style>
-    /* Reset CSS */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Web</title>
+    <link rel="stylesheet" type="text/css" href="all_songs.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    /* General Styles */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #f9f9f9; /* Default background color */
-      color: #000; /* Default text color */
-    }
-
-    .container {
-      max-width: 1650px;
-      margin: 0 auto;
-      padding: 0 20px;
-      margin-left: 120px;
-    }
-
-    /* Header Styles */
-    header {
-      background-color: #fff;
-      color: #fff;
-      padding: 20px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: 100px;
-      z-index: 100;
-    }
-
-    header::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #ccc;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .search-bar {
-      margin-right: 20px;
-    }
-
-    .search-bar input[type="text"] {
-      width: 200px;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    .header-buttons button {
-      background-color: #fff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    /* Main Content Styles */
-    .main-content {
-      padding-top: 100px; /* Adjust to accommodate fixed header */
-      padding-bottom: 20px;
-    }
-
-    .horizontal-scroll {
-       width: 100%; 
-      overflow-x: auto;
-      white-space: nowrap;
-      margin-bottom: 20px;
-      scrollbar-width: none; /* For Firefox */
-      -ms-overflow-style: none; /* For Internet Explorer and Edge */
-    }
-
-    .horizontal-scroll::-webkit-scrollbar {
-      display: none; /* For Chrome, Safari, and Opera */
-    }
-
-    .horizontal-scroll div {
-      display: inline-block;
-      padding: 10px;
-    }
-
-    .thumbnail {
-      display: inline-block;
-      margin-right: 20px;
-    }
-
-    .thumbnail img {
-      width: 200px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-
-    .thumbnail h3 {
-      margin-top: 10px;
-      font-size: 18px;
-    }
-
-    /* Dark Mode Styles */
-    body.dark-mode {
-      background-color: #333;
-      color: #fff; /* Text color in dark mode */
-    }
-
-    body.dark-mode header {
-      background-color: #333;
-      color: #fff;
-    }
-    body.dark-mode nav {
-      background-color: #333;
-      color: #fff;
-    }
-
-    body.dark-mode .search-bar input[type="text"] {
-      background-color: #555;
-      color: #fff;
-    }
-
-    body.dark-mode .thumbnail h3 {
-    background-color: #555;
-      color: #fff;
-    }
-
-    .dark-mode-toggle {
-      cursor: pointer;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #fff;
-      color: #333;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-
-    /* Navigation Styles */
-    nav {
-      position: fixed;
-      top: 100px;
-      bottom: 0;
-      left: 0;
-      width: 120px; /* Adjust width as needed */
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 999;
-    }
-
-    nav::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      width: 1px;
-      background-color: #ccc;
-    }
-
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin-bottom: 20px;
-    }
-
-    nav ul li a {
-      color: #000; /* Default text color */
-      text-decoration: none;
-      display: block;
-      padding: 10px;
-      text-align: center;
-    }
-
-    nav ul li a:hover {
-      background-color: #555;
-    }
-
-    @media (max-width: 0px) {
-      nav {
-        width: 100%;
-        height: 60px; /* Adjust height as needed */
-        bottom: 0;
-        left: 0;
-        right: 0;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-      }
-
-      nav ul {
-        flex-direction: row;
-      }
-
-      nav ul li {
-        margin-bottom: 0;
-        margin-right: 20px;
-      }
-    }
-
-  </style>
-</head>
-<body>
- 
-
-
-  <header>
-    <div class="container">
-      
-      <div class="search-bar">
-        <input type="text" placeholder="Search...">
-      </div>
-      <div class="header-buttons">
-     
-      </div>
-     
-      <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+    <style>
     
-    </div>
-  </header>
 
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Subscription</a></li>
-      <li><a href="#">Favorite</a></li>
-      <li><a href="#">Help</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Settings</a></li>
-      
-    </ul>
-  </nav>
 
-  <section class="main-content">
-    <div class="container">
-        <h2>Skills & Growth</h2>
-        <div class="horizontal-scroll">
-          <div class="thumbnail">
-            <a href="#">
-              <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="Trading">
-              <h3>Trading</h3>
-            </a>
-          </div>
-          <div class="thumbnail">
-            <a href="#">
-              <img src="youtube_thumbnail.jpg" alt="YouTube Growth">
-              <h3>YouTube Growth</h3>
-            </a>
-          </div>
-          <div class="thumbnail">
-            <a href="#">
-              <img src="business_thumbnail.jpg" alt="Business">
-              <h3>Business</h3>
-            </a>
-          </div>
-          <!-- Add more thumbnails for other courses -->
-        </div>
-      
-      
-      <h2>6th to 12th Classes</h2>
-      <div class="horizontal-scroll">
-        <div class="thumbnail">
-          <a href="#">
-            <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="6th Class">
-            <h3>6th Class Notes</h3>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="#">
-            <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="7th Class">
-            <h3>7th Class Notes</h3>
-          </a>
-        </div>
-        <!-- Add more thumbnails for other classes -->
-        <div class="thumbnail">
-          <a href="#">
-            <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="8th Class">
-            <h3>8th Class Notes</h3>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="#">
-            <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="9th Class">
-            <h3>9th Class Notes</h3>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="#">
-            <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="10th Class">
-            <h3>10th Class Notes</h3>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="#">
-            <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="11th Class">
-            <h3>11th Class Notes</h3>
-          </a>
-        </div>
-        <div class="thumbnail">
-          <a href="#">
-            <img src="https://www.pw.live/files001/ncerttextbooks.png" alt="12th Class">
-            <h3>12th Class Notes</h3>
-          </a>
-        </div>
-      </div>
-    </div>
-     
-  </section>
 
-  <script>
-    function toggleDarkMode() {
-      const body = document.body;
-      body.classList.toggle("dark-mode");
+
+   .api-container {
+        white-space: nowrap; /* APIs in one line */
+        overflow-x: auto; /* Enable horizontal scrollbar */
+       display: block;
+        flex: 1;
+    overflow-y: scroll; /* Enable vertical scrolling for the table */ 
+    max-width: 710px;/* Set max height for the table */
     }
-  </script>
-</body>
+
+    
+    .api-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for the table */
+    
+}
+
+
+
+.div-container{
+        white-space: nowrap; /* APIs in one line */
+        overflow-x: auto; /* Enable horizontal scrollbar */
+       display: block;
+        flex: 1;
+    overflow-y: scroll; /* Enable vertical scrolling for the table */ 
+    max-width: 580px;/* Set max height for the table */
+    }
+
+    
+    .div-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for the table */
+    
+}
+
+.apirefresh {
+        display: inline-block; /* Display APIs in one line */
+        margin: 0px;
+        padding: 5px;
+        background-color: #10100f;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 27px;
+        height: 27px;
+    }
+    .api {
+        display: inline-block; /* Display APIs in one line */
+        margin: 0px;
+        padding: 5px;
+        background-color: #071415;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+    }
+
+   
+
+    .api.selected {
+            color: yellow;
+        }
+
+
+        .selected {
+            color: red; /* Change color to red for the selected API */
+
+        }
+.active-api {
+            color: red;
+            
+        }
+        .active-button {
+            background-color: red;
+            color: white;
+
+        
+        }
+      
+
+        a {
+            font-size: 23px;
+            margin-left: 0px;
+            top: 21.1px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 50px;
+        }
+
+        iframe {
+            width: 370px;
+            height: 300px;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .field {
+            display: inline-block;
+            width: 370px;
+            height: 300px;
+            margin-left: 21.1px;
+        }
+
+        .field2 {
+            display: inline-block;
+            margin-left: 23px;
+        }
+
+        tradexweb {
+            display: inline-block;
+        }
+
+
+        body {
+            background-color: black;
+            max-width: 100%;
+        }
+
+        .field {
+            margin-bottom: 21.1px;
+        }
+
+        .field iframe {
+            width: 100%;
+            height: 335px;
+        }
+
+        .field .under {
+            text-align: left;
+        }
+
+        .field .under a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .under a {
+        text-decoration: none;
+    }
+
+        .field .under a:hover {
+            text-decoration: underline;
+        }
+
+        .field .under #video1,
+        .field .under #video2,
+        .field .under #video3 {
+            font-size: 23px;
+        }
+
+        /* Define CSS classes to change color */
+        .completed {
+            color: rgb(25, 430, 50);
+            font-weight: bold;
+        }
+
+        .not-completed {
+            color: white;
+        }
+
+        @media (max-width: 1700px) {
+            .field {
+                width: 23%;
+                /* 4 iframe के लिए 23%  दिया गया है */
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .field {
+                width: 30.5%;
+                /* 3 iframe के लिए 31% व्यापार दिया गया है */
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .field {
+                width: 45%;
+                /* 2 iframe के लिए 45% व्यापार दिया गया है */
+
+            }
+        }
+
+        @media (max-width: 700px) {
+            .field {
+                width: 500px
+                    /* 1 iframe के लिए 500px व्यापार दिया गया है */
+            }
+        }
+
+        @media (max-width: 570px) {
+            .field {
+                width: 85%;
+                /* 1 iframe के लिए 85% व्यापार दिया गया है */
+
+            }
+        }
+
+        @media (max-width: 1400px) {
+            hr {
+                display: none;
+            }
+        }
+
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            margin-bottom: 0px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100px;
+        }
+
+        button {
+            padding: 8px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+      
+        #result {
+            margin-top: 0px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        table {
+        font-size: 18px;
+        color: rgb(224, 219, 219);
+        
+        
+    }
+
+    table th, table td {
+        padding: 6px;
+        
+    }
+   
+    
+  
+    table th:nth-child(2),
+    table td:nth-child(2),
+    table th:nth-child(3),
+    table td:nth-child(3) {
+        font-weight: bold;
+    }
+
+    /* To style the "Views Gain" text */
+    #viewsgain15,
+    #viewsgain17,
+    #viewsgain28,
+    #viewsgain29,
+    #viewsgain23,
+    #viewsgain3,
+    #viewsgain16,
+    #viewsgain18,
+    #viewsgain14,
+    #viewsgain27,
+    #viewsgain11,
+    #viewsgain20,
+    #viewsgain21,
+    #viewsgain7,
+    #viewsgain26,
+    #viewsgain19,
+    #viewsgain9,
+    #viewsgain1,
+    #viewsgain24,
+    #viewsgain4,
+    #viewsgain25,
+    #viewsgain0,
+    #viewsgain2,
+    #viewsgain5,
+    #viewsgain34,
+    #viewsgain6,
+    #viewsgain10,
+    #viewsgain13,
+    #viewsgain30,
+    #viewsgai22,
+    #viewsgain8,
+    #viewsgain20,
+    #viewsgain12,
+    #viewsgain31,
+    #viewsgain32,
+    #viewsgain33,
+    #viewsgain34
+    
+    {
+        font-weight: bold;
+        font-size: 18.5px;
+        color:  rgb(25, 430, 50);
+        text-align: center;
+       
+    }
+
+    [id^='Highest11AMViews'] {
+    font-weight: bold;
+    color:rgb(234, 234, 241);
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Arial', sans-serif;
+}
+
+[id^='previousCumulativeViews'] {
+    font-weight: bold;
+    color:rgb(0, 255, 255);
+    text-align: center;
+    font-size: 18.5px;
+}
+
+
+.container {
+    display: flex;
+}
+
+.iframe {
+    flex: 0 0 30%; /* Adjust the width of the iframe */
+    height: 730px; /* Adjust the height of the iframe */
+}
+
+.table-container {
+    flex: 1;
+    overflow-y: scroll; /* Enable vertical scrolling for the table */
+    max-height: 740px; /* Set max height for the table */
+    max-width: 750px; /* Set max height for the table */
+   
+}
+
+
+.table-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for the table */
+    
+}
+
+
+
+
+.box {
+        border: 2px solid white;
+        padding: 3px;
+        display: inline-block;
+        margin: 2px;
+    }
+
+
+
+    /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  /*  cursor: context-menu; */
+  cursor: default;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 2em;
+    color: #fff;
+}
+
+/* Main content layout */
+main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Song table styles */
+.song-table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid gray;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+   
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Iframe container */
+.iframe-container {
+    flex: 0 0 50%;
+    margin-left: 40px;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+.sumtable {
+        display: inline-block; /* Display APIs in one line */
+        margin: 0px;
+        padding: 5px;
+        background-color: #071415;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50px;
+        height: 29px;
+    }
+
+    .sum-views {
+            display: none;
+        }
+    .divided-views {
+            display: none;
+        }
+       
+        
+        div::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sumtable {
+            width: 100px;
+            height: 27px;
+            border: 0px solid #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .sumtable:active {
+            background-color: red; /* Blue color on click */
+            transform: scale(0.95); /* Slight shrink effect */
+        }
+
+        .sumtable.clicked {
+            animation: clickEffect 0.4s ease-out;
+        }
+
+        @keyframes clickEffect {
+            0% {
+                background-color: #007bff;
+            }
+            50% {
+                background-color: #4ca0ff;
+            }
+            100% {
+                background-color: #007bff;
+            }
+        }
+        .clickable-title {
+    max-width: 170px; /* Aap apne hisaab se adjust kar sakte hain */
+    white-space: nowrap; 
+    overflow-x: auto; 
+    -ms-overflow-style: none; /* IE aur Edge ke liye scrollbar ko hide karne ke liye */
+    scrollbar-width: none; /* Firefox ke liye scrollbar ko hide karne ke liye */
+}
+
+/* Scrollbar ko hide karne ke liye */
+.clickable-title::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera ke liye */
+}
+
+    </style>
+
+
+</head>
+
+
+<body style="background-color: black">
+
+   
+    
+    
+
+    <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
+    
+        <div class="field3" style="text-underline-position: unset;">
+            
+          
+            <div class="table-container" >
+    
+    
+                <table border="2">
+                    <tr>
+                        <th>Songs Name</th>
+                        <th class="Total-Views" style="width: 120px" >Total Views</th>
+                        <th>10min </th>
+                        <th>5min</th>
+                        <th>Current</th>
+                        <th id="sumViewsHeader" class="sum-views" >Sum</th> <!-- Add class for easy targeting -->
+                        <th id="DividedViewsHeader" class="divided-views">Divided</th> <!-- New header for divided views -->
+                        <th id="DivideViewsMultiplyViewsGainHeader" class="Divide-Views-Multiply-ViewsGain">Predict</th>
+                        <th id="PreviousPredictHeader" class="Previous-Predict">Predict2</th>
+                       </tr>
+                   
+                     
+                    <tr>
+                        <td id="title20" onclick="showDividedViews(20)" class="clickable-title">Lisa New woman</td>
+                        <td id="viewCount20" onclick="displaySavedData(20)" >Loading...</td>
+                        <td id="previousCumulativeViewsTwo20">_ _ _</td>
+                        <td id="previousCumulativeViews20">_ _ _</td>
+                        <td id="viewsgain20">Gain:</td>
+                        <td class="sum-views" id="SumViews20">0</td>
+                        <td class="divided-views" id="DividedViews20">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain20">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict20">Predict2</td>
+                        
+                    </tr>
+                        <tr>
+                            <td id="title8" class="clickable-title">Maan Meri Jaan</td>
+                            <td id="viewCount8" onclick="displaySavedData(8)" >Loading...</td>
+                            <td id="previousCumulativeViewsTwo8">_ _ _</td>
+                            <td id="previousCumulativeViews8">_ _ _</td>
+                            <td id="viewsgain8">Gain:</td>
+                            <td class="sum-views" id="SumViews8">0</td>
+                            <td class="divided-views" id="DividedViews8">0</td>
+                            <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain8">Result:</td>
+                            <td class="Previous-Predict" id="PreviousPredict8" >Predict2</td>
+                            
+                        </tr>
+
+                        <tr>
+                            <td id="title30"class="clickable-title"> -Seventeen - Eyes on you</td>
+                            <td id="viewCount30"onclick="displaySavedData(30)">Loading...</td>
+                            <td id="previousCumulativeViewsTwo30">_ _ _</td>
+                            <td id="previousCumulativeViews30">_ _ _</td>
+                            <td id="viewsgain30">Gain:</td>
+                            <td  class="sum-views" id="SumViews30">0</td>
+                            <td class="divided-views" id="DividedViews30">0</td>
+                            <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain30">Result:</td>
+                         <td class="Previous-Predict" id="PreviousPredict30" >Predict2</td>
+                        </tr>
+
+                        <tr>
+                            <td id="title16"class="clickable-title">Carryminati - Mrbeast paroday </td>
+                            <td id="viewCount16"onclick="displaySavedData(16)">Loading...</td>
+                            <td id="previousCumulativeViewsTwo16">_ _ _ </td>
+                            <td id="previousCumulativeViews16">_ _ _</td>
+                            <td id="viewsgain16">Gain:</td>
+                            <td  class="sum-views" id="SumViews16">0</td>
+                            <td class="divided-views" id="DividedViews16">0</td>
+                            <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain16">Result:</td>
+                            <td class="Previous-Predict" id="PreviousPredict16" >Predict2</td>
+                           
+                        </tr>
+
+                    <tr>
+                        <td id="title29"class="clickable-title">Tere Vaaste</td>
+                        <td id="viewCount29"onclick="displaySavedData(29)">Loading...</td>
+                        <td id="previousCumulativeViewsTwo29">_ _  _</td>
+                        <td id="previousCumulativeViews29">_ _  _</td>
+                        <td id="viewsgain29">Gain:</td>
+                        <td  class="sum-views" id="SumViews29">0</td>
+                        <td class="divided-views" id="DividedViews29">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain29">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict29" >Predict2</td>
+                        
+                   </tr>
+
+
+                    <tr>
+                        <td id="title13"class="clickable-title">Stree 2 - Aaj ki raat</td>
+                        <td id="viewCount13" onclick="displaySavedData(13)">Loading...</td>
+                        <td id="previousCumulativeViewsTwo13">_ _ _</td>
+                        <td id="previousCumulativeViews13"> _ _ _</td>
+                        <td id="viewsgain13">Gain:</td>
+                        <td  class="sum-views" id="SumViews13">0</td>
+                        <td class="divided-views" id="DividedViews13">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain13">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict13" >Predict2</td>
+                       
+                    </tr>
+    
+                    <tr>
+                        <td id="title32"class="clickable-title">Malones I Had</td>
+                        <td id="viewCount32"onclick="displaySavedData(32)">Loading...</td>
+                        <td id="previousCumulativeViewsTwo32">_ _ _ </td>
+                        <td id="previousCumulativeViews32">_ _ _</td>
+                        <td id="viewsgain32">Gain:</td>
+                        <td  class="sum-views" id="SumViews32">0</td>
+                        <td class="divided-views" id="DividedViews32">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain32">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict32" >Predict2</td>
+                       
+                    </tr>
+                   
+
+                    <tr>
+                        <td id="title14"class="clickable-title">Daavudi</td>
+                        <td id="viewCount14"onclick="displaySavedData(14)">Loading...</td>
+                        <td id="previousCumulativeViewsTwo14">_ _ _</td>
+                        <td id="previousCumulativeViews14">_ _ _</td>
+                        <td id="viewsgain14">Gain:</td>
+                        <td  class="sum-views" id="SumViews14">0</td>
+                        <td class="divided-views" id="DividedViews14">0</td>
+                        <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain14">Result:</td>
+                        <td class="Previous-Predict" id="PreviousPredict14" >Predict2</td>
+                        
+                    </tr>
+
+                    
+              
+
+          
+
+                 
+        
+ 
+         
+            <tr>
+                <td id="title3"class="clickable-title">Tom Odell - Another Love</td>
+                <td id="viewCount3"onclick="displaySavedData(3)">Loading...</td>
+                <td id="previousCumulativeViewsTwo3">_ _ _ </td>
+                <td id="previousCumulativeViews3">_ _ _</td>
+                <td id="viewsgain3">Gain:</td>
+                <td  class="sum-views" id="SumViews3">0</td>
+                <td class="divided-views" id="DividedViews3">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain3">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict3" >Predict2</td>
+                
+            </tr>
+
+        
+                    
+            <tr>
+                <td id="title27"class="clickable-title">Kendrick Lamars</td>
+                <td id="viewCount27" onclick="displaySavedData(27)">Loading...</td>
+                <td id="previousCumulativeViewsTwo27">_ _ _</td>
+                <td id="previousCumulativeViews27">_ _ _</td>
+                <td id="viewsgain27">Gain:</td>
+                <td  class="sum-views" id="SumViews27">0</td>
+                <td class="divided-views" id="DividedViews27">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain27">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict27" >Predict2</td>
+            </tr>
+         
+
+
+       
+         
+                    
+            <tr>
+                <td id="title11"class="clickable-title">Jhoome</td>
+                <td id="viewCount11" onclick="displaySavedData(11)">Loading...</td>
+                <td id="previousCumulativeViewsTwo11">_ _ _</td>
+                <td id="previousCumulativeViews11">_ _ _</td>
+                <td id="viewsgain11">Gain:</td>
+                <td  class="sum-views" id="SumViews11">0</td>
+                <td class="divided-views" id="DividedViews11">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain11">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict11" >Predict2</td>
+            </tr>
+         
+             
+            <tr>
+                <td id="title15"class="clickable-title">Sourav joshi - Day -- </td>
+                <td id="viewCount15"onclick="displaySavedData(15)">Loading...</td>
+                <td id="previousCumulativeViewsTwo15">_ _ _ </td>
+                <td id="previousCumulativeViews15">_ _ _ </td>
+                <td id="viewsgain15">Gain:</td>
+                <td  class="sum-views" id="SumViews15">0</td>
+                <td class="divided-views" id="DividedViews15">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain15">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict15" >Predict2</td>
+
+            </tr>
+                
+         
+            
+              
+
+             
+          
+            
+         
+                <tr>
+                    <td id="title7"class="clickable-title">Chaleya</td>
+                    <td id="viewCount7"onclick="displaySavedData(7)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo7">_ _ _</td>
+                    <td id="previousCumulativeViews7">_ _ _</td>
+                    <td id="viewsgain7">Gain:</td>
+                    <td  class="sum-views" id="SumViews7">0</td>
+                    <td class="divided-views" id="DividedViews7">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain7">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict7" >Predict2</td>
+                </tr>
+
+               
+        
+               
+            
+         
+
+
+              
+              
+                <tr>
+                    <td id="title33"class="clickable-title">Koka</td>
+                    <td id="viewCount33"onclick="displaySavedData(33)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo33">_ _ _</td>
+                    <td id="previousCumulativeViews33"> _ _ _</td>
+                    <td id="viewsgain33">Gain:</td>
+                    <td  class="sum-views" id="SumViews33">0</td>
+                    <td class="divided-views" id="DividedViews33">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain33">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict33" >Predict2</td>
+                </tr>
+
+                
+                <tr>
+                    <td id="title17"class="clickable-title">Yeonjun - GGUM Oficial music</td>
+                    <td id="viewCount17"onclick="displaySavedData(17)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo17">_ _  _</td>
+                    <td id="previousCumulativeViews17">_ _  _</td>
+                    <td id="viewsgain17">Gain:</td>
+                    <td  class="sum-views" id="SumViews17">0</td>
+                    <td class="divided-views" id="DividedViews17">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain17">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict17" >Predict2</td>
+                   
+                </tr>
+
+                <tr>
+                    <td id="title5"class="clickable-title">Linkien Park - Heavyy</td>
+                    <td id="viewCount5"onclick="displaySavedData(5)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo5">_ _ _</td>
+                    <td id="previousCumulativeViews5">_ _ _</td>
+                    <td id="viewsgain5">Gain:</td>
+                    <td  class="sum-views" id="SumViews5">0</td>
+                    <td class="divided-views" id="DividedViews5">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain5">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict5" >Predict2</td>
+                </tr>
+          
+                
+                <tr>
+                    <td id="title26"class="clickable-title">Beshram</td>
+                    <td id="viewCount26"onclick="displaySavedData(26)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo26">_ _ _</td>
+                    <td id="previousCumulativeViews26">_ _ _</td>
+                    <td id="viewsgain26">Gain:</td>
+                    <td  class="sum-views" id="SumViews26">0</td>
+                    <td class="divided-views" id="DividedViews26">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain26">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict26" >Predict2</td>
+                </tr>
+
+           
+                <tr>
+                    <td id="title9"class="clickable-title">Karol Ji - Antes song</td>
+                    <td id="viewCount9"onclick="displaySavedData(9)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo9">_ _ _</td>
+                    <td id="previousCumulativeViews9">_ _ _</td>
+                    <td id="viewsgain9">Gain:</td>
+                    <td  class="sum-views" id="SumViews9">0</td>
+                    <td class="divided-views" id="DividedViews9">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain9">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict9" >Predict2</td>
+                </tr>
+              
+                
+        
+        
+             
+              
+
+              
+                <tr>
+                    <td id="title21"class="clickable-title">Lady Gaga - Due With a smile</td>
+                    <td id="viewCount21"onclick="displaySavedData(21)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo21">_ _ _</td>
+                    <td id="previousCumulativeViews21">_ _ _</td>
+                    <td id="viewsgain21">Gain:</td>
+                    <td  class="sum-views" id="SumViews21">0</td>
+                    <td class="divided-views" id="DividedViews21">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain21">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict21" >Predict2</td>
+                </tr>
+
+                 
+           
+                
+                        
+                <tr>
+                    <td id="title6"class="clickable-title">Vicky Vidya - Mushkil he</td>
+                    <td id="viewCount6"onclick="displaySavedData(6)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo6">_ _ _</td>
+                    <td id="previousCumulativeViews6">_ _ _</td>
+                    <td id="viewsgain6">Gain:</td>
+                    <td  class="sum-views" id="SumViews6">0</td>
+                    <td class="divided-views" id="DividedViews6">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain6">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict6" >Predict2</td>
+                </tr>
+
+             
+                <tr>
+                    <td id="title4"class="clickable-title">Nacho Nacho</td>
+                    <td id="viewCount4"onclick="displaySavedData(4)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo4">_ _ _</td>
+                    <td id="previousCumulativeViews4">_ _ _</td>
+                    <td id="viewsgain4">Gain:</td>
+                    <td class="sum-views" id="SumViews4">0</td>
+                    <td class="divided-views" id="DividedViews4">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain4">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict4" >Predict2</td>
+                </tr>
+
+
+                
+                <tr>
+                    <td id="title28"class="clickable-title">CTRL - Official Traler</td>
+                    <td id="viewCount28"onclick="displaySavedData(28)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo28">_ _  _</td>
+                    <td id="previousCumulativeViews28">_ _  _</td>
+                    <td id="viewsgain28">Gain:</td>
+                    <td  class="sum-views" id="SumViews28">0</td>
+                    <td class="divided-views" id="DividedViews28">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain28">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict28" >Predict2</td>
+                    
+                </tr>
+               
+                
+             
+              
+
+                     
+                <tr>
+                        
+                    <td id="title31"class="clickable-title">Dekkha Tenu</td>   
+                    <td id="viewCount31"onclick="displaySavedData(31)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo31">_ _ _</td>
+                    <td id="previousCumulativeViews31">_ _ _</td>
+                    <td id="viewsgain31">Gain:</td>
+                    <td  class="sum-views" id="SumViews31">0</td>
+                    <td class="divided-views" id="DividedViews31">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain31">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict31" >Predict2</td>
+                </tr>
+
+                
+                <tr>
+                    <td id="title23"class="clickable-title">Stree 2 - Aai Nai</td>
+                    <td id="viewCount23"onclick="displaySavedData(23)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo23">_ _ _</td>
+                    <td id="previousCumulativeViews23">_ _ _</td>
+                    <td id="viewsgain23">Gain:</td>
+                    <td  class="sum-views" id="SumViews23">0</td>
+                    <td class="divided-views" id="DividedViews23">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain23">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict23" >Predict2</td>
+                </tr>
+
+                <tr>
+                    <td id="title24"class="clickable-title">Kafara - Episode 71</td>
+                    <td id="viewCount24"onclick="displaySavedData(24)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo24">_ _ _</td>
+                    <td id="previousCumulativeViews24">_ _ _</td>
+                    <td id="viewsgain24">Gain:</td>
+                    <td  class="sum-views" id="SumViews24">0</td>
+                    <td class="divided-views" id="DividedViews24">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain24">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict24" >Predict2</td>
+                  
+                </tr>
+
+                <tr>
+                    <td id="title10"class="clickable-title"> Raaja shaab  </td>
+                    <td id="viewCount10" onclick="displaySavedData(10)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo10">_ _ _</td>
+                    <td id="previousCumulativeViews10">_ _ _</td>
+                    <td id="viewsgain10">Gain:</td>
+                    <td  class="sum-views" id="SumViews10">0</td>
+                    <td class="divided-views" id="DividedViews10">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain10">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict10" >Predict2</td>
+                </tr>
+
+               
+                <tr>
+                    <td id="title1"class="clickable-title">Beautiful Things</td>
+                    <td id="viewCount1"onclick="displaySavedData(1)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo1">_ _ _</td>
+                    <td id="previousCumulativeViews1">_ _ _</td>
+                    <td id="viewsgain1">Gain:</td>
+                    <td  class="sum-views" id="SumViews1">0</td>
+                    <td class="divided-views" id="DividedViews1">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain1">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict1" >Predict2</td>
+                </tr>
+              
+               
+                <tr>
+                    <td id="title0"class="clickable-title">The Weekend</td>
+                    <td id="viewCount0"onclick="displaySavedData(0)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo0">_ _ _</td>
+                    <td id="previousCumulativeViews0">_ _ _</td>
+                    <td id="viewsgain0">Gain:</td>
+                    <td class="sum-views" id="SumViews0">0</td>
+                    <td class="divided-views" id="DividedViews0">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain0">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict0" >Predict2</td>
+                </tr>
+
+             
+   
+                <tr>
+                    <td id="title2"class="clickable-title">Me Nikla</td>
+                    <td id="viewCount2"onclick="displaySavedData(2)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo2">_ _ _</td>
+                    <td id="previousCumulativeViews2">_ _ _</td>
+                    <td id="viewsgain2">Gain:</td>
+                    <td  class="sum-views" id="SumViews2">0</td>
+                    <td class="divided-views" id="DividedViews2">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain2">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict2" >Predict2</td>
+                </tr>
+                      
+                <tr>
+                    <td id="title18" onclick="showDividedViews(18);" class="clickable-title">Cherish - My Love</td>
+                    <td id="viewCount18"   onclick="displaySavedData(18)" >Loading...</td>
+                    <td id="previousCumulativeViewsTwo18">_ _ _</td>
+                    <td id="previousCumulativeViews18">_ _ _</td>
+                    <td id="viewsgain18">Gain:</td>
+                    <td class="sum-views" id="SumViews18">0</td>
+                    <td class="divided-views" id="DividedViews18">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain18">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict18">Predict2</td>
+                   <!-- <td><button onclick="sendData(18)">Send Data</button></td> --> 
+                    
+                </tr>
+
+                <tr>
+                    <td id="title25"class="clickable-title">Phir aayi haseen </td>
+                    <td id="viewCount25"onclick="displaySavedData(25)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo25">_ _ _</td>
+                    <td id="previousCumulativeViews25">_ _ _ </td>
+                    <td id="viewsgain25">Gain:</td>
+                    <td  class="sum-views" id="SumViews25">0</td>
+                    <td class="divided-views" id="DividedViews25">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain25">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict25" >Predict2</td>
+                </tr>
+            
+
+                     
+            <tr>
+                <td id="title19"class="clickable-title">Jennie - Mantra Song </td>
+                <td id="viewCount19" onclick="displaySavedData(19)">Loading...</td>
+                <td id="previousCumulativeViewsTwo19">_ _ _</td>
+                <td id="previousCumulativeViews19">_ _ _</td>
+                <td id="viewsgain19">Gain:</td>
+                <td  class="sum-views" id="SumViews19">0</td>
+                <td class="divided-views" id="DividedViews19">0</td>
+                <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain19">Result:</td>
+                <td class="Previous-Predict" id="PreviousPredict19" >Predict2</td>
+            </tr>
+
+          
+
+           
+            
+
+                <tr>
+                    <td id="title12"class="clickable-title">Hindi dubbed - Meastro Movie</td>
+                    <td id="viewCount12"onclick="displaySavedData(12)">Loading...</td>
+                    <td id="previousCumulativeViewsTwo12">_ _ _</td>
+                    <td id="previousCumulativeViews12">_ _ _</td>
+                    <td id="viewsgain12">Gain:</td>
+                    <td  class="sum-views" id="SumViews12">0</td>
+                    <td class="divided-views" id="DividedViews12">0</td>
+                    <td class="Divide-Views-Multiply-ViewsGain" id="DivideViewsMultiplyViewsGain12">Result:</td>
+                    <td class="Previous-Predict" id="PreviousPredict12" >Predict2</td>
+                </tr>
+    
+          
+                </table>
+    
+      
+          
+    
+        </div>
+        <div class="api-container">    
+          <button id="Next" class="sumtable" style="width: 60px; height: 28px; font-size: 17px;" >Next</button>
+          <span id="API1" class="api" value="AIzaSyAAAfPtWSZokNwrF9A_mlbqU1o4uJR_X8A">1</span>,
+          <span id="API2" class="api" value="AIzaSyCSuXF3uvokgYGG4GwTqUfvqp1CiVdJX8k">2</span>,
+          <span id="API3" class="api" value="AIzaSyCh_9E9pKBTEvLKhqR67SGs6UpQ7S-0ScY">3</span>,  <!-- my project 8334  -->
+          <span id="API4" class="api" value="AIzaSyAeMaFgVABp_IH7TN3SQOTWaG8u5FRa_x4">4</span>, <!--    API A2-->
+          <button id="toggleSumViewsButton" class="sumtable" style="width: 100px;  display: none;"  >Show Table</button>
+          <button id="calculateSumButton" class="sumtable" style="width: 100px; height: 27px;"> Update Data</button>
+  <span id="clickedtime" style="font-size: 15px; margin-top: 700px;"></span>
+  <span id="sumviewsfromvideotitleclick"></span>
+      </div>
+  
+             <div id="field2" class="field2" style="display: flex; justify-content: space-between;">
+            <div class="under">
+                <a rel="Jhoome.html" style="text-align: center; color:white;">
+                   <div id="title35" style="text-align: center;">
+                    
+                        <span id="remainingViews" style="font-size: 21px; color: white;"></span>
+                    
+                    <div class="box">
+                        <span id="views000" style="font-size: 21px; color: rgb(0, 255, 255);">_ _ _</span>
+                    </div>
+                    <div class="box">
+                        <span id="previousCumulativeViews34" style="color: rgb(0, 255, 255); font-size: 20.1px; font-weight: lighter; font-weight: bold;">_ _ _</span>
+                    </div>
+                    <div class="box">
+                        <span id="views00" style="font-size: 21px; color: rgb(25, 430, 50);">Gain:</span>
+                    </div>
+                    
+                        <input type="number" id="divisionFactor" oninput="calculateDivision();" placeholder="Avg" style="width: 50px; font-size: 15px; height: 33px; " />
+            
+                               
+                                 <span id="divisionResult" style="color: white; font-size: 21px;"></span>
+                                   <div style="margin-left: 60px;">
+                                     <div style="display: none;">
+                                       <input type="number" id="subtractionValue2" placeholder="Value 2"style="display: none;">
+                                         <input type="number" id="subtractionValue3" placeholder="Next Views"style="display: none;">
+                                           <button onclick="subtractAllValues()" style="display: none;">Subtract All</button><br></div>
+                                            <span id="targetViewsTradex" class="target-count"style="color: white; font-style: normal; font-weight: normal; font-size: 21.1px;display: none;" ></span>
+                                              
+                                            <div style="margin-right: 30px; white-space: nowrap; " class="div-container">
+                                               
+                
+                                             
+                                                    <button id="Refresh1Second" class="apirefresh" style="font-size: 17px;" >1  </button>
+                                                    <button id="Refresh10Second"  class="apirefresh" style="display: none;">10 </button>
+                                                    <button id="Refresh30Second"  class="apirefresh"  style="font-size: 17px;" >30 </button>
+
+                                                   
+                                                    <span id="indianTime" style="font-size: 20px;color: white;margin-top: 700px;" ></span>
+                                                
+   
+        <span class="target-label" style="color: white; margin-left: 0px;"></span>
+        <input type="number" id="targetViewsTradexInput" placeholder="Target views" style="width: 90x; height:28px; " onkeydown="handleTargetViewsInputKeyPress(event)" />
+        <button id="updateTargetViewsTradexButton" style="background-color: white;  color: black; width: 55px; height:28px;  ">Update</button>
+        <span id="title34" href="#" onclick="refreshIframe('tradexsong'); return false;" style="color: white; text-decoration: none; font-size: 20px;">Select Song</span>
+        <span id="viewCount34" style="font-size: 20px; margin-left: 4px;"></span> 
+       
+          
+  
+
+                                      </div> </a></div> </div></div>
+       
+    <div class="under" style="text-align: center; width: fit-content;">
+        <a id="a12" style="text-decoration: none;">  
+           
+                
+             </div></div></a>
+                <button id="ButtonRandomApi" style="display: none;" >RANDOM API </button>   
+                <span id="indianTime2" style="font-size: 20px;color: white;margin-top: 700px; display: none;" ></span>     
+            </div>
+
+
+       
+       
+   <!-- 
+                   <div id="activeApiDisplay">Active API: </div> 
+           -->
+
+     
+<div class="iframe-container">
+    <iframe src="https://trading.probo.in/events" style="width: 840px; height: 740px; display: none; " id="iframeTrad3"></iframe>
+    
+   
+
+    <div style="display: none; align-items: stretch; width: 840px; height: 740px; overflow-y: auto;" id="iframeTrad1">
+        <table id="savedDataTableTITLEID" border="1" style="width: fit-content; height: fit-content; margin-right: 2%; overflow-y: auto;">
+            <!-- Table content goes here -->
+        </table>
+        
+        <div style="width: 2px; background-color: black;"></div> <!-- Vertical line -->
+        
+        <table id="savedDataTable" border="1" style="width: 485px; height: fit-content; margin-right: 3%; overflow-y: auto;">
+            <!-- Table content goes here -->
+        </table>
+    </div>
+
+   
+      <div style="display: none;" >    
+    <span> <input type="number" id="num1" name="num1" placeholder="Remaing"  style="width: 80px;">
+        <input type="number" id="subtractionValue1" placeholder="Predict"  style="margin-right: 1px; width: 70px; ">
+          <input type="number" id="num2" name="num2" placeholder="Divide" style="width: 45px;">
+         
+            <span id="result" style="color: white;font-size: 21.3px;"></span>
+          </div>    
+</div>
+        
+            
+            
+       
+</div>
+
+    
+         
+           
+
+            
+    </body>
+
+
+
+
+<script> // Table auto update
+let currentClickedTitleID = null; // Track the currently clicked title+id
+let currentClickedViewCountID = null; // Track the currently clicked viewCount+id
+
+const specifiedMinutes = [4,9,14,19,24,29,34,39,44,49,54,59];
+const specifiedSeconds = [ 59];
+    
+// Function to trigger click event
+function autoClickTitle() {
+    if (currentClickedTitleID !== null) {
+        const titleElement = document.getElementById("title" + currentClickedTitleID);
+        if (titleElement) {
+            titleElement.click(); // Auto-click on the title element
+        }
+    }
+}
+
+function autoClickViewCount() {
+    if (currentClickedViewCountID !== null) {
+        const viewCountElement = document.getElementById("viewCount" + currentClickedViewCountID);
+        if (viewCountElement) {
+            viewCountElement.click(); // Auto-click on the view count element
+        }
+    }
+}
+
+// Function to check the current time and auto-click based on specified time intervals
+function checkTimeAndAutoClick() {
+    const now = new Date();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    // Check if current time matches the specified intervals
+    if (specifiedMinutes.includes(minutes) && specifiedSeconds.includes(seconds)) {
+        autoClickTitle();      // Auto-click the currently selected title ID
+        autoClickViewCount();  // Auto-click the currently selected viewCount ID
+    }
+}
+
+// Function to set a new title ID for auto-clicking
+function setAutoClickTitleID(newID) {
+    currentClickedTitleID = newID; // Update the global variable to the new selected title ID
+}
+
+// Function to set a new viewCount ID for auto-clicking
+function setAutoClickViewCountID(newID) {
+    currentClickedViewCountID = newID; // Update the global variable to the new selected viewCount ID
+}
+
+// Interval to keep checking the time every second
+setInterval(checkTimeAndAutoClick, 1000);
+
+// Event listeners for title+id and viewCount+id click
+for (let id = 0; id <= 33; id++) {
+    const titleElement = document.getElementById("title" + id);
+    const viewCountElement = document.getElementById("viewCount" + id);
+
+    if (titleElement) {
+        titleElement.addEventListener("click", function() {
+            setAutoClickTitleID(id); // Set this ID for auto-clicking title
+        });
+    }
+
+    if (viewCountElement) {
+        viewCountElement.addEventListener("click", function() {
+            setAutoClickViewCountID(id); // Set this ID for auto-clicking viewCount
+        });
+    }
+}
+</script>
+
+
+    <script>
+
+// Function to display the title at the top center of savedDataTableTITLEID
+function setTitleInCenter(title) {
+    const titleTable = document.getElementById("savedDataTableTITLEID");
+    titleTable.innerHTML = `
+        <tr>
+            <td colspan="4" style="text-align: center; font-weight: bold;">${title}</td>
+        </tr>
+        <tr>
+            <th style="white-space: nowrap;">Time</th> <!-- Prevent wrapping -->
+            <th>Total</th>
+            <th>Gained</th>
+            <th>Order</th>
+        </tr>
+    `; // Adding the title in the center of the first table with headers
+}
+
+// Function to display saved data for a specific ID in savedDataTable2 (title + id)
+function displaySavedDataInTable2(id) {
+    const table2 = document.getElementById("savedDataTableTITLEID");
+
+    const transaction = db.transaction(["viewsGain"], "readonly");
+    const store = transaction.objectStore("viewsGain");
+    const request = store.getAll(); // Get all data to sort by time
+
+    request.onsuccess = function(event) {
+        const allData = event.target.result;
+        const filteredData = allData.filter(item => item.originalId === id);
+
+        // Sort data in reverse chronological order
+        filteredData.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+        let order = 1; // To track the order number
+
+        // Clear the previous data from table2
+        table2.innerHTML = ''; 
+
+        // Set title in the center for the current ID
+        const titleElement = document.getElementById("title" + id);
+        const title = titleElement ? titleElement.innerText : "Unknown Title"; // Get the title text
+
+        setTitleInCenter(title); // Set title in center
+
+        // Populate the table with filtered data
+        filteredData.forEach(data => {
+            const row = table2.insertRow(-1);
+            const timeCell = row.insertCell(0);
+            timeCell.innerText = data.time;
+            timeCell.style.whiteSpace = "nowrap"; // Prevent wrapping for time
+
+            row.insertCell(1).innerText = data.totalViews;
+            row.insertCell(2).innerText = data.gainViews;
+            row.insertCell(3).innerText = "(" + order + ")"; // Add order number
+            order++;
+        });
+    };
+}
+
+// Loop to dynamically assign click events to titles with IDs 0 to 33
+for (let id = 0; id <= 33; id++) {
+    let titleElement = document.getElementById("title" + id);
+    if (titleElement) {
+        // Assign click event to each title+id dynamically
+        titleElement.onclick = function() {
+            showDividedViews(id);  // Call showDividedViews with the specific id
+            displaySavedDataInTable2(id);  // Display data in savedDataTable2 for that id
+        };
+    }
+}
+
+
+
+// Function to display the title at the top center of savedDataTable
+function setTitleInCenter2(title) {
+    const titleTable = document.getElementById("savedDataTable");
+    titleTable.innerHTML = `
+        <tr>
+            <td colspan="4" style="text-align: center; font-weight: bold;" id="tableTitle">${title}</td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <th>Gained</th>
+            <th>Order</th>
+        </tr>
+    `; // Title को शीर्ष पर सेट करने के लिए टेबल अपडेट किया गया
+}
+
+// Function to display saved data for a specific ID in reverse chronological order
+function displaySavedData(id) {
+    const table = document.getElementById("savedDataTable");
+    
+    // पहले से मौजूद टेबल के डेटा को साफ़ करें
+    table.innerHTML = `
+        <tr>
+            <td colspan="4" style="text-align: center; font-weight: bold;" id="tableTitle"></td>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <th>Gained</th>
+            <th>Order</th>
+        </tr>
+    `;
+
+    const transaction = db.transaction(["viewsGain"], "readonly");
+    const store = transaction.objectStore("viewsGain");
+    const request = store.getAll(); // सारे डेटा को समय के अनुसार प्राप्त करें
+
+    request.onsuccess = function(event) {
+        const allData = event.target.result;
+        const filteredData = allData.filter(item => item.originalId === id);
+
+        // डेटा को समय के अनुसार उल्टे क्रम में (reverse chronological order) सॉर्ट करें
+        filteredData.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+        let order = 1; // क्रम संख्या को ट्रैक करने के लिए
+
+        // दिए गए ID के लिए टाइटल प्राप्त करें
+        const titleElement = document.getElementById("title" + id);
+        const title = titleElement ? titleElement.innerText : "Unknown Title"; // टाइटल प्राप्त करें
+        
+        // टेबल के शीर्ष पर टाइटल सेट करें
+        setTitleInCenter2(title);
+
+        // टेबल को फ़िल्टर किए गए डेटा के साथ भरें
+        filteredData.forEach(data => {
+            const row = table.insertRow(-1);
+          
+            row.insertCell(0).innerText = data.totalViews;
+            row.insertCell(1).innerText = data.gainViews;
+            row.insertCell(2).innerText = "(" + order + ")"; // क्रम संख्या जोड़ें
+            order++;
+        });
+
+        // टेबल को दिखाएं
+        table.style.display = 'table'; // टेबल को दिखाएं
+    };
+}
+
+// Loop to dynamically assign click events to titles with IDs 0 to 33
+for (let id = 0; id <= 33; id++) {
+    let titleElement = document.getElementById("viewCount" + id);
+    if (titleElement) {
+        // Assign click event to each title+id dynamically
+        titleElement.onclick = function() {
+            displaySavedData(id);  // दिए गए ID के लिए डेटा प्रदर्शित करें
+        };
+    }
+}
+
+
+        
+//_____________________________________________________________________________________________________________________________________________________________________________________________
+let isTableVisible = true; // Track table visibility
+
+
+
+
+
+        
+        // Auto-save function based on specified time
+        function startAutoSave() {
+            setInterval(() => {
+                const now = new Date();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+                const specifiedMinutes = [4,9,14,19,24,29,34,39,44,49,54,59];
+                const specifiedSeconds = [ 58];
+
+                // Check if the current minute and second match the specified times
+                if (specifiedMinutes.includes(minutes) && specifiedSeconds.includes(seconds)) {
+                    const ids =  [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]; // Add all other song IDs here
+
+                    ids.forEach(id => {
+                        const viewsgain = document.getElementById("viewsgain" + id).innerText;
+                        const totalViews = document.getElementById("viewCount" + id).innerText;
+                        const saveTime = new Date().toLocaleString();
+                        saveDataToDB(id, saveTime, totalViews, viewsgain);
+                    });
+                }
+            }, 1000); // Check every second
+        }
+    
+        // Function to show data related to the clicked title
+        function showDividedViews(id) {
+            displaySavedData(id); // Call to display data for the specific ID clicked
+        }
+
+
+
+        // ///////////////////////////////////////////////// IndexedDB Setup Views Data send indexdb and show on the table 
+        const dbName = "ViewsGainData";
+        let db;
+    
+        function openDatabase() {
+            const request = indexedDB.open(dbName, 1);
+    
+            request.onupgradeneeded = function(event) {
+                db = event.target.result;
+                db.createObjectStore("viewsGain", { keyPath: "id" });
+            };
+    
+            request.onsuccess = function(event) {
+                db = event.target.result;
+                startAutoSave(); // Start the auto-save function once the database is opened
+            };
+    
+            request.onerror = function(event) {
+                console.error("Database error: " + event.target.errorCode);
+            };
+        }
+    
+        openDatabase();
+    
+        // Function to send data for a specific ID
+        function sendData(id) {
+            const viewsgain = document.getElementById("viewsgain" + id).innerText;
+            const totalViews = document.getElementById("viewCount" + id).innerText;
+            const saveTime = new Date().toLocaleString();
+            saveDataToDB(id, saveTime, totalViews, viewsgain);
+        }
+    
+        // Function to save data to IndexedDB
+        function saveDataToDB(id, time, totalViews, gainViews) {
+            const transaction = db.transaction(["viewsGain"], "readwrite");
+            const store = transaction.objectStore("viewsGain");
+    
+            const data = { id: id + "_" + time, time: time, totalViews: totalViews, gainViews: gainViews, originalId: id };
+    
+            store.put(data);
+            transaction.oncomplete = function() {
+                console.log("Data saved successfully.");
+                // No display here to prevent showing all data
+            };
+            transaction.onerror = function(event) {
+                console.error("Error saving data: " + event.target.errorCode);
+            };
+        }
+    
+     
+    
+    </script>
+    
+
+
+
+    
+    <script>  // Clicked update time show and save time data in ocal stoarge
+
+function animateButton(button) {
+    // Add the 'clicked' class
+    button.classList.add('clicked');
+    
+    // Remove the 'clicked' class after the animation
+    setTimeout(() => {
+      button.classList.remove('clicked');
+    }, 300); // Animation time in milliseconds
+  }
+
+    
+        const button = document.getElementById("calculateSumButton");
+          // Button click event
+          button.addEventListener('click', () => {
+            const now = new Date();
+            const formattedTime = format12HourTime(now);
+            const formattedDate = formatDate(now);
+            document.getElementById("clickedtime").textContent = `,  ${formattedDate}, ${formattedTime}`;
+            localStorage.setItem("clickedTime", formattedTime); // Save time to local storage
+            localStorage.setItem("clickedDate", formattedDate); // Save date to local storage
+        });
+
+        // Load clicked time and date from local storage
+        const savedTime = localStorage.getItem("clickedTime");
+        const savedDate = localStorage.getItem("clickedDate");
+        if (savedTime && savedDate) {
+            document.getElementById("clickedtime").textContent = ` ${savedDate}, ${savedTime}`;
+        }
+    
+
+        function format12HourTime(date) {
+            let hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12; // Convert to 12-hour format
+            hours = hours ? hours : 12; // The hour '0' should be '12'
+            return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${ampm}`;
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('en-IN'); // Format date to Indian style
+        }
+
+
+      
+
+      
+    </script>
+
+
+    <script>
+        // Video Full Screen api work in 30 second , video no full screen api 1 second work
+     
+    
+        // Function to simulate button clicks
+        function simulateButtonClick(buttonId) {
+            document.getElementById(buttonId).click();
+        }
+    
+        // Event listener for fullscreen change
+        document.addEventListener('fullscreenchange', function() {
+            if (document.fullscreenElement) {
+                // Fullscreen mode
+                simulateButtonClick('Refresh30Second');
+            } else {
+                // Exiting fullscreen mode
+                simulateButtonClick('Refresh1Second');
+            }
+        });
+
+        function selectAPI(selectedId) {
+    // Remove red background from all buttons
+    var buttons = document.getElementsByClassName("apirefresh");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = ""; // Reset background color
+    }
+
+    // Set red background for the selected button
+    document.getElementById(selectedId).style.backgroundColor = "red";
+}
+
+    </script>
+
+    <script>
+    // YOUTUBE  VIDEO AND I FRAME HIDE SHOW _________________________________________________________________________________________________________________________________________________________
+   const nextButton = document.getElementById('Next');
+const iframe1 = document.getElementById('iframeTrad1');
+
+const iframe3 = document.getElementById('iframeTrad3');
+
+
+let clickCount = 0;
+
+// Next button par click event
+nextButton.addEventListener('click', function() {
+    clickCount++;
+    
+    // Pehli click par iframe3 visible aur baaki hidden
+    if (clickCount === 1) {
+        iframe1.style.display = "block";  // iframeTrad1 ko chhupaye
+        iframe1.style.display = "flex";  // iframeTrad1 ko visible kare aur flex layout de
+        iframe3.style.display = "none"; // iframeTrad3 ko visible kare
+    }
+    // Dusri click par iframe2 visible aur baaki hidden
+
+    // Teesri click par iframe1 visible ho with display: flex aur baaki hidden
+    else if (clickCount === 2) {
+        iframe1.style.display = "flex";  // iframeTrad1 ko visible kare aur flex layout de
+        iframe1.style.display = "none";  // iframeTrad1 ko visible kare aur flex layout de
+        iframe3.style.display = "block";  // iframeTrad3 ko chhupaye
+        clickCount = 0; // clickCount reset kare for next cycle
+    }
+
+    // Debugging step to check iframe visibility
+    console.log('iframeTrad1 Display:', iframe1.style.display);
+    console.log('iframeTrad3 Display:', iframe3.style.display);
+});
+
+
+
+    </script>
+
+<script>
+
+//___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+// SAVE SUMDATA AND PREVIOUSVIEWS2 DATA IN LOCAL STORAGE
+window.onload = function() {
+    const songIds = [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]; // Add all other song IDs here
+
+    // Load saved values from localStorage and display in table
+    songIds.forEach(id => {
+        // Get SumViews and DividedViews from localStorage
+        const savedSumViews = localStorage.getItem(`SumViews${id}`);
+        const savedDividedViews = localStorage.getItem(`DividedViews${id}`);
+        const savedPreviousCumulativeViewsTwo = localStorage.getItem(`previousCumulativeViewsTwo${id}`);
+
+        // If saved values exist, update the table cells with them
+        if (savedSumViews !== null) {
+            document.getElementById(`SumViews${id}`).innerText = savedSumViews;
+        }
+
+        if (savedDividedViews !== null) {
+            document.getElementById(`DividedViews${id}`).innerText = savedDividedViews;
+        }
+
+        if (savedPreviousCumulativeViewsTwo !== null) {
+            document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = savedPreviousCumulativeViewsTwo; // Update this line if the id is different
+        }
+    });
+
+    // Attach event listener to the button for saving values
+    const calculateSumButton = document.getElementById('calculateSumButton');
+
+    if (calculateSumButton) {
+        calculateSumButton.addEventListener('click', function() {
+            songIds.forEach(id => {
+                const sumViews = document.getElementById(`SumViews${id}`).innerText;
+                const dividedViews = document.getElementById(`DividedViews${id}`).innerText;
+                const previousCumulativeViewsTwo = document.getElementById(`previousCumulativeViewsTwo${id}`).innerText;
+
+                // Save these values in localStorage
+                localStorage.setItem(`SumViews${id}`, sumViews);
+                localStorage.setItem(`DividedViews${id}`, dividedViews);
+                localStorage.setItem(`previousCumulativeViewsTwo${id}`, previousCumulativeViewsTwo); // Save the value here
+
+                // Show alert after saving
+               
+            });
+        });
+    } else {
+        console.error('Button with ID "calculateSumButton" not found.');
+    }
+    updateAllDividedViews();
+};
+
+
+//___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+//SAVE viewsgain multiply PREDICTVIEWS and previpous views multipy INTO divide VIEWS 
+
+setInterval(updateAllDividedViews, 100); // ACTUAL PROBLEM IS CIEWS CALCULATION IF CLICK ANY TITLE SO WARNING SHOW BECUSE HIGH CALCULATION
+
+// Function to calculate divided views and multiply them with views gain
+function updateAllDividedViews() {
+    // Get the latest value from sumviewsfromvideotitleclick
+    let sumviewsValue = parseInt(document.getElementById('sumviewsfromvideotitleclick').innerText.replace(/,/g, '')) || 0;
+
+    // Array of IDs for all songs
+    const songIds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]; // Add all other song IDs here
+
+    // Loop through each song and calculate DividedViews and Multiply with ViewsGain
+    songIds.forEach(id => {
+        // Get the SumViews for the current song
+        let sumViews = parseInt(document.getElementById(`SumViews${id}`).innerText.replace(/,/g, '')) || 0;
+        
+        // Get the ViewsGain for the current song
+        let viewsGain = parseInt(document.getElementById(`viewsgain${id}`).innerText.replace(/,/g, '').replace('Gain:', '')) || 0;
+
+        // Calculate divided value
+        let dividedValue = (sumViews === 0) ? 0 : sumviewsValue / sumViews; // Check if SumViews is 0
+
+        // Update the Divided Views cell with the calculated value
+        document.getElementById(`DividedViews${id}`).innerText = dividedValue.toFixed(2); // Display with 2 decimal points
+
+        // Multiply dividedValue with viewsGain for DivideViewsMultiplyViewsGain
+        let multiplyResult = dividedValue * viewsGain;
+        document.getElementById(`DivideViewsMultiplyViewsGain${id}`).innerText = multiplyResult.toFixed(0); // Display with 0 decimal points
+
+        // For PreviousPredict, multiply dividedValue with previousCumulativeViews
+        let previousCumulativeViews = parseInt(document.getElementById(`previousCumulativeViews${id}`).innerText.replace(/,/g, '') || 0);
+        let previousPredictResult = dividedValue * previousCumulativeViews; // Multiply for Previous Predict
+        document.getElementById(`PreviousPredict${id}`).innerText = previousPredictResult.toFixed(0); // Display Previous Predict
+    });
+}
+
+// Call this function whenever you need to update the values
+document.querySelectorAll('.clickable-title').forEach(title => {
+    title.addEventListener('click', function() {
+        updateAllDividedViews(); // Call the function to update values when the title is clicked
+    });
+});
+
+
+
+
+
+
+// Function to handle title clicks and update DividedViews and MultiplyViewsGain for the clicked song
+function showDividedViews(id) {
+    // Call the function to update all DividedViews and MultiplyViewsGain
+    updateAllDividedViews();
+}
+
+// Attach event listeners to the title elements
+document.querySelectorAll('.clickable-title').forEach(title => {
+    title.addEventListener('click', function() {
+        showDividedViews(this.id.replace('title', '')); // Extract ID from title ID and call the function
+    });
+});
+
+// Listen for changes to sumviewsfromvideotitleclick and update divided views and multiply views gain dynamically
+const sumviewsElement = document.getElementById('sumviewsfromvideotitleclick');
+const observer = new MutationObserver(updateAllDividedViews);
+
+// Observe changes in the sumviewsfromvideotitleclick element
+observer.observe(sumviewsElement, { childList: true, subtree: true, characterData: true });
+
+
+
+
+
+
+
+
+
+
+
+function showDividedViews(id) {
+    let sumViews = parseInt(document.getElementById(`SumViews${id}`).innerText) || 0;
+    let dividedViews = sumViews / id; // Ya koi aur logic jo aap chahte hain
+    document.getElementById(`DividedViews${id}`).innerText = dividedViews.toLocaleString(); // Format kar ke dikhana
+    document.getElementById('sumviewsfromvideotitleclick').innerText = dividedViews.toLocaleString(); // Display in the div
+}
+
+
+document.getElementById('toggleSumViewsButton').addEventListener('click', function() {
+    // Select all elements with the class "sum-views"
+    const sumViewsElements = document.querySelectorAll('.sum-views');
+    
+    // Toggle visibility
+    let isHidden = sumViewsElements[0].style.display === 'none'; // Check if currently hidden
+
+    // Loop through each element and toggle its display style
+    sumViewsElements.forEach(el => {
+        el.style.display = isHidden ? '' : 'none'; // Show or hide the column cells
+    });
+
+    // Change button text based on the visibility state
+    this.textContent = isHidden ? 'Hide Sum Views' : 'Show Sum Views';
+});
+
+// Function to display sum views in the div on title click
+function handleTitleClick(event) {
+    // Get the clicked title's ID (e.g., 'title18') and extract the number (e.g., '18')
+    const titleId = event.target.id;
+    const idNumber = titleId.replace('title', ''); // Extract the number from the ID
+
+    // Get the corresponding SumViews element (e.g., 'SumViews18')
+    const sumViewsElement = document.getElementById(`SumViews${idNumber}`);
+
+    // Update the div with the sum views value
+    document.getElementById('sumviewsfromvideotitleclick').innerText = sumViewsElement.innerText;
+}
+
+// Attach click event listeners to all video titles
+const clickableTitles = document.querySelectorAll('.clickable-title');
+clickableTitles.forEach(title => {
+    title.addEventListener('click', handleTitleClick);
+});
+
+    </script>
+
+
+   
+
+    <script> 
+// Function to update view counts for a specific song
+function updateViewCounts(id) {
+    // Parse view counts with comma removal
+    let viewCount = parseInt(document.getElementById(`viewCount${id}`).innerText.replace(/,/g, '') || 0);
+    let prevTwo = parseInt(document.getElementById(`previousCumulativeViewsTwo${id}`).innerText.replace(/,/g, '') || 0);
+    let prevOne = parseInt(document.getElementById(`previousCumulativeViews${id}`).innerText.replace(/,/g, '') || 0);
+    let gain = parseInt(document.getElementById(`viewsgain${id}`).innerText.replace('Gain: ', '').replace(/,/g, '') || 0);
+
+    // Calculate total sum for this specific song
+    let totalSum = prevTwo + prevOne + gain;
+
+    // Update the total views in the corresponding cell
+    document.getElementById(`SumViews${id}`).innerText = totalSum.toLocaleString(); // Format the number with commas
+}
+
+// Function to calculate the sum for all songs when the button is clicked
+function calculateSumForAllSongs() {
+    const songIds = [0 ,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]; // Add all other song IDs here
+    
+    songIds.forEach(id => {
+        updateViewCounts(id);
+    });
+}
+
+// Example API call simulation for updating song data
+function fetchYouTubeData() {
+    // Simulated data fetching (replace this with actual API calls)
+    const simulatedData = {
+        // Example data format, add your actual data here
+        0: { viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        1: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        2: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        3: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        4: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        5: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        6: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        7: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        8: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        9: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        10: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        11: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        12: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        13: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        14: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        15: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        16: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        17: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        18: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        19: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        20: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        21: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+
+        23: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        24: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        25: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        26: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        27: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        28: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        29: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        30: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        31: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        32: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        33: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        34: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+        35: {  viewCount: "Loading...", previousCumulativeViewsTwo: "", previousCumulativeViews: "", viewsGain: "" },
+       
+        // Add more data as needed
+    };
+
+
+    // SAVE PREVIOUS2 VIEWS IN LOCAL STORAGE
+    const songIds = Object.keys(simulatedData);
+
+    songIds.forEach(id => {
+        const data = simulatedData[id];
+
+        // Load previously saved values from local storage if they exist
+        const savedPreviousCumulativeViewsTwo = localStorage.getItem(`previousCumulativeViewsTwo${id}`);
+        const savedViewCount = localStorage.getItem(`viewCount${id}`);
+        const savedPreviousCumulativeViews = localStorage.getItem(`previousCumulativeViews${id}`);
+
+        // Update viewCount and previousCumulativeViewsTwo only if local storage values do not exist
+        document.getElementById(`viewCount${id}`).innerText = savedViewCount ? savedViewCount : data.viewCount;
+        document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = savedPreviousCumulativeViewsTwo ? savedPreviousCumulativeViewsTwo : data.previousCumulativeViewsTwo;
+        document.getElementById(`previousCumulativeViews${id}`).innerText = savedPreviousCumulativeViews ? savedPreviousCumulativeViews : data.previousCumulativeViews;
+
+        // You can similarly update other fields if needed
+    });
+
+    for (const [id, data] of Object.entries(simulatedData)) {
+        document.getElementById(`viewCount${id}`).innerText = data.viewCount;
+        document.getElementById(`previousCumulativeViewsTwo${id}`).innerText = data.previousCumulativeViewsTwo;
+        document.getElementById(`previousCumulativeViews${id}`).innerText = data.previousCumulativeViews;
+        document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
+    }
+
+
+
+
+    for (const [id, data] of Object.entries(simulatedData)) {
+        document.getElementById(`viewCount${id}`).innerText = data.viewCount;
+     
+        document.getElementById(`viewsgain${id}`).innerText = `Gain: ${data.viewsGain}`;
+    }
+}
+
+// Set up the button click event listener
+document.getElementById('calculateSumButton').addEventListener('click', calculateSumForAllSongs);
+
+// Simulate fetching data from the API after a delay (for example purposes)
+setTimeout(fetchYouTubeData, 100); // 1 second delay before data updates
+
+
+
+
+
+
+
+
+    $(document).ready(function () {
+
+        // All High Count 12 Pm 
+        var videos = [
+            { id: 'Mx92lTYxrJQ', title: 'The Weeknd' }, // 0 right
+            { id: 'Oa_RSwwpPaA', title: 'Beautiful Things ' },// 1 right
+            { id: '2nK6WBcGPOw', title: 'Me Nikla' },      // 2 right
+            { id: 'MwpMEbgC7DA', title: 'Tom Odell - Another Love' },   // 3 right
+            { id: 'sAzlWScHTc4', title: 'Nacho Nacho' },      // 4 right
+            { id: 'hxMNYkLN7tI', title: 'Stree 2 - Aaj ki raat 2nd' },      // 5 right
+            { id: 'EqDlrimnMCE', title: 'Sareegama telugu - NaaNaa' }, // 31  // 6 right    <td id="SumViews">0</td>
+            { id: 'VAdGW7QDJiU', title: 'Chaleya' },    // 7 right
+            { id: 'VuG7ge_8I2Y', title: 'Maan Meri Jaan' },       // 
+            { id: 'QCZZwZQ4qNs', title: 'Karol Ji - Antes song' },   //  9
+            { id: 'B1gDCOTpDzA', title: 'BABYMONSTER - CLIK CLAK' },    // 10
+            { id: 'YxWlaYCA8MU', title: 'Jhoome' },     // 11
+            { id: '_wfrNbLguWw', title: 'Lock by Sidhu MooseWALA' },    // 12
+            { id: 'roz9sXFkTuE', title: 'Stree 2 - Aaj ki raat ' },  // 13
+            { id: '22IEnKGVuUY', title: 'Daavudi' }, // 14
+            { id: 'uPzOyzsnmio', title: 'Karate kid - Legend Trailer ' }, // 15    
+            { id: '1kVK0MZlbI4', title: ' Puspha 2 - The ruler trailer' }, // 16
+            { id: 'ekr2nIex040', title: 'Rose & Bruno - APT' },// 17
+            { id: '0BjlBnfHcHM', title: 'Mrbeast - Beat Cristiano' }, // 18
+            { id: 'tA1s65o_kYM', title: 'Mickey - 17 official' }, // 19
+            { id: 'UxXY_hR_wzo', title: 'Lisa - New woman' }, // 20
+            { id: '_ZsZ4-HyjCg', title: 'I face mrbeast' },// 24
+            { id: '8bfH0EYn0Pg', title: 'Matta Song' }, // 22 removed this song
+            { id: 'nFgsBxw-zWQ', title: 'Stree 2 - Aai Nai ' },// 23
+            { id: 'Du16-GsdBZg', title: 'Dhruv Rathee - My open chalange' },// 24
+            { id: 'V9PVRfjEBTI', title: 'Billie Eilish - Birds Of a Feather' },// 25  
+            { id: 'huxhqphtDrM', title: 'Beshram' }, // 26
+            { id: 'H58vbez_m4E', title: 'Kendrick Lamars - CURRENT' }, // 27
+            { id: 'CWdsqvg0wCw', title: 'Dhruv Rathee - mistry of yeti' }, // 28
+            { id: 'X7WXHhokylc', title: 'Tere Vaaste' },// 29
+            { id: 'JjvX09nG2F0', title: 'Seventeen - Eyes on you' },// 30
+            { id: 'RpE-hVumiDI', title: 'Dekkha Tenu' }, // 31
+            { id: '4QIZE708gJ4', title: 'Malones I Had' }, // 32
+            { id: 'uPl_jL9mCKc', title: 'Koka' }, // 33
+            { id: 'No Id', title: 'Select Song' }, // 34
+        
+          
+        ];
+
+
+
+let apiInterval;
+
+
+document.getElementById('ButtonRandomApi').addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * 0) + 1; // Generate random number between 1 and 20
+                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+                    updateViews(activeApi); // Update views with the newly selected API key
+                    document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+                
+        // Initially select a random API key between API1 to API20
+        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+        deactivateApis(); // Deactivate all APIs initially
+        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+
+        // Event listener to handle API selection
+        document.querySelectorAll('.api').forEach(span => {
+            span.addEventListener('click', () => {
+                deactivateApis(); // Deactivate all APIs
+                span.style.color = 'red'; // Set color to red for the selected API
+                activeApi = span.getAttribute('value');
+                console.log(`Active API set to: ${activeApi}`);
+                updateViews(activeApi); // Update views with the newly selected API key
+                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+            });
+        });
+
+        });
+
+
+
+function updateViews(apiKey) {
+    videos.forEach(video => {
+        if (video.id) {
+            fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${video.id}&key=${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const viewCount = data.items[0].statistics.viewCount;
+                    console.log(`Title: ${video.title}, Views: ${viewCount}`);
+                })
+                .catch(error => {
+                    console.error('Error fetching video data:', error);
+                    // If there's an error, select a random API key between API1 to API20
+                    const randomIndex = Math.floor(Math.random() * 0) + 1; // Generate random number between 1 and 20
+                    activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+                    updateViews(activeApi); // Update views with the newly selected API key
+                });
+        }
+    });
+}
+
+function deactivateApis() {
+            document.querySelectorAll('.api').forEach(api => api.style.color = ''); // Reset color for all APIs
+        }
+
+        // Generate random number between 1 and 20
+        const randomIndex = Math.floor(Math.random() * 0) + 1;
+        // Initially select a random API key between API1 to API20
+        activeApi = document.querySelector(`#API${randomIndex}`).getAttribute('value');
+        $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+        deactivateApis(); // Deactivate all APIs initially
+        document.querySelector(`#API${randomIndex}`).style.color = 'red'; // Set color to red for the selected API
+
+        // Event listener to handle API selection
+        document.querySelectorAll('.api').forEach(span => {
+            span.addEventListener('click', () => {
+                deactivateApis(); // Deactivate all APIs
+                span.style.color = 'red'; // Set color to red for the selected API
+                activeApi = span.getAttribute('value');
+                console.log(`Active API set to: ${activeApi}`);
+                updateViews(activeApi); // Update views with the newly selected API key
+                $('#activeApiDisplay').text(`Active API: ${activeApi}`); // Update active API display
+            });
+        });
+
+function setApiRefreshInterval(interval, button) {
+    clearInterval(apiInterval);
+    apiInterval = setInterval(() => {
+        updateViews(activeApi);
+    }, interval);
+
+    // Button highlight logic
+    document.querySelectorAll('button').forEach(btn => btn.classList.remove('active-button'));
+    button.classList.add('active-button');
+}
+
+document.getElementById('Refresh1Second').addEventListener('click', (e) => setApiRefreshInterval(1000, e.target));
+document.getElementById('Refresh10Second').addEventListener('click', (e) => setApiRefreshInterval(10000, e.target));
+document.getElementById('Refresh30Second').addEventListener('click', (e) => setApiRefreshInterval(30000, e.target));
+
+document.querySelectorAll('.api').forEach(span => {
+    span.addEventListener('click', () => {
+        document.querySelectorAll('.api').forEach(api => api.classList.remove('active-api'));
+        span.classList.add('active-api');
+        activeApi = span.getAttribute('value');
+        console.log(`Active API set to: ${activeApi}`);
+    });
+});
+
+
+
+
+
+function displayIndianTime() {
+    const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        minute: 'numeric',
+        second: 'numeric'
+    };
+
+    const currentTime = new Date();
+    const indianMinutes = currentTime.getMinutes();
+    const indianSeconds = currentTime.getSeconds();
+
+    // Check if the current time matches specified intervals (4:45, 4:46, 4:47, etc.)
+    const specifiedMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 45, 49, 54, 59];
+    const specifiedSeconds = [ 40 , 50 , 57 , 58 ];
+
+    if (specifiedMinutes.includes(indianMinutes) && specifiedSeconds.includes(indianSeconds)) {
+        // Call the function to refresh API
+        updateViews(activeApi);
+    }
+
+    // Display Indian Standard Time on the webpage
+    document.getElementById('indianTime').textContent = currentTime.toLocaleTimeString('en-IN', options);
+}
+
+// Set interval to update time every second
+setInterval(displayIndianTime, 1000);
+
+// Start the API calls with a default interval
+setApiRefreshInterval(1000, document.getElementById('Refresh1Second'));
+
+
+        function updateViews(apiKey) {
+           
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                frt
+            }
+
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+            // Function to format view count with commas
+            function formatViewCount(viewCount) {
+                return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            function updateViewCounts(apiKeyIndex) {
+                var apiKey = apiKeys[apiKeyIndex];
+            }
+
+
+            var apiUrl = 'https://www.googleapis.com/youtube/v3/videos';
+
+            // Build comma-separated list of video IDs1111111111111111111111111111111111       
+            var videoIdList = videos.map(function (video) {
+                return video.id;
+            }).join(',');
+
+            // Prepare the API request URL
+            var requestUrl = apiUrl + '?part=statistics&id=' + videoIdList + '&key=' + apiKey;
+
+        
+
+            $.ajax({
+                url: requestUrl,
+                type: 'GET',
+                success: function (data) {
+                    var currentTime = Date.now();
+                    var timeElapsed = (currentTime - resetTimestamp) / 1000; // in seconds
+                    for (var i = 0; i < data.items.length; i++) {
+                        var viewCount = parseInt(data.items[i].statistics.viewCount);
+                        var previousViewCount = previousViewCounts[i] || viewCount;
+                        var viewsGain = viewCount - previousViewCount;
+                        previousViewCounts[i] = viewCount;
+
+                        // Reset cumulative gain views after 3 minutes
+                        if (timeElapsed >= intervalResetTime) {
+                            resetTimestamp = currentTime;
+                            cumulativeGainViews[i] = 0;
+                            // Update previous cumulative views after the reset interval
+                            previousCumulativeViews[i] = previousCumulativeViews[i] || 0;
+                            previousCumulativeViews[i] += cumulativeGainViews[i];
+
+                            
+
+                        }
+
+                        if (timeElapsed < intervalResetTime) {
+                            cumulativeGainViews[i] = (cumulativeGainViews[i] || 0) + viewsGain;
+                        }
+
+                        $('#viewCount' + i).text('' + formatViewCount(viewCount));
+                        $('#viewsgain' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+                       
+                    
+
+                        function shouldSavePreviousCumulativeViews() {
+                            var currentTime = new Date();
+                            var currentMinutes = currentTime.getMinutes();
+                            var currentSeconds = currentTime.getSeconds();
+
+                            // Check if the current time is at 4:58 or 9:58
+                            return
+                                (currentMinutes === 4 && currentSeconds === 58) ||
+                                (currentMinutes === 9 && currentSeconds === 58) ||
+                                (currentMinutes === 14 && currentSeconds === 58) ||
+                                (currentMinutes === 19 && currentSeconds === 58) ||
+                                (currentMinutes === 24 && currentSeconds === 58) ||
+                                (currentMinutes === 29 && currentSeconds === 58) ||
+                                (currentMinutes === 34 && currentSeconds === 58) ||
+                                (currentMinutes === 39 && currentSeconds === 58) ||
+                                (currentMinutes === 44 && currentSeconds === 58) ||
+                                (currentMinutes === 49 && currentSeconds === 58) ||
+                                (currentMinutes === 54 && currentSeconds === 58) ||
+                                (currentMinutes === 59 && currentSeconds === 58);
+
+                        }
+
+                        // Function to save the value of previousCumulativeViews
+                        function savePreviousCumulativeViews() {
+                            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                                if (cumulativeGainViews[i] > 0) {
+                                    // Save the value at 4:58 or 9:58
+                                    $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i]));
+
+                                }
+                            }
+                        }
+                    
+                        
+                        // Check if it's time to save the previousCumulativeViews
+                        if (shouldSavePreviousCumulativeViews()) {
+                            savePreviousCumulativeViews();
+                        }
+
+                        if (isTargetUpdateTime()) {
+                            previousCumulativeViews[i] = cumulativeGainViews[i];
+
+                        }
+                        $('#viewsgain34').text(': ' + formatViewCount(cumulativeGainViews[i]));
+
+                        var title = videos[i].title;
+                        $('#title' + i).text(title);
+                    }
+                },
+
+                error: function (error) {
+    console.log('Error:', error);
+    for (var i = 0; i < videos.length; i++) {
+        $('#viewCount' + i).text('CheckingAPI');
+        $('#viewCount34').text('');
+        $('#title' + i).text(videos[i].title);
+    }
+ 
+}
+
+
+
+            });
+        }
+        $('#viewCount' + i).text(': ' + formatViewCount(viewCount[i]));
+        
+      
+
+        // Function to handle API selection
+        $('.api').click(function() {
+            var clickedAPI = $(this).attr('value');
+            if (clickedAPI !== selectedAPI) {
+                selectedAPI = clickedAPI;
+                updateViews(selectedAPI); // Update views with the newly selected API key
+            }
+        });
+
+        // Initially select the first API key
+        selectedAPI = $('#API1').attr('value');
+        updateViews(selectedAPI); // Update views with the initially selected API keyy
+
+  $('.api').click(function() {
+            $('.api').removeClass('selected'); // Remove 'selected' class from all APIs
+            $(this).addClass('selected'); // Add 'selected' class to the clicked API
+            selectedAPI = $(this).attr('value');
+        });
+
+        // Initially select the first API key
+   
+
+        function updateViewCounts(apiKeyIndex) {
+            var apiKey = [
+               'AIzaSyBEIbYuROQfmUXbQZtmo34GS7YOJkjVWVA', // api 1
+             
+             
+                
+                // Add more API keys here
+            ][apiKeyIndex];
+
+
+
+        }
+
+
+
+
+
+
+
+        
+        // वीडियो के नाम या व्यूज पर क्लिक किया जाता है
+$('#video8, #viewCount8').click(function() {
+    // जानकारी लें
+    var videoId = $(this).attr('id'); // क्लिक किया गया एलिमेंट का आईडी
+
+    // अब, क्लिक किए गए वीडियो की जानकारी को उतारें
+    var clickedVideoId = videoId.substring(5); // "video8" या "viewCount8" से "8" निकालें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को पास करें
+    var oldVideoId = "video" + clickedVideoId;
+    var oldCumulativeViewsId = "previousCumulativeViews" + clickedVideoId;
+    var oldViewsgainId = "viewsgain" + clickedVideoId;
+
+    // अब, आपको इन विशिष्ट ID को नए विडियो की ID, previousCumulativeViews, और viewsgain के साथ बदलना होगा
+    var newVideoId = "video34"; // "video8" को "video34" में बदलें
+    var newCumulativeViewsId = "previousCumulativeViews34"; // "previousCumulativeViews8" को "previousCumulativeViews34" में बदलें
+    var newViewsgainId = "viewsgain34"; // "viewsgain8" को "viewsgain34" में बदलें
+
+    // पुराने वीडियो की ID, previousCumulativeViews, और viewsgain को नए ID के साथ बदलें
+    $('#' + oldVideoId).attr('id', newVideoId);
+    $('#' + oldCumulativeViewsId).attr('id', newCumulativeViewsId);
+    $('#' + oldViewsgainId).attr('id', newViewsgainId);
+
+    // अब, आपको उन्हें वापस बदलना होगा
+    $('#' + newVideoId).attr('id', oldVideoId);
+    $('#' + newCumulativeViewsId).attr('id', oldCumulativeViewsId);
+    $('#' + newViewsgainId).attr('id', oldViewsgainId);
+
+    // अब, आपको वीडियो के नाम और व्यूज को अपडेट कर सकते हैं
+    // उपयुक्त लॉजिक जोड़ें
+});
+
+
+
+       
+        function saveViews(views) {
+// views को एक स्थानीय फ़ाइल में सहेजें
+const filePath = "views.json";
+const data = JSON.stringify(views);
+fs.writeFileSync(filePath, data);
+}
+
+
+
+        setInterval(function () {
+            if (apiAvailable) {
+              
+                
+            } else {
+                for (var i = 0; i < videos.length; i++) {
+                    $('#viewCount' + i).text('API Not Available');
+                    $('#title' + i).text(videos[i].title);
+                  
+                }
+            }
+        }, 1000); // 1 seconds
+    });
+
+   
+
+</script>
+    
+  <script>
+
+    // Live Value Update on calculation data without 0 millisecond auto click _____________________________________________________________________________________________________________________________________________________________________
+
+    var lastClickedVideoId = null; // Track the last clicked video ID
+    var autoUpdateInterval = null; // Track the auto-update interval
+
+    // Function to handle clicks on video IDs
+    function handleVideoClick(videoId) {
+        return function(event) {
+            event.preventDefault(); // Prevent default behavior of anchor tag
+
+            // Update the UI with video details
+            updateVideoDetails(videoId);
+
+            // Clear any previous intervals
+            if (autoUpdateInterval !== null) {
+                clearInterval(autoUpdateInterval);
+            }
+
+            // Set a new interval to automatically update the view count for the clicked video every 5 seconds (5000ms)
+            autoUpdateInterval = setInterval(function() {
+                updateVideoDetails(videoId); // Update the details at each interval
+            }, 0);
+
+            // Set the last clicked video ID
+            lastClickedVideoId = videoId;
+        }
+    }
+
+    // Function to update video details
+    function updateVideoDetails(videoId) {
+        // Update view count and title for video ID 34
+        var views = document.getElementById("viewCount" + videoId).innerText;
+        document.getElementById("viewCount34").innerText = views;
+        var title = document.getElementById("title" + videoId).innerText;
+        document.getElementById("title34").innerText = title;
+
+        // Update previous cumulative views and views gain for video ID 34
+        var prevCumulativeViews = document.getElementById("previousCumulativeViews" + videoId).innerText;
+        var prevCumulativeViewsTwo = document.getElementById("previousCumulativeViewsTwo" + videoId).innerText;
+        var viewsgain = document.getElementById("viewsgain" + videoId).innerText;
+        document.getElementById("previousCumulativeViews34").innerText = prevCumulativeViews;
+        document.getElementById("views000").innerText = prevCumulativeViewsTwo;
+        document.getElementById("views00").innerText = viewsgain;
+    }
+
+    // Assign click event listeners to all video IDs
+    for (var i = 0; i <= 35; i++) {
+        // Skip adding event listener for video ID 22
+        if (i !== 22) {
+            document.getElementById("title" + i).addEventListener("click", handleVideoClick(i));
+        }
+    }
+
+    // Clear interval when user navigates away from the page or closes the tab
+    window.onbeforeunload = function() {
+        if (autoUpdateInterval !== null) {
+            clearInterval(autoUpdateInterval);
+        }
+    }
+</script>
+
+
+
+    
+    <script>
+// 1.add java song with see id
+// 2.add table 
+// 3.edit i frame container 5 id
+//edit raming views - id all change then table id redit
+$(document).ready(function () {
+    // Function to save data
+    function saveData(data, targetId) {
+        // Save data to the target ID
+        $('#' + targetId).text(data);
+    }
+
+    // Function to check if the current time is at specific minutes and 48 seconds
+    function isTargetUpdateTime() {
+        var currentTime = new Date();
+        var currentMinutes = currentTime.getMinutes();
+        var currentSeconds = currentTime.getSeconds();
+        var targetMinutes = [4, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59];
+
+        // Check if the current minutes match any of the target minutes, and the seconds are 48
+        return targetMinutes.includes(currentMinutes) && currentSeconds === 57;
+    }
+
+    // Function to update view counts
+    function updateViewCounts(apiKeyIndex) {
+        // Your existing code for updating view counts goes here
+        
+        // Check if it's time to save the previousCumulativeViews
+        if (isTargetUpdateTime()) {
+            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                var previousCumulativeViewsId = "previousCumulativeViews" + i;
+                var previousCumulativeViewsTwoId = "previousCumulativeViewsTwo" + i;
+                var dataToSave = $('#' + previousCumulativeViewsId).text();
+                saveData(dataToSave, previousCumulativeViewsTwoId);
+            }
+        }
+    }
+
+    // Call the function to update view counts every second
+    setInterval(function() {
+        updateViewCounts(0);
+    }, 1000); // Every second
+});
+// Function to display Indian time and handle views gain reset and saving previous views
+function displayIndianTime() {
+    const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        minute: 'numeric',
+        second: 'numeric'
+    };
+
+    const currentTime = new Date();
+    const indianMinutes = currentTime.getMinutes();
+    const indianSeconds = currentTime.getSeconds();
+
+    // Check if the time is one of the specified reset times
+    const resetTimes = [
+        { minutes: 4, seconds: 59 },
+        { minutes: 5, seconds: 0 },
+        { minutes: 9, seconds: 59 },
+        { minutes: 10, seconds: 0 },
+        { minutes: 14, seconds: 59 },
+        { minutes: 15, seconds: 0 },
+        { minutes: 19, seconds: 59 },
+        { minutes: 20, seconds: 0 },
+        { minutes: 24, seconds: 59 },
+        { minutes: 25, seconds: 0 },
+        { minutes: 29, seconds: 59 },
+        { minutes: 30, seconds: 0 },
+        { minutes: 34, seconds: 59 },
+        { minutes: 35, seconds: 0 },
+        { minutes: 39, seconds: 59 },
+        { minutes: 40, seconds: 0 },
+        { minutes: 44, seconds: 59 },
+        { minutes: 45, seconds: 0 },
+        { minutes: 49, seconds: 59 },
+        { minutes: 50, seconds: 0 },
+        { minutes: 54, seconds: 59 },
+        { minutes: 55, seconds: 0 },
+        { minutes: 59, seconds: 59 },
+        { minutes: 60, seconds: 0 }
+    ];
+
+    const shouldResetViewsGain = resetTimes.some(time => time.minutes === indianMinutes && time.seconds === indianSeconds);
+    if (shouldResetViewsGain) {
+        resetViewsGain(); // Call the function to reset views gain
+    }
+
+    // Check if the time is one of the specified times to save previous views
+    const shouldSavePreviousViews = 
+                                   
+                                    (indianMinutes === 4 && indianSeconds === 58 ) ||
+                                    (indianMinutes === 9 && indianSeconds === 58) ||
+                                    (indianMinutes === 14 && indianSeconds === 58) ||
+                                    (indianMinutes === 19 && indianSeconds === 58) ||
+                                    (indianMinutes === 24 && indianSeconds === 58) ||
+                                    (indianMinutes === 29 && indianSeconds === 58) ||
+                                    (indianMinutes === 34 && indianSeconds === 58) ||
+                                    (indianMinutes === 39 && indianSeconds === 58) ||
+                                    (indianMinutes === 44 && indianSeconds === 58) ||
+                                    (indianMinutes === 49 && indianSeconds === 58) ||
+                                    (indianMinutes === 54 && indianSeconds === 58) ||
+                                    (indianMinutes === 59 && indianSeconds === 58);
+
+    if (shouldSavePreviousViews) {
+        savePreviousViews(); // Call the function to save previous views
+    }
+
+    const indianTime = currentTime.toLocaleString('en-US', options);
+    document.getElementById('indianTime').textContent = indianTime;
+}
+
+// Function to reset views gain
+function resetViewsGain() {
+    for (var i = 0; i < cumulativeGainViews.length; i++) {
+        cumulativeGainViews[i] = 0; // Reset each element to 0
+        $('#viewsgain' + i).text(': ' + formatViewCount(cumulativeGainViews[i])); // Update viewsgain display
+    }
+}
+
+// Function to save previous views
+function savePreviousViews() {
+    for (var i = 0; i < cumulativeGainViews.length; i++) {
+        if (cumulativeGainViews[i] > 0) {
+            $('#previousCumulativeViews' + i).text('' + formatViewCount(cumulativeGainViews[i])); // Save previous views
+        }
+    }
+}
+
+// Update time every second
+setInterval(displayIndianTime, 1000);
+displayIndianTime();
+
+
+        // HTML input elements ko references se connect karein
+        var divisionFactorInput = document.getElementById('divisionFactor');
+        var num2Input = document.getElementById('num2');
+
+        // Function jo value ko update karega
+        function updateValues() {
+            var divisionFactorValue = divisionFactorInput.value;
+            num2Input.value = divisionFactorValue;
+        }
+
+        // divisionFactor ki value change hone par function ko call karein
+        divisionFactorInput.addEventListener('input', updateValues);
+
+
+        document.getElementById("subtractionValue2").addEventListener("input", function () {
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            if (!isNaN(subtractionValue2)) {
+                var newNum1 = num1 - subtractionValue2;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue3").addEventListener("input", function () {
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+            if (!isNaN(subtractionValue3)) {
+                var newNum1 = num1Original - subtractionValue3;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        function clearSubtractionValue(inputElement) {
+            inputElement.value = '';
+            document.getElementById("num1").value = num1Original;
+            updateResult();
+        }
+
+        document.getElementById("subtractionValue1").addEventListener("input", function () {
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            if (isNaN(subtractionValue1)) {
+                clearSubtractionValue(this);
+            } else {
+                // Your existing logic for subtracting subtractionValue1
+            }
+        });
+
+
+        var num1Original = 0;
+
+        document.getElementById("num1").addEventListener("input", function () {
+            num1Original = parseFloat(document.getElementById("num1").value);
+            updateResult();
+        });
+
+        document.getElementById("num2").addEventListener("input", function () {
+            updateResult();
+        });
+
+        document.getElementById("subtractionValue1").addEventListener("input", function () {
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            if (!isNaN(subtractionValue1)) {
+                var newNum1 = num1Original - subtractionValue1;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue2").addEventListener("input", function () {
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            if (!isNaN(subtractionValue2)) {
+                var newNum1 = num1Original - subtractionValue2;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        document.getElementById("subtractionValue3").addEventListener("input", function () {
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+            if (!isNaN(subtractionValue3)) {
+                var newNum1 = num1Original - subtractionValue3;
+                document.getElementById("num1").value = newNum1.toString();
+                updateResult();
+            }
+        });
+
+        function updateResult() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            var resultParagraph = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultParagraph.innerHTML =  "";
+            } else {
+                if (num2 === 0) {
+                    resultParagraph.innerHTML =  "";
+                } else {
+                    var divisionResult = num1 / num2;
+                    resultParagraph.innerHTML =  "" + divisionResult.toFixed(0); // decimal value is 0
+                }
+            }
+        }
+
+        function subtractAllValues() {
+            var num1Input = document.getElementById("num1");
+            var num1 = parseFloat(num1Input.value);
+
+            var subtractionValue1 = parseFloat(document.getElementById("subtractionValue1").value);
+            var subtractionValue2 = parseFloat(document.getElementById("subtractionValue2").value);
+            var subtractionValue3 = parseFloat(document.getElementById("subtractionValue3").value);
+
+            if (!isNaN(num1)) {
+                num1Original = num1; // Update the original value for subsequent calculations
+                if (!isNaN(subtractionValue1)) num1 -= subtractionValue1;
+                if (!isNaN(subtractionValue2)) num1 -= subtractionValue2;
+                if (!isNaN(subtractionValue3)) num1 -= subtractionValue3;
+
+                num1Input.value = num1.toString();
+                updateResult();
+            }
+        }
+
+        updateResult();
+
+        var previousCumulativeViews = []; // Array to store previous cumulative gain views
+        var previousViewCounts = [];
+        var cumulativeGainViews = [];
+        var intervalResetTime = 9999997.5; // 45550 minutes in seconds
+        var resetTimestamp = Date.now();
+
+        // Function to check if the current time is one second before a reset time
+        function shouldUpdateCumulativeGain() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            // Check if the current time is one second before any of the reset times
+            return resetTimes.some(function (resetTime) {
+                return (
+                    resetTime.minutes === currentMinutes &&
+                    resetTime.seconds === currentSeconds - 1
+                );
+            });
+        }
+
+        function updateViewCountParagraph(videoIndex, viewCount) {
+            var viewCountParagraph = document.getElementById('viewCountParagraph' + videoIndex);
+            if (viewCountParagraph) {
+                viewCountParagraph.textContent = 'Views: ' + viewCount;
+            }
+        }
+
+
+
+        // Update the view count paragraph when the video link is clicked
+        $("#video1").on("load", function () {
+            var viewCount = $("#viewCount0").text();
+            updateViewCountParagraph(0, viewCount);
+        });
+
+
+        function calculateDivision() {
+            var divisionFactor = parseInt(document.getElementById('divisionFactor').value);
+            var remainingViews = parseInt(document.getElementById('remainingViews').textContent.split(' ')[2].replace(/,/g, ''));
+
+            if (!isNaN(divisionFactor)) {
+                var divisionResult = remainingViews / divisionFactor;
+                document.getElementById('divisionResult').textContent = '' + divisionResult.toFixed(0);
+            } else {
+                document.getElementById('divisionResult').textContent = '';
+            }
+        }
+        // Original targetUpdateTime
+        var targetUpdateTime = { minutes: 4, seconds: 58 };
+
+        // Ensure minutes don't exceed 59
+        if (targetUpdateTime.minutes > 59) {
+            targetUpdateTime.minutes = targetUpdateTime.minutes % 60;
+        }
+        // The result will now be 21 minutes and 58 seconds
+        console.log(targetUpdateTime);
+
+        // Function to check if the current time matches the targetUpdateTime
+        function isTargetUpdateTime() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            return currentMinutes === targetUpdateTime.minutes && currentSeconds === targetUpdateTime.seconds;
+        }
+
+        function handleTargetViewsInputKeyPress(event) {
+            // Check if the key pressed is the "Enter" key (keyCode 13)
+            if (event.keyCode === 13) {
+                // Trigger the "Update" button click event
+                document.getElementById("updateTargetViewsTradexButton").click();
+            }
+        }
+
+        // Rest of your existing JavaScript code...
+
+        $(document).ready(function () {
+            // Update the target views when the "Update" button is clicked
+            $("#updateTargetViewsTradexButton").click(function () {
+                var newTargetViews = parseInt($("#targetViewsTradexInput").val());
+                if (!isNaN(newTargetViews)) {
+                    // Update your target views logic here
+                } else {
+                    // alert("Please enter a valid number for the target views.");
+                }
+            });
+
+            // Other parts of your existing code...
+        });
+        $('#updateTargetButton').click(function () {
+            // Get the value from the input field
+            var newTargetViews = parseInt($('#targetViewsInput').val());
+
+            // Check if the input is a valid number
+            if (!isNaN(newTargetViews)) {
+                // Update the target views on the screen
+                targetViewsTradex = newTargetViews;
+                $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+
+                // Update the remaining views based on the new target
+                var currentViewsTradex = parseInt($('#viewCount34').text().replace(/,/g, ''), 10);
+                var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+                $('#num1').val(targetViewsTradex - currentViewsTradex);
+                $('#remainingViews').text('Remaining Views: ' + formatViewCount(remainingViews));
+
+            } else {
+                //  alert('Please enter a valid number for the target views.');
+            }
+        });
+        // Function to format view count with commas
+        function formatViewCount(viewCount) {
+            return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Function to calculate remaining views
+        function calculateRemainingViews(currentViews, targetViews) {
+            return Math.max(targetViews - currentViews, 0);
+        }
+
+        $(document).ready(function () {
+            // Define the target view count for the "Tradex Song" video
+            var targetViewsTradex = // 1000000;
+
+                // Function to format view count with commas
+                function formatViewCount(viewCount) {
+                    return viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+            // Function to calculate remaining views
+            function calculateRemainingViews(currentViews, targetViews) {
+                return Math.max(targetViews - currentViews, 0);
+            }
+
+            // Update the target views when the "Update Target Views" button is clicked
+            $('#updateTargetViewsTradexButton').click(function () {
+                var newTargetViews = parseInt($('#targetViewsTradexInput').val());
+                if (!isNaN(newTargetViews)) {
+                    targetViewsTradex = newTargetViews;
+                    $('#targetViewsTradex').text(formatViewCount(targetViewsTradex));
+                } else {
+                    //  alert('Please enter a valid number for the target views.');
+                }
+            });
+
+            // Function to update view counts and remaining views
+            function updateViewCounts() {
+                // Calculate and display the remaining views
+                var currentViewsTradex = parseInt($('#viewCount34').text().replace(/,/g, ''), 10);
+                var remainingViews = calculateRemainingViews(currentViewsTradex, targetViewsTradex);
+                $('#remainingViews').text('Remaining : ' + formatViewCount(remainingViews));
+
+                // Check if the target views have been reached
+                if (currentViewsTradex >= targetViewsTradex) {
+                    $('#video34').addClass('completed'); // Apply the completed class to the video view count
+                    $('#remainingViews.completed').css('color', 'green'); // Change the color as needed
+                    $('#remainingViews').text('Completed ✅✅✅'); // Change the text to indicate completion
+                    $('#num1').text('');
+                } else {
+                    $('#video34').removeClass('completed'); // Remove the completed class from the video view count
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                    $('#remainingViews').removeClass('completed'); // Remove the completed class from the remaining views
+                    $('#remainingViews').text('Remaining : ' + formatViewCount(remainingViews)); // Restore the original text
+
+                }
+            }
+
+            // Define the reset times with both minutes and seconds
+            var resetTimes = [
+            { minutes: 4, seconds: 59 },
+        { minutes: 5, seconds: 0 },
+        { minutes: 9, seconds: 59 },
+        { minutes: 10, seconds: 0 },
+        { minutes: 14, seconds: 59 },
+        { minutes: 15, seconds: 0 },
+        { minutes: 19, seconds: 59 },
+        { minutes: 20, seconds: 0 },
+        { minutes: 24, seconds: 59 },
+        { minutes: 25, seconds: 0 },
+        { minutes: 29, seconds: 59 },
+        { minutes: 30, seconds: 0 },
+        { minutes: 34, seconds: 59 },
+        { minutes: 35, seconds: 0 },
+        { minutes: 39, seconds: 59 },
+        { minutes: 40, seconds: 0 },
+        { minutes: 44, seconds: 59 },
+        { minutes: 45, seconds: 0 },
+        { minutes: 49, seconds: 59 },
+        { minutes: 50, seconds: 0 },
+        { minutes: 54, seconds: 59 },
+        { minutes: 55, seconds: 0 },
+        { minutes: 59, seconds: 59 },
+        { minutes: 60, seconds: 0 }
+            ];
+
+            // Function to check if the current time is a reset time
+            function shouldResetCumulativeGain() {
+                var currentTime = new Date();
+                var currentMinutes = currentTime.getMinutes();
+                var currentSeconds = currentTime.getSeconds();
+
+                // Check if the current time matches any of the reset times
+                return resetTimes.some(function (resetTime) {
+                    return resetTime.minutes === currentMinutes && resetTime.seconds === currentSeconds;
+                });
+            }
+
+            // Function to reset cumulative gain views
+            function resetCumulativeGain() {
+                cumulativeGainViews = cumulativeGainViews.map(function () {
+                    return 0; // Reset each element to 0
+                });
+            }
+
+            // Function to update view counts and handle reset
+            function updateViewCountsAndReset() {
+                if (shouldResetCumulativeGain()) {
+                    resetCumulativeGain();
+                }
+
+                // Your existing code to update view counts
+                // ...
+            }
+
+            // Initial view count update and reset check
+            setInterval(function () {
+                updateViewCountsAndReset();
+            }, 1000); // Update every second
+
+            updateViewCounts();
+
+            // Refresh view counts and remaining views every 0 seconds
+            setInterval(function () {
+                updateViewCounts();
+            }, 0); // 30 seconds
+        });
+
+        function refreshIframe(iframeId) {
+            var iframe = document.getElementById(iframeId);
+            if (iframe) {
+                var src = iframe.src;
+                iframe.src = src; // Refresh the iframe by resetting the src
+            }
+        }
+
+           var apiAvailable = true; // Variable to track API availability
+
+        // HTML input elements ko references se connect karein
+        var divisionFactorInput = document.getElementById('divisionFactor');
+        var num2Input = document.getElementById('num2');
+
+        // Function to update num2 and recalculate result
+        function updateValuesAndCalculate() {
+            var divisionFactorValue = divisionFactorInput.value;
+            num2Input.value = divisionFactorValue - 1;
+            updateResult(); // Call the function that recalculates the result
+        }
+
+        // divisionFactor ki value change hone par function ko call karein
+        divisionFactorInput.addEventListener('input', updateValuesAndCalculate);
+
+
+        function updateResult() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(num2Input.value); // Use the updated num2 value
+
+            var resultParagraph = document.getElementById("result");
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultParagraph.innerHTML =  "";
+            } else {
+                if (num2 === 0) {
+                    resultParagraph.innerHTML =  "";
+                } else {
+                    var divisionResult = num1 / num2;
+                    resultParagraph.innerHTML =  "" + divisionResult.toFixed(0);
+                }
+            }
+        }
+
+        // शेष दृश्य पर क्लिक करने के लिए इवेंट लिस्टेनर सेट करें
+        $('#remainingViews').click(function () {
+            // "Remaining Views" की मान पकड़ें
+            var remainingViewsValue = parseFloat($('#remainingViews').text().split(' ')[2].replace(/,/g, ''));
+
+            // num1 में "Remaining Views" की मान सेट करें
+            document.getElementById('num1').value = remainingViewsValue;
+        });
+
+
+        // Function to check if the current time is a reset time
+        function shouldResetCumulativeGain() {
+            var currentTime = new Date();
+            var currentMinutes = currentTime.getMinutes();
+            var currentSeconds = currentTime.getSeconds();
+
+            // Check if the current time matches any of the reset times
+            return resetTimes.some(function (resetTime) {
+                return resetTime.minutes === currentMinutes && resetTime.seconds === currentSeconds;
+            });
+        }
+
+        // Function to reset cumulative gain views
+        function resetCumulativeGain() {
+            for (var i = 0; i < cumulativeGainViews.length; i++) {
+                cumulativeGainViews[i] = 0; // Reset each element to 0
+            }
+        }
+
+        // Function to update view counts and handle reset
+        function updateViewCountsAndReset() {
+            if (shouldResetCumulativeGain()) {
+                resetCumulativeGain();
+            }
+        }
+        // Initial view count update and reset check
+        setInterval(function () {
+            updateViewCountsAndReset();
+        }, 1000);
+
+        // Original values of num1 and substractvalue1
+
+
+// Now, num2 will have the same value as num1 + substractvalue1
+
+// बैकग्राउंड शेड्यूलर बनाएं
+const scheduler = new Scheduler();
+
+// हर मिनट में API को कॉल करें
+scheduler.scheduleRepeatingTask(1000 * 60, () => {
+  // API को कॉल करें
+  callApi();
+});
+
+// API को कॉल करने का फ़ंक्शन
+function callApi() {
+  // API को कॉल करें
+  const response = fetch('AIzaSyA7hgYRkqfpDERR6-l23byJhfXAn0NN1bo');
+
+  // response को संभालें
+  response.then((data) => {
+    // views को अपडेट करें
+    updateViews(data.views);
+  });
+}
+
+// डेटा को localStorage में सहेजना
+function saveData() {
+  var views = 100; // आपके व्यूज की मान यहाँ होगी
+  localStorage.setItem('viewsData', JSON.stringify({ views: views }));
+}
+
+// पिछले डेटा को localStorage से पुनः लोड करना
+function loadData() {
+  var storedData = localStorage.getItem('viewsData');
+  if (storedData) {
+    var data = JSON.parse(storedData);
+    var previousViews = data.views;
+    // यहाँ आपके पिछले व्यूज का उपयोग करें
+    console.log('पिछले व्यूज: ' + previousViews);
+  }
+}
+
+// वेबसाइट को रिफ्रेश करने पर डेटा सहेजना और पुनः लोड करना
+window.onload = function() {
+  saveData();
+  loadData();
+};
+
+
+
+    </script>
+
+
 </html>
